@@ -22,6 +22,7 @@ export type {
   NounClass,
   SortOrder,
   PartOfSpeech,
+  WordLevel,
 } from "./types";
 
 export { dictionaryApi } from "./api";

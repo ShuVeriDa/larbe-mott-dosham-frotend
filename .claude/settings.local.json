@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx shadcn:*)"
+      "Bash(npx shadcn:*)",
+      "Bash(npx tailwindcss:*)"
     ],
     "additionalDirectories": [
       "F:\\programming\\mott-larbe\\design_for_main_mott-larbe\\pages"

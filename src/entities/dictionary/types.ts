@@ -1,9 +1,10 @@
-import type { CefrLevel } from "@/entities/user";
 import type { PaginationParams } from "@/shared/types";
 
 // ---------------------------------------------------------------------------
 // Core models
 // ---------------------------------------------------------------------------
+
+export type WordLevel = "COMMON" | "STANDARD" | "RARE" | "ARCHAIC";
 
 export type PartOfSpeech = string;
 export type NounClass = "vu" | "yu" | "du" | "bu";
@@ -52,7 +53,7 @@ export interface DictionaryEntry {
   styleLabel?: string;
   variants?: string[];
   domain?: string;
-  cefrLevel?: CefrLevel;
+  cefrLevel?: WordLevel;
   entryType: EntryType;
   sources: string[];
   createdAt: string;
@@ -102,7 +103,7 @@ export interface PhraseologyEntry {
 
 export interface SearchParams extends PaginationParams {
   q: string;
-  cefr?: CefrLevel[];
+  cefr?: WordLevel[];
   pos?: string;
   nounClass?: NounClass;
   entryType?: EntryType;
@@ -140,7 +141,7 @@ export interface UpdateEntryDto {
   nounClass?: NounClass;
   meanings?: Meaning[];
   phraseology?: Example[];
-  cefrLevel?: CefrLevel;
+  cefrLevel?: WordLevel;
   entryType?: EntryType;
   styleLabel?: string;
   variants?: string[];

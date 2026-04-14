@@ -1,5 +1,5 @@
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/shared/ui/primitives/tooltip";
+import { cn } from "@/shared/lib";
 import { QueryProvider } from "@/shared/ui/query-provider";
 import { ThemeProvider } from "@/shared/ui/theme-provider";
 import type { Metadata } from "next";

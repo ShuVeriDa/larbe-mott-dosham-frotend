@@ -1,13 +1,13 @@
 "use client";
 
 import { ThemeSwitcher } from "@/features/theme-switcher";
-import { Logo } from "@/components/ui/logo";
+import { Logo } from "@/shared/ui/primitives/logo";
 import {
 	Sheet,
 	SheetContent,
 	SheetTrigger,
 	SheetClose,
-} from "@/components/ui/sheet";
+} from "@/shared/ui/primitives/sheet";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 

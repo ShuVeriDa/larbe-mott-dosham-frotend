@@ -1,5 +1,5 @@
 import type { ElementType, ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib";
 
 type TypographyTag =
   | "h1"
@@ -30,16 +30,16 @@ type TypographySize =
   | "6xl";
 
 const sizeClasses: Record<TypographySize, string> = {
-  xs: "text-xs",
-  sm: "text-sm",
-  base: "text-base",
-  lg: "text-lg",
-  xl: "text-xl",
-  "2xl": "text-2xl",
-  "3xl": "text-3xl",
-  "4xl": "text-4xl",
-  "5xl": "text-5xl",
-  "6xl": "text-6xl",
+  xs: "text-xs",     // 12px
+  sm: "text-sm",     // 14px
+  base: "text-base", // 16px
+  lg: "text-lg",     // 18px
+  xl: "text-xl",     // 20px
+  "2xl": "text-2xl", // 24px
+  "3xl": "text-3xl", // 30px
+  "4xl": "text-4xl", // 36px
+  "5xl": "text-5xl", // 48px
+  "6xl": "text-6xl", // 60px
 };
 
 interface TypographyProps {
