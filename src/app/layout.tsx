@@ -1,7 +1,7 @@
-import { Logo } from "@/components/ui/logo";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { QueryProvider } from "@/shared/ui/query-provider";
+import { ThemeProvider } from "@/shared/ui/theme-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
@@ -31,7 +31,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang="ru"
-			data-theme="dark"
+			suppressHydrationWarning
 			className={cn(
 				"h-full",
 				"antialiased",
@@ -42,13 +42,11 @@ export default function RootLayout({
 			)}
 		>
 			<body className="min-h-full flex flex-col">
-				<div>
-					<Logo variant="cyrillic" />
-					<Logo variant="latin" />
-				</div>
-				<QueryProvider>
-					<TooltipProvider>{children}</TooltipProvider>
-				</QueryProvider>
+				<ThemeProvider>
+					<QueryProvider>
+						<TooltipProvider>{children}</TooltipProvider>
+					</QueryProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

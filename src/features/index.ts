@@ -1,4 +1,5 @@
-// Features layer
-// User interactions and business actions
-// Each feature lives in its own folder: features/auth, features/search, etc.
-// Example: export { LoginForm } from './auth';
+export { ThemeSwitcher } from "./theme-switcher";
+export * from "./auth";
+export * from "./favorites";
+export * from "./search-history";
+export * from "./suggestions";

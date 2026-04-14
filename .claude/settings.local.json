@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx shadcn:*)"
+    ],
+    "additionalDirectories": [
+      "F:\\programming\\mott-larbe\\design_for_main_mott-larbe\\pages"
+    ]
+  }
+}
