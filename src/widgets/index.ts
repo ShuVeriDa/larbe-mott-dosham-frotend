@@ -4,3 +4,4 @@
 export { Header } from "./header";
 export { Hero } from "./hero";
 export { SearchBar } from "./search-bar/ui/search-bar";
+export { WordOfDay } from "./word-of-day";

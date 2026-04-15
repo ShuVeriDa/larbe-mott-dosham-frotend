@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "dictionary": "Dictionary",
+    "phraseology": "Phraseology",
+    "statistics": "Statistics",
+    "about": "About",
+    "login": "Sign in"
+  },
+  "hero": {
+    "badge": "Mott Larbe Dosham",
+    "headline": {
+      "prefix": "One dictionary",
+      "connector": "instead of",
+      "accent": "fourteen"
+    },
+    "description": "Unified digital dictionary of the Chechen language — search, morphology, declension, conjugation and API from all major sources"
+  },
+  "search": {
+    "placeholder": "Enter a word in Chechen or Russian…",
+    "button": "Search"
+  },
+  "lang": {
+    "label": "Language",
+    "ce": "Нохчийн",
+    "ru": "Русский",
+    "en": "English"
+  },
+  "wordOfDay": {
+    "label": "Word of the day",
+    "unavailable": "Word unavailable",
+    "openCard": "Open card →",
+    "nextWord": "Another word",
+    "wordLevel": {
+      "COMMON": "Common",
+      "STANDARD": "Standard",
+      "RARE": "Rare",
+      "ARCHAIC": "Archaic"
+    }
+  }
+}

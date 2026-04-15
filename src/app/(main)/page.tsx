@@ -1,12 +1,7 @@
-import { SearchBar } from "@/widgets";
-import { Hero } from "@/widgets/hero/ui/hero";
+// Deprecated: route moved to app/[lang]/(main)/page.tsx
+import { redirect } from "next/navigation";
+import { DEFAULT_LOCALE } from "@/i18n/dictionaries";
 
 export default function Home() {
-	return (
-		<div className="flex flex-col items-center justify-center h-screen">
-			<Hero>
-				<SearchBar />
-			</Hero>
-		</div>
-	);
+	redirect(`/${DEFAULT_LOCALE}`);
 }

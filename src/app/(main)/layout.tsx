@@ -1,14 +1,9 @@
-import { Header } from "@/widgets/header";
-
+// Deprecated: routes moved to app/[lang]/(main)/
+// Proxy redirects all requests to /{lang}/...
 export default function MainLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	return (
-		<>
-			<Header />
-			<main className="flex-1">{children}</main>
-		</>
-	);
+	return <main className="flex-1">{children}</main>;
 }

@@ -6,10 +6,15 @@ import {
 	useSearchFilters,
 	useSearchSubmit,
 } from "@/features/search";
+import type { Dictionary } from "@/i18n/dictionaries";
 import { SearchHints } from "./search-hints";
 import { SearchInput } from "./search-input";
 
-export const SearchBar = () => {
+interface SearchBarProps {
+	search: Dictionary["search"];
+}
+
+export const SearchBar = ({ search }: SearchBarProps) => {
 	const {
 		filters,
 		openFilter,
@@ -25,7 +30,13 @@ export const SearchBar = () => {
 
 	return (
 		<>
-			<SearchInput ref={inputRef} onSubmit={submit} onKeyDown={handleKeyDown} />
+			<SearchInput
+				ref={inputRef}
+				onSubmit={submit}
+				onKeyDown={handleKeyDown}
+				placeholder={search.placeholder}
+				buttonText={search.button}
+			/>
 
 			<FilterBar
 				ref={filtersRef}

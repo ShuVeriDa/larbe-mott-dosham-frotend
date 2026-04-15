@@ -1,6 +1,10 @@
 import { Typography } from "@/shared/ui";
 
-export function HeroBadge() {
+interface HeroBadgeProps {
+	badge: string;
+}
+
+export function HeroBadge({ badge }: HeroBadgeProps) {
 	return (
 		<div
 			className="inline-flex items-center gap-2 mb-6
@@ -12,7 +16,7 @@ export function HeroBadge() {
 				size="base"
 				className="text-xs font-medium text-primary tracking-widest uppercase"
 			>
-				Мотт Ларбе Дошам
+				{badge}
 			</Typography>
 		</div>
 	);
