@@ -69,5 +69,36 @@
     "loading": "Loading...",
     "error": "Error",
     "empty": "No data"
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Everything you need to work with the language",
+    "subtitle": "Search, morphology and analysis tools in one place",
+    "items": {
+      "bilingualSearch": {
+        "name": "Bilingual search",
+        "desc": "Chechen ↔ Russian with\u00a0trigram ranking and\u00a0automatic lemmatisation of word forms."
+      },
+      "declension": {
+        "name": "Declension",
+        "desc": "4\u00a0declension types, 8\u00a0cases, singular and\u00a0plural — detected automatically."
+      },
+      "conjugation": {
+        "name": "Conjugation",
+        "desc": "9\u00a0tense forms, participles, gerunds, imperative mood and\u00a0negation."
+      },
+      "phraseology": {
+        "name": "Phraseology",
+        "desc": "Search across set expressions and\u00a0idioms from\u00a0all 14\u00a0sources."
+      },
+      "wordLevels": {
+        "name": "Word levels",
+        "desc": "Every word is tagged by\u00a0frequency: Common, Standard, Rare, Archaic."
+      },
+      "favorites": {
+        "name": "Favorites and\u00a0history",
+        "desc": "Save words, revisit past queries and\u00a0suggest edits."
+      }
+    }
   }
 }

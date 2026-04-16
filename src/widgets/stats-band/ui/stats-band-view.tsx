@@ -1,7 +1,7 @@
 "use client";
 
-import { FC, Fragment } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { FC, Fragment } from "react";
 import { useStatsBand } from "../model/useStatsBand";
 import { StatCard } from "./stat-card";
 
@@ -17,7 +17,7 @@ export const StatsBandView: FC<IStatsBandViewProps> = ({ statsBand }) => {
 	if (!isSuccess) return <div>{statsBand.empty}</div>;
 
 	return (
-		<div className="w-full py-12 px-6 relative before:content-[''] before:absolute before:inset-0 before:border-y before:border-edge">
+		<section className="w-full py-12 px-6 relative before:content-[''] before:absolute before:inset-0 before:border-y before:border-edge">
 			<div className="max-w-[900px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
 				{items.map((item, i) => (
 					<Fragment key={item.label}>
@@ -28,6 +28,6 @@ export const StatsBandView: FC<IStatsBandViewProps> = ({ statsBand }) => {
 					</Fragment>
 				))}
 			</div>
-		</div>
+		</section>
 	);
 };
