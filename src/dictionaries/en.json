@@ -31,10 +31,43 @@
     "openCard": "Open card →",
     "nextWord": "Another word",
     "wordLevel": {
-      "COMMON": "Common",
-      "STANDARD": "Standard",
-      "RARE": "Rare",
-      "ARCHAIC": "Archaic"
+      "A": "A — basic",
+      "B": "B — everyday",
+      "C": "C — rare"
     }
+  },
+  "wordLevel": {
+    "badge": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "unattested": "?"
+    },
+    "label": {
+      "A": "A — basic vocabulary",
+      "B": "B — everyday",
+      "C": "C — rare",
+      "unattested": "Level not determined"
+    },
+    "description": {
+      "A": "Among the top 2000 most frequent Chechen words — the essential core vocabulary.",
+      "B": "Appears in everyday and literary texts — active vocabulary of an adult native speaker.",
+      "C": "Rare or specialised — present in the corpus, but infrequent.",
+      "unattested": "This word is in the dictionary but wasn't found in our text corpus. Level not yet determined."
+    },
+    "disclaimer": {
+      "title": "Levels are approximate",
+      "body": "Levels are calculated automatically from word frequency in a text corpus (currently Wikipedia). We're expanding the corpus with literature, religious texts and spoken sources to improve accuracy.",
+      "learnMore": "Learn more"
+    }
+  },
+  "statsBand": {
+    "entries": "dictionary entries",
+    "sources": "source dictionaries",
+    "caseForms": "case forms",
+    "tenseForms": "tense forms",
+    "loading": "Loading...",
+    "error": "Error",
+    "empty": "No data"
   }
 }

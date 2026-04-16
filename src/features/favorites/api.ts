@@ -1,24 +1,33 @@
 import { apiClient } from "@/shared/api";
-import type { FavoriteCheckResult, FavoriteEntry, FavoriteToggleResult } from "./types";
+import type {
+  FavoriteCheckResult,
+  FavoriteClearResult,
+  FavoriteRecord,
+  FavoriteToggleResult,
+} from "./types";
 
 export const favoritesApi = {
-  async getAll(): Promise<FavoriteEntry[]> {
-    const { data } = await apiClient.get<FavoriteEntry[]>("/favorites");
+  async getAll(): Promise<FavoriteRecord[]> {
+    const { data } = await apiClient.get<FavoriteRecord[]>("/favorites");
     return data;
   },
 
   async toggle(entryId: number): Promise<FavoriteToggleResult> {
-    const { data } = await apiClient.post<FavoriteToggleResult>(`/favorites/${entryId}`);
+    const { data } = await apiClient.post<FavoriteToggleResult>(
+      `/favorites/${entryId}`,
+    );
     return data;
   },
 
   async check(entryId: number): Promise<FavoriteCheckResult> {
-    const { data } = await apiClient.get<FavoriteCheckResult>(`/favorites/${entryId}/check`);
+    const { data } = await apiClient.get<FavoriteCheckResult>(
+      `/favorites/${entryId}/check`,
+    );
     return data;
   },
 
-  async clearAll(): Promise<{ count: number }> {
-    const { data } = await apiClient.delete<{ count: number }>("/favorites");
+  async clearAll(): Promise<FavoriteClearResult> {
+    const { data } = await apiClient.delete<FavoriteClearResult>("/favorites");
     return data;
   },
 };

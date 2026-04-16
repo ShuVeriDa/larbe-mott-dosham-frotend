@@ -4,9 +4,10 @@ import type {
   CreateSuggestionDto,
   GetMySuggestionsParams,
   GetSuggestionsParams,
+  ReviewSuggestionDto,
   Suggestion,
   SuggestionStats,
-  ReviewSuggestionDto,
+  SuggestionsListResponse,
 } from "./types";
 
 export const suggestionsApi = {
@@ -15,8 +16,13 @@ export const suggestionsApi = {
     return data;
   },
 
-  async getMine(params?: GetMySuggestionsParams): Promise<{ data: Suggestion[]; total: number }> {
-    const { data } = await apiClient.get<{ data: Suggestion[]; total: number }>("/suggestions/my", { params });
+  async getMine(
+    params?: GetMySuggestionsParams,
+  ): Promise<SuggestionsListResponse> {
+    const { data } = await apiClient.get<SuggestionsListResponse>(
+      "/suggestions/my",
+      { params },
+    );
     return data;
   },
 
@@ -26,8 +32,13 @@ export const suggestionsApi = {
     return data;
   },
 
-  async getAll(params?: GetSuggestionsParams): Promise<{ data: Suggestion[]; total: number }> {
-    const { data } = await apiClient.get<{ data: Suggestion[]; total: number }>("/suggestions", { params });
+  async getAll(
+    params?: GetSuggestionsParams,
+  ): Promise<SuggestionsListResponse> {
+    const { data } = await apiClient.get<SuggestionsListResponse>(
+      "/suggestions",
+      { params },
+    );
     return data;
   },
 
@@ -37,14 +48,18 @@ export const suggestionsApi = {
   },
 
   async getAdjacent(id: string, status?: string): Promise<AdjacentSuggestions> {
-    const { data } = await apiClient.get<AdjacentSuggestions>(`/suggestions/${id}/adjacent`, {
-      params: { status },
-    });
+    const { data } = await apiClient.get<AdjacentSuggestions>(
+      `/suggestions/${id}/adjacent`,
+      { params: { status } },
+    );
     return data;
   },
 
   async review(id: string, dto: ReviewSuggestionDto): Promise<Suggestion> {
-    const { data } = await apiClient.post<Suggestion>(`/suggestions/${id}/review`, dto);
+    const { data } = await apiClient.post<Suggestion>(
+      `/suggestions/${id}/review`,
+      dto,
+    );
     return data;
   },
 };

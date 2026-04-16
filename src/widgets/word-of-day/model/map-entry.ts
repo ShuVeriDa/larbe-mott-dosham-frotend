@@ -1,17 +1,21 @@
-import type { DictionaryEntry, NounClass, WordLevel } from "@/entities/dictionary";
+import type {
+	DictionarySearchResult,
+	NounClass,
+	WordLevel,
+} from "@/entities/dictionary";
 
 export interface MappedWordOfDay {
 	word: string;
 	nounClass?: NounClass;
 	partOfSpeechNah?: string;
-	nounClassPlural?: NounClass;
 	wordLevel?: WordLevel;
+	attested?: boolean;
 	definition: string;
 	sentence?: string;
 	translation?: string;
 }
 
-export function mapEntry(entry: DictionaryEntry): MappedWordOfDay {
+export function mapEntry(entry: DictionarySearchResult): MappedWordOfDay {
 	const meaningWithExamples = entry.meanings.find(
 		(m) => m.examples && m.examples.length > 0,
 	);
@@ -22,8 +26,8 @@ export function mapEntry(entry: DictionaryEntry): MappedWordOfDay {
 		word: entry.wordAccented ?? entry.word,
 		nounClass: entry.nounClass,
 		partOfSpeechNah: entry.partOfSpeechNah,
-		nounClassPlural: entry.nounClassPlural,
 		wordLevel: entry.wordLevel,
+		attested: entry.attested,
 		definition: meaningForDefinition?.translation ?? "",
 		sentence: firstExample?.nah,
 		translation: firstExample?.ru,

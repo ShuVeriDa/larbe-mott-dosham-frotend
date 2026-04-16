@@ -1,7 +1,12 @@
 export type {
   Suggestion,
+  SuggestionUser,
+  SuggestionEntry,
   SuggestionStatus,
   SuggestionStats,
+  SuggestionsListResponse,
+  SuggestionsListMeta,
+  AdjacentSuggestion,
   AdjacentSuggestions,
   CreateSuggestionDto,
   ReviewSuggestionDto,

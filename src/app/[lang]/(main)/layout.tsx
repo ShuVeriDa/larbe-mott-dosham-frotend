@@ -16,8 +16,11 @@ export default async function MainLayout({
 
   return (
     <>
-      <Header lang={lang} nav={dict.nav} />
+      <header>
+        <Header lang={lang} nav={dict.nav} />
+      </header>
       <main className="flex-1">{children}</main>
+      <footer />
     </>
   );
 }

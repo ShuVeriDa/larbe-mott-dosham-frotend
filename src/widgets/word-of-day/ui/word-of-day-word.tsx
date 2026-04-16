@@ -1,13 +1,9 @@
-import type { WordLevel } from "@/entities/dictionary";
+import {
+	type WordLevel,
+	type WordLevelBadgeContent,
+} from "@/entities/dictionary";
 import { Typography } from "@/shared/ui";
 import { FC } from "react";
-
-const levelClasses: Record<WordLevel, string> = {
-	COMMON: "bg-level-common-bg text-level-common",
-	STANDARD: "bg-level-standard-bg text-level-standard",
-	RARE: "bg-level-rare-bg text-level-rare",
-	ARCHAIC: "bg-level-archaic-bg text-level-archaic",
-};
 
 interface IWordOfDayWordProps {
 	word: string;
@@ -15,7 +11,9 @@ interface IWordOfDayWordProps {
 	partOfSpeech?: string;
 	nounClassPlural?: string;
 	wordLevel?: WordLevel;
+	attested?: boolean;
 	usageLevelLabel?: string;
+	wordLevelContent: WordLevelBadgeContent;
 }
 
 export const WordOfDayWord: FC<IWordOfDayWordProps> = ({
@@ -24,8 +22,12 @@ export const WordOfDayWord: FC<IWordOfDayWordProps> = ({
 	partOfSpeech,
 	nounClassPlural,
 	wordLevel,
+	attested,
 	usageLevelLabel,
+	wordLevelContent,
 }) => {
+	const showLevel = wordLevel || attested === false;
+
 	return (
 		<div className="flex items-baseline gap-3 flex-wrap mb-2">
 			<Typography
@@ -34,7 +36,7 @@ export const WordOfDayWord: FC<IWordOfDayWordProps> = ({
 			>
 				{word}
 			</Typography>
-			{(nounClass || partOfSpeech || nounClassPlural || wordLevel) && (
+			{(nounClass || partOfSpeech || nounClassPlural || showLevel) && (
 				<div className="flex gap-2 items-center">
 					{nounClass && (
 						<Typography
@@ -49,14 +51,14 @@ export const WordOfDayWord: FC<IWordOfDayWordProps> = ({
 							{partOfSpeech}
 						</Typography>
 					)}
-					{wordLevel && usageLevelLabel && (
-						<Typography
-							tag="span"
-							className={`inline-flex items-center font-semibold py-0.5 px-2 rounded-xs text-xs tracking-[0.02em] ${levelClasses[wordLevel]}`}
-						>
-							{usageLevelLabel}
-						</Typography>
-					)}
+					{/* {showLevel && (
+						<WordLevelBadge
+							wordLevel={wordLevel}
+							attested={attested}
+							content={wordLevelContent}
+							label={usageLevelLabel}
+						/>
+					)} */}
 				</div>
 			)}
 		</div>

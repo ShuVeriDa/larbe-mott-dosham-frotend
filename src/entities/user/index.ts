@@ -8,7 +8,7 @@ export type {
   Permission,
   Theme,
   Language,
-  CefrLevel,
+  WordLevel,
   PerPage,
   UpdateProfileDto,
   UpdatePasswordDto,

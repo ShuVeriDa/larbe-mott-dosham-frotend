@@ -6,10 +6,9 @@ export const FILTER_GROUPS: readonly FilterGroup[] = [
 		label: "Уровень",
 		options: [
 			{ value: "", label: "Все" },
-			{ value: "COMMON", label: "Общеупотребительное" },
-			{ value: "STANDARD", label: "Стандартное" },
-			{ value: "RARE", label: "Редкое" },
-			{ value: "ARCHAIC", label: "Устаревшее" },
+			{ value: "A", label: "A — базовая лексика" },
+			{ value: "B", label: "B — повседневная" },
+			{ value: "C", label: "C — редкая" },
 		],
 	},
 	{

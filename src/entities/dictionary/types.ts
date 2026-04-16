@@ -1,10 +1,10 @@
-import type { PaginationParams } from "@/shared/types";
+import type { PaginationParams, WordLevel } from "@/shared/types";
+
+export type { WordLevel };
 
 // ---------------------------------------------------------------------------
 // Core models
 // ---------------------------------------------------------------------------
-
-export type WordLevel = "COMMON" | "STANDARD" | "RARE" | "ARCHAIC";
 
 export type PartOfSpeech = string;
 export type NounClass = "vu" | "yu" | "du" | "bu";
@@ -18,6 +18,10 @@ export type SortOrder =
 	| "createdAt_desc"
 	| "meaningsCount_desc";
 
+export type DetectedLanguage = "ru" | "nah" | "unknown";
+
+export type SourceDirection = "nah→ru" | "ru→nah" | "оба";
+
 export interface Example {
 	nah: string;
 	ru: string;
@@ -27,6 +31,8 @@ export interface Meaning {
 	translation: string;
 	note?: string;
 	label?: string;
+	partOfSpeech?: PartOfSpeech;
+	partOfSpeechNah?: string;
 	examples?: Example[];
 }
 
@@ -35,11 +41,12 @@ export interface Citation {
 	source?: string;
 }
 
+/** Full UnifiedEntry — returned by `/dictionary/:id` and `/dictionary/lookup/:word`. */
 export interface DictionaryEntry {
 	id: number;
 	word: string;
 	wordAccented?: string;
-	wordNormalized: string;
+	wordNormalized?: string;
 	partOfSpeech?: PartOfSpeech;
 	partOfSpeechNah?: string;
 	nounClass?: NounClass;
@@ -54,10 +61,34 @@ export interface DictionaryEntry {
 	variants?: string[];
 	domain?: string;
 	wordLevel?: WordLevel;
+	/** Встретилось ли слово в корпусе текстов (Википедия и др.). */
+	attested?: boolean;
 	entryType: EntryType;
 	sources: string[];
 	createdAt: string;
 	updatedAt: string;
+}
+
+/** Reduced shape returned by raw-SQL endpoints (search, random, word-of-day, phraseology). */
+export interface DictionarySearchResult {
+	id: number;
+	word: string;
+	wordAccented?: string;
+	partOfSpeech?: PartOfSpeech;
+	partOfSpeechNah?: string;
+	nounClass?: NounClass;
+	entryType?: EntryType;
+	variants: string[];
+	grammar?: Record<string, unknown>;
+	meanings: Meaning[];
+	phraseology?: Example[];
+	domain?: string;
+	wordLevel?: WordLevel;
+	attested?: boolean;
+	sources: string[];
+	updatedAt?: string;
+	createdAt?: string;
+	score?: number;
 }
 
 export interface DeclensionParadigm {
@@ -86,15 +117,42 @@ export interface ConjugationResult {
 	conjugations: Record<string, Record<string, string>>;
 }
 
-export interface DictionaryStats {
-	totalEntries: number;
-	byPOS: Record<string, number>;
-	sourcesCount: number;
+export interface DictionaryStatsDomain {
+	domain: string;
+	count: number;
+	percentage: number;
 }
 
-export interface PhraseologyEntry {
-	nah: string;
-	ru: string;
+export interface DictionaryStatsWordLevel {
+	level: string;
+	count: number;
+	percentage: number;
+}
+
+export interface DictionaryStatsPos {
+	pos: string;
+	count: number;
+}
+
+export interface DictionaryStats {
+	total: number;
+	totalSources: number;
+	domains: DictionaryStatsDomain[];
+	wordLevels: DictionaryStatsWordLevel[];
+	levelsUnclassified: number;
+	posDistribution: DictionaryStatsPos[];
+}
+
+export interface DictionarySource {
+	slug: string;
+	name: string;
+	direction: SourceDirection;
+	count: number;
+}
+
+export interface PopularQuery {
+	query: string;
+	count: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -103,7 +161,7 @@ export interface PhraseologyEntry {
 
 export interface SearchParams extends PaginationParams {
 	q: string;
-	cefr?: WordLevel[];
+	level?: WordLevel[];
 	pos?: string;
 	nounClass?: NounClass;
 	entryType?: EntryType;
@@ -111,23 +169,35 @@ export interface SearchParams extends PaginationParams {
 	sort?: SortOrder;
 }
 
-export interface SearchResult {
-	entries: DictionaryEntry[];
+export interface SearchMeta {
 	total: number;
+	limit: number;
+	offset: number;
+	q: string;
+	level?: WordLevel[];
+	lang: DetectedLanguage;
+	lemmaHint?: string[];
+}
+
+export interface SearchResult {
+	data: DictionarySearchResult[];
+	meta: SearchMeta;
 }
 
 export interface PhraseologyParams extends PaginationParams {
 	q?: string;
 }
 
-export interface PhraseologyResult {
-	entries: PhraseologyEntry[];
+export interface PhraseologyMeta {
 	total: number;
+	limit: number;
+	offset: number;
+	q: string | null;
 }
 
-export interface PopularQuery {
-	query: string;
-	count: number;
+export interface PhraseologyResult {
+	data: DictionarySearchResult[];
+	meta: PhraseologyMeta;
 }
 
 // ---------------------------------------------------------------------------
@@ -138,14 +208,21 @@ export interface UpdateEntryDto {
 	word?: string;
 	wordAccented?: string;
 	partOfSpeech?: string;
+	partOfSpeechNah?: string;
 	nounClass?: NounClass;
+	nounClassPlural?: NounClass;
+	grammar?: Record<string, unknown>;
 	meanings?: Meaning[];
 	phraseology?: Example[];
-	cefrLevel?: WordLevel;
-	entryType?: EntryType;
+	citations?: Citation[];
+	latinName?: string;
 	styleLabel?: string;
 	variants?: string[];
 	domain?: string;
+	wordLevel?: WordLevel;
+	entryType?: EntryType;
+	sources?: string[];
+	homonymIndex?: number;
 }
 
 export interface BulkUpdateItem {
@@ -157,8 +234,21 @@ export interface BulkUpdateDto {
 	entries: BulkUpdateItem[];
 }
 
+export interface BulkUpdateItemResult {
+	id: number;
+	success: boolean;
+	error?: string;
+}
+
 export interface BulkUpdateResult {
+	total: number;
 	updated: number;
 	failed: number;
-	results: unknown[];
+	results: BulkUpdateItemResult[];
+	durationMs: number;
+}
+
+export interface DeleteEntryResult {
+	deleted: true;
+	id: number;
 }

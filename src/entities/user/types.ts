@@ -12,10 +12,13 @@ export type Permission =
   | "CAN_MANAGE_API_KEYS"
   | "CAN_RUN_PIPELINE";
 
-export type UserStatus = "active" | "blocked";
+import type { WordLevel } from "@/shared/types";
+
+export type { WordLevel };
+
+export type UserStatus = "active" | "inactive" | "blocked";
 export type Theme = "light" | "dark" | "system";
 export type Language = "ru" | "ce" | "en";
-export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 export type PerPage = 10 | 20 | 50;
 
 // ---------------------------------------------------------------------------
@@ -34,11 +37,13 @@ export interface User {
   email: string;
   username: string;
   name: string;
+  avatarUrl?: string;
   phone?: string;
   phoneVerified: boolean;
   status: UserStatus;
   banReason?: string;
   emailVerified: boolean;
+  emailVerifiedAt?: string;
   lastLoggedIn?: string;
   roles: UserRole[];
   // Preferences
@@ -50,7 +55,7 @@ export interface User {
   prefHotkeys: boolean;
   prefShowGrammar: boolean;
   prefPerPage: PerPage;
-  prefDefaultCefr?: CefrLevel;
+  prefDefaultCefr?: WordLevel;
   prefPublicProfile: boolean;
   prefPublicFavorites: boolean;
   createdAt: string;
@@ -98,7 +103,7 @@ export interface UpdatePreferencesDto {
   prefHotkeys?: boolean;
   prefShowGrammar?: boolean;
   prefPerPage?: PerPage;
-  prefDefaultCefr?: CefrLevel;
+  prefDefaultCefr?: WordLevel;
   prefPublicProfile?: boolean;
   prefPublicFavorites?: boolean;
 }

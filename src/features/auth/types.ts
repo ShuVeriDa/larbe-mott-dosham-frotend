@@ -37,14 +37,17 @@ export interface ResetPasswordPhoneDto {
 // ---------------------------------------------------------------------------
 
 export interface AuthResponse {
-  accessToken: string;
   user: User;
+  accessToken: string;
+  refreshToken: string;
 }
 
 export interface ForgotPasswordResponse {
   message: string;
-  /** Only returned in dev mode */
+  /** Only returned in dev mode (email flow) */
   token?: string;
+  /** Only returned in dev mode (phone OTP flow) */
+  code?: string;
 }
 
 export { UserSession };

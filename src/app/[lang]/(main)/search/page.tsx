@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import { getDictionary, hasLocale } from "@/i18n/dictionaries";
 import { notFound } from "next/navigation";
+
+export const generateMetadata = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}): Promise<Metadata> => {
+  const { q } = await searchParams;
+  if (q) return { robots: { index: false, follow: true } };
+  return {};
+};
 
 export default async function SearchPage({
   params,

@@ -15,9 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency,
     priority,
     alternates: {
-      languages: Object.fromEntries(
-        LOCALES.map((lang) => [lang, `${BASE_URL}/${lang}${path}`]),
-      ),
+      languages: {
+        ...Object.fromEntries(
+          LOCALES.map((lang) => [lang, `${BASE_URL}/${lang}${path}`]),
+        ),
+        "x-default": `${BASE_URL}/ru${path}`,
+      },
     },
   }));
 }

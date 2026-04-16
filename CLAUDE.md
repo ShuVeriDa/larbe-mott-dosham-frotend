@@ -29,6 +29,40 @@ src/
 - Do not place business logic in `app/` — keep pages as thin orchestrators.
 - Do not create new files outside these layers without explicit reason.
 
+### Segment internals: group by purpose, not by technical type
+
+Inside `lib/` and `model/` (both in `shared/` and inside slices), **never create folders named after technical types** like `hooks/`, `utils/`, `helpers/`, `types/`, `constants/`. This is an anti-pattern in FSD — it's the layered structure FSD is explicitly moving away from.
+
+Instead, group files by **what they do** (the domain/topic they solve):
+
+```
+shared/lib/
+  debounce/              ← useDebounce + pure debounce + types, all together
+    use-debounce.ts
+    debounce.ts
+    index.ts
+  media-query/
+    use-media-query.ts
+    index.ts
+  split-leading-digits.ts  ← single-file utilities stay flat
+  utils.ts
+```
+
+```
+features/search/model/
+  query/                 ← everything about the search query
+    use-search-query.ts
+    query-store.ts
+    index.ts
+  filters/
+    use-filters.ts
+    filter-schema.ts
+    index.ts
+  use-search.ts          ← top-level orchestration hook stays flat
+```
+
+**Rule of thumb:** one file → keep it flat in `lib/` or `model/`. Two or more files that solve the same task (hook + pure helper + types) → wrap them in a topic folder. A hook is an implementation detail of the task it solves, not its own category.
+
 ---
 
 ## Functions & Components

@@ -1,7 +1,9 @@
 export type {
-  FavoriteEntry,
+  FavoriteRecord,
+  FavoriteEntryPreview,
   FavoriteToggleResult,
   FavoriteCheckResult,
+  FavoriteClearResult,
 } from "./types";
 
 export { favoritesApi } from "./api";

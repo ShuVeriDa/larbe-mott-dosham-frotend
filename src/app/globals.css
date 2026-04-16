@@ -136,15 +136,13 @@
 	--cefr-c2: #ec4899;
 	--cefr-c2-bg: rgba(236, 72, 153, 0.1);
 
-	/* Word Usage Levels */
-	--level-common: #6ee7b7;
-	--level-common-bg: rgba(110, 231, 183, 0.1);
-	--level-standard: #60a5fa;
-	--level-standard-bg: rgba(96, 165, 250, 0.1);
-	--level-rare: #fbbf24;
-	--level-rare-bg: rgba(251, 191, 36, 0.1);
-	--level-archaic: #f87171;
-	--level-archaic-bg: rgba(248, 113, 113, 0.1);
+	/* Word Usage Levels (A/B/C, CEFR-like scale) */
+	--level-a: #6ee7b7;
+	--level-a-bg: rgba(110, 231, 183, 0.1);
+	--level-b: #60a5fa;
+	--level-b-bg: rgba(96, 165, 250, 0.1);
+	--level-c: #fbbf24;
+	--level-c-bg: rgba(251, 191, 36, 0.1);
 
 	/* Chechen Verb Classes */
 	--class-vu: #6ee7b7;
@@ -249,15 +247,13 @@
 	--cefr-c2: #be185d;
 	--cefr-c2-bg: rgba(190, 24, 93, 0.08);
 
-	/* Word Usage Levels */
-	--level-common: #059669;
-	--level-common-bg: rgba(5, 150, 105, 0.08);
-	--level-standard: #2563eb;
-	--level-standard-bg: rgba(37, 99, 235, 0.08);
-	--level-rare: #d97706;
-	--level-rare-bg: rgba(217, 119, 6, 0.08);
-	--level-archaic: #dc2626;
-	--level-archaic-bg: rgba(220, 38, 38, 0.08);
+	/* Word Usage Levels (A/B/C) */
+	--level-a: #059669;
+	--level-a-bg: rgba(5, 150, 105, 0.08);
+	--level-b: #2563eb;
+	--level-b-bg: rgba(37, 99, 235, 0.08);
+	--level-c: #d97706;
+	--level-c-bg: rgba(217, 119, 6, 0.08);
 
 	/* Chechen Verb Classes */
 	--class-vu: #059669;
@@ -382,15 +378,13 @@
 	--color-c2: var(--cefr-c2);
 	--color-c2-bg: var(--cefr-c2-bg);
 
-	/* ── Уровни употребительности ── */
-	--color-level-common: var(--level-common); /* text-level-common    */
-	--color-level-common-bg: var(--level-common-bg); /* bg-level-common-bg   */
-	--color-level-standard: var(--level-standard);
-	--color-level-standard-bg: var(--level-standard-bg);
-	--color-level-rare: var(--level-rare);
-	--color-level-rare-bg: var(--level-rare-bg);
-	--color-level-archaic: var(--level-archaic);
-	--color-level-archaic-bg: var(--level-archaic-bg);
+	/* ── Уровни употребительности (A/B/C) ── */
+	--color-level-a: var(--level-a); /* text-level-a    */
+	--color-level-a-bg: var(--level-a-bg); /* bg-level-a-bg   */
+	--color-level-b: var(--level-b);
+	--color-level-b-bg: var(--level-b-bg);
+	--color-level-c: var(--level-c);
+	--color-level-c-bg: var(--level-c-bg);
 
 	/* ── Классы глаголов ── */
 	--color-vu: var(--class-vu); /* text-vu    */

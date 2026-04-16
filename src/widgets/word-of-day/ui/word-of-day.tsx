@@ -1,5 +1,6 @@
 "use client";
 
+import type { WordLevelBadgeContent } from "@/entities/dictionary";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { useWordOfDayModel } from "../model/use-word-of-day-model";
 import { WordOfDayActions } from "./word-of-day-actions";
@@ -12,9 +13,10 @@ import { WordOfDayWord } from "./word-of-day-word";
 
 interface IWordOfDayProps {
 	wordOfDay: Dictionary["wordOfDay"];
+	wordLevelContent: WordLevelBadgeContent;
 }
 
-export function WordOfDay({ wordOfDay }: IWordOfDayProps) {
+export function WordOfDay({ wordOfDay, wordLevelContent }: IWordOfDayProps) {
 	const {
 		lang,
 		isLoading,
@@ -54,9 +56,10 @@ export function WordOfDay({ wordOfDay }: IWordOfDayProps) {
 						word={mapped.word}
 						nounClass={mapped.nounClass}
 						partOfSpeech={mapped.partOfSpeechNah}
-						nounClassPlural={mapped.nounClassPlural}
 						wordLevel={mapped.wordLevel}
+						attested={mapped.attested}
 						usageLevelLabel={usageLevelLabel}
+						wordLevelContent={wordLevelContent}
 					/>
 					{mapped.definition && (
 						<WordOfDayDefinition definition={mapped.definition} />

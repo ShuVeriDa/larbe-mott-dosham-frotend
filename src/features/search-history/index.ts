@@ -2,6 +2,8 @@ export type {
   SearchHistoryRecord,
   SearchHistoryParams,
   SearchHistoryResponse,
+  SearchHistoryDeleteResult,
+  SearchHistoryClearResult,
 } from "./types";
 
 export { searchHistoryApi } from "./api";

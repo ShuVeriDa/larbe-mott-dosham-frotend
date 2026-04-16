@@ -15,7 +15,7 @@ interface WordOfDayModel {
 	fetchRandom: () => void;
 }
 
-export function useWordOfDayModel(): WordOfDayModel {
+export const useWordOfDayModel = (): WordOfDayModel => {
 	const params = useParams();
 	const lang = (params?.lang as string) ?? "ru";
 
@@ -40,4 +40,4 @@ export function useWordOfDayModel(): WordOfDayModel {
 		isLoadingNext,
 		fetchRandom,
 	};
-}
+};
