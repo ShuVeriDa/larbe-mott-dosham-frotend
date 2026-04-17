@@ -1,5 +1,10 @@
 import { getDictionary, hasLocale } from "@/i18n/dictionaries";
-import { FeaturesSection, SearchBar, WordOfDay } from "@/widgets";
+import {
+	FeaturesSection,
+	MorphologySection,
+	SearchBar,
+	WordOfDay,
+} from "@/widgets";
 import { Hero } from "@/widgets/hero/ui/hero";
 import { StatsBand } from "@/widgets/stats-band";
 import { notFound } from "next/navigation";
@@ -22,6 +27,7 @@ export default async function Home({
 			<WordOfDay wordOfDay={dict.wordOfDay} wordLevelContent={dict.wordLevel} />
 			<StatsBand statsBand={dict.statsBand} />
 			<FeaturesSection features={dict.features} />
+			<MorphologySection morphology={dict.morphology} />
 		</div>
 	);
 }

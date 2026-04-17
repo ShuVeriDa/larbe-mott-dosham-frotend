@@ -1,6 +1,7 @@
 // Shared UI components
 // Export reusable, generic UI primitives here
 export { ThemeProvider } from "./theme-provider";
+export { SectionHeader } from "./section-header";
 export { Typography } from "./typography";
 export * from "./primitives/accordion";
 export * from "./primitives/badge";

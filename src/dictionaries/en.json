@@ -100,5 +100,40 @@
         "desc": "Save words, revisit past queries and\u00a0suggest edits."
       }
     }
+  },
+  "morphology": {
+    "eyebrow": "Morphology",
+    "title": "Declension and\u00a0conjugation online",
+    "subtitle": "Automatic generation of full paradigms for every word",
+    "declension": "Declension",
+    "conjugation": "Conjugation",
+    "typeI": "Type I",
+    "verbAbbr": "vb.",
+    "classes": {
+      "vu": "vu",
+      "yu": "yu",
+      "du": "du",
+      "bu": "bu"
+    },
+    "cases": {
+      "nominative": "Nominative",
+      "genitive": "Genitive",
+      "dative": "Dative",
+      "ergative": "Ergative",
+      "instrumental": "Instrumental",
+      "material": "Material",
+      "locative": "Locative",
+      "comparative": "Comparative"
+    },
+    "tenses": {
+      "present": "Present",
+      "presentCompound": "Present compound",
+      "perfect": "Perfect",
+      "pluperfect": "Pluperfect",
+      "imperfect": "Imperfect",
+      "futurePossible": "Future possible",
+      "futureFactual": "Future factual",
+      "imperative": "Imperative"
+    }
   }
 }
