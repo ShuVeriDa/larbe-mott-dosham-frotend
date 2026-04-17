@@ -261,6 +261,10 @@
 	"footer": {
 		"brand": "дошам",
 		"copy": "Мотт Ларбе Дошам · 2025",
+		"title": "Мотт Ларбе Дошам",
+		"tagline": "Объединённый словарь чеченского языка",
+		"entriesSingular": "запись",
+		"entriesPlural": "записей",
 		"links": {
 			"dictionary": "Словарь",
 			"phraseology": "Фразеология",

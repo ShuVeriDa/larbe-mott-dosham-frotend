@@ -23,7 +23,7 @@ export default async function MainLayout({
 
 			<main className="flex-1">{children}</main>
 			<footer>
-				<Footer footer={dict.footer} locale={lang} />
+				<Footer footer={dict.footer} />
 			</footer>
 		</>
 	);

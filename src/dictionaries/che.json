@@ -261,6 +261,10 @@
 	"footer": {
 		"brand": "дошам",
 		"copy": "Мотт Ларбе Дошам · 2025",
+		"title": "Мотт Ларбе Дошам",
+		"tagline": "Нохчийн меттан цхьанатоьхна дошам",
+		"entriesSingular": "дош",
+		"entriesPlural": "дешнаш",
 		"links": {
 			"dictionary": "Дошам",
 			"phraseology": "Карчаман Iилма",

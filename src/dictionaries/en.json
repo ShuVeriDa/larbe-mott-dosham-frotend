@@ -261,6 +261,10 @@
 	"footer": {
 		"brand": "dosham",
 		"copy": "Mott Larbe Dosham · 2025",
+		"title": "Mott Larbe Dosham",
+		"tagline": "Unified dictionary of the Chechen language",
+		"entriesSingular": "entry",
+		"entriesPlural": "entries",
 		"links": {
 			"dictionary": "Dictionary",
 			"phraseology": "Phraseology",

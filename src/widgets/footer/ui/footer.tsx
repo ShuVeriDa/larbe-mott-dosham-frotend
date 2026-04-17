@@ -1,20 +1,24 @@
-import type { Dictionary, Locale } from "@/i18n/dictionaries";
-import { Logo } from "@/shared/ui/primitives/logo";
+import type { Dictionary } from "@/i18n/dictionaries";
 import { FC } from "react";
-import { FooterCopy } from "./footer-copy";
+import { FooterStatsCount } from "./footer-stats-count";
 
 interface FooterProps {
 	footer: Dictionary["footer"];
-	locale: Locale;
 }
 
-export const Footer: FC<FooterProps> = ({ footer, locale }) => (
-	<section className="border-t border-edge py-3 px-6">
-		<div className="max-w-[1020px] flex flex-col sm:flex-row justify-between items-center flex-wrap gap-4">
-			<div>
-				<Logo variant="cyrillic" size="nav" locale={locale} />
+export const Footer: FC<FooterProps> = ({ footer }) => {
+	return (
+		<section className="border-t border-edge py-3 px-6">
+			<div className="max-w-[1020px] flex flex-col sm:flex-row justify-between items-center flex-wrap gap-4">
+				<p className="text-sm text-muted-foreground">
+					{footer.title} · {footer.tagline} ·{" "}
+					<FooterStatsCount
+						fallback={0}
+						singular={footer.entriesSingular}
+						plural={footer.entriesPlural}
+					/>
+				</p>
 			</div>
-			<FooterCopy copy={footer.copy} />
-		</div>
-	</section>
-);
+		</section>
+	);
+};
