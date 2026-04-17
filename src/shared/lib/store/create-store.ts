@@ -1,4 +1,4 @@
 import { create } from "zustand";
-import { devtools } from "zustand/middleware";
+import { devtools, persist, createJSONStorage } from "zustand/middleware";
 
-export { create, devtools };
+export { create, devtools, persist, createJSONStorage };

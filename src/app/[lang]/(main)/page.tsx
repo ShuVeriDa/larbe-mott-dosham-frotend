@@ -24,7 +24,13 @@ export default async function Home({
 	return (
 		<div className="flex flex-col items-center justify-center">
 			<Hero dict={dict} locale={lang}>
-				<SearchBar search={dict.search} />
+				<SearchBar search={dict.search} lang={lang} />
+				<div
+					className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-faint text-xs"
+					aria-hidden="true"
+				>
+					<div className="scroll-cue-line" />
+				</div>
 			</Hero>
 			<WordOfDay wordOfDay={dict.wordOfDay} wordLevelContent={dict.wordLevel} />
 			<StatsBand statsBand={dict.statsBand} />

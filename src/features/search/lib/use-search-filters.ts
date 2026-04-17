@@ -1,12 +1,33 @@
 "use client";
 
+import type { WordLevel } from "@/entities/dictionary";
 import { useEffect, useRef, useState } from "react";
-import { EMPTY_FILTERS, FILTER_GROUPS } from "./filter-config";
-import type { ActiveFilter, FilterKey, FilterValues } from "../types";
+import type {
+	ActiveFilter,
+	FilterGroup,
+	FilterKey,
+	FilterValues,
+} from "../types";
+import { EMPTY_FILTERS } from "./filter-config";
 
-export function useSearchFilters() {
+interface UseSearchFiltersOptions {
+	initial?: FilterValues;
+	groups: readonly FilterGroup[];
+	filtersDict: {
+		level: string;
+		pos: string;
+		nounClass: string;
+		entryType: string;
+	};
+}
+
+export const useSearchFilters = ({
+	initial,
+	groups,
+	filtersDict,
+}: UseSearchFiltersOptions) => {
 	const [openFilter, setOpenFilter] = useState<FilterKey | null>(null);
-	const [filters, setFilters] = useState<FilterValues>(EMPTY_FILTERS);
+	const [filters, setFilters] = useState<FilterValues>(initial ?? EMPTY_FILTERS);
 	const filtersRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -36,26 +57,57 @@ export function useSearchFilters() {
 	};
 
 	const selectOption = (key: FilterKey, value: string) => {
-		setFilters(prev => ({ ...prev, [key]: value }));
-		setOpenFilter(null);
+		setFilters(prev => {
+			if (key === "level") {
+				const lvl = value as WordLevel;
+				const exists = prev.level.includes(lvl);
+				return {
+					...prev,
+					level: exists
+						? prev.level.filter(v => v !== lvl)
+						: [...prev.level, lvl],
+				};
+			}
+			if (key === "entryType") {
+				return { ...prev, entryType: value as FilterValues["entryType"] };
+			}
+			return { ...prev, [key]: value };
+		});
+		if (key !== "level") setOpenFilter(null);
 	};
 
-	const removeFilter = (key: FilterKey) => {
-		setFilters(prev => ({ ...prev, [key]: "" }));
+	const removeFilter = (key: FilterKey, value?: string) => {
+		setFilters(prev => {
+			if (key === "level" && value) {
+				return { ...prev, level: prev.level.filter(v => v !== value) };
+			}
+			if (key === "level") return { ...prev, level: [] };
+			if (key === "entryType") return { ...prev, entryType: "" };
+			return { ...prev, [key]: "" };
+		});
 	};
 
 	const clearAll = () => setFilters(EMPTY_FILTERS);
 
-	const activeFilters: ActiveFilter[] = FILTER_GROUPS.filter(
-		g => filters[g.key] !== "",
-	).map(g => ({
-		key: g.key,
-		label:
-			g.options.find(o => o.value === filters[g.key])?.label ?? filters[g.key],
-	}));
+	const activeFilters: ActiveFilter[] = groups.flatMap<ActiveFilter>(g => {
+		if (g.key === "level") {
+			return filters.level.map<ActiveFilter>(v => ({
+				key: g.key,
+				value: v,
+				label: `${filtersDict.level}: ${
+					g.options.find(o => o.value === v)?.label ?? v
+				}`,
+			}));
+		}
+		const current = filters[g.key];
+		if (!current || current === "") return [];
+		const label = g.options.find(o => o.value === current)?.label ?? current;
+		return [{ key: g.key, value: current, label }];
+	});
 
 	return {
 		filters,
+		setFilters,
 		openFilter,
 		filtersRef,
 		activeFilters,
@@ -64,4 +116,4 @@ export function useSearchFilters() {
 		removeFilter,
 		clearAll,
 	};
-}
+};

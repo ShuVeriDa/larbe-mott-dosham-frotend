@@ -1,26 +1,33 @@
-import { FC } from "react";
-import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
-import { dictionaryApi, dictionaryKeys } from "@/entities/dictionary";
+"use client";
+
 import type { Dictionary } from "@/i18n/dictionaries";
-import { getQueryClient } from "@/shared/lib/get-query-client";
-import { StatsBandView } from "./stats-band-view";
+import { FC, Fragment } from "react";
+import { useStatsBand } from "../model/useStatsBand";
+import { StatCard } from "./stat-card";
 
 interface IStatsBandProps {
 	statsBand: Dictionary["statsBand"];
 }
 
-export const StatsBand: FC<IStatsBandProps> = async ({ statsBand }) => {
-	const queryClient = getQueryClient();
+export const StatsBand: FC<IStatsBandProps> = ({ statsBand }) => {
+	const { items, isLoading, isError, isSuccess } = useStatsBand(statsBand);
 
-	await queryClient.prefetchQuery({
-		queryKey: dictionaryKeys.stats(),
-		queryFn: dictionaryApi.getStats,
-		staleTime: 10 * 60 * 1000,
-	});
+	if (isLoading) return <div>{statsBand.loading}</div>;
+	if (isError) return <div>{statsBand.error}</div>;
+	if (!isSuccess) return <div>{statsBand.empty}</div>;
 
 	return (
-		<HydrationBoundary state={dehydrate(queryClient)}>
-			<StatsBandView statsBand={statsBand} />
-		</HydrationBoundary>
+		<section className="w-full py-12 px-6 relative before:content-[''] before:absolute before:inset-0 before:border-y before:border-edge">
+			<div className="max-w-[900px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+				{items.map((item, i) => (
+					<Fragment key={item.label}>
+						<StatCard label={item.label} value={item.value} />
+						{i < items.length - 1 && (
+							<div className="hidden md:block w-px bg-edge my-2" />
+						)}
+					</Fragment>
+				))}
+			</div>
+		</section>
 	);
 };

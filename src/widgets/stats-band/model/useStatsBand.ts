@@ -10,10 +10,10 @@ interface StatsBandModel {
 }
 
 export const useStatsBand = (labels: Dictionary["statsBand"]): StatsBandModel => {
-	const { data: stats, isLoading, isError, isSuccess } = useDictionaryStats();
+	const { stats, isLoading, isError, isSuccess } = useDictionaryStats();
 
 	return {
-		items: mapStatsToItems(stats, labels),
+		items: mapStatsToItems(stats ?? undefined, labels),
 		isLoading,
 		isError,
 		isSuccess,

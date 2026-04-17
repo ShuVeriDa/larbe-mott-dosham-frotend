@@ -1,198 +1,289 @@
 {
-  "nav": {
-    "dictionary": "Dictionary",
-    "phraseology": "Phraseology",
-    "statistics": "Statistics",
-    "about": "About",
-    "login": "Sign in"
-  },
-  "hero": {
-    "badge": "Mott Larbe Dosham",
-    "headline": {
-      "prefix": "One dictionary",
-      "connector": "instead of",
-      "accent": "fourteen"
-    },
-    "description": "Unified digital dictionary of the Chechen language — search, morphology, declension, conjugation and API from all major sources"
-  },
-  "search": {
-    "placeholder": "Enter a word in Chechen or Russian…",
-    "button": "Search"
-  },
-  "lang": {
-    "label": "Language",
-    "ce": "Нохчийн",
-    "ru": "Русский",
-    "en": "English"
-  },
-  "wordOfDay": {
-    "label": "Word of the day",
-    "unavailable": "Word unavailable",
-    "openCard": "Open card →",
-    "nextWord": "Another word",
-    "wordLevel": {
-      "A": "A — basic",
-      "B": "B — everyday",
-      "C": "C — rare"
-    }
-  },
-  "wordLevel": {
-    "badge": {
-      "A": "A",
-      "B": "B",
-      "C": "C",
-      "unattested": "?"
-    },
-    "label": {
-      "A": "A — basic vocabulary",
-      "B": "B — everyday",
-      "C": "C — rare",
-      "unattested": "Level not determined"
-    },
-    "description": {
-      "A": "Among the top 2000 most frequent Chechen words — the essential core vocabulary.",
-      "B": "Appears in everyday and literary texts — active vocabulary of an adult native speaker.",
-      "C": "Rare or specialised — present in the corpus, but infrequent.",
-      "unattested": "This word is in the dictionary but wasn't found in our text corpus. Level not yet determined."
-    },
-    "disclaimer": {
-      "title": "Levels are approximate",
-      "body": "Levels are calculated automatically from word frequency in a text corpus (currently Wikipedia). We're expanding the corpus with literature, religious texts and spoken sources to improve accuracy.",
-      "learnMore": "Learn more"
-    }
-  },
-  "statsBand": {
-    "entries": "dictionary entries",
-    "sources": "source dictionaries",
-    "caseForms": "case forms",
-    "tenseForms": "tense forms",
-    "loading": "Loading...",
-    "error": "Error",
-    "empty": "No data"
-  },
-  "features": {
-    "eyebrow": "Features",
-    "title": "Everything you need to work with the language",
-    "subtitle": "Search, morphology and analysis tools in one place",
-    "items": {
-      "bilingualSearch": {
-        "name": "Bilingual search",
-        "desc": "Chechen ↔ Russian with\u00a0trigram ranking and\u00a0automatic lemmatisation of word forms."
-      },
-      "declension": {
-        "name": "Declension",
-        "desc": "4\u00a0declension types, 8\u00a0cases, singular and\u00a0plural — detected automatically."
-      },
-      "conjugation": {
-        "name": "Conjugation",
-        "desc": "9\u00a0tense forms, participles, gerunds, imperative mood and\u00a0negation."
-      },
-      "phraseology": {
-        "name": "Phraseology",
-        "desc": "Search across set expressions and\u00a0idioms from\u00a0all 14\u00a0sources."
-      },
-      "wordLevels": {
-        "name": "Word levels",
-        "desc": "Every word is tagged by\u00a0frequency: Common, Standard, Rare, Archaic."
-      },
-      "favorites": {
-        "name": "Favorites and\u00a0history",
-        "desc": "Save words, revisit past queries and\u00a0suggest edits."
-      }
-    }
-  },
-  "morphology": {
-    "eyebrow": "Morphology",
-    "title": "Declension and\u00a0conjugation online",
-    "subtitle": "Automatic generation of full paradigms for every word",
-    "declension": "Declension",
-    "conjugation": "Conjugation",
-    "typeI": "Type I",
-    "verbAbbr": "vb.",
-    "classes": {
-      "vu": "vu",
-      "yu": "yu",
-      "du": "du",
-      "bu": "bu"
-    },
-    "cases": {
-      "nominative": "Nominative",
-      "genitive": "Genitive",
-      "dative": "Dative",
-      "ergative": "Ergative",
-      "instrumental": "Instrumental",
-      "material": "Material",
-      "locative": "Locative",
-      "comparative": "Comparative"
-    },
-    "tenses": {
-      "present": "Present",
-      "presentCompound": "Present compound",
-      "perfect": "Perfect",
-      "pluperfect": "Pluperfect",
-      "imperfect": "Imperfect",
-      "futurePossible": "Future possible",
-      "futureFactual": "Future factual",
-      "imperative": "Imperative"
-    }
-  },
-  "sources": {
-    "eyebrow": "Sources",
-    "title": "14 dictionaries combined",
-    "subtitle": "General, specialised and\u00a0author dictionaries",
-    "directions": {
-      "nahRu": "nah→ru",
-      "ruNah": "ru→nah",
-      "bidir": "↔"
-    },
-    "domains": {
-      "geo": "geol.",
-      "law": "legal",
-      "math": "math.",
-      "anat": "anat.",
-      "it": "IT"
-    },
-    "items": {
-      "matsiev": "Matsiev",
-      "baysultanov": "Baysultanov",
-      "karasaevMatsiev": "Karasaev-Matsiev",
-      "aslakhanov": "Aslakhanov",
-      "ismailov": "Ismailov",
-      "daukaev": "Daukaev",
-      "abdurashidov": "Abdurashidov",
-      "umarkhadzhiev": "Umarkhadzhiev",
-      "anatomical": "Anatomical",
-      "computer": "Computer",
-      "manual": "Manual collection",
-      "neologisms": "Neologisms"
-    }
-  },
-  "footer": {
-    "brand": "dosham",
-    "copy": "Mott Larbe Dosham · 2025",
-    "links": {
-      "dictionary": "Dictionary",
-      "phraseology": "Phraseology",
-      "statistics": "Statistics",
-      "about": "About"
-    }
-  },
-  "apiSection": {
-    "title": "REST API for developers",
-    "description": "Integrate the dictionary into your apps\u00a0— search, morphology, statistics",
-    "codeLines": {
-      "searchComment": "// Word search",
-      "searchEndpoint": "GET /api/dictionary/search?q=стаг",
-      "declensionComment": "// Declension",
-      "declensionEndpoint": "GET /api/dictionary/declension/стаг",
-      "conjugationComment": "// Conjugation",
-      "conjugationEndpoint": "GET /api/dictionary/conjugation/лаха",
-      "randomComment": "// Random word",
-      "randomEndpoint": "GET /api/dictionary/random?level=COMMON"
-    },
-    "actions": {
-      "openDictionary": "Open dictionary",
-      "learnMore": "Learn more"
-    }
-  }
+	"nav": {
+		"dictionary": "Dictionary",
+		"phraseology": "Phraseology",
+		"statistics": "Statistics",
+		"about": "About",
+		"login": "Sign in"
+	},
+	"hero": {
+		"badge": "Mott Larbe Dosham",
+		"headline": {
+			"prefix": "One dictionary",
+			"connector": "instead of",
+			"accent": "fourteen"
+		},
+		"description": "Unified digital dictionary of the Chechen language — search, morphology, declension, conjugation and API from all major sources"
+	},
+	"search": {
+		"placeholder": "Enter a word in Chechen or Russian…",
+		"button": "Search",
+		"clear": "Clear input",
+		"exact": {
+			"label": "Exact match",
+			"hint": "Only return entries whose headword or orthographic variant matches exactly"
+		},
+		"hero": {
+			"title": "Search the dictionary",
+			"subtitle": "Chechen ↔ Russian"
+		},
+		"hints": {
+			"label": "Try:",
+			"words": ["стаг", "человек", "дешар", "хаза"]
+		},
+		"filters": {
+			"level": "Level",
+			"pos": "Part of speech",
+			"nounClass": "Class",
+			"entryType": "Type",
+			"all": "All",
+			"clearAll": "Clear all",
+			"removeFilter": "Remove filter",
+			"levels": {
+				"A": "A — basic",
+				"B": "B — everyday",
+				"C": "C — rare"
+			},
+			"posValues": {
+				"сущ.": "Noun",
+				"гл.": "Verb",
+				"прил.": "Adjective",
+				"нареч.": "Adverb",
+				"послелог": "Postposition",
+				"частица": "Particle",
+				"мест.": "Pronoun",
+				"числ.": "Numeral",
+				"межд.": "Interjection"
+			},
+			"nounClassValues": {
+				"ву": "vu (masc.)",
+				"йу": "yu (fem.)",
+				"ду": "du (inanim.)",
+				"бу": "bu (pl./abstr.)"
+			},
+			"entryTypes": {
+				"standard": "Standard",
+				"neologism": "Neologism"
+			}
+		},
+		"results": {
+			"foundPrefix": "Found",
+			"foundSuffix": "results for",
+			"sortLabel": "Sort:",
+			"sort": {
+				"relevance": "Relevance",
+				"asc": "A → Z",
+				"desc": "Z → A",
+				"updatedAt_desc": "Recently updated"
+			},
+			"favorite": "Add to favorites"
+		},
+		"empty": {
+			"icon": "🔍",
+			"title": "Nothing found",
+			"text": "No results for \"{q}\". Check spelling or try a different query.",
+			"lemmaHint": "Did you mean:",
+			"newSearch": "New search"
+		},
+		"pagination": {
+			"prev": "Previous",
+			"next": "Next",
+			"pageOf": "Page {page} of {total}"
+		},
+		"error": {
+			"title": "Failed to load",
+			"text": "Could not fetch results. Please try again.",
+			"retry": "Retry"
+		},
+		"pos": {
+			"noun": "noun"
+		}
+	},
+	"popularWords": {
+		"label": "Popular words",
+		"items": [
+			{ "word": "нана", "hint": "mother" },
+			{ "word": "да", "hint": "father" },
+			{ "word": "дог", "hint": "heart" },
+			{ "word": "хьехархо", "hint": "teacher" },
+			{ "word": "лаам", "hint": "wish" },
+			{ "word": "бIаьсте", "hint": "spring" }
+		]
+	},
+	"lang": {
+		"label": "Language",
+		"ce": "Нохчийн",
+		"ru": "Русский",
+		"en": "English"
+	},
+	"wordOfDay": {
+		"label": "Word of the day",
+		"unavailable": "Word unavailable",
+		"openCard": "Open card →",
+		"nextWord": "Another word",
+		"wordLevel": {
+			"A": "A — basic",
+			"B": "B — everyday",
+			"C": "C — rare"
+		}
+	},
+	"wordLevel": {
+		"badge": {
+			"A": "A",
+			"B": "B",
+			"C": "C",
+			"unattested": "?"
+		},
+		"label": {
+			"A": "A — basic vocabulary",
+			"B": "B — everyday",
+			"C": "C — rare",
+			"unattested": "Level not determined"
+		},
+		"description": {
+			"A": "Among the top 2000 most frequent Chechen words — the essential core vocabulary.",
+			"B": "Appears in everyday and literary texts — active vocabulary of an adult native speaker.",
+			"C": "Rare or specialised — present in the corpus, but infrequent.",
+			"unattested": "This word is in the dictionary but wasn't found in our text corpus. Level not yet determined."
+		},
+		"disclaimer": {
+			"title": "Levels are approximate",
+			"body": "Levels are calculated automatically from word frequency in a text corpus (currently Wikipedia). We're expanding the corpus with literature, religious texts and spoken sources to improve accuracy.",
+			"learnMore": "Learn more"
+		}
+	},
+	"statsBand": {
+		"entries": "dictionary entries",
+		"sources": "source dictionaries",
+		"caseForms": "case forms",
+		"tenseForms": "tense forms",
+		"loading": "Loading...",
+		"error": "Error",
+		"empty": "No data"
+	},
+	"features": {
+		"eyebrow": "Features",
+		"title": "Everything you need to work with the language",
+		"subtitle": "Search, morphology and analysis tools in one place",
+		"items": {
+			"bilingualSearch": {
+				"name": "Bilingual search",
+				"desc": "Chechen ↔ Russian with\u00a0trigram ranking and\u00a0automatic lemmatisation of word forms."
+			},
+			"declension": {
+				"name": "Declension",
+				"desc": "4\u00a0declension types, 8\u00a0cases, singular and\u00a0plural — detected automatically."
+			},
+			"conjugation": {
+				"name": "Conjugation",
+				"desc": "9\u00a0tense forms, participles, gerunds, imperative mood and\u00a0negation."
+			},
+			"phraseology": {
+				"name": "Phraseology",
+				"desc": "Search across set expressions and\u00a0idioms from\u00a0all 14\u00a0sources."
+			},
+			"wordLevels": {
+				"name": "Word levels",
+				"desc": "Every word is tagged by\u00a0frequency: Common, Standard, Rare, Archaic."
+			},
+			"favorites": {
+				"name": "Favorites and\u00a0history",
+				"desc": "Save words, revisit past queries and\u00a0suggest edits."
+			}
+		}
+	},
+	"morphology": {
+		"eyebrow": "Morphology",
+		"title": "Declension and\u00a0conjugation online",
+		"subtitle": "Automatic generation of full paradigms for every word",
+		"declension": "Declension",
+		"conjugation": "Conjugation",
+		"typeI": "Type I",
+		"verbAbbr": "vb.",
+		"classes": {
+			"vu": "vu",
+			"yu": "yu",
+			"du": "du",
+			"bu": "bu"
+		},
+		"cases": {
+			"nominative": "Nominative",
+			"genitive": "Genitive",
+			"dative": "Dative",
+			"ergative": "Ergative",
+			"instrumental": "Instrumental",
+			"material": "Material",
+			"locative": "Locative",
+			"comparative": "Comparative"
+		},
+		"tenses": {
+			"present": "Present",
+			"presentCompound": "Present compound",
+			"perfect": "Perfect",
+			"pluperfect": "Pluperfect",
+			"imperfect": "Imperfect",
+			"futurePossible": "Future possible",
+			"futureFactual": "Future factual",
+			"imperative": "Imperative"
+		}
+	},
+	"sources": {
+		"eyebrow": "Sources",
+		"title": "14 dictionaries combined",
+		"subtitle": "General, specialised and\u00a0author dictionaries",
+		"directions": {
+			"nahRu": "nah→ru",
+			"ruNah": "ru→nah",
+			"bidir": "↔"
+		},
+		"domains": {
+			"geo": "geol.",
+			"law": "legal",
+			"math": "math.",
+			"anat": "anat.",
+			"it": "IT"
+		},
+		"items": {
+			"matsiev": "Matsiev",
+			"baysultanov": "Baysultanov",
+			"karasaevMatsiev": "Karasaev-Matsiev",
+			"aslakhanov": "Aslakhanov",
+			"ismailov": "Ismailov",
+			"daukaev": "Daukaev",
+			"abdurashidov": "Abdurashidov",
+			"umarkhadzhiev": "Umarkhadzhiev",
+			"anatomical": "Anatomical",
+			"computer": "Computer",
+			"manual": "Manual collection",
+			"neologisms": "Neologisms"
+		}
+	},
+	"footer": {
+		"brand": "dosham",
+		"copy": "Mott Larbe Dosham · 2025",
+		"links": {
+			"dictionary": "Dictionary",
+			"phraseology": "Phraseology",
+			"statistics": "Statistics",
+			"about": "About"
+		}
+	},
+	"apiSection": {
+		"title": "REST API for developers",
+		"description": "Integrate the dictionary into your apps\u00a0— search, morphology, statistics",
+		"codeLines": {
+			"searchComment": "// Word search",
+			"searchEndpoint": "GET /api/dictionary/search?q=стаг",
+			"declensionComment": "// Declension",
+			"declensionEndpoint": "GET /api/dictionary/declension/стаг",
+			"conjugationComment": "// Conjugation",
+			"conjugationEndpoint": "GET /api/dictionary/conjugation/лаха",
+			"randomComment": "// Random word",
+			"randomEndpoint": "GET /api/dictionary/random?level=COMMON"
+		},
+		"actions": {
+			"openDictionary": "Open dictionary",
+			"learnMore": "Learn more"
+		}
+	}
 }

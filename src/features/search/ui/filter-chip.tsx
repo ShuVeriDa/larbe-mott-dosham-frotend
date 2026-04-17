@@ -22,7 +22,8 @@ const Chevron = () => (
 
 interface FilterChipProps {
 	group: FilterGroup;
-	selectedValue: string;
+	/** Single value (single-select) or list of values (multi-select). */
+	selectedValues: readonly string[];
 	isOpen: boolean;
 	onToggle: () => void;
 	onSelect: (value: string) => void;
@@ -30,19 +31,32 @@ interface FilterChipProps {
 
 export const FilterChip = ({
 	group,
-	selectedValue,
+	selectedValues,
 	isOpen,
 	onToggle,
 	onSelect,
 }: FilterChipProps) => {
-	const hasValue = selectedValue !== "";
-	const selectedLabel = group.options.find(
-		o => o.value === selectedValue,
-	)?.label;
+	const hasValue = selectedValues.some(v => v !== "");
+
+	const buttonLabel = (() => {
+		if (!hasValue) return group.label;
+		if (group.multi) {
+			if (selectedValues.length === 1) {
+				return (
+					group.options.find(o => o.value === selectedValues[0])?.label ??
+					selectedValues[0]
+				);
+			}
+			return `${group.label} · ${selectedValues.length}`;
+		}
+		const current = selectedValues[0];
+		return group.options.find(o => o.value === current)?.label ?? current;
+	})();
 
 	return (
 		<div className="relative">
 			<button
+				type="button"
 				onClick={onToggle}
 				aria-expanded={isOpen}
 				aria-haspopup="listbox"
@@ -57,16 +71,17 @@ export const FilterChip = ({
 						: "border-edge text-muted bg-transparent hover:border-edge-hover hover:text-subtle",
 				)}
 			>
-				{hasValue ? selectedLabel : group.label}
+				{buttonLabel}
 				<Chevron />
 			</button>
 
 			<div
 				role="listbox"
 				aria-label={group.label}
+				aria-multiselectable={group.multi}
 				className={cn(
 					"absolute top-[calc(100%+6px)] left-1/2 -translate-x-1/2",
-					"min-w-[160px] p-2",
+					"min-w-[180px] p-2",
 					"bg-raised border border-edge rounded-lg",
 					"shadow-lg z-50",
 					"transition-all duration-150 ease-[cubic-bezier(.16,1,.3,1)]",
@@ -75,23 +90,30 @@ export const FilterChip = ({
 						: "opacity-0 translate-y-1.5 pointer-events-none",
 				)}
 			>
-				{group.options.map(opt => (
-					<button
-						key={opt.value}
-						role="option"
-						aria-selected={selectedValue === opt.value}
-						onClick={() => onSelect(opt.value)}
-						className={cn(
-							"block w-full text-left px-3 py-2 rounded-md",
-							"text-xs border-none bg-transparent cursor-pointer",
-							"transition-colors duration-150",
-							"hover:bg-surface hover:text-foreground",
-							selectedValue === opt.value ? "text-primary" : "text-subtle",
-						)}
-					>
-						{opt.label}
-					</button>
-				))}
+				{group.options.map(opt => {
+					const isActive = group.multi
+						? selectedValues.includes(opt.value)
+						: selectedValues[0] === opt.value ||
+							(opt.value === "" && !hasValue);
+					return (
+						<button
+							key={opt.value || "__all"}
+							type="button"
+							role="option"
+							aria-selected={isActive}
+							onClick={() => onSelect(opt.value)}
+							className={cn(
+								"block w-full text-left px-3 py-2 rounded-md",
+								"text-xs border-none bg-transparent cursor-pointer",
+								"transition-colors duration-150",
+								"hover:bg-surface hover:text-foreground",
+								isActive ? "text-primary" : "text-subtle",
+							)}
+						>
+							{opt.label}
+						</button>
+					);
+				})}
 			</div>
 		</div>
 	);

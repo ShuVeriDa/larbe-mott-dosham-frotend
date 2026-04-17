@@ -153,6 +153,9 @@ export interface DictionarySource {
 export interface PopularQuery {
 	query: string;
 	count: number;
+	lang: DetectedLanguage;
+	/** First translation looked up by the query (only for `lang=nah`/`unknown`); `null` otherwise. */
+	meaning: string | null;
 }
 
 // ---------------------------------------------------------------------------
@@ -167,6 +170,8 @@ export interface SearchParams extends PaginationParams {
 	entryType?: EntryType;
 	source?: string;
 	sort?: SortOrder;
+	/** Exact-match mode — backend matches the query as a whole word/translation. */
+	exact?: boolean;
 }
 
 export interface SearchMeta {
@@ -176,6 +181,7 @@ export interface SearchMeta {
 	q: string;
 	level?: WordLevel[];
 	lang: DetectedLanguage;
+	exact?: boolean;
 	lemmaHint?: string[];
 }
 

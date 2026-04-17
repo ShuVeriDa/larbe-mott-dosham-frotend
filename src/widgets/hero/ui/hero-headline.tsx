@@ -12,7 +12,7 @@ export function HeroHeadline({ headline, locale }: HeroHeadlineProps) {
 		<div className="relative">
 			<Typography
 				tag="h1"
-				className="text-[clamp(2.6rem,7vw,5rem)] font-extrabold tracking-[-0.05em] leading-none text-foreground mb-5"
+				className="text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-none text-foreground mb-5"
 			>
 				<span className="hero-light font-light text-subtle">
 					{headline.prefix}

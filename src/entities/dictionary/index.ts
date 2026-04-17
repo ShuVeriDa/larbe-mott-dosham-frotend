@@ -40,6 +40,15 @@ export { dictionaryApi } from "./api";
 export { WordLevelBadge } from "./ui/word-level-badge";
 export type { WordLevelBadgeContent } from "./ui/word-level-badge";
 
+export { EntryCard, HighlightMatch } from "./ui/entry-card";
+export type { EntryCardLabels } from "./ui/entry-card";
+
+export { DictionaryDataProvider } from "./ui/dictionary-data-provider";
+
+export { useDictionaryStats, useStatsStore } from "./model/stats";
+export { usePosValues, usePosValuesStore } from "./model/pos-values";
+export { usePopularQueries, usePopularStore } from "./model/popular";
+
 export {
   CHECHEN_CASE_FORMS_COUNT,
   CHECHEN_TENSE_FORMS_COUNT,
@@ -53,11 +62,8 @@ export {
   useDeclension,
   useLemmatize,
   useConjugation,
-  useDictionaryStats,
   useRandomEntry,
   useWordOfDay,
-  usePopularQueries,
-  usePosValues,
   useSources,
   usePhraseology,
   useUpdateEntry,

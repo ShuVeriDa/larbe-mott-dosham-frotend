@@ -19,11 +19,8 @@ export const dictionaryKeys = {
 		[...dictionaryKeys.all, "lemmatize", form] as const,
 	conjugation: (word: string) =>
 		[...dictionaryKeys.all, "conjugation", word] as const,
-	stats: () => [...dictionaryKeys.all, "stats"] as const,
 	random: (level?: string) => [...dictionaryKeys.all, "random", level] as const,
 	wordOfDay: () => [...dictionaryKeys.all, "word-of-day"] as const,
-	popular: () => [...dictionaryKeys.all, "popular"] as const,
-	posValues: () => [...dictionaryKeys.all, "pos-values"] as const,
 	sources: () => [...dictionaryKeys.all, "sources"] as const,
 	phraseology: (params?: PhraseologyParams) =>
 		[...dictionaryKeys.all, "phraseology", params] as const,
@@ -77,14 +74,6 @@ export function useConjugation(word: string) {
 	});
 }
 
-export const useDictionaryStats = () => {
-	return useQuery({
-		queryKey: dictionaryKeys.stats(),
-		queryFn: dictionaryApi.getStats,
-		staleTime: 10 * 60 * 1000,
-	});
-};
-
 export function useRandomEntry(level?: string) {
 	return useQuery({
 		queryKey: dictionaryKeys.random(level),
@@ -98,22 +87,6 @@ export function useWordOfDay() {
 		queryKey: dictionaryKeys.wordOfDay(),
 		queryFn: dictionaryApi.getWordOfDay,
 		staleTime: 60 * 60 * 1000, // 1 hour — backend caches until midnight
-	});
-}
-
-export function usePopularQueries() {
-	return useQuery({
-		queryKey: dictionaryKeys.popular(),
-		queryFn: dictionaryApi.getPopular,
-		staleTime: 5 * 60 * 1000,
-	});
-}
-
-export function usePosValues() {
-	return useQuery({
-		queryKey: dictionaryKeys.posValues(),
-		queryFn: dictionaryApi.getPosValues,
-		staleTime: 30 * 60 * 1000,
 	});
 }
 
