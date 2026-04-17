@@ -1,3 +1,4 @@
+import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { getDictionary, hasLocale } from "@/i18n/dictionaries";
 import { notFound } from "next/navigation";
@@ -20,7 +21,9 @@ export default async function MainLayout({
         <Header lang={lang} nav={dict.nav} />
       </header>
       <main className="flex-1">{children}</main>
-      <footer />
+      <footer>
+        <Footer footer={dict.footer} locale={lang} />
+      </footer>
     </>
   );
 }

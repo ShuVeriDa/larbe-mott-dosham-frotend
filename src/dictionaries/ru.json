@@ -135,5 +135,64 @@
       "futureFactual": "Будущее факт.",
       "imperative": "Повелительное"
     }
+  },
+  "sources": {
+    "eyebrow": "Источники",
+    "title": "14 словарей объединены",
+    "subtitle": "Общелексические, специализированные и\u00a0авторские словари",
+    "directions": {
+      "nahRu": "nah→ru",
+      "ruNah": "ru→nah",
+      "bidir": "↔"
+    },
+    "domains": {
+      "geo": "геол.",
+      "law": "юрид.",
+      "math": "матем.",
+      "anat": "анат.",
+      "it": "IT"
+    },
+    "items": {
+      "matsiev": "Мациев",
+      "baysultanov": "Байсултанов",
+      "karasaevMatsiev": "Карасаев-Мациев",
+      "aslakhanov": "Аслаханов",
+      "ismailov": "Исмаилов",
+      "daukaev": "Даукаев",
+      "abdurashidov": "Абдурашидов",
+      "umarkhadzhiev": "Умархаджиев",
+      "anatomical": "Анатомический",
+      "computer": "Компьютерный",
+      "manual": "Ручной сборник",
+      "neologisms": "Неологизмы"
+    }
+  },
+  "footer": {
+    "brand": "дошам",
+    "copy": "Мотт Ларбе Дошам · 2025",
+    "links": {
+      "dictionary": "Словарь",
+      "phraseology": "Фразеология",
+      "statistics": "Статистика",
+      "about": "О проекте"
+    }
+  },
+  "apiSection": {
+    "title": "REST API для разработчиков",
+    "description": "Интегрируйте словарь в\u00a0свои приложения — поиск, морфология, статистика",
+    "codeLines": {
+      "searchComment": "// Поиск слова",
+      "searchEndpoint": "GET /api/dictionary/search?q=стаг",
+      "declensionComment": "// Склонение",
+      "declensionEndpoint": "GET /api/dictionary/declension/стаг",
+      "conjugationComment": "// Спряжение",
+      "conjugationEndpoint": "GET /api/dictionary/conjugation/лаха",
+      "randomComment": "// Случайное слово",
+      "randomEndpoint": "GET /api/dictionary/random?level=COMMON"
+    },
+    "actions": {
+      "openDictionary": "Открыть словарь",
+      "learnMore": "Подробнее"
+    }
   }
 }

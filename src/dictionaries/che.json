@@ -135,5 +135,64 @@
 			"futureFactual": "Тӏедогӏу хан",
 			"imperative": "Омран кеп"
 		}
+	},
+	"sources": {
+		"eyebrow": "Хьосташ",
+		"title": "14 дошам цхьана тоьхна",
+		"subtitle": "Юкъараллин, говзаллин а,\u00a0авторан а дошамаш",
+		"directions": {
+			"nahRu": "нох→оьрс",
+			"ruNah": "оьрс→нох",
+			"bidir": "↔"
+		},
+		"domains": {
+			"geo": "геол.",
+			"law": "юрид.",
+			"math": "матем.",
+			"anat": "анат.",
+			"it": "IT"
+		},
+		"items": {
+			"matsiev": "Мациев",
+			"baysultanov": "Байсултанов",
+			"karasaevMatsiev": "Карасаев-Мациев",
+			"aslakhanov": "Аслаханов",
+			"ismailov": "Исмаилов",
+			"daukaev": "Даукаев",
+			"abdurashidov": "Абдурашидов",
+			"umarkhadzhiev": "Умархаджиев",
+			"anatomical": "Анатомически",
+			"computer": "Компьютерни",
+			"manual": "Куьган гулдар",
+			"neologisms": "Керла дешнаш"
+		}
+	},
+	"footer": {
+		"brand": "дошам",
+		"copy": "Мотт Ларбе Дошам · 2025",
+		"links": {
+			"dictionary": "Дошам",
+			"phraseology": "Карчаман Iилма",
+			"statistics": "Терахь гулдар",
+			"about": "Йуьхьарлаьцначун хьокъехь"
+		}
+	},
+	"apiSection": {
+		"title": "REST API программисташна",
+		"description": "Дошам шайн программашка дӀатоха\u00a0— лахар, морфологи, статистика",
+		"codeLines": {
+			"searchComment": "// Дош лахар",
+			"searchEndpoint": "GET /api/dictionary/search?q=стаг",
+			"declensionComment": "// Легар",
+			"declensionEndpoint": "GET /api/dictionary/declension/стаг",
+			"conjugationComment": "// Хийцадалар",
+			"conjugationEndpoint": "GET /api/dictionary/conjugation/лаха",
+			"randomComment": "// Цхьаъ дош",
+			"randomEndpoint": "GET /api/dictionary/random?level=COMMON"
+		},
+		"actions": {
+			"openDictionary": "Дошам схьайиллал",
+			"learnMore": "Дукха йаккхий"
+		}
 	}
 }

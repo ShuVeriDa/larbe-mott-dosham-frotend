@@ -135,5 +135,64 @@
       "futureFactual": "Future factual",
       "imperative": "Imperative"
     }
+  },
+  "sources": {
+    "eyebrow": "Sources",
+    "title": "14 dictionaries combined",
+    "subtitle": "General, specialised and\u00a0author dictionaries",
+    "directions": {
+      "nahRu": "nah→ru",
+      "ruNah": "ru→nah",
+      "bidir": "↔"
+    },
+    "domains": {
+      "geo": "geol.",
+      "law": "legal",
+      "math": "math.",
+      "anat": "anat.",
+      "it": "IT"
+    },
+    "items": {
+      "matsiev": "Matsiev",
+      "baysultanov": "Baysultanov",
+      "karasaevMatsiev": "Karasaev-Matsiev",
+      "aslakhanov": "Aslakhanov",
+      "ismailov": "Ismailov",
+      "daukaev": "Daukaev",
+      "abdurashidov": "Abdurashidov",
+      "umarkhadzhiev": "Umarkhadzhiev",
+      "anatomical": "Anatomical",
+      "computer": "Computer",
+      "manual": "Manual collection",
+      "neologisms": "Neologisms"
+    }
+  },
+  "footer": {
+    "brand": "dosham",
+    "copy": "Mott Larbe Dosham · 2025",
+    "links": {
+      "dictionary": "Dictionary",
+      "phraseology": "Phraseology",
+      "statistics": "Statistics",
+      "about": "About"
+    }
+  },
+  "apiSection": {
+    "title": "REST API for developers",
+    "description": "Integrate the dictionary into your apps\u00a0— search, morphology, statistics",
+    "codeLines": {
+      "searchComment": "// Word search",
+      "searchEndpoint": "GET /api/dictionary/search?q=стаг",
+      "declensionComment": "// Declension",
+      "declensionEndpoint": "GET /api/dictionary/declension/стаг",
+      "conjugationComment": "// Conjugation",
+      "conjugationEndpoint": "GET /api/dictionary/conjugation/лаха",
+      "randomComment": "// Random word",
+      "randomEndpoint": "GET /api/dictionary/random?level=COMMON"
+    },
+    "actions": {
+      "openDictionary": "Open dictionary",
+      "learnMore": "Learn more"
+    }
   }
 }

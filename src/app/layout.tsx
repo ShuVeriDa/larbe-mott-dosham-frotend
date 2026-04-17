@@ -3,20 +3,25 @@ import { cn } from "@/shared/lib";
 import { QueryProvider } from "@/shared/ui/query-provider";
 import { ThemeProvider } from "@/shared/ui/theme-provider";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { JetBrains_Mono, PT_Sans, PT_Serif } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
-
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
+const ptSans = PT_Sans({
+	weight: ["400", "700"],
+	subsets: ["latin", "cyrillic"],
+	variable: "--font-sans",
 });
 
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
+const ptSerif = PT_Serif({
+	weight: ["400", "700"],
+	subsets: ["latin", "cyrillic"],
+	variable: "--font-serif",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+	subsets: ["latin", "cyrillic"],
+	variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -54,10 +59,10 @@ export default async function RootLayout({
 			className={cn(
 				"h-full",
 				"antialiased",
-				geistSans.variable,
-				geistMono.variable,
+				ptSans.variable,
+				ptSerif.variable,
+				jetBrainsMono.variable,
 				"font-sans",
-				outfit.variable,
 			)}
 		>
 			<body className="min-h-full flex flex-col" suppressHydrationWarning>

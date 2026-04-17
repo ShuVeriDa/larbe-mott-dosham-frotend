@@ -1,8 +1,10 @@
 import { getDictionary, hasLocale } from "@/i18n/dictionaries";
 import {
+	ApiSection,
 	FeaturesSection,
 	MorphologySection,
 	SearchBar,
+	SourcesSection,
 	WordOfDay,
 } from "@/widgets";
 import { Hero } from "@/widgets/hero/ui/hero";
@@ -28,6 +30,8 @@ export default async function Home({
 			<StatsBand statsBand={dict.statsBand} />
 			<FeaturesSection features={dict.features} />
 			<MorphologySection morphology={dict.morphology} />
+			<SourcesSection sources={dict.sources} />
+			<ApiSection apiSection={dict.apiSection} locale={lang} />
 		</div>
 	);
 }
