@@ -71,7 +71,11 @@ export const EntryCard: FC<EntryCardProps> = ({
 			)}
 
 			<footer className="relative flex gap-2 flex-wrap items-center">
-				{entry.nounClass && <NounClassBadge nounClass={entry.nounClass} />}
+				{entry.nounClass
+					?.split("/")
+					.map(c => c.trim())
+					.filter(Boolean)
+					.map(c => <NounClassBadge key={c} nounClass={c} />)}
 				{entry.wordLevel && <WordLevelTag level={entry.wordLevel} />}
 				{entry.sources.map(source => (
 					<SourceBadge key={source} source={source} />
