@@ -3,7 +3,7 @@ import { ExploreChip } from "./explore-chip";
 
 interface IExploreChipsItem {
 	word: string;
-	hint: string;
+	hint?: string;
 }
 
 interface IExploreChipsProps {

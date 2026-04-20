@@ -32,6 +32,12 @@ export interface ResetPasswordPhoneDto {
   newPassword: string;
 }
 
+export interface OAuthExchangeDto {
+  code: string;
+}
+
+export type OAuthProvider = "google" | "github";
+
 // ---------------------------------------------------------------------------
 // Response DTOs
 // ---------------------------------------------------------------------------

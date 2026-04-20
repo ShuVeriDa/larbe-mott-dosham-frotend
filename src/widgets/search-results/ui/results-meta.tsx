@@ -19,6 +19,9 @@ const SORT_OPTIONS: readonly SortOrder[] = [
 	"asc",
 	"desc",
 	"updatedAt_desc",
+	"updatedAt_asc",
+	"createdAt_desc",
+	"meaningsCount_desc",
 ];
 
 export const ResultsMeta: FC<ResultsMetaProps> = ({

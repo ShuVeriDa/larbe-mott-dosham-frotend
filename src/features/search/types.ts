@@ -4,7 +4,13 @@ import type {
 	WordLevel,
 } from "@/entities/dictionary";
 
-export type FilterKey = "level" | "pos" | "nounClass" | "entryType";
+export type FilterKey =
+	| "level"
+	| "pos"
+	| "nounClass"
+	| "entryType"
+	| "attested"
+	| "source";
 
 /**
  * URL-serialisable filter state. `level` is a multi-select so we keep an array;
@@ -15,6 +21,8 @@ export interface FilterValues {
 	pos: string;
 	nounClass: string;
 	entryType: "" | EntryType;
+	attested: "" | "true" | "false";
+	source: string;
 }
 
 export interface FilterOption {

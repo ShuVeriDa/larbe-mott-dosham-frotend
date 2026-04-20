@@ -170,6 +170,8 @@ export interface SearchParams extends PaginationParams {
 	entryType?: EntryType;
 	source?: string;
 	sort?: SortOrder;
+	/** Only attested (`true`) or only unattested (`false`) entries. */
+	attested?: boolean;
 	/** Exact-match mode — backend matches the query as a whole word/translation. */
 	exact?: boolean;
 }

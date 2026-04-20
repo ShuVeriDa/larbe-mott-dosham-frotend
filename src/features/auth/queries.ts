@@ -5,6 +5,7 @@ import { authApi } from "./api";
 import type {
 	ForgotPasswordDto,
 	LoginDto,
+	OAuthExchangeDto,
 	RegisterDto,
 	ResetPasswordDto,
 	ResetPasswordPhoneDto,
@@ -44,13 +45,25 @@ export function useRegister() {
 	});
 }
 
+export function useOAuthExchange() {
+	const client = useQueryClient();
+	return useMutation({
+		mutationFn: (dto: OAuthExchangeDto) => authApi.oauthExchange(dto),
+		onSuccess: data => {
+			setAccessToken(data.accessToken);
+			client.setQueryData(userKeys.me(), data.user);
+		},
+	});
+}
+
 export function useLogout() {
 	const client = useQueryClient();
 	return useMutation({
 		mutationFn: authApi.logout,
 		onSuccess: () => {
 			setAccessToken(null);
-			client.clear();
+			client.removeQueries({ queryKey: userKeys.all });
+			client.removeQueries({ queryKey: authKeys.all });
 		},
 	});
 }

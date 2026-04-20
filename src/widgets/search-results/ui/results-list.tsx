@@ -1,5 +1,6 @@
 import { EntryCard, type EntryCardLabels } from "@/entities/dictionary";
 import type { DictionarySearchResult } from "@/entities/dictionary";
+import { FavoriteButton } from "@/features/favorites";
 import type { FC } from "react";
 
 interface ResultsListProps {
@@ -7,6 +8,7 @@ interface ResultsListProps {
 	query: string;
 	lang: string;
 	labels: EntryCardLabels;
+	favoriteLabel: string;
 }
 
 export const ResultsList: FC<ResultsListProps> = ({
@@ -14,6 +16,7 @@ export const ResultsList: FC<ResultsListProps> = ({
 	query,
 	lang,
 	labels,
+	favoriteLabel,
 }) => (
 	<div className="flex flex-col gap-3">
 		{entries.map(entry => (
@@ -23,6 +26,9 @@ export const ResultsList: FC<ResultsListProps> = ({
 				query={query}
 				lang={lang}
 				labels={labels}
+				trailing={
+					<FavoriteButton entryId={entry.id} label={favoriteLabel} />
+				}
 			/>
 		))}
 	</div>

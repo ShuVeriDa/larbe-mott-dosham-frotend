@@ -1,9 +1,13 @@
 "use client";
 
 import { usePopularQueries } from "@/entities/dictionary";
-import { Dictionary } from "@/i18n/dictionaries";
-import { FC, useMemo } from "react";
+import { useSearchHistory } from "@/features/search-history";
+import { useAuthStatus, useIsAuthenticated } from "@/shared/lib/auth";
+import type { Dictionary } from "@/i18n/dictionaries";
+import Link from "next/link";
+import { type FC, useMemo, useState } from "react";
 import { ExploreChips } from "./explore-chips";
+import { ExploreTabs, type ExploreTab } from "./explore-tabs";
 
 interface IExploreSectionProps {
 	popularWords: Dictionary["popularWords"];
@@ -14,9 +18,17 @@ export const ExploreSection: FC<IExploreSectionProps> = ({
 	popularWords,
 	lang,
 }) => {
+	const [activeTab, setActiveTab] = useState<ExploreTab>("popular");
+	const isAuthenticated = useIsAuthenticated();
+	const authStatus = useAuthStatus();
+	const authReady = authStatus === "ready";
+
 	const { popular } = usePopularQueries();
 
-	const items = useMemo(
+	const historyEnabled = activeTab === "recent" && isAuthenticated;
+	const { data: history } = useSearchHistory({ limit: 10 }, historyEnabled);
+
+	const popularItems = useMemo(
 		() =>
 			(popular ?? [])
 				.filter(p => p.meaning)
@@ -24,7 +36,18 @@ export const ExploreSection: FC<IExploreSectionProps> = ({
 		[popular],
 	);
 
-	if (items.length === 0) return null;
+	const recentItems = useMemo(
+		() =>
+			historyEnabled
+				? (history?.items ?? []).map(r => ({ word: r.query }))
+				: [],
+		[historyEnabled, history],
+	);
+
+	// Hide the whole block only when there is nothing to show and nothing
+	// actionable on any tab — i.e. popular is empty AND the user is logged in.
+	// Unauthenticated users still see the CTA on the recent tab.
+	if (popularItems.length === 0 && isAuthenticated) return null;
 
 	return (
 		<section
@@ -33,11 +56,54 @@ export const ExploreSection: FC<IExploreSectionProps> = ({
 		>
 			<h2
 				id="explore-section-heading"
-				className="flex items-center gap-2 mb-4 text-xs font-medium uppercase tracking-[0.08em] text-faint before:content-[''] before:block before:w-[14px] before:h-px before:bg-faint"
+				className="sr-only"
 			>
 				{popularWords.label}
 			</h2>
-			<ExploreChips items={items} lang={lang} />
+
+			<ExploreTabs
+				active={activeTab}
+				labels={popularWords.tabs}
+				onChange={setActiveTab}
+			/>
+
+			{activeTab === "popular" && (
+				<div
+					id="explore-panel-popular"
+					role="tabpanel"
+					aria-labelledby="explore-tab-popular"
+				>
+					<ExploreChips items={popularItems} lang={lang} />
+				</div>
+			)}
+
+			{activeTab === "recent" && authReady && (
+				<div
+					id="explore-panel-recent"
+					role="tabpanel"
+					aria-labelledby="explore-tab-recent"
+				>
+					{!isAuthenticated && (
+						<p className="text-sm text-faint">
+							{popularWords.recent.loginCta}{" "}
+							<Link
+								href={`/${lang}/login`}
+								className="text-foreground underline underline-offset-2 hover:text-accent"
+							>
+								{popularWords.recent.loginLink}
+							</Link>
+						</p>
+					)}
+
+					{isAuthenticated && recentItems.length > 0 && (
+						<ExploreChips items={recentItems} lang={lang} />
+					)}
+
+					{isAuthenticated && recentItems.length === 0 && (
+						<p className="text-sm text-faint">{popularWords.recent.empty}</p>
+					)}
+				</div>
+			)}
 		</section>
 	);
 };

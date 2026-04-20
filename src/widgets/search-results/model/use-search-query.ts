@@ -15,6 +15,10 @@ export const useSearchQuery = (url: SearchUrlState) => {
 				? { nounClass: url.filters.nounClass as NounClass }
 				: {}),
 			...(url.filters.entryType ? { entryType: url.filters.entryType } : {}),
+			...(url.filters.attested
+				? { attested: url.filters.attested === "true" }
+				: {}),
+			...(url.filters.source ? { source: url.filters.source } : {}),
 			...(url.exact ? { exact: true } : {}),
 			sort: url.sort,
 			limit: url.limit,

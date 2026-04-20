@@ -1,6 +1,6 @@
 "use client";
 
-import { usePosValues } from "@/entities/dictionary";
+import { usePosValues, useSourcesValues } from "@/entities/dictionary";
 import {
 	ActiveFilters,
 	buildSearchParams,
@@ -36,8 +36,13 @@ export const SearchBar = ({
 	const urlState = useSearchUrlState();
 
 	const { posValues } = usePosValues();
+	const { sources } = useSourcesValues();
 
-	const groups = useFilterGroups(search.filters, posValues ?? undefined);
+	const groups = useFilterGroups(
+		search.filters,
+		posValues ?? undefined,
+		sources,
+	);
 
 	const {
 		filters,

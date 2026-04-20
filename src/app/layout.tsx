@@ -1,5 +1,7 @@
 import { TooltipProvider } from "@/shared/ui/primitives/tooltip";
+import { Toaster } from "@/shared/ui/primitives/sonner";
 import { cn } from "@/shared/lib";
+import { AuthBootstrap } from "@/shared/lib/auth";
 import { QueryProvider } from "@/shared/ui/query-provider";
 import { ThemeProvider } from "@/shared/ui/theme-provider";
 import type { Metadata } from "next";
@@ -68,7 +70,10 @@ export default async function RootLayout({
 			<body className="min-h-full flex flex-col" suppressHydrationWarning>
 				<ThemeProvider>
 					<QueryProvider>
-						<TooltipProvider>{children}</TooltipProvider>
+						<AuthBootstrap>
+							<TooltipProvider>{children}</TooltipProvider>
+							<Toaster richColors position="bottom-right" />
+						</AuthBootstrap>
 					</QueryProvider>
 				</ThemeProvider>
 			</body>

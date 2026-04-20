@@ -1,3 +1,4 @@
+import { useIsAuthenticated } from "@/shared/lib/auth";
 import {
   useMutation,
   useQuery,
@@ -18,10 +19,12 @@ export const userKeys = {
 };
 
 export function useCurrentUser() {
+  const isAuthenticated = useIsAuthenticated();
   return useQuery({
     queryKey: userKeys.me(),
     queryFn: userApi.getMe,
     staleTime: 5 * 60 * 1000,
+    enabled: isAuthenticated,
   });
 }
 

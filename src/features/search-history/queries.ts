@@ -8,10 +8,14 @@ export const searchHistoryKeys = {
     [...searchHistoryKeys.all, "list", params] as const,
 };
 
-export function useSearchHistory(params?: SearchHistoryParams) {
+export function useSearchHistory(
+  params?: SearchHistoryParams,
+  enabled = true,
+) {
   return useQuery({
     queryKey: searchHistoryKeys.list(params),
     queryFn: () => searchHistoryApi.getAll(params),
+    enabled,
   });
 }
 

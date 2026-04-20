@@ -4,6 +4,8 @@ export type {
   ForgotPasswordDto,
   ResetPasswordDto,
   ResetPasswordPhoneDto,
+  OAuthExchangeDto,
+  OAuthProvider,
   AuthResponse,
   ForgotPasswordResponse,
 } from "./types";
@@ -19,6 +21,10 @@ export {
   useForgotPassword,
   useResetPassword,
   useResetPasswordPhone,
+  useOAuthExchange,
   useRevokeSession,
   useRevokeAllSessions,
 } from "./queries";
+
+export { AuthCard } from "./ui/auth-card";
+export { OAuthCallback } from "./ui/oauth-callback";

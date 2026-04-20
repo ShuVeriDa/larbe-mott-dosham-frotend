@@ -48,7 +48,7 @@ export function Header({ lang, nav }: HeaderProps) {
 				<div className="nav-right">
 					<LangSwitcher currentLang={lang} labels={langLabels} />
 					<ThemeSwitcher />
-					<Link href={`/${lang}/login`} className="btn btn-primary btn-sm">
+					<Link href={`/${lang}/auth`} className="btn btn-primary btn-sm">
 						{nav.login}
 					</Link>
 				</div>

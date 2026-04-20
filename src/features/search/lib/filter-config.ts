@@ -19,11 +19,15 @@ export const NOUN_CLASS_KEYS = ["ву", "йу", "ду", "бу"] as const;
 
 export const ENTRY_TYPE_KEYS = ["standard", "neologism"] as const;
 
+export const ATTESTED_KEYS = ["true", "false"] as const;
+
 export const FILTER_KEYS: readonly FilterKey[] = [
 	"level",
 	"pos",
 	"nounClass",
 	"entryType",
+	"attested",
+	"source",
 ];
 
 export const EMPTY_FILTERS: FilterValues = {
@@ -31,6 +35,8 @@ export const EMPTY_FILTERS: FilterValues = {
 	pos: "",
 	nounClass: "",
 	entryType: "",
+	attested: "",
+	source: "",
 };
 
 export const DEFAULT_LIMIT = 20;

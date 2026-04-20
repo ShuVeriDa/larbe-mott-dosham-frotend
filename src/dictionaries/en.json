@@ -64,7 +64,13 @@
 			"entryTypes": {
 				"standard": "Standard",
 				"neologism": "Neologism"
-			}
+			},
+			"attested": "In corpus",
+			"attestedValues": {
+				"true": "Attested",
+				"false": "Unattested"
+			},
+			"source": "Source"
 		},
 		"results": {
 			"foundPrefix": "Found",
@@ -74,7 +80,10 @@
 				"relevance": "Relevance",
 				"asc": "A → Z",
 				"desc": "Z → A",
-				"updatedAt_desc": "Recently updated"
+				"updatedAt_desc": "Recently updated",
+				"updatedAt_asc": "Least recently updated",
+				"createdAt_desc": "Recently added",
+				"meaningsCount_desc": "Most meanings"
 			},
 			"favorite": "Add to favorites"
 		},
@@ -93,7 +102,10 @@
 		"error": {
 			"title": "Failed to load",
 			"text": "Could not fetch results. Please try again.",
-			"retry": "Retry"
+			"retry": "Retry",
+			"offline": "No connection to the server",
+			"rateLimit": "Too many requests. Please wait a moment.",
+			"server": "Server error. Please try again later."
 		},
 		"pos": {
 			"noun": "noun"
@@ -101,6 +113,15 @@
 	},
 	"popularWords": {
 		"label": "Popular words",
+		"tabs": {
+			"popular": "Popular",
+			"recent": "Recent"
+		},
+		"recent": {
+			"empty": "Your search history is empty",
+			"loginCta": "Sign in to see your search history",
+			"loginLink": "Sign in"
+		},
 		"items": [
 			{ "word": "нана", "hint": "mother" },
 			{ "word": "да", "hint": "father" },
@@ -270,6 +291,104 @@
 			"phraseology": "Phraseology",
 			"statistics": "Statistics",
 			"about": "About"
+		}
+	},
+	"auth": {
+		"meta": {
+			"loginTitle": "Sign in",
+			"registerTitle": "Sign up",
+			"description": "Sign in or create an account on Mott Larbe Dosham — the unified Chechen language dictionary"
+		},
+		"brand": {
+			"subtitle": "Unified dictionary of the Chechen language"
+		},
+		"tabs": {
+			"login": "Sign in",
+			"register": "Sign up"
+		},
+		"login": {
+			"heading": "Sign in to your account",
+			"emailLabel": "Email or username",
+			"emailPlaceholder": "name@example.com",
+			"passwordLabel": "Password",
+			"passwordPlaceholder": "••••••••",
+			"forgotPassword": "Forgot password?",
+			"submit": "Sign in",
+			"submitting": "Signing in…"
+		},
+		"register": {
+			"heading": "Create an account",
+			"nameLabel": "Display name",
+			"namePlaceholder": "Your full name",
+			"nameHint": "Shown on your profile, 2–32 characters",
+			"usernameLabel": "Username",
+			"usernamePlaceholder": "username (latin, 2–16 chars)",
+			"usernameHint": "Unique identifier used to sign in",
+			"emailLabel": "Email",
+			"emailPlaceholder": "name@example.com",
+			"passwordLabel": "Password",
+			"passwordPlaceholder": "At least 8 characters",
+			"passwordHint": "At least 8 characters, with one uppercase letter and one symbol",
+			"terms": "I agree to the",
+			"termsLink": "terms of service",
+			"and": "and",
+			"privacyLink": "privacy policy",
+			"submit": "Create account",
+			"submitting": "Creating account…"
+		},
+		"reset": {
+			"title": "Reset password",
+			"subtitle": "Enter your email and we'll send you a reset link",
+			"emailLabel": "Email",
+			"emailPlaceholder": "name@example.com",
+			"submit": "Send link",
+			"submitting": "Sending…",
+			"back": "← Back to sign in",
+			"success": {
+				"title": "Check your inbox",
+				"text": "We've sent a password reset link to the email you provided"
+			}
+		},
+		"divider": "or",
+		"social": {
+			"googleLogin": "Continue with Google",
+			"googleRegister": "Sign up with Google",
+			"github": "Continue with GitHub"
+		},
+		"callback": {
+			"metaTitle": "Completing sign-in",
+			"loading": "Completing sign-in…",
+			"errorTitle": "Sign-in failed",
+			"backToAuth": "Back to sign-in",
+			"missingCode": "Authorization code is missing from the URL. Please try signing in again.",
+			"invalidCode": "The authorization code is invalid or expired. Please try again.",
+			"rateLimit": "Too many attempts. Please wait a minute and try again.",
+			"offline": "No connection to the server",
+			"server": "Server error. Please try again later.",
+			"generic": "Could not complete sign-in. Please try again."
+		},
+		"bottomLink": {
+			"noAccount": "Don't have an account?",
+			"signUp": "Sign up",
+			"hasAccount": "Already have an account?",
+			"signIn": "Sign in"
+		},
+		"togglePassword": {
+			"show": "Show password",
+			"hide": "Hide password"
+		},
+		"errors": {
+			"required": "This field is required",
+			"invalidEmail": "Invalid email address",
+			"passwordTooShort": "Password must be at least 8 characters",
+			"termsRequired": "You must accept the terms of service",
+			"invalidCredentials": "Invalid email or password",
+			"emailTaken": "An account with this email already exists",
+			"usernameTaken": "This username is already taken",
+			"rateLimit": "Too many attempts. Please wait a minute and try again.",
+			"offline": "No connection to the server",
+			"server": "Server error. Please try again later.",
+			"generic": "Something went wrong. Please try again."
 		}
 	},
 	"apiSection": {

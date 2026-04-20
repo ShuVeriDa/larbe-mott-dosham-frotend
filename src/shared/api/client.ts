@@ -1,103 +1,102 @@
 "use client";
 
 import { API_URL } from "@/shared/config";
+import { useAuthStore } from "@/shared/lib/auth";
 import axios from "axios";
 import { toApiError } from "./error";
 
 export const apiClient = axios.create({
-  baseURL: API_URL,
-  withCredentials: true, // send refresh-token cookie automatically
-  headers: {
-    "Content-Type": "application/json",
-  },
+	baseURL: API_URL,
+	withCredentials: true, // send refresh-token cookie automatically
+	headers: {
+		"Content-Type": "application/json",
+	},
 });
 
 // ---------------------------------------------------------------------------
-// Request interceptor — attach access token from memory
+// Request interceptor — attach access token from the auth store
 // ---------------------------------------------------------------------------
 
 apiClient.interceptors.request.use((config) => {
-  const token =
-    typeof window !== "undefined"
-      ? window.__accessToken ?? null
-      : null;
+	const token = useAuthStore.getState().accessToken;
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+	if (token) {
+		config.headers.Authorization = `Bearer ${token}`;
+	}
 
-  return config;
+	return config;
 });
+
+// ---------------------------------------------------------------------------
+// Shared refresh helper — deduplicates concurrent refresh attempts
+// ---------------------------------------------------------------------------
+
+let refreshPromise: Promise<string | null> | null = null;
+
+export const refreshAccessToken = (): Promise<string | null> => {
+	if (!refreshPromise) {
+		refreshPromise = apiClient
+			.post<{ accessToken: string }>("/auth/login/access-token")
+			.then((res) => {
+				const token = res.data.accessToken;
+				useAuthStore.getState().setAccessToken(token);
+				return token;
+			})
+			.catch(() => {
+				useAuthStore.getState().setAccessToken(null);
+				return null;
+			})
+			.finally(() => {
+				refreshPromise = null;
+			});
+	}
+
+	return refreshPromise;
+};
 
 // ---------------------------------------------------------------------------
 // Response interceptor — normalise errors; handle 401 with token refresh
 // ---------------------------------------------------------------------------
 
-let refreshPromise: Promise<string | null> | null = null;
-
 apiClient.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const originalRequest = error.config as typeof error.config & {
-      _retry?: boolean;
-    };
+	(response) => response,
+	async (error) => {
+		const originalRequest = error.config as typeof error.config & {
+			_retry?: boolean;
+			url?: string;
+		};
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
+		// Never try to refresh on the refresh endpoint itself — that would loop
+		const isRefreshCall = originalRequest?.url?.includes(
+			"/auth/login/access-token",
+		);
 
-      // Only one concurrent refresh at a time
-      if (!refreshPromise) {
-        refreshPromise = apiClient
-          .post<{ accessToken: string }>("/auth/login/access-token")
-          .then((res) => {
-            const token = res.data.accessToken;
-            if (typeof window !== "undefined") {
-              window.__accessToken = token;
-            }
-            return token;
-          })
-          .catch(() => {
-            if (typeof window !== "undefined") {
-              window.__accessToken = null;
-            }
-            return null;
-          })
-          .finally(() => {
-            refreshPromise = null;
-          });
-      }
+		if (
+			error.response?.status === 401 &&
+			!originalRequest._retry &&
+			!isRefreshCall
+		) {
+			originalRequest._retry = true;
 
-      const newToken = await refreshPromise;
+			const newToken = await refreshAccessToken();
 
-      if (newToken) {
-        originalRequest.headers.Authorization = `Bearer ${newToken}`;
-        return apiClient(originalRequest);
-      }
-    }
+			if (newToken) {
+				originalRequest.headers.Authorization = `Bearer ${newToken}`;
+				return apiClient(originalRequest);
+			}
+		}
 
-    return Promise.reject(toApiError(error));
-  },
+		return Promise.reject(toApiError(error));
+	},
 );
 
 // ---------------------------------------------------------------------------
-// Module augmentation — store token in window without extra dependencies
+// Public API — thin wrappers around the auth store
 // ---------------------------------------------------------------------------
 
-declare global {
-  interface Window {
-    __accessToken?: string | null;
-  }
-}
+export const setAccessToken = (token: string | null): void => {
+	useAuthStore.getState().setAccessToken(token);
+};
 
-export function setAccessToken(token: string | null): void {
-  if (typeof window !== "undefined") {
-    window.__accessToken = token;
-  }
-}
-
-export function getAccessToken(): string | null {
-  if (typeof window !== "undefined") {
-    return window.__accessToken ?? null;
-  }
-  return null;
-}
+export const getAccessToken = (): string | null =>
+	useAuthStore.getState().accessToken;

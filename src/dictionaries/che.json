@@ -64,7 +64,13 @@
 			"entryTypes": {
 				"standard": "Стандартан",
 				"neologism": "Керла дош"
-			}
+			},
+			"attested": "Корпусехь",
+			"attestedValues": {
+				"true": "Тасдина",
+				"false": "Тасдаза"
+			},
+			"source": "Хьост"
 		},
 		"results": {
 			"foundPrefix": "Карийна",
@@ -74,7 +80,10 @@
 				"relevance": "Гергарло хьаьжжина",
 				"asc": "А → Я",
 				"desc": "Я → А",
-				"updatedAt_desc": "Керла йуьххьехь"
+				"updatedAt_desc": "Керла йуьххьехь",
+				"updatedAt_asc": "Ширнаш йуьххьехь",
+				"createdAt_desc": "ТӀаьххьара тӀетоьхна",
+				"meaningsCount_desc": "Дукха маьӏна долу"
 			},
 			"favorite": "Къастийначарех"
 		},
@@ -93,7 +102,10 @@
 		"error": {
 			"title": "ГӀалат",
 			"text": "Жоп далур дац. Кхин цкъа зе.",
-			"retry": "Юхазе"
+			"retry": "Юхазе",
+			"offline": "Серверца йухабазбовлар дац",
+			"rateLimit": "Дукха лехамаш. КӀеззиг собар дар.",
+			"server": "Серверан гӀалат. Кхин цкъа зе."
 		},
 		"pos": {
 			"noun": "цӏе дош"
@@ -101,6 +113,15 @@
 	},
 	"popularWords": {
 		"label": "Гулдина дешнаш",
+		"tabs": {
+			"popular": "Гулдина",
+			"recent": "ТӀаьххьарлера"
+		},
+		"recent": {
+			"empty": "Лехаран истори йаьсса йу",
+			"loginCta": "Лехаран истори гайта чуваьлла",
+			"loginLink": "Чувала"
+		},
 		"items": [
 			{ "word": "нана", "hint": "нана" },
 			{ "word": "да", "hint": "да" },
@@ -270,6 +291,104 @@
 			"phraseology": "Карчаман Iилма",
 			"statistics": "Терахь гулдар",
 			"about": "Йуьхьарлаьцначун хьокъехь"
+		}
+	},
+	"auth": {
+		"meta": {
+			"loginTitle": "Йукъа дала",
+			"registerTitle": "Карарайазбар",
+			"description": "Мотт Ларбе Дошамехь йукъа валал йа керла дӀайазделахь — нохчийн меттан цхьанатоьхна дошам"
+		},
+		"brand": {
+			"subtitle": "Нохчийн меттан цхьанатоьхна дошам"
+		},
+		"tabs": {
+			"login": "Йукъа дала",
+			"register": "Карарайазбар"
+		},
+		"login": {
+			"heading": "Шайн бочеллина юкъа вала",
+			"emailLabel": "Email йа дӀайозуш цӀе",
+			"emailPlaceholder": "name@example.com",
+			"passwordLabel": "Парол",
+			"passwordPlaceholder": "••••••••",
+			"forgotPassword": "Парол дицделла?",
+			"submit": "Йукъа дала",
+			"submitting": "Йукъа долуш…"
+		},
+		"register": {
+			"heading": "Керла бочелла кхолла",
+			"nameLabel": "ЦӀе",
+			"namePlaceholder": "Хьан цӀе хӀун йу",
+			"nameHint": "Профилехь гойту, 2–32 элп",
+			"usernameLabel": "ДӀайозуш цӀе",
+			"usernamePlaceholder": "username (латиница, 2–16 элп)",
+			"usernameHint": "Йукъа валар дуьхьала хоттара цӀе",
+			"emailLabel": "Email",
+			"emailPlaceholder": "name@example.com",
+			"passwordLabel": "Парол",
+			"passwordPlaceholder": "Кхоамо 8 элп",
+			"passwordHint": "Кхоамо 8 элп, цхьа йоккха элп а, цхьа билгало а",
+			"terms": "Ас тӀеэцо",
+			"termsLink": "пайдаэцаран бакъонаш",
+			"and": "а",
+			"privacyLink": "къайлен бакъонаш",
+			"submit": "Бочелла кхолла",
+			"submitting": "Бочелла кхуллуш…"
+		},
+		"reset": {
+			"title": "Парол меттахӀоттор",
+			"subtitle": "Email билгалйаккхал, оха цунга парол метта оттош йолу гӀу дӀахьоьцур йу",
+			"emailLabel": "Email",
+			"emailPlaceholder": "name@example.com",
+			"submit": "ГӀу хьожа",
+			"submitting": "Хьоьжуш…",
+			"back": "← Йукъа валаре а юхавала",
+			"success": {
+				"title": "Кехат дӀахьаьжна",
+				"text": "Email тергал де — оха цунна парол метта оттош йолу гӀу дӀахьаьжна"
+			}
+		},
+		"divider": "йа",
+		"social": {
+			"googleLogin": "Google чура йукъа дала",
+			"googleRegister": "Google чура карарайазвала",
+			"github": "GitHub чура йукъа дала"
+		},
+		"callback": {
+			"metaTitle": "Йукъа валар кхачо",
+			"loading": "Йукъа валар кхочуш дина йу…",
+			"errorTitle": "Йукъа вала хӀоттин дац",
+			"backToAuth": "Йукъа валаре йухавала",
+			"missingCode": "Адрес чохь код йац. Йуха а 1алашо де.",
+			"invalidCode": "Код нийса йац йа хан йаьлла. Йуха а 1алашо де.",
+			"rateLimit": "Дукха ойланаш. Кӏира соьце, тӏаккха йуха а 1алашо де.",
+			"offline": "Сервере хӀоттам бац",
+			"server": "Серверан гӏалат. ТӀаьхьа йуха а 1алашо де.",
+			"generic": "Йукъа валар кхочуш хӏоттин йац. Йуха а 1алашо де."
+		},
+		"bottomLink": {
+			"noAccount": "Бочелла йац?",
+			"signUp": "Карарайазвала",
+			"hasAccount": "Бочелла йу?",
+			"signIn": "Йукъа дала"
+		},
+		"togglePassword": {
+			"show": "Парол гайта",
+			"hide": "Парол къайла баккха"
+		},
+		"errors": {
+			"required": "Iалашо йаздой",
+			"invalidEmail": "Email нийса йац",
+			"passwordTooShort": "Парол 8 элп т1е хила еза",
+			"termsRequired": "Пайдаэцаран бакъонаш тӀеэца еза",
+			"invalidCredentials": "Email йа парол нийса йац",
+			"emailTaken": "ХӀара email хӀинца юкъахь йу",
+			"usernameTaken": "ХӀара цӀе хӀинца юкъахь йу",
+			"rateLimit": "Дукха ойланаш. Кӏира соьце, тӏаккха йуха а 1алашо де.",
+			"offline": "Сервере хӀоттам бац",
+			"server": "Серверан гӏалат. ТӀаьхьа йуха а 1алашо де.",
+			"generic": "1алашо кхочуш хӏоттин йац. Йуха а 1алашо де."
 		}
 	},
 	"apiSection": {

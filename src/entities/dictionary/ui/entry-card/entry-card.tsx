@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 import type { DictionarySearchResult } from "../../types";
 import {
 	NeologismBadge,
@@ -11,7 +11,6 @@ import { HighlightMatch } from "./highlight-match";
 
 export interface EntryCardLabels {
 	neologism: string;
-	favorite: string;
 }
 
 interface EntryCardProps {
@@ -19,6 +18,8 @@ interface EntryCardProps {
 	query: string;
 	lang: string;
 	labels: EntryCardLabels;
+	/** Rendered at the end of the card footer (e.g. favorite toggle). */
+	trailing?: ReactNode;
 }
 
 const MAX_MEANING_PREVIEW = 2;
@@ -36,49 +37,47 @@ export const EntryCard: FC<EntryCardProps> = ({
 	query,
 	lang,
 	labels,
+	trailing,
 }) => {
 	const displayWord = entry.wordAccented || entry.word;
 	const preview = buildPreview(entry);
 	const isNeologism = entry.entryType === "neologism";
 
 	return (
-		<article>
+		<article className="relative bg-surface border border-edge rounded-lg px-5 py-4 transition-[background,border,transform] duration-150 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-surface-hover hover:border-edge-hover hover:translate-x-1">
 			<Link
 				href={`/${lang}/entry/${entry.id}`}
-				className="block bg-surface border border-edge rounded-lg px-5 py-4 text-inherit no-underline transition-[background,border,transform] duration-150 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-surface-hover hover:border-edge-hover hover:translate-x-1"
 				aria-label={displayWord}
-			>
-				<header className="flex items-baseline gap-2 flex-wrap mb-1">
-					<h3 className="text-lg font-semibold text-foreground tracking-[-0.01em]">
-						<HighlightMatch text={displayWord} query={query} />
-					</h3>
-					{entry.partOfSpeech && (
-						<span className="text-xs text-muted font-normal">
-							{entry.partOfSpeech}
-							{entry.partOfSpeechNah ? ` · ${entry.partOfSpeechNah}` : ""}
-						</span>
-					)}
-					{isNeologism && <NeologismBadge label={labels.neologism} />}
-				</header>
+				className="absolute inset-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+			/>
 
-				{preview && (
-					<p className="text-base text-subtle font-light leading-[1.5] mb-2 line-clamp-2">
-						<HighlightMatch text={preview} query={query} />
-					</p>
-				)}
-
-				<footer className="flex gap-2 flex-wrap items-center">
-					{entry.nounClass && <NounClassBadge nounClass={entry.nounClass} />}
-					{entry.wordLevel && <WordLevelTag level={entry.wordLevel} />}
-					{entry.sources.map(source => (
-						<SourceBadge key={source} source={source} />
-					))}
-					<span className="ml-auto text-faint text-base" aria-hidden>
-						☆
+			<header className="relative flex items-baseline gap-2 flex-wrap mb-1">
+				<h3 className="text-lg font-semibold text-foreground tracking-[-0.01em]">
+					<HighlightMatch text={displayWord} query={query} />
+				</h3>
+				{entry.partOfSpeech && (
+					<span className="text-xs text-muted font-normal">
+						{entry.partOfSpeech}
+						{entry.partOfSpeechNah ? ` · ${entry.partOfSpeechNah}` : ""}
 					</span>
-					<span className="sr-only">{labels.favorite}</span>
-				</footer>
-			</Link>
+				)}
+				{isNeologism && <NeologismBadge label={labels.neologism} />}
+			</header>
+
+			{preview && (
+				<p className="relative text-base text-subtle font-light leading-normal mb-2 line-clamp-2">
+					<HighlightMatch text={preview} query={query} />
+				</p>
+			)}
+
+			<footer className="relative flex gap-2 flex-wrap items-center">
+				{entry.nounClass && <NounClassBadge nounClass={entry.nounClass} />}
+				{entry.wordLevel && <WordLevelTag level={entry.wordLevel} />}
+				{entry.sources.map(source => (
+					<SourceBadge key={source} source={source} />
+				))}
+				{trailing && <div className="ml-auto relative z-10">{trailing}</div>}
+			</footer>
 		</article>
 	);
 };

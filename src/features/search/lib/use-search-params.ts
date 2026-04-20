@@ -16,6 +16,9 @@ const isLevel = (v: string): v is WordLevel =>
 const isEntryType = (v: string): v is EntryType =>
 	v === "standard" || v === "neologism";
 
+const isAttested = (v: string): v is "true" | "false" =>
+	v === "true" || v === "false";
+
 const SORT_VALUES: readonly SortOrder[] = [
 	"relevance",
 	"asc",
@@ -55,6 +58,13 @@ export const useSearchUrlState = (): SearchUrlState => {
 			? rawEntryType
 			: "";
 
+		const rawAttested = searchParams.get("attested") ?? "";
+		const attested: FilterValues["attested"] = isAttested(rawAttested)
+			? rawAttested
+			: "";
+
+		const source = searchParams.get("source") ?? "";
+
 		const rawSort = searchParams.get("sort") ?? "";
 		const sort: SortOrder = isSort(rawSort) ? rawSort : "relevance";
 
@@ -73,7 +83,7 @@ export const useSearchUrlState = (): SearchUrlState => {
 
 		return {
 			q,
-			filters: { level, pos, nounClass, entryType },
+			filters: { level, pos, nounClass, entryType, attested, source },
 			sort,
 			exact,
 			limit,
@@ -106,6 +116,8 @@ export const buildSearchParams = ({
 		if (filters.pos) params.set("pos", filters.pos);
 		if (filters.nounClass) params.set("nounClass", filters.nounClass);
 		if (filters.entryType) params.set("entryType", filters.entryType);
+		if (filters.attested) params.set("attested", filters.attested);
+		if (filters.source) params.set("source", filters.source);
 	}
 	if (sort && sort !== "relevance") params.set("sort", sort);
 	if (exact) params.set("exact", "1");

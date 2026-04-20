@@ -15,3 +15,7 @@ export {
   useToggleFavorite,
   useClearFavorites,
 } from "./queries";
+
+export { FavoriteButton } from "./ui/favorite-button";
+export { useFavoritesSessionStore } from "./lib/favorites-session-store";
+export { useIsFavorited } from "./lib/use-is-favorited";

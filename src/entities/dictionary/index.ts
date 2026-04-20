@@ -48,6 +48,7 @@ export { DictionaryDataProvider } from "./ui/dictionary-data-provider";
 export { useDictionaryStats, useStatsStore } from "./model/stats";
 export { usePosValues, usePosValuesStore } from "./model/pos-values";
 export { usePopularQueries, usePopularStore } from "./model/popular";
+export { useSourcesValues, useSourcesStore } from "./model/sources";
 
 export {
   CHECHEN_CASE_FORMS_COUNT,

@@ -5,6 +5,7 @@ import type {
 	ForgotPasswordDto,
 	ForgotPasswordResponse,
 	LoginDto,
+	OAuthExchangeDto,
 	RegisterDto,
 	ResetPasswordDto,
 	ResetPasswordPhoneDto,
@@ -56,6 +57,14 @@ export const authApi = {
 	): Promise<{ message: string }> {
 		const { data } = await apiClient.post<{ message: string }>(
 			"/auth/reset-password/phone",
+			dto,
+		);
+		return data;
+	},
+
+	async oauthExchange(dto: OAuthExchangeDto): Promise<AuthResponse> {
+		const { data } = await apiClient.post<AuthResponse>(
+			"/auth/oauth/exchange",
 			dto,
 		);
 		return data;

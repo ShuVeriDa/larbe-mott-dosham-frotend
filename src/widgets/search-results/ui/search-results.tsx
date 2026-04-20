@@ -9,6 +9,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { SearchBar } from "@/widgets/search-bar";
 import { useParams, useRouter } from "next/navigation";
 import { useCallback, type FC } from "react";
+import { useSearchErrorToast } from "../model/use-search-error-toast";
 import { useSearchQuery } from "../model/use-search-query";
 import { EmptyState } from "./empty-state";
 import { Pagination } from "./pagination";
@@ -27,7 +28,9 @@ export const SearchResults: FC<SearchResultsProps> = ({ search, lang }) => {
 	const router = useRouter();
 	const params = useParams<{ lang: string }>();
 
-	const { data, isLoading, isError, refetch } = useSearchQuery(url);
+	const { data, isLoading, isError, error, refetch } = useSearchQuery(url);
+
+	useSearchErrorToast(error, isError, search.error);
 
 	const pushUrl = useCallback(
 		(next: { sort?: SortOrder; page?: number }) => {
@@ -87,8 +90,8 @@ export const SearchResults: FC<SearchResultsProps> = ({ search, lang }) => {
 						lang={lang}
 						labels={{
 							neologism: search.filters.entryTypes.neologism,
-							favorite: search.results.favorite,
 						}}
+						favoriteLabel={search.results.favorite}
 					/>
 					<Pagination
 						page={url.page}

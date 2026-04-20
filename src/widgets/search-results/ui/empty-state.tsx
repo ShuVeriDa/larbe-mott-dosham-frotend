@@ -47,6 +47,13 @@ export const EmptyState: FC<EmptyStateProps> = ({
 					))}
 				</p>
 			)}
+
+			<Link
+				href={`/${lang}/search`}
+				className="inline-flex items-center px-4 py-2 border border-edge rounded-full text-sm text-foreground/80 transition-colors hover:border-edge-hover hover:bg-surface hover:text-foreground"
+			>
+				{dict.newSearch}
+			</Link>
 		</div>
 	);
 };
