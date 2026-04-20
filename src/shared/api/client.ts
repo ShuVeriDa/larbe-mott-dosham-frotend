@@ -31,16 +31,20 @@ apiClient.interceptors.request.use((config) => {
 // Shared refresh helper — deduplicates concurrent refresh attempts
 // ---------------------------------------------------------------------------
 
-let refreshPromise: Promise<string | null> | null = null;
+export type RefreshResult = {
+	accessToken: string;
+	user: Record<string, unknown>;
+};
 
-export const refreshAccessToken = (): Promise<string | null> => {
+let refreshPromise: Promise<RefreshResult | null> | null = null;
+
+export const refreshAccessToken = (): Promise<RefreshResult | null> => {
 	if (!refreshPromise) {
 		refreshPromise = apiClient
-			.post<{ accessToken: string }>("/auth/login/access-token")
+			.post<RefreshResult>("/auth/login/access-token")
 			.then((res) => {
-				const token = res.data.accessToken;
-				useAuthStore.getState().setAccessToken(token);
-				return token;
+				useAuthStore.getState().setAccessToken(res.data.accessToken);
+				return res.data;
 			})
 			.catch(() => {
 				useAuthStore.getState().setAccessToken(null);
@@ -78,10 +82,10 @@ apiClient.interceptors.response.use(
 		) {
 			originalRequest._retry = true;
 
-			const newToken = await refreshAccessToken();
+			const refreshed = await refreshAccessToken();
 
-			if (newToken) {
-				originalRequest.headers.Authorization = `Bearer ${newToken}`;
+			if (refreshed) {
+				originalRequest.headers.Authorization = `Bearer ${refreshed.accessToken}`;
 				return apiClient(originalRequest);
 			}
 		}

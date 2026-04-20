@@ -1,8 +1,9 @@
 "use client";
 
-import { LangSwitcher } from "@/features/lang-switcher";
 import { ThemeSwitcher } from "@/features/theme-switcher";
+import { UserMenu } from "@/features/user-menu";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
+import { useIsAuthenticated, useAuthStatus } from "@/shared/lib/auth";
 import { Logo } from "@/shared/ui/primitives/logo";
 import {
 	Sheet,
@@ -16,21 +17,19 @@ import Link from "next/link";
 interface HeaderProps {
 	lang: Locale;
 	nav: Dictionary["nav"];
+	userMenu: Dictionary["userMenu"];
 }
 
-export function Header({ lang, nav }: HeaderProps) {
+export function Header({ lang, nav, userMenu }: HeaderProps) {
+	const isAuthenticated = useIsAuthenticated();
+	const authStatus = useAuthStatus();
+
 	const NAV_LINKS = [
 		{ href: `/${lang}/search`, label: nav.dictionary },
 		{ href: `/${lang}/phraseology`, label: nav.phraseology },
 		{ href: `/${lang}/stats`, label: nav.statistics },
 		{ href: `/${lang}/about`, label: nav.about },
 	];
-
-	const langLabels = {
-		che: "Нохчийн",
-		ru: "Русский",
-		en: "English",
-	} as const;
 
 	return (
 		<header className="sticky top-0 z-100">
@@ -46,11 +45,20 @@ export function Header({ lang, nav }: HeaderProps) {
 				</div>
 
 				<div className="nav-right">
-					<LangSwitcher currentLang={lang} labels={langLabels} />
-					<ThemeSwitcher />
-					<Link href={`/${lang}/auth`} className="btn btn-primary btn-sm">
-						{nav.login}
-					</Link>
+					{authStatus === "ready" &&
+						(isAuthenticated ? (
+							<UserMenu lang={lang} dict={userMenu} />
+						) : (
+							<>
+								<ThemeSwitcher />
+								<Link
+									href={`/${lang}/auth`}
+									className="btn btn-primary btn-sm"
+								>
+									{nav.login}
+								</Link>
+							</>
+						))}
 				</div>
 
 				<Sheet>
@@ -70,17 +78,16 @@ export function Header({ lang, nav }: HeaderProps) {
 								</Link>
 							</SheetClose>
 						))}
-						<div className="mt-6 flex items-center gap-3">
-							<LangSwitcher currentLang={lang} labels={langLabels} />
-						</div>
-						<SheetClose asChild>
-							<Link
-								href={`/${lang}/login`}
-								className="btn btn-primary btn-sm mt-3 text-center"
-							>
-								{nav.login}
-							</Link>
-						</SheetClose>
+						{authStatus === "ready" && !isAuthenticated && (
+							<SheetClose asChild>
+								<Link
+									href={`/${lang}/auth`}
+									className="btn btn-primary btn-sm mt-3 text-center"
+								>
+									{nav.login}
+								</Link>
+							</SheetClose>
+						)}
 					</SheetContent>
 				</Sheet>
 			</nav>

@@ -6,6 +6,33 @@
 		"about": "About",
 		"login": "Sign in"
 	},
+	"userMenu": {
+		"ariaLabel": "User menu",
+		"roleDotTitle": "Role: {role}",
+		"sections": {
+			"admin": "Administration"
+		},
+		"items": {
+			"profile": "Profile",
+			"favorites": "Favorites",
+			"history": "Search history",
+			"suggestions": "My suggestions",
+			"adminPanel": "Admin panel",
+			"settings": "Settings",
+			"logout": "Sign out"
+		},
+		"inline": {
+			"theme": "Theme",
+			"themeDark": "Dark",
+			"themeLight": "Light",
+			"language": "Language"
+		},
+		"footer": {
+			"version": "v2.1.0",
+			"brand": "Mott Larbe Dosham"
+		},
+		"logoutError": "Could not sign out. Please try again."
+	},
 	"hero": {
 		"badge": "Mott Larbe Dosham",
 		"headline": {

@@ -6,6 +6,33 @@
 		"about": "Йуьхьарлаьцначун хьокъехь",
 		"login": "Йукъа дала"
 	},
+	"userMenu": {
+		"ariaLabel": "Декъашхочун меню",
+		"roleDotTitle": "Дарж: {role}",
+		"sections": {
+			"admin": "Куьйгалла"
+		},
+		"items": {
+			"profile": "Профиль",
+			"favorites": "Дукхадезнарш",
+			"history": "Лахаран истори",
+			"suggestions": "Сан нисдарш",
+			"adminPanel": "Куьйгаллин панел",
+			"settings": "Нисдарш",
+			"logout": "Аравала"
+		},
+		"inline": {
+			"theme": "Бос",
+			"themeDark": "Iаьржа",
+			"themeLight": "Сирла",
+			"language": "Мотт"
+		},
+		"footer": {
+			"version": "v2.1.0",
+			"brand": "Мотт Ларбе Дошам"
+		},
+		"logoutError": "Аравала хӀоттин дац. Йуха а 1алашо де."
+	},
 	"hero": {
 		"badge": "Мотт Ларбе Дошам",
 		"headline": {

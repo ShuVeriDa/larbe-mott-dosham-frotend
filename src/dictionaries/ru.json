@@ -6,6 +6,33 @@
 		"about": "О проекте",
 		"login": "Войти"
 	},
+	"userMenu": {
+		"ariaLabel": "Меню пользователя",
+		"roleDotTitle": "Роль: {role}",
+		"sections": {
+			"admin": "Администрирование"
+		},
+		"items": {
+			"profile": "Профиль",
+			"favorites": "Избранное",
+			"history": "История поиска",
+			"suggestions": "Мои правки",
+			"adminPanel": "Админ-панель",
+			"settings": "Настройки",
+			"logout": "Выйти"
+		},
+		"inline": {
+			"theme": "Тема",
+			"themeDark": "Тёмная",
+			"themeLight": "Светлая",
+			"language": "Язык"
+		},
+		"footer": {
+			"version": "v2.1.0",
+			"brand": "Мотт Ларбе Дошам"
+		},
+		"logoutError": "Не удалось выйти. Попробуйте ещё раз."
+	},
 	"hero": {
 		"badge": "Мотт Ларбе Дошам",
 		"headline": {

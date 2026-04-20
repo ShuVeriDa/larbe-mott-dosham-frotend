@@ -28,10 +28,11 @@ export function useCurrentUser() {
   });
 }
 
-export function useUserStats() {
+export function useUserStats(options: { enabled?: boolean } = {}) {
   return useQuery({
     queryKey: userKeys.stats(),
     queryFn: userApi.getStats,
+    enabled: options.enabled ?? true,
   });
 }
 

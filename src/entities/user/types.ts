@@ -46,6 +46,7 @@ export interface User {
   emailVerifiedAt?: string;
   lastLoggedIn?: string;
   roles: UserRole[];
+  isAdmin: boolean;
   // Preferences
   prefSaveHistory: boolean;
   prefShowExamples: boolean;

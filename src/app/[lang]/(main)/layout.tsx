@@ -19,11 +19,11 @@ export default async function MainLayout({
 	return (
 		<>
 			<DictionaryDataProvider />
-			<Header lang={lang} nav={dict.nav} />
+			<Header lang={lang} nav={dict.nav} userMenu={dict.userMenu} />
 
 			<main className="flex-1">{children}</main>
 			<footer>
-				<Footer footer={dict.footer} />
+				<Footer lang={lang} footer={dict.footer} />
 			</footer>
 		</>
 	);
