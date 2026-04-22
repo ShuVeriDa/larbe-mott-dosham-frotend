@@ -31,8 +31,8 @@ export const ExploreSection: FC<IExploreSectionProps> = ({
 	const popularItems = useMemo(
 		() =>
 			(popular ?? [])
-				.filter(p => p.meaning)
-				.map(p => ({ word: p.query, hint: p.meaning as string })),
+				.filter(p => p.query)
+				.map(p => ({ word: p.query, hint: p.meaning ?? undefined })),
 		[popular],
 	);
 

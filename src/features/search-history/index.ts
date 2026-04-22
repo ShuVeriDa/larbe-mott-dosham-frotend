@@ -1,4 +1,5 @@
 export type {
+  SearchHistoryKind,
   SearchHistoryRecord,
   SearchHistoryParams,
   SearchHistoryResponse,

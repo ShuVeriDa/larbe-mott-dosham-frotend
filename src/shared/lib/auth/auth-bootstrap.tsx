@@ -5,6 +5,7 @@ import { refreshAccessToken } from "@/shared/api";
 import { useQueryClient } from "@tanstack/react-query";
 import { type ReactNode, useEffect, useRef } from "react";
 import { useAuthStore } from "./auth-store";
+import { hasSessionHint } from "./session-hint";
 
 /**
  * Restores the authenticated session on app start by exchanging the
@@ -21,6 +22,10 @@ export const AuthBootstrap = ({ children }: { children: ReactNode }) => {
 		started.current = true;
 
 		const run = async () => {
+			if (!hasSessionHint()) {
+				useAuthStore.getState().setStatus("ready");
+				return;
+			}
 			const result = await refreshAccessToken();
 			if (result) {
 				qc.setQueryData(userKeys.me(), result.user as unknown as User);

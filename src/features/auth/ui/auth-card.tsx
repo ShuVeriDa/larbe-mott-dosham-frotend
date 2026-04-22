@@ -48,13 +48,12 @@ export const AuthCard: FC<AuthCardProps> = ({ dict, lang }) => {
 				{view === "login" && (
 					<LoginForm
 						dict={dict}
-						redirectTo={redirectTo}
 						onForgotPassword={() => setView("reset")}
 					/>
 				)}
 
 				{view === "register" && (
-					<RegisterForm dict={dict} lang={lang} redirectTo={redirectTo} />
+					<RegisterForm dict={dict} lang={lang} />
 				)}
 
 				{view === "reset" && (

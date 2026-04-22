@@ -3,7 +3,6 @@
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
 import { Button, Checkbox, Input } from "@/shared/ui";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { type FC, useActionState, useState } from "react";
 import { toast } from "sonner";
 import { registerSchema } from "../lib/schemas";
@@ -15,7 +14,6 @@ import { PasswordInput } from "./password-input";
 interface RegisterFormProps {
 	dict: Dictionary["auth"];
 	lang: Locale;
-	redirectTo: string;
 }
 
 type FieldKey = "name" | "username" | "email" | "password" | "terms";
@@ -26,12 +24,7 @@ type FormState = {
 
 const emptyState: FormState = { fieldErrors: {} };
 
-export const RegisterForm: FC<RegisterFormProps> = ({
-	dict,
-	lang,
-	redirectTo,
-}) => {
-	const router = useRouter();
+export const RegisterForm: FC<RegisterFormProps> = ({ dict, lang }) => {
 	const register = useRegister();
 	const pickMessage = useAuthErrorMessage(dict.errors);
 	const [agreed, setAgreed] = useState(false);
@@ -62,8 +55,6 @@ export const RegisterForm: FC<RegisterFormProps> = ({
 					email: parsed.data.email,
 					password: parsed.data.password,
 				});
-				router.replace(redirectTo);
-				router.refresh();
 				return emptyState;
 			} catch (error) {
 				toast.error(pickMessage(error));

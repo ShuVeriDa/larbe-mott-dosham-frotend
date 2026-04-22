@@ -1,4 +1,5 @@
 import { create } from "../store/create-store";
+import { clearSessionHint, markHasSession } from "./session-hint";
 
 export type AuthStatus = "loading" | "ready";
 
@@ -12,6 +13,10 @@ type AuthState = {
 export const useAuthStore = create<AuthState>((set) => ({
 	accessToken: null,
 	status: "loading",
-	setAccessToken: (token) => set({ accessToken: token }),
+	setAccessToken: (token) => {
+		if (token) markHasSession();
+		else clearSessionHint();
+		set({ accessToken: token });
+	},
 	setStatus: (status) => set({ status }),
 }));

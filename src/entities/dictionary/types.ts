@@ -91,20 +91,22 @@ export interface DictionarySearchResult {
 	score?: number;
 }
 
-export interface DeclensionParadigm {
-	nomSg?: string;
-	genSg?: string;
-	datSg?: string;
-	ergSg?: string;
-	instSg?: string;
-	locSg?: string;
-	nomPl?: string;
-	[key: string]: string | undefined;
+export interface DeclensionCaseSet {
+	nominative: string;
+	genitive: string;
+	dative: string;
+	ergative: string;
+	instrumental: string;
+	substantive: string;
+	locative: string;
+	comparative: string;
 }
 
 export interface DeclensionResult {
 	word: string;
-	paradigm: DeclensionParadigm;
+	declensionType: number;
+	singular: DeclensionCaseSet;
+	plural: DeclensionCaseSet | null;
 }
 
 export interface LemmatizeResult {
@@ -112,9 +114,51 @@ export interface LemmatizeResult {
 	[key: string]: unknown;
 }
 
+export interface ConjugationBaseForms {
+	present: string | null;
+	recentPast: string | null;
+	perfect: string | null;
+}
+
+export interface ConjugationTenses {
+	presentSimple: string | null;
+	presentCompound: string | null;
+	recentPast: string | null;
+	evidentialPast: string | null;
+	perfect: string | null;
+	remotePast: string | null;
+	pastImperfective: string | null;
+	futurePossible: string | null;
+	futureFactual: string | null;
+}
+
+export interface ConjugationParticiples {
+	present: string | null;
+	past: string | null;
+	gerundPresent: string | null;
+	gerundPast: string | null;
+	masdar: string | null;
+}
+
+export interface ConjugationImperative {
+	basic: string | null;
+	polite: string | null;
+	politePlural: string | null;
+}
+
+export interface ConjugationNegation {
+	present: string | null;
+	imperative: string | null;
+}
+
 export interface ConjugationResult {
 	word: string;
-	conjugations: Record<string, Record<string, string>>;
+	conjugationType: string;
+	baseForms: ConjugationBaseForms;
+	tenses: ConjugationTenses;
+	participles: ConjugationParticiples;
+	imperative: ConjugationImperative;
+	negation: ConjugationNegation;
 }
 
 export interface DictionaryStatsDomain {
@@ -158,6 +202,17 @@ export interface PopularQuery {
 	meaning: string | null;
 }
 
+/**
+ * Top phraseology query (без `lang` — все запросы по фразеологии чеченские).
+ * `meaning` — `definitionNah` первой PhraseologyEntry, чей `canonicalNormalized`
+ * совпадает с нормализованным запросом (или `null`).
+ */
+export interface PopularPhraseologyQuery {
+	query: string;
+	count: number;
+	meaning: string | null;
+}
+
 // ---------------------------------------------------------------------------
 // Search
 // ---------------------------------------------------------------------------
@@ -194,6 +249,9 @@ export interface SearchResult {
 
 export interface PhraseologyParams extends PaginationParams {
 	q?: string;
+	source?: string;
+	/** Точный поиск — строгое совпадение по `canonicalNormalized`. */
+	exact?: boolean;
 }
 
 export interface PhraseologyMeta {
@@ -201,10 +259,41 @@ export interface PhraseologyMeta {
 	limit: number;
 	offset: number;
 	q: string | null;
+	source: string | null;
+	exact: boolean;
+}
+
+/**
+ * Standalone phraseology entry — `PhraseologyEntry` table on the backend.
+ * Отдельная сущность, не связана с `DictionaryEntry.phraseology` (JSONB).
+ */
+export interface PhraseologyEntry {
+	id: number;
+	/** Человекочитаемая форма со скобками: "Болатан (тIулган; дог) дегнаш". */
+	canonical: string;
+	/** Lowercase без диакритики и скобок — используется для поиска на бэке. */
+	canonicalNormalized: string;
+	/** Толкование на чеченском. */
+	definitionNah: string;
+	/** Опциональный русский перевод. */
+	definitionRu?: string | null;
+	/** Оригинальная строка со слешами (`/.../`) — для reference. */
+	raw: string;
+	/** `true` если в canonical/definition есть альтернативы (нужна ревизия). */
+	hasVariants: boolean;
+	/** Редактор прошёлся и проверил запись вручную. */
+	reviewed: boolean;
+	/** Slug источника — напр. "ibragimov-phraseology". */
+	source: string;
+	manuallyEdited?: boolean;
+	createdAt?: string;
+	updatedAt?: string;
+	/** trigram similarity score (только при поиске с `q`). */
+	score?: number;
 }
 
 export interface PhraseologyResult {
-	data: DictionarySearchResult[];
+	data: PhraseologyEntry[];
 	meta: PhraseologyMeta;
 }
 

@@ -6,7 +6,8 @@
       "Bash(npx tsc:*)"
     ],
     "additionalDirectories": [
-      "F:\\programming\\mott-larbe\\design_for_main_mott-larbe\\pages"
+      "F:\\programming\\mott-larbe\\design_for_main_mott-larbe\\pages",
+      "f:\\programming\\mott-larbe\\dosham\\frontend"
     ]
   }
 }

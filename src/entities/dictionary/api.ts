@@ -12,6 +12,7 @@ import type {
 	LemmatizeResult,
 	PhraseologyParams,
 	PhraseologyResult,
+	PopularPhraseologyQuery,
 	PopularQuery,
 	SearchParams,
 	SearchResult,
@@ -102,6 +103,13 @@ export const dictionaryApi = {
 		const { data } = await apiClient.get<PhraseologyResult>(
 			"/dictionary/phraseology",
 			{ params },
+		);
+		return data;
+	},
+
+	async getPopularPhraseology(): Promise<PopularPhraseologyQuery[]> {
+		const { data } = await apiClient.get<PopularPhraseologyQuery[]>(
+			"/dictionary/phraseology/popular",
 		);
 		return data;
 	},

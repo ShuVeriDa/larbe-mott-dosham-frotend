@@ -138,6 +138,70 @@
 			"noun": "noun"
 		}
 	},
+	"phraseology": {
+		"placeholder": "Enter a word or expression…",
+		"button": "Search",
+		"clear": "Clear input",
+		"variantsBadge": "variants",
+		"exact": {
+			"label": "Exact match",
+			"hint": "Only return phraseology entries whose canonical form matches exactly"
+		},
+		"hero": {
+			"icon": "💬",
+			"title": "Phraseology",
+			"subtitle": "Search set expressions and idioms of the Chechen language"
+		},
+		"hints": {
+			"label": "Try:",
+			"words": ["дог", "корта", "ког", "лам"]
+		},
+		"explore": {
+			"label": "Popular expressions",
+			"tabs": {
+				"popular": "Popular",
+				"recent": "Recent"
+			},
+			"recent": {
+				"empty": "Your search history is empty",
+				"loginCta": "Sign in to see your search history",
+				"loginLink": "Sign in"
+			},
+			"items": [
+				{ "expression": "Доккха дог", "meaning": "proud, arrogant" },
+				{ "expression": "Дашо корта", "meaning": "wise, beautiful" },
+				{ "expression": "Когана маса", "meaning": "moving fast" },
+				{ "expression": "Болатан дегнаш", "meaning": "strong-hearted" },
+				{ "expression": "Са цIена", "meaning": "pure-souled" },
+				{ "expression": "Ву боху цIе", "meaning": "in name only" }
+			]
+		},
+		"results": {
+			"foundPrefix": "Found",
+			"foundSuffix": "phraseology entries for",
+			"browseLabel": "Total phraseology entries:"
+		},
+		"empty": {
+			"icon": "💬",
+			"title": "No phraseology found",
+			"text": "Nothing matches \"{q}\". Try a different word or search the",
+			"dictionaryLink": "dictionary",
+			"newSearch": "New search"
+		},
+		"pagination": {
+			"prev": "Previous",
+			"next": "Next",
+			"pageOf": "Page {page} of {total}"
+		},
+		"error": {
+			"title": "Failed to load",
+			"text": "Could not fetch phraseology. Please try again.",
+			"retry": "Retry",
+			"offline": "No connection to the server",
+			"rateLimit": "Too many requests. Please wait a moment.",
+			"server": "Server error. Please try again later."
+		}
+	},
 	"popularWords": {
 		"label": "Popular words",
 		"tabs": {
@@ -434,6 +498,136 @@
 		"actions": {
 			"openDictionary": "Open dictionary",
 			"learnMore": "Learn more"
+		}
+	},
+	"entry": {
+		"meta": {
+			"titleSuffix": "Dosham",
+			"descriptionTemplate": "{word} — {meanings}. Meanings, phraseology, declension, conjugation and sources in the unified Chechen dictionary."
+		},
+		"breadcrumbs": {
+			"home": "Home",
+			"dictionary": "Dictionary"
+		},
+		"hero": {
+			"variantsLabel": "Variants:",
+			"pronunciationLabel": "Pronunciation",
+			"pronunciationHint": "Pronunciation (coming soon)",
+			"favoriteAdd": "Add to favorites",
+			"favoriteRemove": "In favorites",
+			"edit": "Edit",
+			"editAriaLabel": "Suggest an edit"
+		},
+		"tabs": {
+			"meanings": "Meanings",
+			"phraseology": "Phraseology",
+			"citations": "Citations",
+			"declension": "Declension",
+			"conjugation": "Conjugation",
+			"sources": "Sources"
+		},
+		"meanings": {
+			"empty": "No meanings available yet."
+		},
+		"phraseology": {
+			"empty": "No phraseology for this word."
+		},
+		"citations": {
+			"empty": "No citations for this word."
+		},
+		"declension": {
+			"title": "Declension — 8 cases × sg./pl.",
+			"tableCaption": "Declension of {word}",
+			"caseColumn": "Case",
+			"singularColumn": "Singular",
+			"pluralColumn": "Plural",
+			"dash": "—",
+			"typeLabel": "Declension type:",
+			"empty": "Declension is not available for this entry.",
+			"notApplicable": "Declension is only shown for nouns.",
+			"cases": {
+				"nominative": { "ru": "Nominative", "nah": "Цхьалхе" },
+				"genitive": { "ru": "Genitive", "nah": "Доланан" },
+				"dative": { "ru": "Dative", "nah": "Лурийн" },
+				"ergative": { "ru": "Ergative", "nah": "Дечиган" },
+				"instrumental": { "ru": "Instrumental", "nah": "Кочалхо" },
+				"substantive": { "ru": "Substantive", "nah": "Хоттаман" },
+				"locative": { "ru": "Locative", "nah": "Меттиган" },
+				"comparative": { "ru": "Comparative", "nah": "Дустаран" }
+			}
+		},
+		"conjugation": {
+			"intro": "Conjugation is shown for verbs.",
+			"infinitive": "Infinitive:",
+			"notApplicable": "Conjugation is only shown for verbs.",
+			"empty": "Conjugation is not available for this entry.",
+			"tenses": {
+				"title": "Tenses",
+				"form": "Form",
+				"value": "Value",
+				"presentSimple": "Present",
+				"presentCompound": "Present compound",
+				"recentPast": "Recent past",
+				"evidentialPast": "Evidential past",
+				"perfect": "Perfect",
+				"remotePast": "Remote past",
+				"pastImperfective": "Past imperfective",
+				"futurePossible": "Future possible",
+				"futureFactual": "Future factual"
+			},
+			"participles": {
+				"title": "Participles, gerunds",
+				"present": "Present participle",
+				"past": "Past participle",
+				"gerundPresent": "Present gerund",
+				"gerundPast": "Past gerund",
+				"masdar": "Masdar"
+			},
+			"imperative": {
+				"title": "Imperative and negation",
+				"basic": "Imperative",
+				"polite": "Imperative (polite)",
+				"politePlural": "Imperative (polite plural)",
+				"negationPresent": "Present negation",
+				"negationImperative": "Prohibitive"
+			}
+		},
+		"sources": {
+			"empty": "No sources listed."
+		},
+		"suggest": {
+			"title": "Suggest an edit",
+			"wordLabel": "Word:",
+			"fieldLabel": "Field",
+			"newValueLabel": "New value",
+			"newValuePlaceholder": "Type your suggestion…",
+			"commentLabel": "Comment",
+			"commentPlaceholder": "Why should this be changed?",
+			"cancel": "Cancel",
+			"submit": "Submit",
+			"submitting": "Submitting…",
+			"success": "Suggestion sent for review",
+			"error": "Could not send your suggestion. Please try again.",
+			"loginRequired": "Sign in to suggest an edit",
+			"fields": {
+				"meanings": "Meanings",
+				"word": "Word",
+				"nounClass": "Noun class",
+				"partOfSpeech": "Part of speech",
+				"phraseology": "Phraseology",
+				"other": "Other"
+			}
+		},
+		"error": {
+			"title": "Could not load the entry",
+			"text": "Please try again or go back to the dictionary.",
+			"retry": "Retry",
+			"backToSearch": "Back to dictionary"
+		},
+		"notFound": {
+			"title": "Entry not found",
+			"text": "An entry with this ID does not exist or has been removed.",
+			"backToSearch": "Back to dictionary"
 		}
 	}
 }

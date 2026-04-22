@@ -5,9 +5,14 @@ export type {
   Example,
   Citation,
   DeclensionResult,
-  DeclensionParadigm,
+  DeclensionCaseSet,
   LemmatizeResult,
   ConjugationResult,
+  ConjugationBaseForms,
+  ConjugationTenses,
+  ConjugationParticiples,
+  ConjugationImperative,
+  ConjugationNegation,
   DictionaryStats,
   DictionaryStatsDomain,
   DictionaryStatsWordLevel,
@@ -17,9 +22,11 @@ export type {
   SearchParams,
   SearchResult,
   SearchMeta,
+  PhraseologyEntry,
   PhraseologyParams,
   PhraseologyResult,
   PhraseologyMeta,
+  PopularPhraseologyQuery,
   PopularQuery,
   UpdateEntryDto,
   BulkUpdateDto,
@@ -40,20 +47,36 @@ export { dictionaryApi } from "./api";
 export { WordLevelBadge } from "./ui/word-level-badge";
 export type { WordLevelBadgeContent } from "./ui/word-level-badge";
 
-export { EntryCard, HighlightMatch } from "./ui/entry-card";
+export {
+  EntryCard,
+  HighlightMatch,
+  NounClassBadge,
+  SourceBadge,
+  WordLevelTag,
+  NeologismBadge,
+} from "./ui/entry-card";
 export type { EntryCardLabels } from "./ui/entry-card";
+
+export { PhraseCard } from "./ui/phrase-card";
+export type { PhraseCardLabels } from "./ui/phrase-card";
 
 export { DictionaryDataProvider } from "./ui/dictionary-data-provider";
 
 export { useDictionaryStats, useStatsStore } from "./model/stats";
 export { usePosValues, usePosValuesStore } from "./model/pos-values";
 export { usePopularQueries, usePopularStore } from "./model/popular";
+export {
+  usePopularPhraseologyQueries,
+  usePopularPhraseologyStore,
+} from "./model/popular-phraseology";
 export { useSourcesValues, useSourcesStore } from "./model/sources";
 
 export {
   CHECHEN_CASE_FORMS_COUNT,
   CHECHEN_TENSE_FORMS_COUNT,
 } from "./constants";
+
+export { isVerbPos, isNounPos } from "./lib/pos";
 
 export {
   dictionaryKeys,

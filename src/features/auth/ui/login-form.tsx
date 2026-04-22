@@ -2,7 +2,6 @@
 
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Button, Input } from "@/shared/ui";
-import { useRouter } from "next/navigation";
 import { type FC, useActionState } from "react";
 import { toast } from "sonner";
 import { loginSchema } from "../lib/schemas";
@@ -13,7 +12,6 @@ import { PasswordInput } from "./password-input";
 
 interface LoginFormProps {
 	dict: Dictionary["auth"];
-	redirectTo: string;
 	onForgotPassword: () => void;
 }
 
@@ -23,12 +21,7 @@ type FormState = {
 
 const emptyState: FormState = { fieldErrors: {} };
 
-export const LoginForm: FC<LoginFormProps> = ({
-	dict,
-	redirectTo,
-	onForgotPassword,
-}) => {
-	const router = useRouter();
+export const LoginForm: FC<LoginFormProps> = ({ dict, onForgotPassword }) => {
 	const login = useLogin();
 	const pickMessage = useAuthErrorMessage(dict.errors);
 
@@ -50,8 +43,6 @@ export const LoginForm: FC<LoginFormProps> = ({
 
 			try {
 				await login.mutateAsync(parsed.data);
-				router.replace(redirectTo);
-				router.refresh();
 				return emptyState;
 			} catch (error) {
 				toast.error(pickMessage(error));

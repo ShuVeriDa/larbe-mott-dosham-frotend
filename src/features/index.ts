@@ -5,3 +5,4 @@ export * from "./favorites";
 export * from "./search";
 export * from "./search-history";
 export * from "./suggestions";
+export * from "./entry-suggest";

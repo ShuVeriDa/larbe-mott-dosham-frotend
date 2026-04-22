@@ -82,6 +82,7 @@ export const FilterChip = ({
 				className={cn(
 					"absolute top-[calc(100%+6px)] left-1/2 -translate-x-1/2",
 					"min-w-[180px] p-2",
+					"max-h-[280px] overflow-y-auto overscroll-contain",
 					"bg-raised border border-edge rounded-lg",
 					"shadow-lg z-50",
 					"transition-all duration-150 ease-[cubic-bezier(.16,1,.3,1)]",

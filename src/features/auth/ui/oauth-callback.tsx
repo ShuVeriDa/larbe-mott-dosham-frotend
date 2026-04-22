@@ -52,7 +52,6 @@ export const OAuthCallback: FC<OAuthCallbackProps> = ({ dict, lang }) => {
 			{
 				onSuccess: () => {
 					router.replace(returnTo);
-					router.refresh();
 				},
 				onError: err => {
 					setError(pickError(err, dict));

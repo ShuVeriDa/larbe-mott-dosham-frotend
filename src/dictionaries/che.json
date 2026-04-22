@@ -138,6 +138,70 @@
 			"noun": "цӏе дош"
 		}
 	},
+	"phraseology": {
+		"placeholder": "Дош йа цхьаьнакхетар йаздайа…",
+		"button": "Лаха",
+		"clear": "Меттиг цӏанйе",
+		"variantsBadge": "вариантош",
+		"exact": {
+			"label": "Нийса лахар",
+			"hint": "canonical-кеп нийса тера йолу фразеологизмаш бен ца карор"
+		},
+		"hero": {
+			"icon": "💬",
+			"title": "Карчаман Iилма",
+			"subtitle": "Нохчийн меттан карчаман цхьаьнакхетарш а, фразеологизмаш а лаха"
+		},
+		"hints": {
+			"label": "Зе:",
+			"words": ["дог", "корта", "ког", "лам"]
+		},
+		"explore": {
+			"label": "Гулдина цхьаьнакхетарш",
+			"tabs": {
+				"popular": "Гулдина",
+				"recent": "ТӀаьххьарлера"
+			},
+			"recent": {
+				"empty": "Лехаран истори йаьсса йу",
+				"loginCta": "Лехаран истори гайта чуваьлла",
+				"loginLink": "Чувала"
+			},
+			"items": [
+				{ "expression": "Доккха дог", "meaning": "кура, сонта" },
+				{ "expression": "Дашо корта", "meaning": "хьекъале, хаза" },
+				{ "expression": "Когана маса", "meaning": "сиха водуш" },
+				{ "expression": "Болатан дегнаш", "meaning": "чIогIа дегнаш" },
+				{ "expression": "Са цIена", "meaning": "цIенчу хIух" },
+				{ "expression": "Ву боху цIе", "meaning": "цIе хилар бен" }
+			]
+		},
+		"results": {
+			"foundPrefix": "Карийна",
+			"foundSuffix": "фразеологизмаш, лехам:",
+			"browseLabel": "Массо а фразеологизмаш:"
+		},
+		"empty": {
+			"icon": "💬",
+			"title": "Фразеологизмаш ца карийна",
+			"text": "«{q}» лехамца хӏумма ца карийна. Кхин дош зе йа дошамехь лаха —",
+			"dictionaryLink": "дошам",
+			"newSearch": "Керла лахар"
+		},
+		"pagination": {
+			"prev": "Хьалхара",
+			"next": "ТӀедогӀу",
+			"pageOf": "{total} чуьра {page} агӀо"
+		},
+		"error": {
+			"title": "ГӀалат",
+			"text": "Фразеологизмаш йалур дац. Кхин цкъа зе.",
+			"retry": "Юхазе",
+			"offline": "Серверца йухабазбовлар дац",
+			"rateLimit": "Дукха лехамаш. КӀеззиг собар дар.",
+			"server": "Серверан гӀалат. Кхин цкъа зе."
+		}
+	},
 	"popularWords": {
 		"label": "Гулдина дешнаш",
 		"tabs": {
@@ -434,6 +498,137 @@
 		"actions": {
 			"openDictionary": "Дошам схьайиллал",
 			"learnMore": "Дукха йаккхий"
+		}
+	},
+	"entry": {
+		"meta": {
+			"titleSuffix": "Дошам",
+			"descriptionTemplate": "{word} — {meanings}. МаьIнаш, карчаман Iилма, легар, хийцадалар а шинне Нохчийн дашаман чохь."
+		},
+		"breadcrumbs": {
+			"home": "КоьртаагIа",
+			"dictionary": "Дошам"
+		},
+		"hero": {
+			"variantsLabel": "Кепаш:",
+			"pronunciationLabel": "Алар",
+			"pronunciationHint": "Алар (кхоьллуш ю)",
+			"favoriteAdd": "Дукхадезначу",
+			"favoriteRemove": "Дукхадезначуьра",
+			"edit": "Нисдар",
+			"editAriaLabel": "Нисдар йалайла"
+		},
+		"tabs": {
+			"meanings": "МаьIнаш",
+			"phraseology": "Карчаман Iилма",
+			"citations": "Йаздина",
+			"declension": "Легар",
+			"conjugation": "Хийцадалар",
+			"sources": "Хьостанаш"
+		},
+		"meanings": {
+			"empty": "МаьIнаш хIинца тIетохна йац."
+		},
+		"phraseology": {
+			"empty": "ХIокху дашан карчаман Iилма дац."
+		},
+		"citations": {
+			"empty": "ХIокху дашан йаздина мохтар дац."
+		},
+		"declension": {
+			"title": "Легар — 8 дожаран × цхьалхе/дукха",
+			"tableCaption": "{word} дашан легар",
+			"caseColumn": "Дожар",
+			"singularColumn": "Цхьалхе",
+			"pluralColumn": "Дукха",
+			"dash": "—",
+			"typeLabel": "Легаран тайпа:",
+			"empty": "Легар автоматически карийна йац.",
+			"notApplicable": "Легар цIердешнашна бен ца гойту.",
+			"cases": {
+				"nominative": { "ru": "Именительный", "nah": "Цхьалхе" },
+				"genitive": { "ru": "Родительный", "nah": "Доланан" },
+				"dative": { "ru": "Дательный", "nah": "Лурийн" },
+				"ergative": { "ru": "Эргативный", "nah": "Дечиган" },
+				"instrumental": { "ru": "Творительный", "nah": "Кочалхо" },
+				"substantive": { "ru": "Вещественный", "nah": "Хоттаман" },
+				"locative": { "ru": "Местный", "nah": "Меттиган" },
+				"comparative": { "ru": "Сравнительный", "nah": "Дустаран" }
+			}
+		},
+		"conjugation": {
+			"intro": "Хийцадалар хандешнашна гойту.",
+			"infinitive": "Инфинитив:",
+			"notApplicable": "Хийцадалар хандешнашна бен ца гойту.",
+			"empty": "Хийцадалар автоматически карийна йац.",
+			"tenses": {
+				"title": "Хенан кепаш",
+				"form": "Кеп",
+				"value": "МаьIна",
+				"presentSimple": "Карара",
+				"presentCompound": "Карара чолхе",
+				"recentPast": "Йукхадаьлла",
+				"evidentialPast": "Гуш даьлла",
+				"perfect": "ТIехдаьлла",
+				"remotePast": "ГенагIа даьлла",
+				"pastImperfective": "ТIехдаьлла далаза",
+				"futurePossible": "ХуьлучIу хила тарлуш",
+				"futureFactual": "ХуьлучIу хIотталлий"
+			},
+			"participles": {
+				"title": "Коьртадежаш, йукъадежаш",
+				"present": "Карара коьртадеж",
+				"past": "ТIехдаьллачун коьртадеж",
+				"gerundPresent": "Карара йукъадеж",
+				"gerundPast": "ТIехдаьллачун йукъадеж",
+				"masdar": "Масдар"
+			},
+			"imperative": {
+				"title": "Iоттаран а, йоцчу а",
+				"basic": "Iоттаран",
+				"polite": "Iоттаран (ларамаш)",
+				"politePlural": "Iоттаран (ларамаш дукха)",
+				"negationPresent": "Карара йоцчу",
+				"negationImperative": "Тергам"
+			}
+		},
+		"sources": {
+			"empty": "Хьостанаш биллина йац."
+		},
+		"suggest": {
+			"title": "Нисдар йалайла",
+			"wordLabel": "Дош:",
+			"fieldLabel": "Аьрру",
+			"newValueLabel": "Керла маьIна",
+			"newValuePlaceholder": "Предложени йаздейа…",
+			"commentLabel": "Йозанан хаам",
+			"commentPlaceholder": "Стенга дола хIотта деза?",
+			"cancel": "Биллар",
+			"submit": "ДIадахьийта",
+			"submitting": "ДIадахьуш…",
+			"success": "Нисдар дIахьоьшуш йу",
+			"error": "Нисдар дIа а йахьийта ца йелира. ХьаладIайахьийтал."
+			,
+			"loginRequired": "Йукъа валлал нисдар йалайла",
+			"fields": {
+				"meanings": "МаьIнаш",
+				"word": "Дош",
+				"nounClass": "Грамматикин класс",
+				"partOfSpeech": "Дашан дакъа",
+				"phraseology": "Карчаман Iилма",
+				"other": "Кхин"
+			}
+		},
+		"error": {
+			"title": "Мохтар схьаэцна ца белира",
+			"text": "ХьаладIайаха йа дошам тIе йерза.",
+			"retry": "ХьаладIайаха",
+			"backToSearch": "Дошам тIе"
+		},
+		"notFound": {
+			"title": "Дош карийна дац",
+			"text": "ХIара ID берг мохтар йац йа къастийна хIокхуна.",
+			"backToSearch": "Дошам тIе"
 		}
 	}
 }

@@ -1,0 +1,2 @@
+export const DEFAULT_PHRASEOLOGY_LIMIT = 20;
+export const MAX_PHRASEOLOGY_LIMIT = 100;
