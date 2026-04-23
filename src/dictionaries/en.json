@@ -848,6 +848,123 @@
 			"error": "Could not delete account"
 		}
 	},
+	"settings": {
+		"meta": {
+			"title": "Settings — Dosham",
+			"description": "Manage your preferences, privacy and account data"
+		},
+		"loginRequired": {
+			"title": "Sign in required",
+			"text": "Sign in to manage your account settings.",
+			"cta": "Sign in"
+		},
+		"loading": "Loading settings…",
+		"backToProfile": "Profile",
+		"header": {
+			"title": "Settings",
+			"subtitle": "Manage your preferences and privacy"
+		},
+		"nav": {
+			"general": "General",
+			"dictionary": "Dictionary",
+			"notifications": "Notifications",
+			"privacy": "Privacy",
+			"data": "Data"
+		},
+		"general": {
+			"title": "General settings",
+			"appearance": "Appearance",
+			"theme": "Theme",
+			"themeDesc": "Pick the interface colour scheme",
+			"themeLight": "Light",
+			"themeDark": "Dark",
+			"themeSystem": "Auto",
+			"languageGroup": "Interface language",
+			"language": "Language",
+			"languageDesc": "Language of UI elements and hints",
+			"languageRu": "Русский",
+			"languageCe": "Нохчийн",
+			"languageEn": "English",
+			"hotkeysGroup": "Hotkeys",
+			"hotkeys": "Keyboard shortcuts",
+			"hotkeysDesc": "Use Ctrl+K for search, Ctrl+R for a random word"
+		},
+		"dictionary": {
+			"title": "Dictionary settings",
+			"display": "Display",
+			"showExamples": "Show examples",
+			"showExamplesDesc": "Automatically expand examples in a word card",
+			"showGrammar": "Show grammar",
+			"showGrammarDesc": "Declension and conjugation tables are expanded by default",
+			"compactView": "Compact view",
+			"compactViewDesc": "Reduced spacing in result lists",
+			"perPage": "Results per page",
+			"perPageDesc": "Number of entries shown in search results",
+			"defaultLevelGroup": "Default filters",
+			"defaultLevel": "Word level",
+			"defaultLevelDesc": "Filter words by difficulty level",
+			"allLevels": "All levels",
+			"levelA": "A — basic",
+			"levelB": "B — everyday",
+			"levelC": "C — rare"
+		},
+		"notifications": {
+			"title": "Notifications",
+			"emailGroup": "Email notifications",
+			"comingSoon": "Coming soon",
+			"comingSoonDesc": "Email notifications will be available in upcoming releases",
+			"notifySuggestions": "Suggestion status",
+			"notifySuggestionsDesc": "When your proposed edit is approved or rejected",
+			"notifyWordOfDay": "Word of the day",
+			"notifyWordOfDayDesc": "Daily digest with a new word",
+			"notifyDictUpdates": "Dictionary updates",
+			"notifyDictUpdatesDesc": "New entries, changes and improvements"
+		},
+		"privacy": {
+			"title": "Privacy",
+			"activityGroup": "History and activity",
+			"saveHistory": "Save search history",
+			"saveHistoryDesc": "Remember your search queries",
+			"publicProfile": "Show profile publicly",
+			"publicProfileDesc": "Other users will see your username and statistics",
+			"publicFavorites": "Show favorites publicly",
+			"publicFavoritesDesc": "Your favorites list is visible to other users",
+			"clearHistoryButton": "Clear search history",
+			"clearHistorySuccess": "History cleared",
+			"clearHistoryError": "Could not clear history"
+		},
+		"data": {
+			"title": "Data management",
+			"exportGroup": "Export",
+			"exportFavorites": "Favorites",
+			"exportFavoritesDesc": "Export your favorite words list (JSON)",
+			"exportHistory": "Search history",
+			"exportHistoryDesc": "All your search queries (CSV)",
+			"exportSuggestions": "Suggestions",
+			"exportSuggestionsDesc": "Your proposed edits with statuses (JSON)",
+			"exportDownload": "Download",
+			"exportError": "Could not export data",
+			"dangerGroup": "Danger zone",
+			"clearDataTitle": "Clear all data",
+			"clearDataDesc": "Remove favorites, history and suggestions without deleting the account",
+			"clearDataButton": "Clear",
+			"clearDataSuccess": "Data cleared",
+			"clearDataError": "Could not clear data",
+			"deleteAccountTitle": "Delete account",
+			"deleteAccountDesc": "All data will be permanently deleted. This action cannot be undone.",
+			"deleteAccountButton": "Delete"
+		},
+		"clearDataDialog": {
+			"title": "Clear all data?",
+			"text": "Favorites, search history and suggestions will be removed. The account stays.",
+			"cancel": "Cancel",
+			"confirm": "Clear"
+		},
+		"toasts": {
+			"saved": "Saved",
+			"saveError": "Could not save setting"
+		}
+	},
 	"history": {
 		"meta": {
 			"title": "Search history — Dosham",
@@ -911,5 +1028,637 @@
 			"retry": "Retry"
 		},
 		"loading": "Loading history…"
+	},
+	"favoritesPage": {
+		"meta": {
+			"title": "Favorites — Dosham",
+			"description": "Your saved words from the Chechen language dictionary"
+		},
+		"header": {
+			"title": "Favorites",
+			"subtitlePrefix": "Saved words",
+			"countOne": "{count} word",
+			"countFew": "{count} words",
+			"countMany": "{count} words"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Search favorites…",
+			"searchAriaLabel": "Search in favorites",
+			"filtersLabel": "Word level",
+			"filterAll": "All",
+			"filterA": "A",
+			"filterB": "B",
+			"filterC": "C",
+			"sortLabel": "Sort",
+			"sortNewest": "Newest first",
+			"sortOldest": "Oldest first",
+			"sortAlpha": "Alphabetical"
+		},
+		"item": {
+			"addedAt": "Added {date}",
+			"removeAriaLabel": "Remove «{word}» from favorites",
+			"openAriaLabel": "Open entry «{word}»"
+		},
+		"noResults": {
+			"title": "No results",
+			"text": "Try changing the query or filters",
+			"reset": "Reset"
+		},
+		"empty": {
+			"icon": "☆",
+			"title": "No favorites yet",
+			"text": "Add words to favorites by tapping ☆ on any entry",
+			"cta": "Go to dictionary"
+		},
+		"removeDialog": {
+			"title": "Remove from favorites?",
+			"body": "The word «{word}» will be removed from your favorites.",
+			"cancel": "Cancel",
+			"confirm": "Remove"
+		},
+		"toasts": {
+			"itemRemoved": "«{word}» removed from favorites",
+			"removeError": "Could not remove from favorites"
+		},
+		"loginRequired": {
+			"title": "Sign in required",
+			"text": "Sign in to see your saved words.",
+			"cta": "Sign in"
+		},
+		"error": {
+			"title": "Could not load favorites",
+			"text": "Please try again later.",
+			"retry": "Retry"
+		},
+		"loading": "Loading favorites…"
+	},
+	"suggestions": {
+		"meta": {
+			"title": "My suggestions — Dosham",
+			"description": "Edits you have proposed to the Chechen dictionary with moderator feedback and review history"
+		},
+		"header": {
+			"title": "My suggestions",
+			"subtitlePrefix": "Proposed edits to the dictionary",
+			"countOne": "{count} suggestion",
+			"countFew": "{count} suggestions",
+			"countMany": "{count} suggestions"
+		},
+		"stats": {
+			"pending": "Pending",
+			"approved": "Approved",
+			"rejected": "Rejected"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Search suggestions…",
+			"searchAriaLabel": "Search suggestions",
+			"filterLabel": "Filter by status",
+			"filterAll": "All",
+			"filterPending": "⏳ Pending",
+			"filterApproved": "✓ Approved",
+			"filterRejected": "✕ Rejected",
+			"sortLabel": "Sort",
+			"sortNewest": "Newest first",
+			"sortOldest": "Oldest first"
+		},
+		"card": {
+			"wordAriaLabel": "Open entry «{word}»",
+			"statusPending": "Pending",
+			"statusApproved": "Approved",
+			"statusRejected": "Rejected",
+			"statusPendingFull": "⏳ Under review",
+			"statusApprovedFull": "✓ Approved {date}",
+			"statusRejectedFull": "✕ Rejected {date}",
+			"emptyValue": "— empty —",
+			"reviewMeta": "{name} · {date}",
+			"reviewMetaModerator": "Moderator · {date}",
+			"fields": {
+				"meanings": "Meanings",
+				"word": "Word",
+				"nounClass": "Noun class",
+				"partOfSpeech": "Part of speech",
+				"phraseology": "Phraseology",
+				"cefrLevel": "CEFR level",
+				"examples": "Examples",
+				"variants": "Variants"
+			}
+		},
+		"empty": {
+			"icon": "✏️",
+			"title": "No suggestions yet",
+			"text": "You haven't proposed any edits. Find a word in the dictionary and click «Suggest an edit».",
+			"cta": "Go to dictionary"
+		},
+		"noResults": {
+			"icon": "🔍",
+			"title": "Nothing found",
+			"text": "Try changing filters or your query",
+			"reset": "Reset filters"
+		},
+		"error": {
+			"title": "Could not load suggestions",
+			"text": "Please try again later.",
+			"retry": "Retry"
+		},
+		"loginRequired": {
+			"title": "Sign in required",
+			"text": "Sign in to see your suggested edits.",
+			"cta": "Sign in"
+		}
+	},
+	"adminUsers": {
+		"meta": {
+			"title": "Users — Admin — Dosham",
+			"description": "Manage user accounts, roles and access for the Dosham dictionary admin panel"
+		},
+		"header": {
+			"title": "Users",
+			"subtitle": "Manage accounts, roles and access"
+		},
+		"stats": {
+			"total": {
+				"label": "Total users",
+				"sub": "+{count} this month"
+			},
+			"active": {
+				"label": "Active",
+				"sub": "{percent}% of total"
+			},
+			"inactive": {
+				"label": "Inactive",
+				"sub": "Not signed in for 30+ days"
+			},
+			"adminsEditors": {
+				"label": "Admins / Editors",
+				"sub": "{admins} admin, {editors} editor"
+			}
+		},
+		"toolbar": {
+			"searchPlaceholder": "Search by name, email…",
+			"searchAriaLabel": "Search users",
+			"roleLabel": "Role",
+			"roleAll": "All roles",
+			"roleAdmin": "Admin",
+			"roleEditor": "Editor",
+			"roleUser": "User",
+			"statusLabel": "Status",
+			"statusAll": "All statuses",
+			"statusActive": "Active",
+			"statusInactive": "Inactive",
+			"statusBlocked": "Blocked",
+			"export": "Export",
+			"exportAriaLabel": "Export to CSV"
+		},
+		"table": {
+			"user": "User",
+			"username": "Username",
+			"role": "Role",
+			"status": "Status",
+			"registered": "Registered",
+			"lastLogin": "Last login",
+			"actions": "Actions",
+			"never": "never",
+			"sortAsc": "ascending",
+			"sortDesc": "descending",
+			"editAria": "Edit user {name}",
+			"blockAria": "Block user {name}",
+			"unblockAria": "Unblock user {name}",
+			"editLabel": "Edit",
+			"blockLabel": "Block",
+			"unblockLabel": "Unblock"
+		},
+		"roles": {
+			"ADMIN": "Admin",
+			"EDITOR": "Editor",
+			"USER": "User"
+		},
+		"statuses": {
+			"active": "Active",
+			"inactive": "Inactive",
+			"blocked": "Blocked"
+		},
+		"pagination": {
+			"showing": "Showing {from}–{to} of {total}",
+			"prev": "Previous page",
+			"next": "Next page",
+			"page": "Page {page}"
+		},
+		"editDialog": {
+			"title": "Edit user",
+			"titleWithName": "Edit: {name}",
+			"name": "Name",
+			"username": "Username",
+			"email": "Email",
+			"role": "Role",
+			"status": "Status",
+			"save": "Save",
+			"saving": "Saving…",
+			"cancel": "Cancel",
+			"close": "Close"
+		},
+		"blockDialog": {
+			"blockTitle": "Block user?",
+			"unblockTitle": "Unblock user?",
+			"blockBody": "{name} will lose access to their account. This action can be undone.",
+			"unblockBody": "{name} will be able to sign in again.",
+			"reasonLabel": "Reason (optional)",
+			"reasonPlaceholder": "E.g. terms violation",
+			"reasonHint": "Up to 500 characters",
+			"block": "Block",
+			"unblock": "Unblock",
+			"blocking": "Blocking…",
+			"unblocking": "Unblocking…",
+			"cancel": "Cancel"
+		},
+		"toasts": {
+			"updated": "User updated",
+			"blocked": "User blocked",
+			"unblocked": "User unblocked",
+			"exportStarted": "Exporting CSV…",
+			"exportError": "Failed to download CSV",
+			"updateError": "Failed to save changes",
+			"blockError": "Failed to block user",
+			"unblockError": "Failed to unblock user",
+			"noSelfBan": "You can't block yourself"
+		},
+		"empty": {
+			"title": "No users found",
+			"text": "There are no users in the system yet."
+		},
+		"noResults": {
+			"title": "Nothing found",
+			"text": "Try changing your query or resetting the filters.",
+			"reset": "Reset filters"
+		},
+		"error": {
+			"title": "Failed to load data",
+			"text": "Please try again later.",
+			"retry": "Retry"
+		},
+		"loginRequired": {
+			"title": "Sign in required",
+			"text": "Sign in as an administrator to manage users.",
+			"cta": "Sign in"
+		},
+		"forbidden": {
+			"title": "Access denied",
+			"text": "This page is only available to administrators."
+		}
+	},
+	"adminUserDetail": {
+		"meta": {
+			"title": "User detail — Admin — Dosham",
+			"description": "User profile, roles, statistics, active sessions and admin actions"
+		},
+		"breadcrumb": {
+			"aria": "Breadcrumb",
+			"admin": "Admin",
+			"users": "Users"
+		},
+		"header": {
+			"backToList": "Back to list"
+		},
+		"profile": {
+			"title": "Profile",
+			"edit": "Edit",
+			"name": "Name",
+			"username": "Username",
+			"email": "Email",
+			"role": "Role",
+			"save": "Save",
+			"saving": "Saving…",
+			"cancel": "Cancel"
+		},
+		"activity": {
+			"title": "Recent activity",
+			"empty": "No activity yet.",
+			"entry": "entry",
+			"forEntry": "for entry",
+			"types": {
+				"login": "Signed in",
+				"edit": "Edited",
+				"favorite": "Added to favorites",
+				"suggestion": "Sent a suggestion",
+				"ban": "Blocked"
+			}
+		},
+		"dangerZone": {
+			"title": "Danger zone",
+			"block": {
+				"title": "Block user",
+				"desc": "The user won't be able to sign in or use the API",
+				"action": "Block",
+				"loading": "Blocking…"
+			},
+			"unblock": {
+				"title": "Unblock user",
+				"desc": "The user will be able to sign in again",
+				"action": "Unblock",
+				"loading": "Unblocking…"
+			},
+			"resetPassword": {
+				"title": "Reset password",
+				"desc": "Sends an email with a password reset link",
+				"action": "Reset",
+				"loading": "Sending…"
+			},
+			"delete": {
+				"title": "Delete account",
+				"desc": "All user data will be permanently removed",
+				"action": "Delete",
+				"loading": "Deleting…"
+			}
+		},
+		"info": {
+			"title": "Information",
+			"id": "ID",
+			"registered": "Registered",
+			"lastLogin": "Last login",
+			"never": "never",
+			"ip": "IP address",
+			"userAgent": "User Agent",
+			"emailVerified": "Email verification",
+			"verified": "Verified",
+			"notVerified": "Not verified"
+		},
+		"stats": {
+			"title": "Statistics",
+			"favorites": "Words in favorites",
+			"suggestionsTotal": "Suggestions sent",
+			"suggestionsApproved": "Suggestions approved",
+			"entriesEdited": "Entries edited",
+			"searchCount": "Search queries",
+			"activeDaysStreak": "Consecutive active days"
+		},
+		"sessions": {
+			"title": "Active sessions",
+			"empty": "No active sessions.",
+			"revokeAll": "Revoke all",
+			"revokingAll": "Revoking…",
+			"revoke": "Revoke session",
+			"currentSession": "Current session",
+			"live": "Live"
+		},
+		"banDialog": {
+			"title": "Block user?",
+			"body": "{name} (@{username}) will lose access to the system. All active sessions will be terminated.",
+			"reasonLabel": "Reason",
+			"reasonPlaceholder": "Provide a reason…",
+			"cancel": "Cancel",
+			"confirm": "Block",
+			"loading": "Blocking…"
+		},
+		"deleteDialog": {
+			"title": "Delete account?",
+			"body": "All data of {name} will be permanently removed: favorites, history, suggestions and settings.",
+			"warning": "This action cannot be undone.",
+			"cancel": "Cancel",
+			"confirm": "Delete forever",
+			"loading": "Deleting…"
+		},
+		"toasts": {
+			"updated": "Profile updated",
+			"updateError": "Failed to save changes",
+			"blocked": "User blocked",
+			"blockError": "Failed to block user",
+			"unblocked": "User unblocked",
+			"unblockError": "Failed to unblock user",
+			"deleted": "Account deleted",
+			"deleteError": "Failed to delete account",
+			"passwordResetSent": "Reset email sent",
+			"passwordResetError": "Failed to send reset email",
+			"sessionRevoked": "Session revoked",
+			"sessionRevokeError": "Failed to revoke session",
+			"allSessionsRevoked": "All sessions revoked",
+			"noSelfBan": "You can't block yourself",
+			"noSelfDelete": "You can't delete your own account"
+		},
+		"loginRequired": {
+			"title": "Sign in required",
+			"text": "Sign in as an administrator to open the user card.",
+			"cta": "Sign in"
+		},
+		"forbidden": {
+			"title": "Access denied",
+			"text": "This page is only available to administrators."
+		},
+		"error": {
+			"title": "Failed to load user",
+			"text": "Please try again later.",
+			"retry": "Retry"
+		},
+		"notFound": {
+			"title": "User not found",
+			"text": "No user with this ID exists, or they have been deleted.",
+			"backToList": "Back to user list"
+		}
+	},
+	"adminSuggestions": {
+		"meta": {
+			"title": "Suggestion moderation — Admin — Dosham",
+			"description": "Review and moderate edit suggestions proposed by Dosham dictionary users"
+		},
+		"header": {
+			"title": "Suggestion moderation",
+			"subtitle": "Review and moderate edits proposed by dictionary users"
+		},
+		"stats": {
+			"total": "Total",
+			"pending": "Awaiting review",
+			"approved": "Approved",
+			"rejected": "Rejected"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Search by word or author…",
+			"searchAriaLabel": "Search suggestions",
+			"filterLabel": "Filter by status",
+			"filterAll": "All",
+			"filterPending": "⏳ Pending",
+			"filterApproved": "✓ Approved",
+			"filterRejected": "✕ Rejected",
+			"sortLabel": "Sort",
+			"sortNewest": "Newest first",
+			"sortOldest": "Oldest first"
+		},
+		"card": {
+			"wordAriaLabel": "Open entry “{word}”",
+			"entryLink": "↗ Entry",
+			"reject": "✕ Reject",
+			"approve": "✓ Approve",
+			"statusPending": "⏳ Pending",
+			"statusApproved": "✓ Approved",
+			"statusRejected": "✕ Rejected",
+			"statusApprovedAt": "✓ Approved {date}",
+			"statusRejectedAt": "✕ Rejected {date}",
+			"emptyValue": "—",
+			"reviewMeta": "{name} · {date}",
+			"reviewMetaModerator": "Moderator · {date}",
+			"fields": {
+				"meanings": "Meanings",
+				"word": "Word",
+				"nounClass": "Noun class",
+				"partOfSpeech": "Part of speech",
+				"phraseology": "Phraseology",
+				"cefrLevel": "CEFR level",
+				"examples": "Examples",
+				"variants": "Variants"
+			}
+		},
+		"reviewDialog": {
+			"titleApprove": "Approve suggestion?",
+			"titleReject": "Reject suggestion?",
+			"commentLabel": "Moderator comment (optional)",
+			"commentPlaceholder": "Reason for the decision…",
+			"cancel": "Cancel",
+			"confirmApprove": "✓ Approve",
+			"confirmReject": "✕ Reject",
+			"savingApprove": "Approving…",
+			"savingReject": "Rejecting…"
+		},
+		"toasts": {
+			"approved": "“{word}” approved",
+			"rejected": "“{word}” rejected",
+			"approveError": "Failed to approve suggestion",
+			"rejectError": "Failed to reject suggestion"
+		},
+		"empty": {
+			"title": "No suggestions yet",
+			"text": "When users start proposing edits, they will appear here."
+		},
+		"noResults": {
+			"title": "Nothing found",
+			"text": "Try changing filters or your query.",
+			"reset": "Reset filters"
+		},
+		"error": {
+			"title": "Failed to load suggestions",
+			"text": "Please try again later.",
+			"retry": "Retry"
+		},
+		"loginRequired": {
+			"title": "Sign in required",
+			"text": "Sign in as a moderator to review suggestions.",
+			"cta": "Sign in"
+		},
+		"forbidden": {
+			"title": "Access denied",
+			"text": "This page is only available to moderators and administrators."
+		},
+		"pagination": {
+			"showing": "Showing {from}–{to} of {total}",
+			"prev": "Previous page",
+			"next": "Next page",
+			"page": "Page {page}"
+		}
+	},
+	"adminSuggestionDetail": {
+		"meta": {
+			"title": "Suggestion «{word}» — Admin — Dosham",
+			"description": "Review and moderate a proposed edit to the Dosham dictionary"
+		},
+		"breadcrumb": {
+			"dashboard": "Dashboard",
+			"suggestions": "Suggestions",
+			"aria": "Page navigation"
+		},
+		"header": {
+			"subtitle": "Proposed change to the {field} field of entry #{entryId}",
+			"statusPending": "⏳ Awaiting review",
+			"statusApproved": "✓ Approved",
+			"statusRejected": "✕ Rejected",
+			"viewOnSite": "↗ View on site",
+			"editEntry": "✏️ Edit"
+		},
+		"diff": {
+			"cardTitle": "Proposed changes",
+			"textLabel": "Text comparison",
+			"jsonLabel": "JSON",
+			"emptyValue": "— empty —",
+			"commentLabel": "Author's comment",
+			"fields": {
+				"meanings": "Meanings",
+				"word": "Word",
+				"nounClass": "Noun class",
+				"partOfSpeech": "Part of speech",
+				"phraseology": "Phraseology",
+				"cefrLevel": "CEFR level",
+				"examples": "Examples",
+				"variants": "Variants"
+			}
+		},
+		"review": {
+			"title": "Moderator decision",
+			"commentLabel": "Comment (optional)",
+			"commentPlaceholder": "Reason, notes…",
+			"approve": "✓ Approve and apply",
+			"reject": "✕ Reject"
+		},
+		"result": {
+			"approved": "Approved",
+			"rejected": "Rejected",
+			"noComment": "No comment",
+			"byModerator": "Moderator",
+			"metaLine": "{date} · {name}"
+		},
+		"confirm": {
+			"approveTitle": "Approve and apply?",
+			"approveBody": "The change will be applied to entry «{word}» (#{entryId}). The {field} field will be updated.",
+			"rejectTitle": "Reject this suggestion?",
+			"rejectBody": "The suggestion will be rejected. The entry will remain unchanged.",
+			"commentNote": "Comment: «{comment}»",
+			"cancel": "Cancel",
+			"approveConfirm": "✓ Approve",
+			"rejectConfirm": "✕ Reject"
+		},
+		"toast": {
+			"approved": "Suggestion approved and applied",
+			"rejected": "Suggestion rejected",
+			"error": "Failed to save decision"
+		},
+		"info": {
+			"title": "Information",
+			"status": "Status",
+			"author": "Author",
+			"createdAt": "Created",
+			"field": "Field",
+			"entry": "Entry",
+			"suggestionId": "Suggestion ID",
+			"reviewedAt": "Reviewed",
+			"reviewer": "Moderator",
+			"entryLink": "{word} #{entryId}"
+		},
+		"entryPreview": {
+			"title": "Dictionary entry",
+			"nounClassPrefix": "class",
+			"loading": "Loading…",
+			"error": "Failed to load entry",
+			"posNoun": "noun",
+			"posVerb": "verb",
+			"posAdjective": "adj.",
+			"posAdverb": "adv."
+		},
+		"quickActions": {
+			"title": "Actions",
+			"editEntry": "✏️ Edit entry",
+			"auditHistory": "📝 Change history",
+			"authorProfile": "👤 Author profile"
+		},
+		"nav": {
+			"prev": "Previous",
+			"next": "Next"
+		},
+		"states": {
+			"notFoundTitle": "Suggestion not found",
+			"notFoundText": "The requested suggestion does not exist or has been deleted.",
+			"backToList": "← Back to list",
+			"errorTitle": "Failed to load suggestion",
+			"errorText": "Please try again later.",
+			"retry": "Retry",
+			"loginRequiredTitle": "Sign in required",
+			"loginRequiredText": "Sign in as an administrator to review suggestions.",
+			"loginRequiredCta": "Sign in",
+			"forbiddenTitle": "Access denied",
+			"forbiddenText": "This page is only available to administrators and editors."
+		}
 	}
 }

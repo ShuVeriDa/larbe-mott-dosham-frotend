@@ -848,6 +848,123 @@
 			"error": "Аккаунт дIаяккха ца елира"
 		}
 	},
+	"settings": {
+		"meta": {
+			"title": "Нисдарш — Дошам",
+			"description": "ДIахь, хьайн хIуманаш, приватность а аккаунтан хаамаш а"
+		},
+		"loginRequired": {
+			"title": "ДIайаза хьайна деза",
+			"text": "ДIайаза, аккаунтан нисдарш хуьйцуш.",
+			"cta": "ДIайаза"
+		},
+		"loading": "Нисдарш чуйоьду…",
+		"backToProfile": "Профиль",
+		"header": {
+			"title": "Нисдарш",
+			"subtitle": "ДIахь, хьайн хIуманаш а приватность а"
+		},
+		"nav": {
+			"general": "ЧIогIа",
+			"dictionary": "Дошам",
+			"notifications": "Хаамаш",
+			"privacy": "Приватность",
+			"data": "Хаамаш"
+		},
+		"general": {
+			"title": "ЧIогIа нисдарш",
+			"appearance": "Оформлени",
+			"theme": "Тема",
+			"themeDesc": "Интерфейсан бос харжа",
+			"themeLight": "Къегина",
+			"themeDark": "Iаьржа",
+			"themeSystem": "Автоматически",
+			"languageGroup": "Интерфейсан мотт",
+			"language": "Мотт",
+			"languageDesc": "Интерфейсан элементийн мотт",
+			"languageRu": "Русский",
+			"languageCe": "Нохчийн",
+			"languageEn": "English",
+			"hotkeysGroup": "Сиха кнопкаш",
+			"hotkeys": "Сиха кнопкаш",
+			"hotkeysDesc": "Ctrl+K — лахар, Ctrl+R — цхьа дош"
+		},
+		"dictionary": {
+			"title": "Дошаман нисдарш",
+			"display": "Гайтар",
+			"showExamples": "Масалш гайта",
+			"showExamplesDesc": "Дешан карточка чохь масалш автоматически дIадIо",
+			"showGrammar": "Грамматика гайта",
+			"showGrammarDesc": "Склонени/спряжени таблицаш пхьоьха йуьйла",
+			"compactView": "КIезиг йоьза",
+			"compactViewDesc": "Списокаш чохь кIезиг отступаш",
+			"perPage": "Гергарчу агIо тIе",
+			"perPageDesc": "Лахаран жамIехь гайтар долчу хьадарийн терахь",
+			"defaultLevelGroup": "ДIахь фильтраш",
+			"defaultLevel": "Дешан тIегIа",
+			"defaultLevelDesc": "ТIегIанехула дешнаш дIахаржа",
+			"allLevels": "Массо тIегIаш",
+			"levelA": "A — коьрта",
+			"levelB": "B — кажкаьжа",
+			"levelC": "C — тIадам"
+		},
+		"notifications": {
+			"title": "Хаамаш",
+			"emailGroup": "Email-хаамаш",
+			"comingSoon": "ХIинцхьана",
+			"comingSoonDesc": "Email-хаамаш юхалуш долчу обновленешкахь далур",
+			"notifySuggestions": "Хаамаш хьоладар",
+			"notifySuggestionsDesc": "Хьай хаам тIедаккхар я юхо даккхар",
+			"notifyWordOfDay": "Дийнан дош",
+			"notifyWordOfDayDesc": "Масарша дешан рассылка",
+			"notifyDictUpdates": "Дошаман хуьйцамаш",
+			"notifyDictUpdatesDesc": "Керла хаамаш а хуьйцамаш а"
+		},
+		"privacy": {
+			"title": "Приватность",
+			"activityGroup": "Истори а активность а",
+			"saveHistory": "Лахаран истори Iалашъе",
+			"saveHistoryDesc": "Хьай лахар дIа дагадан",
+			"publicProfile": "Профиль массарна гайта",
+			"publicProfileDesc": "Кхечу пайдахоьчашна хьан юзернейм а статистика а гур ю",
+			"publicFavorites": "Дезар гайта",
+			"publicFavoritesDesc": "Дезарийн список кхечарна гур ю",
+			"clearHistoryButton": "Лахаран истори цIанъе",
+			"clearHistorySuccess": "Истори цIанйина",
+			"clearHistoryError": "Истори цIанъян ца елира"
+		},
+		"data": {
+			"title": "Хаамашна дIахь",
+			"exportGroup": "Экспорт",
+			"exportFavorites": "Дезарехь",
+			"exportFavoritesDesc": "Дезарийн список экспорт (JSON)",
+			"exportHistory": "Лахаран истори",
+			"exportHistoryDesc": "Массо лахар (CSV)",
+			"exportSuggestions": "Хаамаш",
+			"exportSuggestionsDesc": "Хьай хаамаш статусашца (JSON)",
+			"exportDownload": "ДIадахьа",
+			"exportError": "Экспорт ца елира",
+			"dangerGroup": "Коьрта зона",
+			"clearDataTitle": "Массо хаамаш цIанъе",
+			"clearDataDesc": "Дезар, истори а хаамаш а цIанъе, аккаунт буьсу",
+			"clearDataButton": "ЦIанъе",
+			"clearDataSuccess": "Хаамаш цIанйина",
+			"clearDataError": "ЦIанъян ца елира",
+			"deleteAccountTitle": "Аккаунт дIаяккха",
+			"deleteAccountDesc": "Массо хаамаш гуттаралц дIадовр ду. ХIара юха ца елло.",
+			"deleteAccountButton": "ДIаяккха"
+		},
+		"clearDataDialog": {
+			"title": "Массо хаамаш цIанъе?",
+			"text": "Дезар, лахаран истори а хаамаш а дIадовр ду. Аккаунт буьсу.",
+			"cancel": "ДIадаккха",
+			"confirm": "ЦIанъе"
+		},
+		"toasts": {
+			"saved": "Ларъина",
+			"saveError": "Нисдар ларде ца елира"
+		}
+	},
 	"history": {
 		"meta": {
 			"title": "Лахаран истори — Дошам",
@@ -911,5 +1028,637 @@
 			"retry": "ХьаладIайаха"
 		},
 		"loading": "Истори чуйоьду…"
+	},
+	"favoritesPage": {
+		"meta": {
+			"title": "Дукхадезнарш — Дошам",
+			"description": "Нохчийн меттан дошам чохь хьай ларйина дешнаш"
+		},
+		"header": {
+			"title": "Дукхадезнарш",
+			"subtitlePrefix": "Ларйина дешнаш",
+			"countOne": "{count} дош",
+			"countFew": "{count} дош",
+			"countMany": "{count} дош"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Дукхадезнарчохь лаха…",
+			"searchAriaLabel": "Дукхадезнарчохь лаха",
+			"filtersLabel": "Дешан дарж",
+			"filterAll": "Массо",
+			"filterA": "A",
+			"filterB": "B",
+			"filterC": "C",
+			"sortLabel": "Дикка хIоттор",
+			"sortNewest": "Хьалха керла",
+			"sortOldest": "Хьалха шира",
+			"sortAlpha": "Алфавитах"
+		},
+		"item": {
+			"addedAt": "Тиллина {date}",
+			"removeAriaLabel": "«{word}» дукхадезнар чуьра дIаяккха",
+			"openAriaLabel": "«{word}» статья схьайилла"
+		},
+		"noResults": {
+			"title": "ХIума ца карийна",
+			"text": "ХьаладIайаха лахар я хIоттарш хийца",
+			"reset": "Юхадерзо"
+		},
+		"empty": {
+			"icon": "☆",
+			"title": "Хаддарехь йац",
+			"text": "☆ карточка тIехь тебжош, дешнаш дукхадезнарех тилла",
+			"cta": "Дошамха дIагIо"
+		},
+		"removeDialog": {
+			"title": "Дукхадезнар чуьра дIаяккха?",
+			"body": "«{word}» дош дукхадезнар чуьра дIадовр ду.",
+			"cancel": "ДIадаккха",
+			"confirm": "ДIаяккха"
+		},
+		"toasts": {
+			"itemRemoved": "«{word}» дукхадезнар чуьра дIаяьккхина",
+			"removeError": "Дукхадезнар чуьра дIаяккха ца елира"
+		},
+		"loginRequired": {
+			"title": "ДIайаза хьайна деза",
+			"text": "Ларйина дешнаш гича, дIайаза.",
+			"cta": "ДIайаза"
+		},
+		"error": {
+			"title": "Дукхадезнарш чуйоьху ца елира",
+			"text": "ХьаладIайаха тIаьхь.",
+			"retry": "ХьаладIайаха"
+		},
+		"loading": "Дукхадезнарш чуйоьду…"
+	},
+	"suggestions": {
+		"meta": {
+			"title": "Сан тIедиллар — Дошам",
+			"description": "Дошам тIехь ахь нисделлачу тIедилларийн список — хIотам, модераторан жоп, истори"
+		},
+		"header": {
+			"title": "Сан тIедиллар",
+			"subtitlePrefix": "Дошам тIехь нисдар",
+			"countOne": "{count} тIедиллар",
+			"countFew": "{count} тIедиллар",
+			"countMany": "{count} тIедилларш"
+		},
+		"stats": {
+			"pending": "Хьежаш ду",
+			"approved": "ДIаэцна",
+			"rejected": "Цаэцна"
+		},
+		"toolbar": {
+			"searchPlaceholder": "ТIедилларш чохь лаха…",
+			"searchAriaLabel": "ТIедилларш чохь лаха",
+			"filterLabel": "ХIотам хIотто",
+			"filterAll": "Массо",
+			"filterPending": "⏳ Хьежаш",
+			"filterApproved": "✓ ДIаэцна",
+			"filterRejected": "✕ Цаэцна",
+			"sortLabel": "Нисдар",
+			"sortNewest": "Керла хьалха",
+			"sortOldest": "Ширриг хьалха"
+		},
+		"card": {
+			"wordAriaLabel": "«{word}» карточка схьа",
+			"statusPending": "Хьежаш",
+			"statusApproved": "ДIаэцна",
+			"statusRejected": "Цаэцна",
+			"statusPendingFull": "⏳ Хьежаш",
+			"statusApprovedFull": "✓ ДIаэцна {date}",
+			"statusRejectedFull": "✕ Цаэцна {date}",
+			"emptyValue": "— йац —",
+			"reviewMeta": "{name} · {date}",
+			"reviewMetaModerator": "Модератор · {date}",
+			"fields": {
+				"meanings": "МаьIнаш",
+				"word": "Дош",
+				"nounClass": "Класс",
+				"partOfSpeech": "Дешан декъ",
+				"phraseology": "Фразеологи",
+				"cefrLevel": "CEFR-дарж",
+				"examples": "Масалш",
+				"variants": "Варианташ"
+			}
+		},
+		"empty": {
+			"icon": "✏️",
+			"title": "ТIедиллар дац",
+			"text": "Ахь хIинццалц тIедилларш ца бина. Дашо чохь дош каре а, «Нисдар тIедилла» лаца.",
+			"cta": "Дошаме дIагIо"
+		},
+		"noResults": {
+			"icon": "🔍",
+			"title": "Ца карийна",
+			"text": "ХIотам йа хIоттар хIетт хIотто",
+			"reset": "ХIоттарш дIадовла"
+		},
+		"error": {
+			"title": "ТIедилларш чуйоьху ца елира",
+			"text": "ХьаладIайаха тIаьхь.",
+			"retry": "ХьаладIайаха"
+		},
+		"loginRequired": {
+			"title": "ДIайаза хьайна деза",
+			"text": "Хьай тIедилларш гича, дIайаза.",
+			"cta": "ДIайаза"
+		}
+	},
+	"adminUsers": {
+		"meta": {
+			"title": "Декъашхой — Админ — Дошам",
+			"description": "Дошам словарь чу декъашхой, царна тIеддина болх а, бакъонаш а толлуш"
+		},
+		"header": {
+			"title": "Декъашхой",
+			"subtitle": "Аккаунташ, бакъонаш, дIахьедар хIоттор"
+		},
+		"stats": {
+			"total": {
+				"label": "Массо декъашхо",
+				"sub": "+{count} хIокху беттан"
+			},
+			"active": {
+				"label": "Жигара",
+				"sub": "{percent}% массарех"
+			},
+			"inactive": {
+				"label": "Жигара боцуш",
+				"sub": "30+ дийнахь дIабахна цаваьхна"
+			},
+			"adminsEditors": {
+				"label": "Админаш / Редактораш",
+				"sub": "{admins} admin, {editors} editor"
+			}
+		},
+		"toolbar": {
+			"searchPlaceholder": "ЦIарца, email-ца лаха…",
+			"searchAriaLabel": "Декъашхой лахар",
+			"roleLabel": "Бакъо",
+			"roleAll": "Массо бакъо",
+			"roleAdmin": "Admin",
+			"roleEditor": "Editor",
+			"roleUser": "User",
+			"statusLabel": "ХIоттам",
+			"statusAll": "Массо хIоттам",
+			"statusActive": "Жигара",
+			"statusInactive": "Жигара боцуш",
+			"statusBlocked": "Сацийна",
+			"export": "Экспорт",
+			"exportAriaLabel": "CSV-аца дIахаъа"
+		},
+		"table": {
+			"user": "Декъашхо",
+			"username": "Username",
+			"role": "Бакъо",
+			"status": "ХIоттам",
+			"registered": "ЯздIайазар",
+			"lastLogin": "Тахалла дIайазар",
+			"actions": "Хьалхадолу",
+			"never": "цкъа а",
+			"sortAsc": "лахарх",
+			"sortDesc": "лекхарх",
+			"editAria": "{name} нисдан",
+			"blockAria": "{name} сацо",
+			"unblockAria": "{name} сацар дIадаккха",
+			"editLabel": "Нисдан",
+			"blockLabel": "Сацо",
+			"unblockLabel": "Сацар дIадаккха"
+		},
+		"roles": {
+			"ADMIN": "Admin",
+			"EDITOR": "Editor",
+			"USER": "User"
+		},
+		"statuses": {
+			"active": "Жигара",
+			"inactive": "Жигара воцуш",
+			"blocked": "Сацийна"
+		},
+		"pagination": {
+			"showing": "Гучуяьлла {from}–{to} {total} тIера",
+			"prev": "Хьалхара аг1о",
+			"next": "Тh1еттoл а аг1о",
+			"page": "АгIо {page}"
+		},
+		"editDialog": {
+			"title": "Декъашхо нисдан",
+			"titleWithName": "Нисдан: {name}",
+			"name": "Цlе",
+			"username": "Username",
+			"email": "Email",
+			"role": "Бакъо",
+			"status": "ХIоттам",
+			"save": "Йазадан",
+			"saving": "Йазайо…",
+			"cancel": "Хьадаккха",
+			"close": "ДIакъовла"
+		},
+		"blockDialog": {
+			"blockTitle": "Декъашхо сацо?",
+			"unblockTitle": "Сацар дIадаккха?",
+			"blockBody": "{name} цуьн аккаунте дIайаза амалш дIахIур ю. Хьадарг кхечу хIума.",
+			"unblockBody": "{name} керла дIайаза мегар ду.",
+			"reasonLabel": "Бахьана (оьшуш яц)",
+			"reasonPlaceholder": "Масала: бакъонаш дIайакхар",
+			"reasonHint": "500 символах ца дешуш",
+			"block": "Сацо",
+			"unblock": "Сацар дIадаккха",
+			"blocking": "Сацош…",
+			"unblocking": "Сацар дIайохуш…",
+			"cancel": "Хьадаккха"
+		},
+		"toasts": {
+			"updated": "Декъашхо керлайина",
+			"blocked": "Декъашхо сацийна",
+			"unblocked": "Декъашхочуьн сацар дIадаьккхина",
+			"exportStarted": "CSV экспорт…",
+			"exportError": "CSV дIахьа ца хилла",
+			"updateError": "Хийцамаш яздан ца хилла",
+			"blockError": "Сацо ца хилла",
+			"unblockError": "Сацар дIадаккха ца хилла",
+			"noSelfBan": "Хьайна хьайн сацо мегар дац"
+		},
+		"empty": {
+			"title": "Декъашхой ца карийна",
+			"text": "Хьалхо системе ца бу декъашхой."
+		},
+		"noResults": {
+			"title": "ХIума ца карийна",
+			"text": "Лахар хийца я фильтраш дIайохкуш зеделахь.",
+			"reset": "Фильтраш дIайохо"
+		},
+		"error": {
+			"title": "Хаамаш ца ялийтаелла",
+			"text": "ХьаладIайаха тIаьхь.",
+			"retry": "ХьаладIайаха"
+		},
+		"loginRequired": {
+			"title": "ДIайаза хьайна деза",
+			"text": "Декъашхошца болх бан админ-ша дIайаза.",
+			"cta": "ДIайаза"
+		},
+		"forbidden": {
+			"title": "ДIахьедар хIоттийна яц",
+			"text": "Хlap аг1о йолуш админашна бен я."
+		}
+	},
+	"adminUserDetail": {
+		"meta": {
+			"title": "Декъашхочун карточка — Админ — Дошам",
+			"description": "Декъашхочун профиль, бакъонаш, статистика, жигара сессеш"
+		},
+		"breadcrumb": {
+			"aria": "АгIонашца нисбар",
+			"admin": "Admin",
+			"users": "Декъашхой"
+		},
+		"header": {
+			"backToList": "Могlаре"
+		},
+		"profile": {
+			"title": "Профиль",
+			"edit": "Нисдан",
+			"name": "Цlе",
+			"username": "Username",
+			"email": "Email",
+			"role": "Бакъо",
+			"save": "Йазадан",
+			"saving": "Йазайо…",
+			"cancel": "Хьадаккха"
+		},
+		"activity": {
+			"title": "Тахана хилла болх",
+			"empty": "Xlинца болх бац.",
+			"entry": "билгало",
+			"forEntry": "билгалонна",
+			"types": {
+				"login": "Систем чу вахна",
+				"edit": "Нисдина",
+				"favorite": "Хаьржинчу тIеюхкина",
+				"suggestion": "ТIедилар дIадахьитина",
+				"ban": "Сацийна"
+			}
+		},
+		"dangerZone": {
+			"title": "Кхерам болу зона",
+			"block": {
+				"title": "Декъашхо сацо",
+				"desc": "Декъашхо систем чу а, API-ца а болх бан мегар вац",
+				"action": "Сацо",
+				"loading": "Сацош…"
+			},
+			"unblock": {
+				"title": "Сацар дIадаккха",
+				"desc": "Декъашхо керла систем чу ван мегар ву",
+				"action": "Сацар дIадаккха",
+				"loading": "Сацар дIадоккхуш…"
+			},
+			"resetPassword": {
+				"title": "Пароль меттахIотто",
+				"desc": "Email чу юьхьигарх долу кехат дIадахьар",
+				"action": "МеттахIотто",
+				"loading": "ДIадахьаш…"
+			},
+			"delete": {
+				"title": "Аккаунт дIадаккха",
+				"desc": "Декъашхочун массо а хаамаш цкъа а ца берзайолуш дIабохур бу",
+				"action": "ДIадаккха",
+				"loading": "ДIабоху…"
+			}
+		},
+		"info": {
+			"title": "Хаамаш",
+			"id": "ID",
+			"registered": "ЯздIайазар",
+			"lastLogin": "Тахалла дIавахар",
+			"never": "цкъа а",
+			"ip": "IP-адрес",
+			"userAgent": "User Agent",
+			"emailVerified": "Email бакъъяр",
+			"verified": "Бакъйина",
+			"notVerified": "Бакъйина яц"
+		},
+		"stats": {
+			"title": "Статистика",
+			"favorites": "Хаьржина дешнаш",
+			"suggestionsTotal": "ДIадахьийтина тIедилларш",
+			"suggestionsApproved": "Тlетаьlйна тIедилларш",
+			"entriesEdited": "Нисйина билгалонаш",
+			"searchCount": "Лахаран хьабIархоьш",
+			"activeDaysStreak": "Мог1арлахь жигара дийнаш"
+		},
+		"sessions": {
+			"title": "Жигара сессеш",
+			"empty": "Жигара сессеш яц.",
+			"revokeAll": "Массо а сацо",
+			"revokingAll": "Сацош…",
+			"revoke": "Сесси сацо",
+			"currentSession": "Xlинцара сесси",
+			"live": "Live"
+		},
+		"banDialog": {
+			"title": "Декъашхо сацо?",
+			"body": "{name} (@{username}) системе дIахьадар дIахьур ду. Массо а жигара сессеш сацор ю.",
+			"reasonLabel": "Сацаран бахьана",
+			"reasonPlaceholder": "Бахьана хьохьа…",
+			"cancel": "Хьадаккха",
+			"confirm": "Сацо",
+			"loading": "Сацош…"
+		},
+		"deleteDialog": {
+			"title": "Аккаунт дIадаккха?",
+			"body": "{name} декъашхочун массо а хаамаш дIабохур бу: хаьржина, историш, тIедилларш, хIоттамаш.",
+			"warning": "ХIара хилам меттабирзобелла хир бац.",
+			"cancel": "Хьадаккха",
+			"confirm": "Даима дIадаккха",
+			"loading": "ДIабоху…"
+		},
+		"toasts": {
+			"updated": "Профиль керлайина",
+			"updateError": "Хийцамаш яздан ца хилла",
+			"blocked": "Декъашхо сацийна",
+			"blockError": "Сацо ца хилла",
+			"unblocked": "Декъашхочуьн сацар дIадаьккхина",
+			"unblockError": "Сацар дIадаккха ца хилла",
+			"deleted": "Аккаунт дIабаьккхина",
+			"deleteError": "Аккаунт дIадаккха ца хилла",
+			"passwordResetSent": "Пароль меттахIотто кехат дахьитина",
+			"passwordResetError": "Кехат дахьитар ца хилла",
+			"sessionRevoked": "Сесси сацийна",
+			"sessionRevokeError": "Сесси сацо ца хилла",
+			"allSessionsRevoked": "Массо сесси сацийна",
+			"noSelfBan": "Хьайна хьайн сацо мегар дац",
+			"noSelfDelete": "Хьайн аккаунт дIадаккха мегар дац"
+		},
+		"loginRequired": {
+			"title": "ДIайаза хьайна деза",
+			"text": "Декъашхочун карточка йаьллча, админ-ша дIайаза.",
+			"cta": "ДIайаза"
+		},
+		"forbidden": {
+			"title": "ДIахьедар хIоттийна яц",
+			"text": "Хlap аг1о йолуш админашна бен я."
+		},
+		"error": {
+			"title": "Декъашхо карор ца хилла",
+			"text": "ХьаладIайаха тIаьхь.",
+			"retry": "ХьаладIайаха"
+		},
+		"notFound": {
+			"title": "Декъашхо ца карийна",
+			"text": "ХIара ID долу декъашхо бац я дIабаьккхина ву.",
+			"backToList": "Декъашхойн могIара"
+		}
+	},
+	"adminSuggestions": {
+		"meta": {
+			"title": "Таклифаш нисдан — Админ — Дошам",
+			"description": "Дошам словарь чу декъашхоша лаьцна таклифаш толлуш, царна ревью йан"
+		},
+		"header": {
+			"title": "Таклифаш нисдан",
+			"subtitle": "Декъашхоша лаьцна таклифаш толлу а, ревью до а"
+		},
+		"stats": {
+			"total": "Массо",
+			"pending": "Ревью хьовсуш",
+			"approved": "ТIеэцна",
+			"rejected": "ТIе ца эцна"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Дешца я автораца лаха…",
+			"searchAriaLabel": "Таклифаш лаха",
+			"filterLabel": "Хlоттамца фильтр",
+			"filterAll": "Массо",
+			"filterPending": "⏳ Хьовсуш",
+			"filterApproved": "✓ ТIеэцна",
+			"filterRejected": "✕ ТIе ца эцна",
+			"sortLabel": "ДIахьажийна",
+			"sortNewest": "Хьалха керлаш",
+			"sortOldest": "Хьалха шираш"
+		},
+		"card": {
+			"wordAriaLabel": "«{word}» статья дIаелла",
+			"entryLink": "↗ Запись",
+			"reject": "✕ ТIе ца эцна",
+			"approve": "✓ ТIеэца",
+			"statusPending": "⏳ Хьовсуш",
+			"statusApproved": "✓ ТIеэцна",
+			"statusRejected": "✕ ТIе ца эцна",
+			"statusApprovedAt": "✓ ТIеэцна {date}",
+			"statusRejectedAt": "✕ ТIе ца эцна {date}",
+			"emptyValue": "—",
+			"reviewMeta": "{name} · {date}",
+			"reviewMetaModerator": "Модератор · {date}",
+			"fields": {
+				"meanings": "МаьIнаш",
+				"word": "Дош",
+				"nounClass": "Класс",
+				"partOfSpeech": "Меттан дакъа",
+				"phraseology": "Фразеологи",
+				"cefrLevel": "CEFR тIегIо",
+				"examples": "Масалш",
+				"variants": "Варианташ"
+			}
+		},
+		"reviewDialog": {
+			"titleApprove": "Таклиф тIеэца?",
+			"titleReject": "Таклиф тIе ца эца?",
+			"commentLabel": "Модераторан комментари (оьшуш яц)",
+			"commentPlaceholder": "Сацамна бахьана…",
+			"cancel": "Хьадаккха",
+			"confirmApprove": "✓ ТIеэца",
+			"confirmReject": "✕ ТIе ца эца",
+			"savingApprove": "ТIеэцош…",
+			"savingReject": "ТIе ца эцош…"
+		},
+		"toasts": {
+			"approved": "«{word}» тIеэцна",
+			"rejected": "«{word}» тIе ца эцна",
+			"approveError": "Таклиф тIеэца ца хилла",
+			"rejectError": "Таклиф тIе ца эца ца хилла"
+		},
+		"empty": {
+			"title": "Таклифаш хIинццалц яц",
+			"text": "Декъашхоша таклифаш ло йолу хан кхаьчча, уьш кхузахь гучуйовр ю."
+		},
+		"noResults": {
+			"title": "ХIума ца карийна",
+			"text": "Фильтраш я лахар хийца зеделахь.",
+			"reset": "Фильтраш дIайохо"
+		},
+		"error": {
+			"title": "Таклифаш ца ялийтаелла",
+			"text": "ХьаладIайаха тIаьхь.",
+			"retry": "ХьаладIайаха"
+		},
+		"loginRequired": {
+			"title": "ДIайаза хьайна деза",
+			"text": "Таклифаш толлу хIотта админ-ша дIайаза.",
+			"cta": "ДIайаза"
+		},
+		"forbidden": {
+			"title": "ДIахьедар хIоттийна яц",
+			"text": "Хlap аг1о йолуш модератораш а, админаш а бен я."
+		},
+		"pagination": {
+			"showing": "Гучуяьлла {from}–{to} {total} тIера",
+			"prev": "Хьалхара агIо",
+			"next": "ТIаьххьара агIо",
+			"page": "АгIо {page}"
+		}
+	},
+	"adminSuggestionDetail": {
+		"meta": {
+			"title": "ТIедиллар «{word}» — Админ — Дошам",
+			"description": "Дошаман нисдар хьажар а, тIечIагIдар а"
+		},
+		"breadcrumb": {
+			"dashboard": "Dashboard",
+			"suggestions": "ТIедилларш",
+			"aria": "АгIонаш"
+		},
+		"header": {
+			"subtitle": "#{entryId} карточка тIехь {field} хIоттам нисдан тIедиллар",
+			"statusPending": "⏳ Хьежаш ду",
+			"statusApproved": "✓ ДIаэцна",
+			"statusRejected": "✕ Цаэцна",
+			"viewOnSite": "↗ Сайте",
+			"editEntry": "✏️ Нисдан"
+		},
+		"diff": {
+			"cardTitle": "Нисдарш",
+			"textLabel": "Текст къасто",
+			"jsonLabel": "JSON",
+			"emptyValue": "— йац —",
+			"commentLabel": "Автор жоп",
+			"fields": {
+				"meanings": "МаьIнаш",
+				"word": "Дош",
+				"nounClass": "Класс",
+				"partOfSpeech": "Дешан декъ",
+				"phraseology": "Фразеологи",
+				"cefrLevel": "CEFR-дарж",
+				"examples": "Масалш",
+				"variants": "Варианташ"
+			}
+		},
+		"review": {
+			"title": "Модераторан сацам",
+			"commentLabel": "Дош (хIоттош йац)",
+			"commentPlaceholder": "Сацаман бахьана…",
+			"approve": "✓ ДIаэца а, лаца а",
+			"reject": "✕ Цаэца"
+		},
+		"result": {
+			"approved": "ДIаэцна",
+			"rejected": "Цаэцна",
+			"noComment": "Дош доцуш",
+			"byModerator": "Модератор",
+			"metaLine": "{date} · {name}"
+		},
+		"confirm": {
+			"approveTitle": "ДIаэца а, лаца а?",
+			"approveBody": "Нисдар «{word}» карточка (#{entryId}) тIе лаьцна хир ду. {field} хIоттам керла хир бу.",
+			"rejectTitle": "ТIедиллар цаэца?",
+			"rejectBody": "ТIедиллар цаэцна хир ду. Карточка хийца йоьжна хир яц.",
+			"commentNote": "Дош: «{comment}»",
+			"cancel": "Сацо",
+			"approveConfirm": "✓ ДIаэца",
+			"rejectConfirm": "✕ Цаэца"
+		},
+		"toast": {
+			"approved": "ТIедиллар дIаэцна а, лаьцна а",
+			"rejected": "ТIедиллар цаэцна",
+			"error": "Сацам бухадIабахана хIоцца ца хилла"
+		},
+		"info": {
+			"title": "Хаам",
+			"status": "ХIотам",
+			"author": "Автор",
+			"createdAt": "Кхоьллина",
+			"field": "ХIоттам",
+			"entry": "Карточка",
+			"suggestionId": "ТIедилларан ID",
+			"reviewedAt": "Хьаьжна",
+			"reviewer": "Модератор",
+			"entryLink": "{word} #{entryId}"
+		},
+		"entryPreview": {
+			"title": "Дошаман карточка",
+			"nounClassPrefix": "класс",
+			"loading": "Чуйоьху…",
+			"error": "Карточка чуйоьху ца елира",
+			"posNoun": "цIерд.",
+			"posVerb": "хан.",
+			"posAdjective": "бил.",
+			"posAdverb": "нар."
+		},
+		"quickActions": {
+			"title": "ДIахьедар",
+			"editEntry": "✏️ Карточка нисдан",
+			"auditHistory": "📝 Хийцаман истори",
+			"authorProfile": "👤 Автор профиль"
+		},
+		"nav": {
+			"prev": "Хьалха",
+			"next": "ТIаьхьа"
+		},
+		"states": {
+			"notFoundTitle": "ТIедиллар ца карийна",
+			"notFoundText": "ХIара ID долу тIедиллар дац я дIадаьккхина ду.",
+			"backToList": "← МогIара",
+			"errorTitle": "ТIедиллар чуйоьху ца елира",
+			"errorText": "ХьаладIайаха тIаьхь.",
+			"retry": "ХьаладIайаха",
+			"loginRequiredTitle": "ДIайаза хьайна деза",
+			"loginRequiredText": "ТIедилларш къастор дан админ санна дIайаза.",
+			"loginRequiredCta": "ДIайаза",
+			"forbiddenTitle": "ДIахьедар хIоттийна яц",
+			"forbiddenText": "Хlap аг1о йолуш админашна а, редакторашна а бен яц."
+		}
 	}
 }

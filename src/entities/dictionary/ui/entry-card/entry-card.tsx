@@ -1,3 +1,4 @@
+import { cn } from "@/shared/lib";
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
 import type { DictionarySearchResult } from "../../types";
@@ -20,6 +21,8 @@ interface EntryCardProps {
 	labels: EntryCardLabels;
 	/** Rendered at the end of the card footer (e.g. favorite toggle). */
 	trailing?: ReactNode;
+	/** Reduces padding and preview lines (see `prefCompactView`). */
+	compact?: boolean;
 }
 
 const MAX_MEANING_PREVIEW = 2;
@@ -38,13 +41,19 @@ export const EntryCard: FC<EntryCardProps> = ({
 	lang,
 	labels,
 	trailing,
+	compact = false,
 }) => {
 	const displayWord = entry.wordAccented || entry.word;
 	const preview = buildPreview(entry);
 	const isNeologism = entry.entryType === "neologism";
 
 	return (
-		<article className="relative bg-surface border border-edge rounded-lg px-5 py-4 transition-[background,border,transform] duration-150 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-surface-hover hover:border-edge-hover hover:translate-x-1">
+		<article
+			className={cn(
+				"relative bg-surface border border-edge rounded-lg transition-[background,border,transform] duration-150 ease-[cubic-bezier(.16,1,.3,1)] hover:bg-surface-hover hover:border-edge-hover hover:translate-x-1",
+				compact ? "px-4 py-2.5" : "px-5 py-4",
+			)}
+		>
 			<Link
 				href={`/${lang}/entry/${entry.id}`}
 				aria-label={displayWord}
@@ -65,7 +74,14 @@ export const EntryCard: FC<EntryCardProps> = ({
 			</header>
 
 			{preview && (
-				<p className="relative text-base text-subtle font-light leading-normal mb-2 line-clamp-2">
+				<p
+					className={cn(
+						"relative text-subtle font-light leading-normal",
+						compact
+							? "text-sm mb-1.5 line-clamp-1"
+							: "text-base mb-2 line-clamp-2",
+					)}
+				>
 					<HighlightMatch text={preview} query={query} />
 				</p>
 			)}

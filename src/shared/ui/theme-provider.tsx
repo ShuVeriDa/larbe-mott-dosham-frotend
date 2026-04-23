@@ -11,7 +11,7 @@ export function ThemeProvider({
 		<NextThemesProvider
 			attribute="data-theme"
 			defaultTheme="dark"
-			enableSystem={false}
+			enableSystem
 			{...props}
 		>
 			{children}

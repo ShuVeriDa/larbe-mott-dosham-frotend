@@ -2,6 +2,7 @@
 
 import type { DictionaryEntry } from "@/entities/dictionary";
 import { isNounPos, isVerbPos } from "@/entities/dictionary";
+import { useCurrentUser } from "@/entities/user";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { cn } from "@/shared/lib";
 import { type FC, useMemo } from "react";
@@ -25,6 +26,10 @@ interface TabDescriptor {
 }
 
 export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict }) => {
+	const { data: user } = useCurrentUser();
+	const showGrammarPref = user?.prefShowGrammar ?? false;
+	const showExamplesPref = user?.prefShowExamples ?? false;
+
 	const isVerb = isVerbPos(entry.partOfSpeech);
 	const isNoun = isNounPos(entry.partOfSpeech);
 
@@ -57,7 +62,16 @@ export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict }) => {
 	}, [entry, dict, isVerb, isNoun]);
 
 	const availableIds = useMemo(() => tabs.map(t => t.id), [tabs]);
-	const { active, setActive } = useEntryTab(availableIds, "meanings");
+
+	const initialTab: EntryTabId = showGrammarPref
+		? isNoun
+			? "declension"
+			: isVerb
+				? "conjugation"
+				: "meanings"
+		: "meanings";
+
+	const { active, setActive } = useEntryTab(availableIds, initialTab);
 
 	const renderPanel = () => {
 		switch (active) {
@@ -66,6 +80,7 @@ export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict }) => {
 					<MeaningsPanel
 						meanings={entry.meanings}
 						emptyLabel={dict.meanings.empty}
+						defaultExamplesOpen={showExamplesPref}
 					/>
 				);
 			case "phraseology":

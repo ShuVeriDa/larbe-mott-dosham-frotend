@@ -1,6 +1,7 @@
 import { EntryCard, type EntryCardLabels } from "@/entities/dictionary";
 import type { DictionarySearchResult } from "@/entities/dictionary";
 import { FavoriteButton } from "@/features/favorites";
+import { cn } from "@/shared/lib";
 import type { FC } from "react";
 
 interface ResultsListProps {
@@ -9,6 +10,7 @@ interface ResultsListProps {
 	lang: string;
 	labels: EntryCardLabels;
 	favoriteLabel: string;
+	compact?: boolean;
 }
 
 export const ResultsList: FC<ResultsListProps> = ({
@@ -17,8 +19,9 @@ export const ResultsList: FC<ResultsListProps> = ({
 	lang,
 	labels,
 	favoriteLabel,
+	compact = false,
 }) => (
-	<div className="flex flex-col gap-3">
+	<div className={cn("flex flex-col", compact ? "gap-1.5" : "gap-3")}>
 		{entries.map(entry => (
 			<EntryCard
 				key={entry.id}
@@ -26,6 +29,7 @@ export const ResultsList: FC<ResultsListProps> = ({
 				query={query}
 				lang={lang}
 				labels={labels}
+				compact={compact}
 				trailing={
 					<FavoriteButton entryId={entry.id} label={favoriteLabel} />
 				}

@@ -1,6 +1,7 @@
 "use client";
 
 import type { SortOrder } from "@/entities/dictionary";
+import { useCurrentUser } from "@/entities/user";
 import {
 	buildSearchParams,
 	useSearchUrlState,
@@ -27,6 +28,8 @@ export const SearchResults: FC<SearchResultsProps> = ({ search, lang }) => {
 	const url = useSearchUrlState();
 	const router = useRouter();
 	const params = useParams<{ lang: string }>();
+	const { data: user } = useCurrentUser();
+	const compact = user?.prefCompactView ?? false;
 
 	const { data, isLoading, isError, error, refetch } = useSearchQuery(url);
 
@@ -92,6 +95,7 @@ export const SearchResults: FC<SearchResultsProps> = ({ search, lang }) => {
 							neologism: search.filters.entryTypes.neologism,
 						}}
 						favoriteLabel={search.results.favorite}
+						compact={compact}
 					/>
 					<Pagination
 						page={url.page}

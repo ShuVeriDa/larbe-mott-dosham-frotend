@@ -1,3 +1,4 @@
+import { userKeys } from "@/entities/user";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { favoritesApi } from "./api";
 
@@ -30,6 +31,8 @@ export function useToggleFavorite() {
     onSuccess: (data, entryId) => {
       qc.setQueryData(favoritesKeys.check(entryId), data);
       qc.invalidateQueries({ queryKey: favoritesKeys.list() });
+      // User stats include `favoritesCount` used by the avatar dropdown badge.
+      qc.invalidateQueries({ queryKey: userKeys.stats() });
     },
   });
 }
@@ -40,6 +43,7 @@ export function useClearFavorites() {
     mutationFn: favoritesApi.clearAll,
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: favoritesKeys.all });
+      qc.invalidateQueries({ queryKey: userKeys.stats() });
     },
   });
 }

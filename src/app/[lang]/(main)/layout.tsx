@@ -1,4 +1,5 @@
 import { DictionaryDataProvider } from "@/entities/dictionary";
+import { PreferencesSync } from "@/features/preferences-sync";
 import { getDictionary, hasLocale } from "@/i18n/dictionaries";
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
@@ -19,6 +20,7 @@ export default async function MainLayout({
 	return (
 		<>
 			<DictionaryDataProvider />
+			<PreferencesSync lang={lang} />
 			<Header lang={lang} nav={dict.nav} userMenu={dict.userMenu} />
 
 			<main className="flex-1">{children}</main>

@@ -848,6 +848,123 @@
 			"error": "Не удалось удалить аккаунт"
 		}
 	},
+	"settings": {
+		"meta": {
+			"title": "Настройки — Дошам",
+			"description": "Управление предпочтениями, приватностью и данными аккаунта"
+		},
+		"loginRequired": {
+			"title": "Требуется вход",
+			"text": "Войдите, чтобы изменить настройки аккаунта.",
+			"cta": "Войти"
+		},
+		"loading": "Загрузка настроек…",
+		"backToProfile": "Профиль",
+		"header": {
+			"title": "Настройки",
+			"subtitle": "Управляйте предпочтениями и конфиденциальностью"
+		},
+		"nav": {
+			"general": "Общие",
+			"dictionary": "Словарь",
+			"notifications": "Уведомления",
+			"privacy": "Приватность",
+			"data": "Данные"
+		},
+		"general": {
+			"title": "Общие настройки",
+			"appearance": "Оформление",
+			"theme": "Тема",
+			"themeDesc": "Выберите цветовую схему интерфейса",
+			"themeLight": "Светлая",
+			"themeDark": "Тёмная",
+			"themeSystem": "Авто",
+			"languageGroup": "Язык интерфейса",
+			"language": "Язык",
+			"languageDesc": "Язык элементов интерфейса и подсказок",
+			"languageRu": "Русский",
+			"languageCe": "Нохчийн",
+			"languageEn": "English",
+			"hotkeysGroup": "Горячие клавиши",
+			"hotkeys": "Горячие клавиши",
+			"hotkeysDesc": "Используйте Ctrl+K для поиска, Ctrl+R для случайного слова"
+		},
+		"dictionary": {
+			"title": "Настройки словаря",
+			"display": "Отображение",
+			"showExamples": "Показывать примеры",
+			"showExamplesDesc": "Автоматически раскрывать примеры в карточке слова",
+			"showGrammar": "Показывать грамматику",
+			"showGrammarDesc": "Таблицы склонения/спряжения по умолчанию раскрыты",
+			"compactView": "Компактный вид",
+			"compactViewDesc": "Уменьшенные отступы в списках результатов",
+			"perPage": "Результатов на странице",
+			"perPageDesc": "Количество записей в поисковой выдаче",
+			"defaultLevelGroup": "Фильтры по умолчанию",
+			"defaultLevel": "Уровень слова",
+			"defaultLevelDesc": "Фильтровать слова по уровню сложности",
+			"allLevels": "Все уровни",
+			"levelA": "A — базовая",
+			"levelB": "B — повседневная",
+			"levelC": "C — редкая"
+		},
+		"notifications": {
+			"title": "Уведомления",
+			"emailGroup": "Email-уведомления",
+			"comingSoon": "Скоро",
+			"comingSoonDesc": "Email-уведомления появятся в ближайших обновлениях",
+			"notifySuggestions": "Статус предложений",
+			"notifySuggestionsDesc": "Когда ваше предложение правки одобрено или отклонено",
+			"notifyWordOfDay": "Слово дня",
+			"notifyWordOfDayDesc": "Ежедневная рассылка с новым словом",
+			"notifyDictUpdates": "Обновления словаря",
+			"notifyDictUpdatesDesc": "Новые записи, изменения и улучшения"
+		},
+		"privacy": {
+			"title": "Приватность",
+			"activityGroup": "История и активность",
+			"saveHistory": "Сохранять историю поиска",
+			"saveHistoryDesc": "Запоминать ваши поисковые запросы",
+			"publicProfile": "Показывать профиль публично",
+			"publicProfileDesc": "Другие пользователи смогут видеть ваш username и статистику",
+			"publicFavorites": "Показывать избранное",
+			"publicFavoritesDesc": "Список избранных слов виден другим пользователям",
+			"clearHistoryButton": "Очистить историю поиска",
+			"clearHistorySuccess": "История очищена",
+			"clearHistoryError": "Не удалось очистить историю"
+		},
+		"data": {
+			"title": "Управление данными",
+			"exportGroup": "Экспорт",
+			"exportFavorites": "Избранное",
+			"exportFavoritesDesc": "Экспорт списка избранных слов (JSON)",
+			"exportHistory": "История поиска",
+			"exportHistoryDesc": "Все ваши поисковые запросы (CSV)",
+			"exportSuggestions": "Предложения правок",
+			"exportSuggestionsDesc": "Ваши предложенные правки со статусами (JSON)",
+			"exportDownload": "Скачать",
+			"exportError": "Не удалось экспортировать данные",
+			"dangerGroup": "Опасная зона",
+			"clearDataTitle": "Очистить все данные",
+			"clearDataDesc": "Удалить избранное, историю и предложения без удаления аккаунта",
+			"clearDataButton": "Очистить",
+			"clearDataSuccess": "Данные очищены",
+			"clearDataError": "Не удалось очистить данные",
+			"deleteAccountTitle": "Удалить аккаунт",
+			"deleteAccountDesc": "Все данные будут удалены навсегда. Это действие необратимо.",
+			"deleteAccountButton": "Удалить"
+		},
+		"clearDataDialog": {
+			"title": "Очистить все данные?",
+			"text": "Избранное, история поиска и предложения правок будут удалены. Аккаунт останется.",
+			"cancel": "Отмена",
+			"confirm": "Очистить"
+		},
+		"toasts": {
+			"saved": "Сохранено",
+			"saveError": "Не удалось сохранить настройку"
+		}
+	},
 	"history": {
 		"meta": {
 			"title": "История поиска — Дошам",
@@ -911,5 +1028,637 @@
 			"retry": "Повторить"
 		},
 		"loading": "Загрузка истории…"
+	},
+	"favoritesPage": {
+		"meta": {
+			"title": "Избранное — Дошам",
+			"description": "Ваши сохранённые слова из словаря чеченского языка"
+		},
+		"header": {
+			"title": "Избранное",
+			"subtitlePrefix": "Сохранённые слова",
+			"countOne": "{count} слово",
+			"countFew": "{count} слова",
+			"countMany": "{count} слов"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Найти в избранном…",
+			"searchAriaLabel": "Поиск в избранном",
+			"filtersLabel": "Уровень слова",
+			"filterAll": "Все",
+			"filterA": "A",
+			"filterB": "B",
+			"filterC": "C",
+			"sortLabel": "Сортировка",
+			"sortNewest": "Сначала новые",
+			"sortOldest": "Сначала старые",
+			"sortAlpha": "По алфавиту"
+		},
+		"item": {
+			"addedAt": "Добавлено {date}",
+			"removeAriaLabel": "Убрать «{word}» из избранного",
+			"openAriaLabel": "Открыть статью «{word}»"
+		},
+		"noResults": {
+			"title": "Ничего не найдено",
+			"text": "Попробуйте изменить запрос или фильтры",
+			"reset": "Сбросить"
+		},
+		"empty": {
+			"icon": "☆",
+			"title": "Пока пусто",
+			"text": "Добавляйте слова в избранное, нажимая ☆ на карточке слова",
+			"cta": "Перейти к словарю"
+		},
+		"removeDialog": {
+			"title": "Убрать из избранного?",
+			"body": "Слово «{word}» будет удалено из избранного.",
+			"cancel": "Отмена",
+			"confirm": "Убрать"
+		},
+		"toasts": {
+			"itemRemoved": "«{word}» убрано из избранного",
+			"removeError": "Не удалось убрать из избранного"
+		},
+		"loginRequired": {
+			"title": "Требуется вход",
+			"text": "Войдите, чтобы видеть сохранённые слова.",
+			"cta": "Войти"
+		},
+		"error": {
+			"title": "Не удалось загрузить избранное",
+			"text": "Попробуйте обновить страницу позже.",
+			"retry": "Повторить"
+		},
+		"loading": "Загрузка избранного…"
+	},
+	"suggestions": {
+		"meta": {
+			"title": "Мои предложения — Дошам",
+			"description": "Предложенные вами правки к словарю чеченского языка: статус, комментарии модераторов и история рассмотрения"
+		},
+		"header": {
+			"title": "Мои предложения",
+			"subtitlePrefix": "Предложенные правки к словарю",
+			"countOne": "{count} правка",
+			"countFew": "{count} правки",
+			"countMany": "{count} правок"
+		},
+		"stats": {
+			"pending": "На рассмотрении",
+			"approved": "Одобрено",
+			"rejected": "Отклонено"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Поиск по предложениям…",
+			"searchAriaLabel": "Поиск по предложениям",
+			"filterLabel": "Фильтр по статусу",
+			"filterAll": "Все",
+			"filterPending": "⏳ Ожидание",
+			"filterApproved": "✓ Одобрено",
+			"filterRejected": "✕ Отклонено",
+			"sortLabel": "Сортировка",
+			"sortNewest": "Сначала новые",
+			"sortOldest": "Сначала старые"
+		},
+		"card": {
+			"wordAriaLabel": "Открыть статью «{word}»",
+			"statusPending": "Ожидание",
+			"statusApproved": "Одобрено",
+			"statusRejected": "Отклонено",
+			"statusPendingFull": "⏳ На рассмотрении",
+			"statusApprovedFull": "✓ Одобрено {date}",
+			"statusRejectedFull": "✕ Отклонено {date}",
+			"emptyValue": "— пусто —",
+			"reviewMeta": "{name} · {date}",
+			"reviewMetaModerator": "Модератор · {date}",
+			"fields": {
+				"meanings": "Значения",
+				"word": "Слово",
+				"nounClass": "Класс",
+				"partOfSpeech": "Часть речи",
+				"phraseology": "Фразеология",
+				"cefrLevel": "Уровень CEFR",
+				"examples": "Примеры",
+				"variants": "Варианты"
+			}
+		},
+		"empty": {
+			"icon": "✏️",
+			"title": "Нет предложений",
+			"text": "Вы ещё не предлагали правок. Найдите слово в словаре и нажмите «Предложить правку».",
+			"cta": "Перейти к словарю"
+		},
+		"noResults": {
+			"icon": "🔍",
+			"title": "Ничего не найдено",
+			"text": "Попробуйте изменить фильтры или запрос",
+			"reset": "Сбросить фильтры"
+		},
+		"error": {
+			"title": "Не удалось загрузить предложения",
+			"text": "Попробуйте обновить страницу позже.",
+			"retry": "Повторить"
+		},
+		"loginRequired": {
+			"title": "Требуется вход",
+			"text": "Войдите, чтобы видеть свои предложения правок.",
+			"cta": "Войти"
+		}
+	},
+	"adminUsers": {
+		"meta": {
+			"title": "Пользователи — Админ — Дошам",
+			"description": "Управление учётными записями, ролями и доступом администраторов словаря Дошам"
+		},
+		"header": {
+			"title": "Пользователи",
+			"subtitle": "Управление учётными записями, ролями и доступом"
+		},
+		"stats": {
+			"total": {
+				"label": "Всего пользователей",
+				"sub": "+{count} за последний месяц"
+			},
+			"active": {
+				"label": "Активные",
+				"sub": "{percent}% от общего числа"
+			},
+			"inactive": {
+				"label": "Неактивные",
+				"sub": "Не входили 30+ дней"
+			},
+			"adminsEditors": {
+				"label": "Админы / Редакторы",
+				"sub": "{admins} admin, {editors} editor"
+			}
+		},
+		"toolbar": {
+			"searchPlaceholder": "Поиск по имени, email…",
+			"searchAriaLabel": "Поиск пользователей",
+			"roleLabel": "Роль",
+			"roleAll": "Все роли",
+			"roleAdmin": "Admin",
+			"roleEditor": "Editor",
+			"roleUser": "User",
+			"statusLabel": "Статус",
+			"statusAll": "Все статусы",
+			"statusActive": "Активные",
+			"statusInactive": "Неактивные",
+			"statusBlocked": "Заблокированные",
+			"export": "Экспорт",
+			"exportAriaLabel": "Экспортировать в CSV"
+		},
+		"table": {
+			"user": "Пользователь",
+			"username": "Username",
+			"role": "Роль",
+			"status": "Статус",
+			"registered": "Регистрация",
+			"lastLogin": "Последний вход",
+			"actions": "Действия",
+			"never": "никогда",
+			"sortAsc": "по возрастанию",
+			"sortDesc": "по убыванию",
+			"editAria": "Редактировать пользователя {name}",
+			"blockAria": "Заблокировать пользователя {name}",
+			"unblockAria": "Разблокировать пользователя {name}",
+			"editLabel": "Редактировать",
+			"blockLabel": "Заблокировать",
+			"unblockLabel": "Разблокировать"
+		},
+		"roles": {
+			"ADMIN": "Admin",
+			"EDITOR": "Editor",
+			"USER": "User"
+		},
+		"statuses": {
+			"active": "Активен",
+			"inactive": "Неактивен",
+			"blocked": "Заблокирован"
+		},
+		"pagination": {
+			"showing": "Показано {from}–{to} из {total}",
+			"prev": "Предыдущая страница",
+			"next": "Следующая страница",
+			"page": "Страница {page}"
+		},
+		"editDialog": {
+			"title": "Редактировать пользователя",
+			"titleWithName": "Редактировать: {name}",
+			"name": "Имя",
+			"username": "Username",
+			"email": "Email",
+			"role": "Роль",
+			"status": "Статус",
+			"save": "Сохранить",
+			"saving": "Сохранение…",
+			"cancel": "Отмена",
+			"close": "Закрыть"
+		},
+		"blockDialog": {
+			"blockTitle": "Заблокировать пользователя?",
+			"unblockTitle": "Разблокировать пользователя?",
+			"blockBody": "Пользователь {name} потеряет доступ к личному кабинету. Это действие можно отменить.",
+			"unblockBody": "Пользователь {name} снова сможет войти в систему.",
+			"reasonLabel": "Причина (опционально)",
+			"reasonPlaceholder": "Например: нарушение правил",
+			"reasonHint": "Не более 500 символов",
+			"block": "Заблокировать",
+			"unblock": "Разблокировать",
+			"blocking": "Блокировка…",
+			"unblocking": "Разблокировка…",
+			"cancel": "Отмена"
+		},
+		"toasts": {
+			"updated": "Пользователь обновлён",
+			"blocked": "Пользователь заблокирован",
+			"unblocked": "Пользователь разблокирован",
+			"exportStarted": "Экспорт CSV…",
+			"exportError": "Не удалось скачать CSV",
+			"updateError": "Не удалось сохранить изменения",
+			"blockError": "Не удалось заблокировать",
+			"unblockError": "Не удалось разблокировать",
+			"noSelfBan": "Нельзя заблокировать самого себя"
+		},
+		"empty": {
+			"title": "Пользователи не найдены",
+			"text": "В системе пока нет ни одного пользователя."
+		},
+		"noResults": {
+			"title": "Ничего не найдено",
+			"text": "Попробуйте изменить запрос или сбросить фильтры.",
+			"reset": "Сбросить фильтры"
+		},
+		"error": {
+			"title": "Не удалось загрузить данные",
+			"text": "Попробуйте обновить страницу позже.",
+			"retry": "Повторить"
+		},
+		"loginRequired": {
+			"title": "Требуется вход",
+			"text": "Войдите как администратор, чтобы управлять пользователями.",
+			"cta": "Войти"
+		},
+		"forbidden": {
+			"title": "Доступ запрещён",
+			"text": "Эта страница доступна только администраторам."
+		}
+	},
+	"adminUserDetail": {
+		"meta": {
+			"title": "Карточка пользователя — Админ — Дошам",
+			"description": "Профиль пользователя, роли, статистика, активные сессии и действия администратора"
+		},
+		"breadcrumb": {
+			"aria": "Навигация по страницам",
+			"admin": "Admin",
+			"users": "Пользователи"
+		},
+		"header": {
+			"backToList": "К списку"
+		},
+		"profile": {
+			"title": "Профиль",
+			"edit": "Редактировать",
+			"name": "Имя",
+			"username": "Username",
+			"email": "Email",
+			"role": "Роль",
+			"save": "Сохранить",
+			"saving": "Сохранение…",
+			"cancel": "Отмена"
+		},
+		"activity": {
+			"title": "Последняя активность",
+			"empty": "Пока нет активности.",
+			"entry": "запись",
+			"forEntry": "для записи",
+			"types": {
+				"login": "Вход в систему",
+				"edit": "Редактировал",
+				"favorite": "Добавил в избранное",
+				"suggestion": "Отправил предложение",
+				"ban": "Заблокирован"
+			}
+		},
+		"dangerZone": {
+			"title": "Опасная зона",
+			"block": {
+				"title": "Заблокировать пользователя",
+				"desc": "Пользователь не сможет войти в систему и использовать API",
+				"action": "Заблокировать",
+				"loading": "Блокировка…"
+			},
+			"unblock": {
+				"title": "Разблокировать пользователя",
+				"desc": "Пользователь снова сможет войти в систему",
+				"action": "Разблокировать",
+				"loading": "Разблокировка…"
+			},
+			"resetPassword": {
+				"title": "Сбросить пароль",
+				"desc": "Отправит письмо со ссылкой для сброса пароля",
+				"action": "Сбросить",
+				"loading": "Отправка…"
+			},
+			"delete": {
+				"title": "Удалить аккаунт",
+				"desc": "Все данные пользователя будут безвозвратно удалены",
+				"action": "Удалить",
+				"loading": "Удаление…"
+			}
+		},
+		"info": {
+			"title": "Информация",
+			"id": "ID",
+			"registered": "Регистрация",
+			"lastLogin": "Последний вход",
+			"never": "никогда",
+			"ip": "IP-адрес",
+			"userAgent": "User Agent",
+			"emailVerified": "Верификация email",
+			"verified": "Подтверждён",
+			"notVerified": "Не подтверждён"
+		},
+		"stats": {
+			"title": "Статистика",
+			"favorites": "Слов в избранном",
+			"suggestionsTotal": "Предложений отправлено",
+			"suggestionsApproved": "Предложений одобрено",
+			"entriesEdited": "Записей отредактировано",
+			"searchCount": "Поисковых запросов",
+			"activeDaysStreak": "Дней подряд активен"
+		},
+		"sessions": {
+			"title": "Активные сессии",
+			"empty": "Активных сессий нет.",
+			"revokeAll": "Завершить все",
+			"revokingAll": "Завершение…",
+			"revoke": "Завершить сессию",
+			"currentSession": "Текущая сессия",
+			"live": "Live"
+		},
+		"banDialog": {
+			"title": "Заблокировать пользователя?",
+			"body": "{name} (@{username}) потеряет доступ к системе. Все активные сессии будут завершены.",
+			"reasonLabel": "Причина блокировки",
+			"reasonPlaceholder": "Укажите причину…",
+			"cancel": "Отмена",
+			"confirm": "Заблокировать",
+			"loading": "Блокировка…"
+		},
+		"deleteDialog": {
+			"title": "Удалить аккаунт?",
+			"body": "Все данные пользователя {name} будут безвозвратно удалены: избранное, история, предложения и настройки.",
+			"warning": "Это действие невозможно отменить.",
+			"cancel": "Отмена",
+			"confirm": "Удалить навсегда",
+			"loading": "Удаление…"
+		},
+		"toasts": {
+			"updated": "Профиль обновлён",
+			"updateError": "Не удалось сохранить изменения",
+			"blocked": "Пользователь заблокирован",
+			"blockError": "Не удалось заблокировать",
+			"unblocked": "Пользователь разблокирован",
+			"unblockError": "Не удалось разблокировать",
+			"deleted": "Аккаунт удалён",
+			"deleteError": "Не удалось удалить аккаунт",
+			"passwordResetSent": "Письмо для сброса отправлено",
+			"passwordResetError": "Не удалось отправить письмо",
+			"sessionRevoked": "Сессия завершена",
+			"sessionRevokeError": "Не удалось завершить сессию",
+			"allSessionsRevoked": "Все сессии завершены",
+			"noSelfBan": "Нельзя заблокировать самого себя",
+			"noSelfDelete": "Нельзя удалить свой аккаунт"
+		},
+		"loginRequired": {
+			"title": "Требуется вход",
+			"text": "Войдите как администратор, чтобы открыть карточку пользователя.",
+			"cta": "Войти"
+		},
+		"forbidden": {
+			"title": "Доступ запрещён",
+			"text": "Эта страница доступна только администраторам."
+		},
+		"error": {
+			"title": "Не удалось загрузить пользователя",
+			"text": "Попробуйте обновить страницу позже.",
+			"retry": "Повторить"
+		},
+		"notFound": {
+			"title": "Пользователь не найден",
+			"text": "Пользователь с таким ID не существует или был удалён.",
+			"backToList": "К списку пользователей"
+		}
+	},
+	"adminSuggestions": {
+		"meta": {
+			"title": "Модерация предложений — Админ — Дошам",
+			"description": "Просмотр и ревью правок, предложенных пользователями словаря Дошам"
+		},
+		"header": {
+			"title": "Модерация предложений",
+			"subtitle": "Просмотр и ревью правок, предложенных пользователями словаря"
+		},
+		"stats": {
+			"total": "Всего",
+			"pending": "Ожидают ревью",
+			"approved": "Одобрено",
+			"rejected": "Отклонено"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Поиск по слову или автору…",
+			"searchAriaLabel": "Поиск предложений",
+			"filterLabel": "Фильтр по статусу",
+			"filterAll": "Все",
+			"filterPending": "⏳ Ожидание",
+			"filterApproved": "✓ Одобрено",
+			"filterRejected": "✕ Отклонено",
+			"sortLabel": "Сортировка",
+			"sortNewest": "Сначала новые",
+			"sortOldest": "Сначала старые"
+		},
+		"card": {
+			"wordAriaLabel": "Открыть статью «{word}»",
+			"entryLink": "↗ Запись",
+			"reject": "✕ Отклонить",
+			"approve": "✓ Одобрить",
+			"statusPending": "⏳ Ожидает",
+			"statusApproved": "✓ Одобрено",
+			"statusRejected": "✕ Отклонено",
+			"statusApprovedAt": "✓ Одобрено {date}",
+			"statusRejectedAt": "✕ Отклонено {date}",
+			"emptyValue": "—",
+			"reviewMeta": "{name} · {date}",
+			"reviewMetaModerator": "Модератор · {date}",
+			"fields": {
+				"meanings": "Значения",
+				"word": "Слово",
+				"nounClass": "Класс",
+				"partOfSpeech": "Часть речи",
+				"phraseology": "Фразеология",
+				"cefrLevel": "Уровень CEFR",
+				"examples": "Примеры",
+				"variants": "Варианты"
+			}
+		},
+		"reviewDialog": {
+			"titleApprove": "Одобрить предложение?",
+			"titleReject": "Отклонить предложение?",
+			"commentLabel": "Комментарий модератора (необязательно)",
+			"commentPlaceholder": "Причина решения…",
+			"cancel": "Отмена",
+			"confirmApprove": "✓ Одобрить",
+			"confirmReject": "✕ Отклонить",
+			"savingApprove": "Одобрение…",
+			"savingReject": "Отклонение…"
+		},
+		"toasts": {
+			"approved": "«{word}» одобрено",
+			"rejected": "«{word}» отклонено",
+			"approveError": "Не удалось одобрить предложение",
+			"rejectError": "Не удалось отклонить предложение"
+		},
+		"empty": {
+			"title": "Предложений пока нет",
+			"text": "Когда пользователи начнут предлагать правки, они появятся здесь."
+		},
+		"noResults": {
+			"title": "Ничего не найдено",
+			"text": "Попробуйте изменить фильтры или запрос",
+			"reset": "Сбросить фильтры"
+		},
+		"error": {
+			"title": "Не удалось загрузить предложения",
+			"text": "Попробуйте обновить страницу позже.",
+			"retry": "Повторить"
+		},
+		"loginRequired": {
+			"title": "Требуется вход",
+			"text": "Войдите как администратор, чтобы просматривать предложения.",
+			"cta": "Войти"
+		},
+		"forbidden": {
+			"title": "Доступ запрещён",
+			"text": "Эта страница доступна только модераторам и администраторам."
+		},
+		"pagination": {
+			"showing": "Показано {from}–{to} из {total}",
+			"prev": "Предыдущая страница",
+			"next": "Следующая страница",
+			"page": "Страница {page}"
+		}
+	},
+	"adminSuggestionDetail": {
+		"meta": {
+			"title": "Предложение «{word}» — Админ — Дошам",
+			"description": "Просмотр и ревью предложенной правки словаря Дошам"
+		},
+		"breadcrumb": {
+			"dashboard": "Dashboard",
+			"suggestions": "Предложения",
+			"aria": "Навигация по страницам"
+		},
+		"header": {
+			"subtitle": "Предложение правки поля {field} для записи #{entryId}",
+			"statusPending": "⏳ Ожидает ревью",
+			"statusApproved": "✓ Одобрено",
+			"statusRejected": "✕ Отклонено",
+			"viewOnSite": "↗ На сайте",
+			"editEntry": "✏️ Редактировать"
+		},
+		"diff": {
+			"cardTitle": "Предлагаемые изменения",
+			"textLabel": "Текстовое сравнение",
+			"jsonLabel": "JSON",
+			"emptyValue": "— пусто —",
+			"commentLabel": "Комментарий автора",
+			"fields": {
+				"meanings": "Значения",
+				"word": "Слово",
+				"nounClass": "Класс",
+				"partOfSpeech": "Часть речи",
+				"phraseology": "Фразеология",
+				"cefrLevel": "Уровень CEFR",
+				"examples": "Примеры",
+				"variants": "Варианты"
+			}
+		},
+		"review": {
+			"title": "Решение модератора",
+			"commentLabel": "Комментарий (необязательно)",
+			"commentPlaceholder": "Причина решения, замечания…",
+			"approve": "✓ Одобрить и применить",
+			"reject": "✕ Отклонить"
+		},
+		"result": {
+			"approved": "Одобрено",
+			"rejected": "Отклонено",
+			"noComment": "Без комментария",
+			"byModerator": "Модератор",
+			"metaLine": "{date} · {name}"
+		},
+		"confirm": {
+			"approveTitle": "Одобрить и применить?",
+			"approveBody": "Правка будет применена к записи «{word}» (#{entryId}). Поле {field} будет обновлено.",
+			"rejectTitle": "Отклонить предложение?",
+			"rejectBody": "Предложение будет отклонено. Запись останется без изменений.",
+			"commentNote": "Комментарий: «{comment}»",
+			"cancel": "Отмена",
+			"approveConfirm": "✓ Одобрить",
+			"rejectConfirm": "✕ Отклонить"
+		},
+		"toast": {
+			"approved": "Предложение одобрено и применено",
+			"rejected": "Предложение отклонено",
+			"error": "Не удалось сохранить решение"
+		},
+		"info": {
+			"title": "Информация",
+			"status": "Статус",
+			"author": "Автор",
+			"createdAt": "Создано",
+			"field": "Поле",
+			"entry": "Запись",
+			"suggestionId": "ID предложения",
+			"reviewedAt": "Рассмотрено",
+			"reviewer": "Модератор",
+			"entryLink": "{word} #{entryId}"
+		},
+		"entryPreview": {
+			"title": "Запись словаря",
+			"nounClassPrefix": "класс",
+			"loading": "Загрузка…",
+			"error": "Не удалось загрузить запись",
+			"posNoun": "сущ.",
+			"posVerb": "гл.",
+			"posAdjective": "прил.",
+			"posAdverb": "нареч."
+		},
+		"quickActions": {
+			"title": "Действия",
+			"editEntry": "✏️ Редактировать запись",
+			"auditHistory": "📝 История изменений",
+			"authorProfile": "👤 Профиль автора"
+		},
+		"nav": {
+			"prev": "Предыдущее",
+			"next": "Следующее"
+		},
+		"states": {
+			"notFoundTitle": "Предложение не найдено",
+			"notFoundText": "Запрошенное предложение не существует или было удалено.",
+			"backToList": "← Назад к списку",
+			"errorTitle": "Не удалось загрузить предложение",
+			"errorText": "Попробуйте обновить страницу позже.",
+			"retry": "Повторить",
+			"loginRequiredTitle": "Требуется вход",
+			"loginRequiredText": "Войдите как администратор, чтобы ревьюить предложения.",
+			"loginRequiredCta": "Войти",
+			"forbiddenTitle": "Доступ запрещён",
+			"forbiddenText": "Эта страница доступна только администраторам и редакторам."
+		}
 	}
 }

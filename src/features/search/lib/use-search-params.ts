@@ -5,6 +5,7 @@ import type {
 	SortOrder,
 	WordLevel,
 } from "@/entities/dictionary";
+import { useCurrentUser } from "@/entities/user";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import type { FilterValues } from "../types";
@@ -44,12 +45,26 @@ export interface SearchUrlState {
 
 export const useSearchUrlState = (): SearchUrlState => {
 	const searchParams = useSearchParams();
+	const { data: user } = useCurrentUser();
+
+	const prefPerPage = user?.prefPerPage;
+	const prefDefaultCefr = user?.prefDefaultCefr;
 
 	return useMemo(() => {
 		const q = searchParams.get("q")?.trim() ?? "";
 
+		const hasLevelParam = searchParams.has("level");
 		const rawLevels = searchParams.getAll("level");
-		const level = rawLevels.filter(isLevel);
+		const urlLevels = rawLevels.filter(isLevel);
+		// Apply user's default CEFR filter only when the URL has no `level`
+		// at all (fresh landing). If the user cleared filters, the URL still
+		// has the `level=` key absent — we accept that edge case.
+		const level =
+			urlLevels.length > 0 || hasLevelParam
+				? urlLevels
+				: prefDefaultCefr
+					? [prefDefaultCefr]
+					: [];
 
 		const pos = searchParams.get("pos") ?? "";
 		const nounClass = searchParams.get("nounClass") ?? "";
@@ -70,11 +85,12 @@ export const useSearchUrlState = (): SearchUrlState => {
 
 		const exact = searchParams.get("exact") === "1";
 
-		const rawLimit = Number(searchParams.get("limit") ?? DEFAULT_LIMIT);
+		const defaultLimit = prefPerPage ?? DEFAULT_LIMIT;
+		const rawLimit = Number(searchParams.get("limit") ?? defaultLimit);
 		const limit =
 			Number.isFinite(rawLimit) && rawLimit > 0 && rawLimit <= 100
 				? Math.floor(rawLimit)
-				: DEFAULT_LIMIT;
+				: defaultLimit;
 
 		const rawPage = Number(searchParams.get("page") ?? 1);
 		const page =
@@ -90,7 +106,7 @@ export const useSearchUrlState = (): SearchUrlState => {
 			offset,
 			page,
 		};
-	}, [searchParams]);
+	}, [searchParams, prefPerPage, prefDefaultCefr]);
 };
 
 export interface BuildUrlOptions {
