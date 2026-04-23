@@ -1660,5 +1660,1229 @@
 			"forbiddenTitle": "Доступ запрещён",
 			"forbiddenText": "Эта страница доступна только администраторам и редакторам."
 		}
+	},
+	"admin": {
+		"shell": {
+			"badge": "ADMIN",
+			"navAriaLabel": "Навигация администратора",
+			"openSidebar": "Открыть меню",
+			"closeSidebar": "Закрыть меню",
+			"backToSite": "← На сайт",
+			"themeDark": "Тёмная тема",
+			"themeLight": "Светлая тема",
+			"sections": {
+				"overview": "Обзор",
+				"data": "Данные",
+				"pipeline": "Пайплайн",
+				"system": "Система"
+			},
+			"items": {
+				"dashboard": "Dashboard",
+				"quality": "Качество данных",
+				"entries": "Записи словаря",
+				"suggestions": "Предложения",
+				"audit": "Аудит-лог",
+				"pipeline": "Управление",
+				"pipelineParse": "Парсинг",
+				"pipelineUnify": "Слияние",
+				"pipelineLoad": "Загрузка",
+				"pipelineImprove": "Очистка",
+				"pipelineRollback": "Откат",
+				"pipelineReset": "Сброс",
+				"users": "Пользователи",
+				"apiKeys": "API-ключи"
+			},
+			"roles": {
+				"admin": "ADMIN",
+				"editor": "EDITOR",
+				"user": "USER"
+			}
+		},
+		"common": {
+			"refresh": "Обновить",
+			"export": "Экспорт",
+			"exportCsv": "Экспорт CSV",
+			"search": "Поиск",
+			"filter": "Фильтр",
+			"reset": "Сбросить",
+			"resetFilters": "Сбросить фильтры",
+			"save": "Сохранить",
+			"cancel": "Отменить",
+			"confirm": "Подтвердить",
+			"delete": "Удалить",
+			"edit": "Редактировать",
+			"close": "Закрыть",
+			"loading": "Загрузка…",
+			"error": "Произошла ошибка",
+			"retry": "Повторить",
+			"empty": "Ничего не найдено",
+			"showAll": "Показать все",
+			"viewOnSite": "↗ На сайте",
+			"history": "📝 История",
+			"previous": "← Предыдущая",
+			"next": "Следующая →",
+			"page": "Страница {page} из {total}",
+			"entriesCount": "{count} записей",
+			"noResults": "По текущим фильтрам ничего не найдено",
+			"loginRequiredTitle": "Требуется вход",
+			"loginRequiredText": "Войдите как администратор, чтобы открыть эту страницу.",
+			"loginRequiredCta": "Войти",
+			"forbiddenTitle": "Доступ запрещён",
+			"forbiddenText": "Эта страница доступна только администраторам."
+		},
+		"dashboard": {
+			"meta": {
+				"title": "Админ-панель — Дошам",
+				"description": "Обзор качества данных словаря Дошам и быстрые действия"
+			},
+			"header": {
+				"title": "Dashboard",
+				"subtitle": "Обзор качества данных и быстрые действия"
+			},
+			"stats": {
+				"totalEntries": "Всего записей",
+				"sourcesCount": "Источников",
+				"noMeanings": "Без значений",
+				"noClass": "Без класса",
+				"noPos": "Без POS",
+				"problemsCount": "С проблемами"
+			},
+			"quality": {
+				"title": "Полнота данных",
+				"ringLabel": "Полнота данных",
+				"description": "Записи без проблем: {clean} из {total}",
+				"breakdownTitle": "Разбивка по проблемам",
+				"jumpTo": "Показать →",
+				"problems": {
+					"noMeanings": {
+						"name": "Без значений",
+						"description": "Нет переводов — нужно добавить"
+					},
+					"noClass": {
+						"name": "Без класса",
+						"description": "Грамм. класс не указан"
+					},
+					"noPos": {
+						"name": "Без POS",
+						"description": "Часть речи не определена"
+					},
+					"noExamples": {
+						"name": "Без примеров",
+						"description": "Отсутствуют примеры употребления"
+					}
+				}
+			},
+			"quickActions": {
+				"title": "Быстрые действия",
+				"fix": {
+					"title": "Исправить записи без значений",
+					"description": "Перейти к списку проблемных записей"
+				},
+				"improve": {
+					"title": "Запустить Improve",
+					"description": "Автоматическая очистка данных"
+				},
+				"review": {
+					"title": "Модерация предложений",
+					"description": "Посмотреть новые правки от пользователей"
+				}
+			},
+			"problems": {
+				"title": "Проблемные записи",
+				"filters": {
+					"all": "Все",
+					"noMeanings": "Без значений",
+					"noClass": "Без класса",
+					"noPos": "Без POS",
+					"noExamples": "Без примеров"
+				},
+				"columns": {
+					"word": "Слово",
+					"source": "Источник",
+					"problems": "Проблемы",
+					"updatedAt": "Обновлено",
+					"actions": "Действия"
+				},
+				"edit": "Править"
+			}
+		},
+		"quality": {
+			"meta": {
+				"title": "Качество данных — Админ — Дошам",
+				"description": "Статистика полноты данных и список проблемных записей словаря"
+			},
+			"header": {
+				"title": "Качество данных",
+				"subtitle": "Статистика полноты данных и список проблемных записей словаря"
+			},
+			"actions": {
+				"refresh": "⟳ Обновить",
+				"refreshing": "Обновление…",
+				"improve": "🧹 Запустить Improve",
+				"export": "⬇ Экспорт CSV",
+				"exporting": "Экспорт…",
+				"problems": "Проблемные записи →"
+			},
+			"stats": {
+				"ofTotal": "от общего",
+				"totalEntries": {
+					"label": "Всего записей",
+					"sub": "{count} источников"
+				},
+				"noMeanings": {
+					"label": "Без значений"
+				},
+				"noClass": {
+					"label": "Без класса"
+				},
+				"noPos": {
+					"label": "Без POS"
+				}
+			},
+			"ring": {
+				"label": "полнота данных",
+				"cleanOf": "Записи без проблем: {clean} из {total}"
+			},
+			"breakdown": {
+				"title": "Детализация проблем",
+				"jumpTo": "Показать →",
+				"rows": {
+					"noMeanings": {
+						"name": "Без значений (meanings)",
+						"description": "Записи без единого определения"
+					},
+					"noClass": {
+						"name": "Без класса (nounClass)",
+						"description": "Не указан грамматический класс"
+					},
+					"noPos": {
+						"name": "Без POS (partOfSpeech)",
+						"description": "Часть речи не определена"
+					},
+					"noExamples": {
+						"name": "Без примеров (examples)",
+						"description": "Нет ни одного примера использования"
+					}
+				}
+			},
+			"sources": {
+				"title": "Качество по источникам",
+				"showAll": "Показать все {count} источников"
+			},
+			"problems": {
+				"title": "Проблемные записи",
+				"filters": {
+					"all": "Все",
+					"noMeanings": "Без значений",
+					"noClass": "Без класса",
+					"noPos": "Без POS",
+					"noExamples": "Без примеров"
+				},
+				"searchPlaceholder": "Искать по слову…",
+				"sourceAll": "Все источники",
+				"columns": {
+					"word": "Слово",
+					"source": "Источник",
+					"problems": "Проблемы",
+					"updatedAt": "Обновлено",
+					"actions": "Действия"
+				},
+				"tags": {
+					"noMeanings": "без значений",
+					"noClass": "без класса",
+					"noPos": "без POS",
+					"noExamples": "без примеров"
+				},
+				"edit": "Править",
+				"emptyTitle": "Нет проблемных записей",
+				"emptyDescription": "По текущим фильтрам ничего не найдено. Попробуйте изменить фильтры или обновите данные.",
+				"pageInfo": "Показано {from}–{to} из {total}"
+			},
+			"toasts": {
+				"refreshSuccess": "Статистика обновлена",
+				"exportSuccess": "CSV экспортирован",
+				"exportError": "Не удалось экспортировать CSV"
+			}
+		},
+		"qualityProblems": {
+			"meta": {
+				"title": "Проблемные записи — Админ — Дошам",
+				"description": "Список записей с проблемами данных — фильтрация, поиск и массовые действия"
+			},
+			"breadcrumb": {
+				"dashboard": "Dashboard",
+				"quality": "Качество данных",
+				"problems": "Проблемные записи"
+			},
+			"header": {
+				"title": "Проблемные записи",
+				"subtitle": "Записи с отсутствующими данными — фильтрация, поиск и массовые действия"
+			},
+			"summary": {
+				"all": "Все проблемы",
+				"noMeanings": "Без значений",
+				"noClass": "Без класса",
+				"noPos": "Без POS",
+				"noExamples": "Без примеров"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Искать по слову…",
+				"clearSearch": "Очистить поиск",
+				"allSources": "Все источники",
+				"sort": {
+					"updated": "Сортировка: по дате",
+					"word": "Сортировка: по слову",
+					"problems": "Сортировка: по кол-ву проблем",
+					"source": "Сортировка: по источнику"
+				},
+				"export": "⬇ Экспорт",
+				"exporting": "Экспорт…",
+				"refresh": "⟳ Обновить"
+			},
+			"bulk": {
+				"countOne": "{count} выбрано",
+				"countFew": "{count} выбрано",
+				"countMany": "{count} выбрано",
+				"selectAllPage": "Выбрать все на странице",
+				"deselectAll": "Снять выбор",
+				"edit": "✏️ Массовое редактирование",
+				"sendImprove": "🧹 Отправить в Improve",
+				"sending": "Отправка…"
+			},
+			"table": {
+				"columns": {
+					"select": "Выбор",
+					"expand": "Подробнее",
+					"word": "Слово",
+					"source": "Источник",
+					"problems": "Проблемы",
+					"updated": "Обновлено",
+					"actions": "Действия"
+				},
+				"edit": "Править",
+				"expandAria": "Показать детали",
+				"empty": {
+					"title": "Нет проблемных записей",
+					"description": "По выбранному фильтру ничего не найдено"
+				}
+			},
+			"tags": {
+				"noMeanings": "⊘ без значений",
+				"noClass": "◇ без класса",
+				"noPos": "◎ без POS",
+				"noExamples": "… без примеров"
+			},
+			"detail": {
+				"meanings": "Значения",
+				"partOfSpeech": "Часть речи",
+				"nounClass": "Грамм. класс",
+				"sources": "Источники",
+				"examples": "Примеры",
+				"emptyMeanings": "Нет значений — необходимо добавить",
+				"emptyPartOfSpeech": "Не определена",
+				"emptyNounClass": "Не указан",
+				"emptyExamples": "Нет примеров — необходимо добавить",
+				"loading": "Загрузка данных…",
+				"loadError": "Не удалось загрузить детали",
+				"actions": {
+					"edit": "✏️ Редактировать запись",
+					"view": "↗ Посмотреть на сайте",
+					"history": "📝 История изменений"
+				}
+			},
+			"pagination": {
+				"info": "Показано {from}–{to} из {total} проблемных записей",
+				"rows": "Строк:",
+				"previous": "Предыдущая",
+				"next": "Следующая"
+			},
+			"toast": {
+				"exported": "Экспортировано {count} записей в CSV",
+				"exportError": "Не удалось экспортировать файл",
+				"refreshed": "Статистика обновлена",
+				"improveSent": "Отправлено в Improve: {count}",
+				"improveError": "Не удалось запустить Improve"
+			},
+			"time": {
+				"justNow": "только что",
+				"minutesAgo": "{count} мин. назад",
+				"hoursAgo": "{count} ч. назад",
+				"yesterday": "вчера",
+				"daysAgo": "{count} дн. назад",
+				"weekAgo": "неделю назад",
+				"weeksAgo": "{count} нед. назад"
+			}
+		},
+		"entries": {
+			"meta": {
+				"title": "Записи словаря — Админ — Дошам",
+				"description": "Управление записями словаря Дошам"
+			},
+			"header": {
+				"title": "Записи словаря",
+				"subtitle": "Поиск, фильтрация и управление записями"
+			},
+			"stats": {
+				"total": "Всего",
+				"nouns": "Существительные",
+				"verbs": "Глаголы",
+				"sources": "Источников",
+				"updatedToday": "Обновлено сегодня"
+			},
+			"actions": {
+				"bulk": "📦 Массовое обновление",
+				"export": "⬇ Экспорт"
+			},
+			"tabs": {
+				"all": "Все",
+				"nouns": "Существительные",
+				"verbs": "Глаголы",
+				"adjectives": "Прилагательные",
+				"adverbs": "Наречия",
+				"other": "Другие"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Поиск по слову, переводу или ID",
+				"allSources": "Все источники",
+				"allCefr": "Все уровни",
+				"allClasses": "Все классы",
+				"sortByRelevance": "По релевантности",
+				"sortByUpdatedAt": "Сначала новые",
+				"sortByWord": "По алфавиту"
+			},
+			"columns": {
+				"word": "Слово",
+				"translation": "Перевод",
+				"pos": "Часть речи",
+				"cefr": "CEFR",
+				"sources": "Источники",
+				"updatedAt": "Обновлено",
+				"actions": "Действия"
+			},
+			"rowActions": {
+				"edit": "Редактировать",
+				"view": "На сайте",
+				"history": "История"
+			},
+			"selectAll": "Выбрать все",
+			"deselectAll": "Снять выбор",
+			"massEdit": "Редактировать выбранные",
+			"delete": "Удалить",
+			"selectedCount": "Выбрано: {count}"
+		},
+		"entriesBulk": {
+			"meta": {
+				"title": "Массовое обновление — Админ — Дошам",
+				"description": "Массовое обновление записей словаря"
+			},
+			"header": {
+				"title": "Массовое обновление",
+				"subtitle": "Выберите записи, укажите операции и просмотрите изменения"
+			},
+			"steps": {
+				"select": "Выбор записей",
+				"operation": "Операция",
+				"preview": "Предпросмотр",
+				"result": "Результат"
+			},
+			"select": {
+				"byIds": "По ID",
+				"bySearch": "Поиск",
+				"byFilter": "По фильтру",
+				"idsPlaceholder": "Введите ID записей (по одному на строке)",
+				"maxHint": "Максимум 100 записей",
+				"selectedCount": "{count} записей выбрано (макс. 100)",
+				"find": "Найти"
+			},
+			"operation": {
+				"warning": "Изменения затронут выбранные записи необратимо",
+				"title": "Операции по полям",
+				"addOperation": "+ Добавить операцию",
+				"field": "Поле",
+				"value": "Значение",
+				"jsonHint": "Поля с JSON принимают валидный JSON-массив или объект"
+			},
+			"preview": {
+				"title": "Предпросмотр изменений",
+				"columns": {
+					"entry": "Запись",
+					"field": "Поле",
+					"before": "Было",
+					"after": "Станет"
+				},
+				"more": "…и ещё {count} записей",
+				"apply": "⚡ Применить"
+			},
+			"result": {
+				"success": "Готово",
+				"stats": {
+					"updated": "Обновлено записей",
+					"fields": "Изменено полей",
+					"skipped": "Пропущено",
+					"elapsed": "Затрачено"
+				}
+			}
+		},
+		"entryEdit": {
+			"meta": {
+				"title": "Редактирование записи — Админ — Дошам",
+				"description": "Редактирование записи словаря"
+			},
+			"breadcrumb": {
+				"entries": "Записи словаря",
+				"edit": "Редактировать"
+			},
+			"header": {
+				"lastUpdate": "Последнее обновление: {date}",
+				"view": "↗ На сайте",
+				"audit": "📝 Аудит",
+				"delete": "🗑 Удалить"
+			},
+			"tabs": {
+				"basic": "Основное",
+				"meanings": "Значения",
+				"grammar": "Грамматика",
+				"phraseology": "Фразеология",
+				"extra": "Дополнительно",
+				"json": "JSON"
+			},
+			"fields": {
+				"word": "Слово",
+				"wordAccented": "С ударением",
+				"partOfSpeech": "Часть речи (рус.)",
+				"partOfSpeechNah": "Часть речи (чеч.)",
+				"nounClass": "Класс ед.ч.",
+				"nounClassPlural": "Класс мн.ч.",
+				"cefrLevel": "CEFR уровень",
+				"entryType": "Тип записи",
+				"domain": "Предметная область",
+				"styleLabel": "Стилистическая помета",
+				"latinName": "Латинское название",
+				"homonymIndex": "Homonym Index",
+				"variants": "Варианты написания",
+				"sources": "Источники",
+				"wordNormalized": "wordNormalized",
+				"createdAt": "Создано",
+				"updatedAt": "Обновлено"
+			},
+			"meanings": {
+				"addMeaning": "+ Добавить значение",
+				"addExample": "+ Добавить пример",
+				"chechenExample": "Пример на чеченском",
+				"russianExample": "Перевод примера",
+				"translation": "Перевод",
+				"visual": "Визуальный",
+				"json": "JSON"
+			},
+			"json": {
+				"format": "Форматировать",
+				"validate": "Проверить",
+				"copy": "Копировать",
+				"valid": "Валидный JSON",
+				"invalid": "Ошибка в JSON"
+			},
+			"saveBar": {
+				"unsaved": "Есть несохранённые изменения",
+				"save": "💾 Сохранить",
+				"cancel": "Отменить"
+			}
+		},
+		"audit": {
+			"meta": {
+				"title": "Аудит-лог — Админ — Дошам",
+				"description": "Лог изменений данных словаря"
+			},
+			"header": {
+				"title": "Аудит-лог",
+				"subtitle": "Все изменения по записям и пайплайну"
+			},
+			"stats": {
+				"today": "Изменений сегодня",
+				"week": "За неделю",
+				"bulk": "Bulk-операций",
+				"pipeline": "Pipeline-действий"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Поиск по слову или ID",
+				"allActions": "Все действия",
+				"allAuthors": "Все авторы",
+				"periods": {
+					"today": "Сегодня",
+					"week": "Неделю",
+					"month": "Месяц",
+					"all": "Всё время"
+				}
+			},
+			"filters": {
+				"all": "Все",
+				"create": "Создания",
+				"update": "Обновления",
+				"delete": "Удаления",
+				"bulk": "Bulk",
+				"pipeline": "Pipeline"
+			},
+			"actions": {
+				"CREATE": "CREATE",
+				"UPDATE": "UPDATE",
+				"DELETE": "DELETE",
+				"BULK": "BULK",
+				"PIPELINE": "PIPELINE"
+			},
+			"revert": "↺ Откат",
+			"jsonDiff": "Полный JSON-diff",
+			"empty": "Пока нет записей в аудит-логе"
+		},
+		"auditEntry": {
+			"meta": {
+				"title": "История записи — Админ — Дошам",
+				"description": "История изменений записи словаря"
+			},
+			"breadcrumb": {
+				"admin": "Admin",
+				"audit": "Аудит-лог"
+			},
+			"header": {
+				"title": "История изменений",
+				"view": "👁 Просмотр",
+				"edit": "✏️ Редактировать"
+			},
+			"summary": {
+				"changesCount": "Изменений",
+				"authors": "Авторов",
+				"sinceCreated": "С создания"
+			},
+			"revert": {
+				"title": "Откатить изменение?",
+				"text": "Будет создано новое изменение в аудит-логе.",
+				"confirm": "Откатить"
+			}
+		},
+		"apiKeys": {
+			"meta": {
+				"title": "API-ключи — Админ — Дошам",
+				"description": "Управление API-ключами доступа к Дошам"
+			},
+			"header": {
+				"title": "API-ключи",
+				"subtitle": "Управление ключами интеграций",
+				"create": "+ Новый ключ"
+			},
+			"stats": {
+				"total": "Всего",
+				"active": "Активные",
+				"revoked": "Отозванные",
+				"expired": "Истёкшие"
+			},
+			"roles": {
+				"readonly": "Read Only",
+				"editor": "Editor",
+				"full": "Full Access",
+				"admin": "Admin"
+			},
+			"roleDescriptions": {
+				"readonly": "Только чтение",
+				"editor": "Чтение и запись",
+				"full": "Полный доступ",
+				"admin": "Администрирование"
+			},
+			"statuses": {
+				"active": "Активен",
+				"revoked": "Отозван",
+				"expired": "Истёк"
+			},
+			"columns": {
+				"name": "Имя ключа",
+				"prefix": "Префикс",
+				"role": "Роль",
+				"status": "Статус",
+				"createdAt": "Создан",
+				"lastUsed": "Последнее использование"
+			},
+			"create": {
+				"title": "Создать API-ключ",
+				"name": "Имя ключа",
+				"namePlaceholder": "Например: Production bot",
+				"role": "Роль",
+				"submit": "Создать",
+				"secretWarning": "⚠️ Сохраните ключ сейчас — он больше не будет показан",
+				"copy": "Копировать",
+				"copied": "Скопировано!"
+			},
+			"revoke": {
+				"title": "Отозвать ключ?",
+				"text": "Ключ «{name}» ({prefix}) перестанет работать.",
+				"confirm": "Отозвать",
+				"cancel": "Отмена"
+			}
+		},
+		"pipeline": {
+			"meta": {
+				"title": "Пайплайн — Админ — Дошам",
+				"description": "Управление конвейером загрузки словаря"
+			},
+			"header": {
+				"title": "Управление пайплайном",
+				"subtitle": "Парсинг словарей, слияние, загрузка в БД и очистка данных"
+			},
+			"status": {
+				"idle": "Пайплайн свободен",
+				"running": "Выполняется: {action}",
+				"done": "Завершено: {action}",
+				"error": "Ошибка: {action}",
+				"lastRun": "Последний запуск: {action} — {time} · {duration}",
+				"justNow": "только что",
+				"secondsAgo": "{seconds} сек назад",
+				"minutesAgo": "{minutes} мин назад",
+				"hoursAgo": "{hours} ч назад"
+			},
+			"stats": {
+				"parsedFiles": "Распарсено файлов",
+				"parsedFilesSub": "из {total} словарей",
+				"unifiedRecords": "Unified записей",
+				"unifiedSub": "{file} · {size}",
+				"inDb": "В базе данных",
+				"dbSub": "PostgreSQL · GIN-индекс",
+				"mergeSteps": "Шагов слияния",
+				"notApplicable": "—"
+			},
+			"nextRec": {
+				"title": "Рекомендуемый следующий шаг",
+				"run": "Запустить",
+				"empty": "Пайплайн полностью выполнен"
+			},
+			"sections": {
+				"actions": "Действия",
+				"dictionaries": "Словари-источники",
+				"log": "Лог слияния"
+			},
+			"actions": {
+				"parse": {
+					"title": "Parse",
+					"description": "Парсинг словаря из исходного файла в JSON",
+					"allOption": "Все словари",
+					"run": "Запустить"
+				},
+				"unify": {
+					"title": "Unify Step",
+					"description": "Слить словарь в unified с дедупликацией по ключу",
+					"run": "Слить",
+					"empty": "Все словари слиты"
+				},
+				"load": {
+					"title": "Load",
+					"description": "Загрузить unified.json в PostgreSQL",
+					"run": "Загрузить"
+				},
+				"improve": {
+					"title": "Improve",
+					"description": "Очистить данные: пустые значения, битые примеры, стили",
+					"run": "Очистить"
+				},
+				"rollback": {
+					"title": "Rollback",
+					"description": "Откатить unified к предыдущему снапшоту",
+					"run": "Откатить",
+					"stepOption": "Шаг {step} — {label}",
+					"empty": "Нет снапшотов"
+				},
+				"reset": {
+					"title": "Reset",
+					"description": "Полный сброс: unified, снапшоты и лог",
+					"run": "Сбросить всё"
+				}
+			},
+			"confirm": {
+				"cancel": "Отмена",
+				"load": {
+					"title": "Загрузить в базу данных?",
+					"text": "unified.json ({count} записей) будет загружен в PostgreSQL. Существующая таблица будет перезаписана.",
+					"confirm": "Загрузить"
+				},
+				"improve": {
+					"title": "Запустить очистку?",
+					"text": "Будет выполнена автоматическая нормализация и удаление битых данных в unified.json. Операция необратима.",
+					"confirm": "Очистить"
+				},
+				"rollback": {
+					"title": "Откатить пайплайн?",
+					"text": "unified будет откачен к: {label}. Все шаги после выбранного будут потеряны.",
+					"confirm": "Откатить"
+				},
+				"reset": {
+					"title": "Полный сброс пайплайна?",
+					"text": "Будут удалены: unified.json, все снапшоты и лог шагов. Это действие необратимо.",
+					"confirm": "Сбросить всё"
+				}
+			},
+			"results": {
+				"parse": "✓ slug: {slug} · sourceCount: {source} · parsedCount: {parsed}",
+				"unify": "✓ newWords: {new} · enrichedWords: {enriched} · totalUnified: {total}",
+				"load": "✓ loaded: {loaded} · skipped: {skipped} · elapsed: {elapsed}s",
+				"improve": "✓ cleaned: {cleaned} · fixedExamples: {fixed} · removedEmpty: {empty}",
+				"rollback": "✓ rolledBackTo: {step} · currentEntries: {count}",
+				"reset": "✓ deletedSnapshots: {snapshots} · freedMb: {freed}",
+				"error": "Ошибка: {message}"
+			},
+			"toasts": {
+				"parseOk": "Parse завершён",
+				"unifyOk": "Unify завершён",
+				"loadOk": "Load завершён",
+				"improveOk": "Improve завершён",
+				"rollbackOk": "Откат выполнен",
+				"resetOk": "Пайплайн сброшен",
+				"statusRefreshed": "Статус обновлён",
+				"logRefreshed": "Лог обновлён",
+				"genericError": "Ошибка операции"
+			},
+			"dictionaries": {
+				"title": "Словари-источники",
+				"empty": "Словари ещё не загружены",
+				"columns": {
+					"number": "#",
+					"name": "Словарь",
+					"direction": "Направление",
+					"records": "Записей",
+					"status": "Статус",
+					"actions": ""
+				},
+				"directions": {
+					"nah-ru": "нах → ру",
+					"ru-nah": "ру → нах"
+				},
+				"statuses": {
+					"merged": "merged",
+					"parsed": "parsed",
+					"pending": "pending",
+					"running": "running",
+					"error": "error"
+				},
+				"actionRun": "Запустить",
+				"actionReparse": "Повторно"
+			},
+			"timeline": {
+				"title": "Лог слияния",
+				"empty": "Нет записей слияния",
+				"stepLabel": "Шаг {step} — {action}",
+				"duration": "{seconds} сек",
+				"stats": {
+					"fromDict": "fromDict: {count}",
+					"new": "new: {count}",
+					"enriched": "enriched: {count}",
+					"total": "total: {count}",
+					"duplicates": "duplicates: {count}",
+					"size": "size: {size}",
+					"missing": "файл отсутствует"
+				}
+			},
+			"log": {
+				"title": "Лог",
+				"empty": "Лог пуст — запустите операцию",
+				"levels": {
+					"info": "INFO",
+					"ok": "OK",
+					"warn": "WARN",
+					"err": "ERR"
+				}
+			}
+		},
+		"pipelineParse": {
+			"meta": {
+				"title": "Парсинг — Пайплайн — Админ — Дошам",
+				"description": "Парсинг исходных словарей в JSON"
+			},
+			"header": {
+				"title": "Парсинг",
+				"subtitle": "Преобразование файлов источников в структурированный JSON"
+			},
+			"run": "▶ Запустить",
+			"selectAll": "Все словари",
+			"confirmTitle": "Запустить парсинг?",
+			"confirmText": "Парсинг {slug} перезапишет предыдущий результат."
+		},
+		"pipelineUnify": {
+			"meta": {
+				"title": "Слияние словарей — Пайплайн — Админ — Дошам",
+				"description": "Пошаговое слияние распарсенных словарей в единый unified.json с дедупликацией и обогащением"
+			},
+			"header": {
+				"title": "Слияние словарей",
+				"subtitle": "Пошаговое слияние распарсенных словарей в единый unified.json с дедупликацией и обогащением записей."
+			},
+			"breadcrumb": {
+				"pipeline": "Пайплайн",
+				"current": "Слияние"
+			},
+			"run": "🔗 Слить",
+			"dedupHint": "Дедупликация по ключу word + homonymIndex + nounClass",
+			"snapshots": "Снапшоты",
+			"current": "Текущий",
+			"rollback": "⏪ Откат",
+			"status": {
+				"idle": "Пайплайн свободен",
+				"running": "Выполняется: {operation}",
+				"done": "Завершено: {operation}",
+				"never": "Слияний ещё не было",
+				"lastRun": "Последнее: {operation} — {time} · {duration} сек",
+				"refresh": "⟳ Обновить",
+				"refreshed": "Статус обновлён"
+			},
+			"stats": {
+				"unifiedEntries": "Unified записей",
+				"unifiedFileSub": "{file} · {size} МБ",
+				"unifiedNotCreated": "unified.json ещё не создан",
+				"newWords": "Новых слов (всего)",
+				"newWordsSub": "уникальных из всех словарей",
+				"enriched": "Обогащённых",
+				"enrichedSub": "дополнены из других источников",
+				"mergeSteps": "Шагов слияния",
+				"mergeStepsSub": "из {total} словарей слито"
+			},
+			"nextRec": {
+				"label": "Рекомендуемый следующий шаг",
+				"value": "unify-step {slug} — словарь ещё не слит",
+				"allDone": "Все словари слиты — unified.json готов",
+				"run": "Слить"
+			},
+			"actionBar": {
+				"label": "Запустить unify-step",
+				"desc": "POST /api/admin/pipeline/unify-step/:slug",
+				"placeholder": "— выберите словарь —",
+				"run": "🔗 Слить",
+				"progress": "Слияние: {slug}…",
+				"progressGeneric": "Слияние…"
+			},
+			"dedup": {
+				"title": "Алгоритм дедупликации",
+				"desc": "Записи объединяются по составному ключу: {keys}. Если запись с таким ключом уже есть в unified — она обогащается (добавляются новые значения, примеры, источники). Если нет — добавляется как новая."
+			},
+			"unifiedFile": {
+				"title": "Файл unified",
+				"entries": "{count} записей",
+				"size": "{size} МБ",
+				"updatedAt": "Обновлён {time}",
+				"stepsCount": "{count} шагов слияния",
+				"notCreated": "Файл ещё не создан — запустите первое слияние"
+			},
+			"table": {
+				"title": "Статус слияния по словарям",
+				"refresh": "⟳ Обновить",
+				"cols": {
+					"num": "#",
+					"dictionary": "Словарь",
+					"fromDict": "Из словаря",
+					"new": "Новых",
+					"enriched": "Обогащ.",
+					"dup": "Дупл.",
+					"status": "Статус",
+					"action": "Действие"
+				},
+				"status": {
+					"merged": "Шаг {step}",
+					"pending": "Ожидает",
+					"notParsed": "Не распарсен",
+					"running": "Running…"
+				},
+				"merge": "🔗 Слить",
+				"reUnifyHint": "Для пересборки выполните reset",
+				"empty": "Нет словарей"
+			},
+			"snapshotsSection": {
+				"title": "Снапшоты unified",
+				"hint": "Используются для rollback",
+				"cols": {
+					"step": "Шаг",
+					"op": "Операция",
+					"count": "Записей",
+					"size": "Размер",
+					"action": "Действие"
+				},
+				"current": "Текущий",
+				"rollback": "⏪ Откат",
+				"missing": "файл утерян",
+				"empty": "Снапшотов ещё нет"
+			},
+			"timeline": {
+				"title": "Лог слияния",
+				"refresh": "⟳ Обновить",
+				"empty": "Лог пуст — запустите первое слияние",
+				"duration": "{seconds} сек",
+				"stats": {
+					"fromDict": "fromDict: {count}",
+					"new": "new: {count}",
+					"enriched": "enriched: {count}",
+					"dup": "dup: {count}",
+					"total": "total: {count}"
+				}
+			},
+			"confirm": {
+				"title": "Запустить слияние?",
+				"body": "Словарь {slug} будет слит в unified.json. Перед слиянием будет создан снапшот.",
+				"cancel": "Отмена",
+				"confirm": "Слить"
+			},
+			"rollbackConfirm": {
+				"title": "Откатить до шага {step}?",
+				"body": "unified.json будет восстановлен из снапшота. Все шаги после {step} будут удалены из лога.",
+				"cancel": "Отмена",
+				"confirm": "Откатить"
+			},
+			"toast": {
+				"started": "Запущено слияние: {slug}",
+				"success": "✓ Слияние завершено: {slug}",
+				"error": "Ошибка слияния: {message}",
+				"rollbackSuccess": "Откат до шага {step} выполнен",
+				"rollbackError": "Ошибка отката: {message}",
+				"logRefreshed": "Лог обновлён"
+			},
+			"result": {
+				"template": "✓ step: {step} · slug: {slug} · entriesFromDict: {fromDict} · newWords: {newWords} · enrichedWords: {enriched} · totalUnifiedEntries: {total} · nextRecommended: {next}",
+				"noNext": "все слиты"
+			},
+			"direction": {
+				"nah-ru": "чеч→рус",
+				"ru-nah": "рус→чеч"
+			},
+			"time": {
+				"justNow": "только что",
+				"secondsAgo": "{count} сек назад",
+				"minutesAgo": "{count} мин назад",
+				"hoursAgo": "{count} ч назад",
+				"daysAgo": "{count} д назад"
+			}
+		},
+		"pipelineLoad": {
+			"meta": {
+				"title": "Загрузка — Пайплайн — Админ — Дошам",
+				"description": "Загрузка unified.json в PostgreSQL"
+			},
+			"header": {
+				"title": "Загрузка",
+				"subtitle": "Выгрузка unified.json в PostgreSQL"
+			},
+			"run": "🗄 Загрузить в базу данных",
+			"db": {
+				"title": "Информация о БД",
+				"table": "Таблица",
+				"records": "Записей",
+				"index": "Индекс",
+				"search": "Поиск",
+				"cache": "Кэш Redis",
+				"orm": "ORM",
+				"online": "Online"
+			}
+		},
+		"pipelineImprove": {
+			"meta": {
+				"title": "Очистка — Пайплайн — Админ — Дошам",
+				"description": "Автоматическая нормализация и очистка данных"
+			},
+			"header": {
+				"title": "Очистка",
+				"subtitle": "Автоматическое исправление и нормализация"
+			},
+			"run": "🧹 Запустить",
+			"operations": {
+				"title": "Операции",
+				"normalizeStyles": "Нормализация стилей",
+				"fixExamples": "Исправление примеров",
+				"removeEmpty": "Удаление пустых meanings",
+				"normalizeWords": "Нормализация Unicode",
+				"trimLong": "Обрезка длинных полей",
+				"dedupMeanings": "Дедупликация meanings",
+				"lastRun": "Последний запуск: {count}"
+			}
+		},
+		"pipelineRollback": {
+			"meta": {
+				"title": "Откат — Пайплайн — Админ — Дошам",
+				"description": "Откат unified.json к одному из предыдущих снапшотов"
+			},
+			"header": {
+				"title": "Откат пайплайна",
+				"subtitle": "Откат unified.json к одному из предыдущих снапшотов. Выберите шаг, к которому хотите вернуться. Все последующие шаги будут отменены."
+			},
+			"warning": "Откат — деструктивная операция. unified.json будет заменён содержимым выбранного снапшота. Все шаги после выбранного будут потеряны. После отката потребуется повторная загрузка в БД (load).",
+			"currentState": {
+				"label": "Текущее состояние unified.json",
+				"value": "Шаг {step} — {label} · {count} записей",
+				"meta": "{size} · обновлён {date}",
+				"empty": "Нет данных — пайплайн сброшен",
+				"sizeLoading": "—",
+				"updatedNever": "неизвестно"
+			},
+			"action": {
+				"idleTitle": "Выберите шаг для отката",
+				"idleDesc": "Нажмите на один из снапшотов ниже, чтобы выбрать точку отката.",
+				"selectedTitle": "Откатить к шагу {step}",
+				"selectedDesc": "unified.json будет заменён снапшотом: {label}",
+				"doneTitle": "Откат выполнен",
+				"doneDesc": "Выберите другой снапшот для нового отката.",
+				"fromLabel": "Шаг {step} (текущий)",
+				"toLabel": "Шаг {step} ({label})",
+				"run": "⏪ Откатить",
+				"endpoint": "POST /api/admin/pipeline/rollback/:step"
+			},
+			"timeline": {
+				"title": "Снапшоты",
+				"helper": "Нажмите для выбора",
+				"empty": "Снапшотов нет. Запустите слияние, чтобы создать их.",
+				"stepBadge": "Шаг {step}",
+				"currentTag": "Текущий",
+				"recordsLabel": "Записей",
+				"sizeLabel": "Размер",
+				"missingFile": "Файл отсутствует"
+			},
+			"confirmRollback": {
+				"title": "Откатить к шагу {step}?",
+				"text": "unified.json будет заменён снапшотом «{label}» ({count} записей). Все последующие шаги будут потеряны. Это действие нельзя отменить.",
+				"cancel": "Отмена",
+				"confirm": "⏪ Откатить"
+			},
+			"danger": {
+				"sectionTitle": "Опасная зона",
+				"title": "Полный сброс пайплайна",
+				"description": "Полностью удаляет unified.json, все снапшоты и лог шагов. Распарсенные файлы сохраняются. После сброса нужно будет заново запустить весь пайплайн: parse → unify → load.",
+				"list": {
+					"unified": "unified.json — удалён",
+					"snapshots": "Все снапшоты — удалены",
+					"log": "Лог шагов — очищен",
+					"parsed": "Распарсенные файлы — сохранены",
+					"db": "База данных — не затронута"
+				},
+				"cta": "💥 Сбросить пайплайн",
+				"endpoint": "POST /api/admin/pipeline/reset · Это действие необратимо"
+			},
+			"confirmReset": {
+				"title": "Полный сброс пайплайна?",
+				"text": "Будут удалены: unified.json, все снапшоты и лог шагов. Распарсенные файлы сохранятся. Это действие необратимо.",
+				"cancel": "Отмена",
+				"confirm": "💥 Сбросить"
+			},
+			"result": {
+				"rollbackOk": "✓ Откат выполнен: unified.json → шаг {step} ({label}) · {count} записей. Требуется повторная загрузка в БД (load).",
+				"rollbackToZero": "✓ Откат к пустому состоянию выполнен. Запустите parse → unify → load заново.",
+				"resetOk": "💥 Пайплайн сброшен. unified.json, все снапшоты и лог удалены. Запустите parse → unify → load заново.",
+				"error": "Ошибка: {message}"
+			},
+			"operationLog": {
+				"title": "Лог откатов",
+				"subtitle": "Последние операции",
+				"clear": "Очистить",
+				"empty": "Лог пуст"
+			},
+			"busy": "Пайплайн занят — откат и сброс временно недоступны"
+		},
+		"pipelineReset": {
+			"meta": {
+				"title": "Сброс — Пайплайн — Админ — Дошам",
+				"description": "Необратимое удаление unified.json, снапшотов и лога шагов"
+			},
+			"header": {
+				"title": "Полный сброс пайплайна",
+				"subtitle": "Необратимое удаление unified.json, всех снапшотов и лога шагов. Распарсенные файлы и база данных не затрагиваются."
+			},
+			"whatDeleted": "Что будет удалено",
+			"alternative": {
+				"title": "Возможно, вам нужен откат, а не сброс?",
+				"description": "Откат позволяет вернуться к конкретному шагу без потери снапшотов.",
+				"cta": "Перейти к откату"
+			},
+			"stateCards": {
+				"unified": {
+					"label": "unified.json",
+					"sub": "{size} · шаг {steps}"
+				},
+				"snapshots": {
+					"label": "Снапшоты",
+					"sub": "файлов · {size} суммарно"
+				},
+				"log": {
+					"label": "Лог шагов",
+					"sub": "записей с историей слияния"
+				}
+			},
+			"dangerPanel": {
+				"title": "Это действие необратимо",
+				"subtitle": "После сброса потребуется полностью пересобрать пайплайн: parse → unify-step → load → improve. Это может занять значительное время."
+			},
+			"impact": {
+				"destroy": {
+					"unified": {
+						"title": "unified.json — удалён",
+						"description": "Единый файл словаря со всеми слитыми записями",
+						"detail": "{path} · {size}"
+					},
+					"snapshots": {
+						"title": "Снапшоты — удалены",
+						"description": "Все точки восстановления для каждого шага слияния",
+						"detail": "dictionaries/unified/ · {count} файлов"
+					},
+					"log": {
+						"title": "Лог шагов — очищен",
+						"description": "История всех операций слияния (шаги, статистика)",
+						"detail": "dictionaries/unified/merge_log.json"
+					}
+				},
+				"keep": {
+					"parsed": {
+						"title": "Распарсенные файлы — сохранены",
+						"description": "Все JSON-файлы из data/parsed/ останутся нетронутыми",
+						"detail": "data/parsed/*.json"
+					},
+					"db": {
+						"title": "База данных — не затронута",
+						"description": "PostgreSQL с записями останется как есть",
+						"detail": "PostgreSQL · {count} записей"
+					},
+					"sources": {
+						"title": "Исходные словари — сохранены",
+						"description": "Оригинальные файлы словарей для парсинга",
+						"detail": "data/sources/"
+					}
+				}
+			},
+			"confirm": {
+				"label": "Для подтверждения введите {phrase} в поле ниже",
+				"placeholder": "Введите RESET",
+				"phrase": "RESET",
+				"cta": "💥 Сбросить пайплайн",
+				"endpoint": "POST /api/admin/pipeline/reset"
+			},
+			"finalModal": {
+				"title": "Последнее предупреждение",
+				"body": "Вы собираетесь полностью удалить unified.json ({entries} записей), {snapshots} снапшотов и лог шагов. Это действие невозможно отменить.",
+				"cancel": "Отмена",
+				"confirm": "💥 Удалить всё"
+			},
+			"result": {
+				"success": "💥 Пайплайн сброшен. Удалено: unified.json ({entries} записей), {snapshots} снапшотов, {freed} освобождено. Распарсенные файлы и БД сохранены. Для восстановления запустите: parse → unify-step → load.",
+				"error": "Не удалось сбросить пайплайн: {message}"
+			},
+			"resetDone": {
+				"title": "Пайплайн сброшен",
+				"subtitle": "unified.json, снапшоты и лог удалены"
+			},
+			"busy": {
+				"title": "Пайплайн занят",
+				"description": "Дождитесь завершения операции «{operation}» и повторите попытку."
+			},
+			"log": {
+				"title": "Лог сбросов",
+				"subtitle": "Последние операции",
+				"empty": "Нет записей",
+				"clear": "Очистить",
+				"levels": {
+					"info": "info",
+					"ok": "ok",
+					"warn": "warn",
+					"error": "err"
+				}
+			},
+			"toasts": {
+				"success": "💥 Пайплайн полностью сброшен",
+				"error": "Ошибка при сбросе пайплайна",
+				"logCleared": "Лог очищен"
+			}
+		}
 	}
 }

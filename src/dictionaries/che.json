@@ -1660,5 +1660,1229 @@
 			"forbiddenTitle": "ДIахьедар хIоттийна яц",
 			"forbiddenText": "Хlap аг1о йолуш админашна а, редакторашна а бен яц."
 		}
+	},
+	"admin": {
+		"shell": {
+			"badge": "ADMIN",
+			"navAriaLabel": "Администраторан меню",
+			"openSidebar": "Меню дIахIотта",
+			"closeSidebar": "Меню дIакъовла",
+			"backToSite": "← Сайте юхадерза",
+			"themeDark": "Iаьржа тема",
+			"themeLight": "Сирла тема",
+			"sections": {
+				"overview": "Хьажар",
+				"data": "Хаамаш",
+				"pipeline": "Пайплайн",
+				"system": "Система"
+			},
+			"items": {
+				"dashboard": "Dashboard",
+				"quality": "Хаамийн тоьлашо",
+				"entries": "Дошамон дешнаш",
+				"suggestions": "Предложенеш",
+				"audit": "Аудит-лог",
+				"pipeline": "Урхалла",
+				"pipelineParse": "Парсинг",
+				"pipelineUnify": "Вовшахтохар",
+				"pipelineLoad": "Дилар",
+				"pipelineImprove": "ЦIандар",
+				"pipelineRollback": "Юхадерзар",
+				"pipelineReset": "ДIадаккхар",
+				"users": "Декъашхой",
+				"apiKeys": "API-догIанаш"
+			},
+			"roles": {
+				"admin": "ADMIN",
+				"editor": "EDITOR",
+				"user": "USER"
+			}
+		},
+		"common": {
+			"refresh": "Керлайаккха",
+			"export": "Экспорт",
+			"exportCsv": "Экспорт CSV",
+			"search": "Лахар",
+			"filter": "Филтр",
+			"reset": "Юхатасар",
+			"resetFilters": "Филтраш юхатаса",
+			"save": "Дочуйилла",
+			"cancel": "ДIадаккха",
+			"confirm": "Тешам бан",
+			"delete": "ДIадаккха",
+			"edit": "Хийца",
+			"close": "ДIакъовла",
+			"loading": "Юьззина…",
+			"error": "Цхьа хIума ца хили",
+			"retry": "Юха цахьажа",
+			"empty": "ХIумма а ца карийна",
+			"showAll": "Массо а гайта",
+			"viewOnSite": "↗ Сайте",
+			"history": "📝 Истори",
+			"previous": "← Хьалха",
+			"next": "ТIаьхьара →",
+			"page": "АгIо {page} / {total}",
+			"entriesCount": "{count} дешнаш",
+			"noResults": "Филтрашца хIумма а ца карийна",
+			"loginRequiredTitle": "ДIайаза хьайна деза",
+			"loginRequiredText": "Админ санна дIайаза хIара агIо хьажа.",
+			"loginRequiredCta": "ДIайаза",
+			"forbiddenTitle": "ДIахьедар хIоттийна яц",
+			"forbiddenText": "ХIара агIо админашна бен яц."
+		},
+		"dashboard": {
+			"meta": {
+				"title": "Админ — Дошам",
+				"description": "Хаамийн тоьлашо а, сиха хенарш а"
+			},
+			"header": {
+				"title": "Dashboard",
+				"subtitle": "Хаамийн тоьлашо а, сиха хенарш а"
+			},
+			"stats": {
+				"totalEntries": "Массо дешнаш",
+				"sourcesCount": "ХIуманаш",
+				"noMeanings": "МаьIнаш доцуш",
+				"noClass": "Класс боцуш",
+				"noPos": "POS йоцуш",
+				"problemsCount": "Проблемашца"
+			},
+			"quality": {
+				"title": "Хаамийн кхоллам",
+				"ringLabel": "Хаамийн кхоллам",
+				"description": "Проблема йоцу дешнаш: {clean} / {total}",
+				"breakdownTitle": "Проблемаш",
+				"jumpTo": "Гайта →",
+				"problems": {
+					"noMeanings": {
+						"name": "МаьIна доцуш",
+						"description": "Гочдар дац"
+					},
+					"noClass": {
+						"name": "Класс боцуш",
+						"description": "Грамм. класс хIоттийна яц"
+					},
+					"noPos": {
+						"name": "POS йоцуш",
+						"description": "Дешан дакъа доьвзуш дац"
+					},
+					"noExamples": {
+						"name": "Масалш доцуш",
+						"description": "Масалш дац"
+					}
+				}
+			},
+			"quickActions": {
+				"title": "Сиха хенарш",
+				"fix": {
+					"title": "МаьIна доцу дешнаш нисдан",
+					"description": "Проблемаш йолу дешнашка гIо"
+				},
+				"improve": {
+					"title": "Improve дIахIотта",
+					"description": "Автоматически цIандар"
+				},
+				"review": {
+					"title": "Предложенеш хьажа",
+					"description": "Декъашхойн предложенеш"
+				}
+			},
+			"problems": {
+				"title": "Проблемаш йолу дешнаш",
+				"filters": {
+					"all": "Массо",
+					"noMeanings": "МаьIна доцуш",
+					"noClass": "Класс боцуш",
+					"noPos": "POS йоцуш",
+					"noExamples": "Масалш доцуш"
+				},
+				"columns": {
+					"word": "Дош",
+					"source": "ХIума",
+					"problems": "Проблемаш",
+					"updatedAt": "Хийцина",
+					"actions": "Хенарш"
+				},
+				"edit": "Хийца"
+			}
+		},
+		"quality": {
+			"meta": {
+				"title": "Хаамийн тоьлашо — Админ — Дошам",
+				"description": "Хаамийн кхоллам а, проблемаш йолу дешнийн список а"
+			},
+			"header": {
+				"title": "Хаамийн тоьлашо",
+				"subtitle": "Хаамийн кхоллам а, проблемаш йолу дешнийн список а"
+			},
+			"actions": {
+				"refresh": "⟳ Керла хаам",
+				"refreshing": "Керла хаам…",
+				"improve": "🧹 Improve дIахIотта",
+				"export": "⬇ Экспорт CSV",
+				"exporting": "Экспорт…",
+				"problems": "Гечдеш доцу йазйинарш →"
+			},
+			"stats": {
+				"ofTotal": "массочуьра",
+				"totalEntries": {
+					"label": "Ерриге дешнаш",
+					"sub": "{count} хIумана"
+				},
+				"noMeanings": {
+					"label": "МаьIна доцуш"
+				},
+				"noClass": {
+					"label": "Класс боцуш"
+				},
+				"noPos": {
+					"label": "POS йоцуш"
+				}
+			},
+			"ring": {
+				"label": "хаамийн кхоллам",
+				"cleanOf": "Проблемаш йоцу дешнаш: {clean}, {total} чуьра"
+			},
+			"breakdown": {
+				"title": "Проблемийн къастам",
+				"jumpTo": "Гайта →",
+				"rows": {
+					"noMeanings": {
+						"name": "МаьIна доцуш (meanings)",
+						"description": "Цхьа а маьIна доцу дешнаш"
+					},
+					"noClass": {
+						"name": "Класс боцуш (nounClass)",
+						"description": "Грамматически класс йаздина йац"
+					},
+					"noPos": {
+						"name": "POS йоцуш (partOfSpeech)",
+						"description": "Меттан дакъа доьллуш дац"
+					},
+					"noExamples": {
+						"name": "Масалш доцуш (examples)",
+						"description": "Цхьа а лелор масал дац"
+					}
+				}
+			},
+			"sources": {
+				"title": "Тоьлашо хIуманашца",
+				"showAll": "Массо а {count} хIуманаш гайта"
+			},
+			"problems": {
+				"title": "Проблемаш йолу дешнаш",
+				"filters": {
+					"all": "Массо",
+					"noMeanings": "МаьIна доцуш",
+					"noClass": "Класс боцуш",
+					"noPos": "POS йоцуш",
+					"noExamples": "Масалш доцуш"
+				},
+				"searchPlaceholder": "Дешо лаха…",
+				"sourceAll": "Массо хIуманаш",
+				"columns": {
+					"word": "Дош",
+					"source": "ХIума",
+					"problems": "Проблемаш",
+					"updatedAt": "Хийцина",
+					"actions": "Хенарш"
+				},
+				"tags": {
+					"noMeanings": "маьIна доцуш",
+					"noClass": "класс боцуш",
+					"noPos": "POS йоцуш",
+					"noExamples": "масалш доцуш"
+				},
+				"edit": "Хийца",
+				"emptyTitle": "Проблемаш йолу дешнаш дац",
+				"emptyDescription": "Филтрашца хIумма ца каро. Филтраш хийцийта я хаам керла йе.",
+				"pageInfo": "{from}–{to} гайтина, {total} чуьра"
+			},
+			"toasts": {
+				"refreshSuccess": "Статистика керлачу",
+				"exportSuccess": "CSV экспорт йина",
+				"exportError": "CSV экспорт ца хилла"
+			}
+		},
+		"qualityProblems": {
+			"meta": {
+				"title": "Проблемаш йолу дешнаш — Админ — Дошам",
+				"description": "Кхочуш йоцу хаамаш долу дешнаш — филтраш, лахар а, массово гIуллакхаш а"
+			},
+			"breadcrumb": {
+				"dashboard": "Dashboard",
+				"quality": "Хаамийн тоьлашо",
+				"problems": "Проблемаш йолу дешнаш"
+			},
+			"header": {
+				"title": "Проблемаш йолу дешнаш",
+				"subtitle": "Кхочуш йоцу хаамаш долу дешнаш — филтраш, лахар а, массово гIуллакхаш а"
+			},
+			"summary": {
+				"all": "Массо проблемаш",
+				"noMeanings": "МаьIна доцуш",
+				"noClass": "Класс йоцуш",
+				"noPos": "POS йоцуш",
+				"noExamples": "Масалш доцуш"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Дошца лаха…",
+				"clearSearch": "Лахар цIандар",
+				"allSources": "Массо хьосташ",
+				"sort": {
+					"updated": "Нисдар: денашца",
+					"word": "Нисдар: дошца",
+					"problems": "Нисдар: проблемийн доьзалца",
+					"source": "Нисдар: хьостехь"
+				},
+				"export": "⬇ Экспорт",
+				"exporting": "Экспорт…",
+				"refresh": "⟳ Керлайар"
+			},
+			"bulk": {
+				"countOne": "{count} хаьржина",
+				"countFew": "{count} хаьржина",
+				"countMany": "{count} хаьржина",
+				"selectAllPage": "АгIон тIехь массо хаьржа",
+				"deselectAll": "Хаьржинарг дIаяккха",
+				"edit": "✏️ Массово хийцар",
+				"sendImprove": "🧹 Improve чу дIахьовса",
+				"sending": "ДIахьошу…"
+			},
+			"table": {
+				"columns": {
+					"select": "Хаьржар",
+					"expand": "Кхин а",
+					"word": "Дош",
+					"source": "Хьост",
+					"problems": "Проблемаш",
+					"updated": "Керлайина",
+					"actions": "ГIуллакхаш"
+				},
+				"edit": "Нисде",
+				"expandAria": "Кхин а гайта",
+				"empty": {
+					"title": "Проблемаш йолу дешнаш дац",
+					"description": "Хаьржина филтрехь хIума ца карийна"
+				}
+			},
+			"tags": {
+				"noMeanings": "⊘ маьIна доцуш",
+				"noClass": "◇ класс йоцуш",
+				"noPos": "◎ POS йоцуш",
+				"noExamples": "… масалш доцуш"
+			},
+			"detail": {
+				"meanings": "МаьIна",
+				"partOfSpeech": "Меттан дакъа",
+				"nounClass": "Грамм. класс",
+				"sources": "Хьосташ",
+				"examples": "Масалш",
+				"emptyMeanings": "МаьIна дац — тIетоха деза",
+				"emptyPartOfSpeech": "Ца белла",
+				"emptyNounClass": "Ца билгалъелла",
+				"emptyExamples": "Масалш дац — тIетоха деза",
+				"loading": "Хаамаш схьаоьцу…",
+				"loadError": "Хаамаш схьаэца ца дели",
+				"actions": {
+					"edit": "✏️ Дош нисде",
+					"view": "↗ Сайтехь хьежа",
+					"history": "📝 Хийцамийн истори"
+				}
+			},
+			"pagination": {
+				"info": "Гойту {from}–{to}, {total} проблемаш йолчу дешнаш чуьра",
+				"rows": "МогIанаш:",
+				"previous": "Хьалхара",
+				"next": "Тесна"
+			},
+			"toast": {
+				"exported": "CSV чу экспорт дина {count} дош",
+				"exportError": "Файл экспорт ца дели",
+				"refreshed": "Статистика керлайина",
+				"improveSent": "Improve чу дахийтина: {count}",
+				"improveError": "Improve хIотто ца дели"
+			},
+			"time": {
+				"justNow": "карах",
+				"minutesAgo": "{count} мин. хьалха",
+				"hoursAgo": "{count} сах. хьалха",
+				"yesterday": "селхана",
+				"daysAgo": "{count} ден хьалха",
+				"weekAgo": "кIир хьалха",
+				"weeksAgo": "{count} кIир. хьалха"
+			}
+		},
+		"entries": {
+			"meta": {
+				"title": "Дошамон дешнаш — Админ — Дошам",
+				"description": "Дошамон дешнийн урхалла"
+			},
+			"header": {
+				"title": "Дошамон дешнаш",
+				"subtitle": "Лахар, филтраш, урхалла"
+			},
+			"stats": {
+				"total": "Массо",
+				"nouns": "ЦIердешнаш",
+				"verbs": "Хандешнаш",
+				"sources": "ХIуманаш",
+				"updatedToday": "Тахана хийцина"
+			},
+			"actions": {
+				"bulk": "📦 Массово керладалар",
+				"export": "⬇ Экспорт"
+			},
+			"tabs": {
+				"all": "Массо",
+				"nouns": "ЦIердешнаш",
+				"verbs": "Хандешнаш",
+				"adjectives": "Билгалдешнаш",
+				"adverbs": "Куцдешнаш",
+				"other": "Кхин"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Дош, гочдар я ID лаха",
+				"allSources": "Массо хIуманаш",
+				"allCefr": "Массо CEFR",
+				"allClasses": "Массо классаш",
+				"sortByRelevance": "Релевантноца",
+				"sortByUpdatedAt": "Керланиг хьалха",
+				"sortByWord": "Алфавитца"
+			},
+			"columns": {
+				"word": "Дош",
+				"translation": "Гочдар",
+				"pos": "Дакъа",
+				"cefr": "CEFR",
+				"sources": "ХIуманаш",
+				"updatedAt": "Хийцина",
+				"actions": "Хенарш"
+			},
+			"rowActions": {
+				"edit": "Хийца",
+				"view": "Сайте",
+				"history": "Истори"
+			},
+			"selectAll": "Массо а харжа",
+			"deselectAll": "Хаьржинарш тоха",
+			"massEdit": "Хаьржинаш хийца",
+			"delete": "ДIадаккха",
+			"selectedCount": "Хаьржина: {count}"
+		},
+		"entriesBulk": {
+			"meta": {
+				"title": "Массово керладалар — Админ — Дошам",
+				"description": "Дешнийн массово керладалар"
+			},
+			"header": {
+				"title": "Массово керладалар",
+				"subtitle": "Харжа, операцеш тоьг1ор, хьовса"
+			},
+			"steps": {
+				"select": "Харжар",
+				"operation": "Операци",
+				"preview": "Хьовсар",
+				"result": "ХIума"
+			},
+			"select": {
+				"byIds": "ID-ашца",
+				"bySearch": "Лахар",
+				"byFilter": "Филтрца",
+				"idsPlaceholder": "ID-аш (цхьа цхьаццанц)",
+				"maxHint": "Массохара 100 деш",
+				"selectedCount": "{count} дош хаьржина (максимум 100)",
+				"find": "Лаха"
+			},
+			"operation": {
+				"warning": "Хийцамаш йоху харжийна дешнашна",
+				"title": "Операцеш аг1ошца",
+				"addOperation": "+ Операци тIетоьгIа",
+				"field": "АгIо",
+				"value": "Мехаллад",
+				"jsonHint": "JSON аг1ош лоьху"
+			},
+			"preview": {
+				"title": "Хьовсар",
+				"columns": {
+					"entry": "Дош",
+					"field": "АгIо",
+					"before": "Хиллачу",
+					"after": "ХирдолчуМ"
+				},
+				"more": "…а кхин {count}",
+				"apply": "⚡ ТIеэца"
+			},
+			"result": {
+				"success": "Кхочушхилла",
+				"stats": {
+					"updated": "Керладина",
+					"fields": "Аг1ош",
+					"skipped": "ДIатесна",
+					"elapsed": "Хан"
+				}
+			}
+		},
+		"entryEdit": {
+			"meta": {
+				"title": "Дош хийца — Админ — Дошам",
+				"description": "Дошам дош хийцар"
+			},
+			"breadcrumb": {
+				"entries": "Дошамон дешнаш",
+				"edit": "Хийца"
+			},
+			"header": {
+				"lastUpdate": "ТIаьхьара хийцам: {date}",
+				"view": "↗ Сайте",
+				"audit": "📝 Аудит",
+				"delete": "🗑 ДIадаккха"
+			},
+			"tabs": {
+				"basic": "Коьртаниг",
+				"meanings": "МаьIнаш",
+				"grammar": "Грамматика",
+				"phraseology": "Фразеолог.",
+				"extra": "Кхин",
+				"json": "JSON"
+			},
+			"fields": {
+				"word": "Дош",
+				"wordAccented": "Ударениеца",
+				"partOfSpeech": "Дешан дакъа",
+				"partOfSpeechNah": "Дакъа (чIара)",
+				"nounClass": "Класс (цхь.)",
+				"nounClassPlural": "Класс (дукх.)",
+				"cefrLevel": "CEFR",
+				"entryType": "Тайпа",
+				"domain": "Область",
+				"styleLabel": "Стил",
+				"latinName": "Латин цIе",
+				"homonymIndex": "Homonym Index",
+				"variants": "Варианташ",
+				"sources": "ХIуманаш",
+				"wordNormalized": "wordNormalized",
+				"createdAt": "Кхоьллина",
+				"updatedAt": "Хийцина"
+			},
+			"meanings": {
+				"addMeaning": "+ МаьIна тIетоьгIа",
+				"addExample": "+ Масал тIетоьгIа",
+				"chechenExample": "Нохчийн маттахь масал",
+				"russianExample": "Гочдар",
+				"translation": "Гочдар",
+				"visual": "Визуальни",
+				"json": "JSON"
+			},
+			"json": {
+				"format": "Форматировать",
+				"validate": "Тидам бан",
+				"copy": "Копи",
+				"valid": "JSON нийса",
+				"invalid": "JSON нийса яц"
+			},
+			"saveBar": {
+				"unsaved": "Чуйилла цу а йолу хийцамаш",
+				"save": "💾 Чуйилла",
+				"cancel": "ДIадаккха"
+			}
+		},
+		"audit": {
+			"meta": {
+				"title": "Аудит-лог — Админ — Дошам",
+				"description": "Хаамийн хийцамийн лог"
+			},
+			"header": {
+				"title": "Аудит-лог",
+				"subtitle": "Массо хийцамаш"
+			},
+			"stats": {
+				"today": "Тахана",
+				"week": "Кира",
+				"bulk": "Bulk",
+				"pipeline": "Pipeline"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Дош я ID лаха",
+				"allActions": "Массо хенарш",
+				"allAuthors": "Массо авторш",
+				"periods": {
+					"today": "Тахана",
+					"week": "Кира",
+					"month": "Бутт",
+					"all": "Массо хан"
+				}
+			},
+			"filters": {
+				"all": "Массо",
+				"create": "Кхуллу",
+				"update": "Керладоху",
+				"delete": "ДIадоху",
+				"bulk": "Bulk",
+				"pipeline": "Pipeline"
+			},
+			"actions": {
+				"CREATE": "CREATE",
+				"UPDATE": "UPDATE",
+				"DELETE": "DELETE",
+				"BULK": "BULK",
+				"PIPELINE": "PIPELINE"
+			},
+			"revert": "↺ Юхадерза",
+			"jsonDiff": "Юьззина JSON-diff",
+			"empty": "Аудит-лог баьлла бац"
+		},
+		"auditEntry": {
+			"meta": {
+				"title": "Дешан истори — Админ — Дошам",
+				"description": "Дошам дешан истори"
+			},
+			"breadcrumb": {
+				"admin": "Admin",
+				"audit": "Аудит-лог"
+			},
+			"header": {
+				"title": "Хийцамийн истори",
+				"view": "👁 Хьажар",
+				"edit": "✏️ Хийца"
+			},
+			"summary": {
+				"changesCount": "Хийцамаш",
+				"authors": "Авторш",
+				"sinceCreated": "Кхоьллиначуьра"
+			},
+			"revert": {
+				"title": "Юхадерза?",
+				"text": "Аудите керла запись йозур ю.",
+				"confirm": "Юхадерза"
+			}
+		},
+		"apiKeys": {
+			"meta": {
+				"title": "API-догIанаш — Админ — Дошам",
+				"description": "API-догIанийн урхалла"
+			},
+			"header": {
+				"title": "API-догIанаш",
+				"subtitle": "Интеграцийн догIанаш",
+				"create": "+ Керла догIа"
+			},
+			"stats": {
+				"total": "Массо",
+				"active": "Юьззина",
+				"revoked": "ДIадаьхьна",
+				"expired": "Чехка баьхи"
+			},
+			"roles": {
+				"readonly": "Read Only",
+				"editor": "Editor",
+				"full": "Full Access",
+				"admin": "Admin"
+			},
+			"roleDescriptions": {
+				"readonly": "Хьажа бен",
+				"editor": "Хьажа а, йаза а",
+				"full": "Массо пурба",
+				"admin": "Урхалла"
+			},
+			"statuses": {
+				"active": "Юьззина",
+				"revoked": "ДIадаьхьна",
+				"expired": "Чехка баьхи"
+			},
+			"columns": {
+				"name": "ДогIанан цIе",
+				"prefix": "Префикс",
+				"role": "Роль",
+				"status": "Статус",
+				"createdAt": "Кхоьллина",
+				"lastUsed": "ТIаьхьара лелийна"
+			},
+			"create": {
+				"title": "API-догIа кхолла",
+				"name": "ЦIе",
+				"namePlaceholder": "Масал: Production bot",
+				"role": "Роль",
+				"submit": "Кхолла",
+				"secretWarning": "⚠️ ДогIа чуйилла — цкъа сов гайта ца лой",
+				"copy": "Копи",
+				"copied": "Копи деш!"
+			},
+			"revoke": {
+				"title": "ДогIа дIадаккха?",
+				"text": "«{name}» ({prefix}) декхьа ца лур.",
+				"confirm": "ДIадаккха",
+				"cancel": "ДIадаккха"
+			}
+		},
+		"pipeline": {
+			"meta": {
+				"title": "Пайплайн — Админ — Дошам",
+				"description": "Хаамийн конвейеран урхалла"
+			},
+			"header": {
+				"title": "Пайплайнан урхалла",
+				"subtitle": "Дошамаш парсе яр, вовшахтохар, базе дилар, цIандар"
+			},
+			"status": {
+				"idle": "Пайплайн паргIат бу",
+				"running": "ДIабоьду: {action}",
+				"done": "Кхочушхилла: {action}",
+				"error": "ГIалат: {action}",
+				"lastRun": "Тхьайсхьене дIахIотта: {action} — {time} · {duration}",
+				"justNow": "хIинцца",
+				"secondsAgo": "{seconds} сек хьалха",
+				"minutesAgo": "{minutes} мин хьалха",
+				"hoursAgo": "{hours} сах хьалха"
+			},
+			"stats": {
+				"parsedFiles": "Парсина файлаш",
+				"parsedFilesSub": "{total} дошамах",
+				"unifiedRecords": "Unified дешнаш",
+				"unifiedSub": "{file} · {size}",
+				"inDb": "Базехь",
+				"dbSub": "PostgreSQL · GIN-индекс",
+				"mergeSteps": "Вовшахтохаран гIулкхаш",
+				"notApplicable": "—"
+			},
+			"nextRec": {
+				"title": "ТIеэцна долу гIулч",
+				"run": "ДIахIотта",
+				"empty": "Пайплайн юьззина кхочушхилла"
+			},
+			"sections": {
+				"actions": "ГIуллакхаш",
+				"dictionaries": "Хьостанаш-дошамаш",
+				"log": "Вовшахтохаран лог"
+			},
+			"actions": {
+				"parse": {
+					"title": "Parse",
+					"description": "Хьостанан файл JSON-е хийцар",
+					"allOption": "Массо дошамаш",
+					"run": "ДIахIотта"
+				},
+				"unify": {
+					"title": "Unify Step",
+					"description": "Дошам unified-е вовшахтоха",
+					"run": "Вовшахтоха",
+					"empty": "Массо вовшахтохна"
+				},
+				"load": {
+					"title": "Load",
+					"description": "unified.json → PostgreSQL",
+					"run": "Дилла"
+				},
+				"improve": {
+					"title": "Improve",
+					"description": "Хаамаш цIандар: бос дешнаш, гIалатш",
+					"run": "ЦIандан"
+				},
+				"rollback": {
+					"title": "Rollback",
+					"description": "Хьалхарчу снапшоте юхадерза",
+					"run": "Юхадерзо",
+					"stepOption": "ГIулч {step} — {label}",
+					"empty": "Снапшоташ яц"
+				},
+				"reset": {
+					"title": "Reset",
+					"description": "Юьззина дIадаккха: unified, снапшоташ, лог",
+					"run": "Массо дIадаккха"
+				}
+			},
+			"confirm": {
+				"cancel": "Юхадерза",
+				"load": {
+					"title": "Базе дилла?",
+					"text": "unified.json ({count} дешнаш) PostgreSQL-е диллар. Йолу таблица юхаяздар.",
+					"confirm": "Дилла"
+				},
+				"improve": {
+					"title": "ЦIандар дIахIотта?",
+					"text": "unified.json чохь автоматически цIандар кхочушдар. ГIуллакх юхадерзо йиш яц.",
+					"confirm": "ЦIандан"
+				},
+				"rollback": {
+					"title": "Пайплайн юхадерзо?",
+					"text": "unified юхадерзор: {label}. Тхьайсхьене долу массо гIулкхаш дIабовр.",
+					"confirm": "Юхадерзо"
+				},
+				"reset": {
+					"title": "Юьззина пайплайн дIадаккха?",
+					"text": "ДIаяккхар: unified.json, массо снапшоташ, гIулкхийн лог. ГIуллакх юхадерзо йиш яц.",
+					"confirm": "Массо дIадаккха"
+				}
+			},
+			"results": {
+				"parse": "✓ slug: {slug} · sourceCount: {source} · parsedCount: {parsed}",
+				"unify": "✓ newWords: {new} · enrichedWords: {enriched} · totalUnified: {total}",
+				"load": "✓ loaded: {loaded} · skipped: {skipped} · elapsed: {elapsed}s",
+				"improve": "✓ cleaned: {cleaned} · fixedExamples: {fixed} · removedEmpty: {empty}",
+				"rollback": "✓ rolledBackTo: {step} · currentEntries: {count}",
+				"reset": "✓ deletedSnapshots: {snapshots} · freedMb: {freed}",
+				"error": "ГIалат: {message}"
+			},
+			"toasts": {
+				"parseOk": "Parse кхочушхилла",
+				"unifyOk": "Unify кхочушхилла",
+				"loadOk": "Load кхочушхилла",
+				"improveOk": "Improve кхочушхилла",
+				"rollbackOk": "Юхадерзор кхочушхилла",
+				"resetOk": "Пайплайн дIаяккхина",
+				"statusRefreshed": "Статус керла ди",
+				"logRefreshed": "Лог керла ди",
+				"genericError": "Операцин гIалат"
+			},
+			"dictionaries": {
+				"title": "Хьостанаш-дошамаш",
+				"empty": "Дошамаш ца деана",
+				"columns": {
+					"number": "#",
+					"name": "Дошам",
+					"direction": "Новкъа",
+					"records": "Дешнаш",
+					"status": "Статус",
+					"actions": ""
+				},
+				"directions": {
+					"nah-ru": "нах → ру",
+					"ru-nah": "ру → нах"
+				},
+				"statuses": {
+					"merged": "merged",
+					"parsed": "parsed",
+					"pending": "pending",
+					"running": "running",
+					"error": "error"
+				},
+				"actionRun": "ДIахIотта",
+				"actionReparse": "Юха"
+			},
+			"timeline": {
+				"title": "Вовшахтохаран лог",
+				"empty": "Яздарш дац",
+				"stepLabel": "ГIулч {step} — {action}",
+				"duration": "{seconds} сек",
+				"stats": {
+					"fromDict": "fromDict: {count}",
+					"new": "new: {count}",
+					"enriched": "enriched: {count}",
+					"total": "total: {count}",
+					"duplicates": "duplicates: {count}",
+					"size": "size: {size}",
+					"missing": "файл бац"
+				}
+			},
+			"log": {
+				"title": "Лог",
+				"empty": "Лог бац — операци дIахIотта",
+				"levels": {
+					"info": "INFO",
+					"ok": "OK",
+					"warn": "WARN",
+					"err": "ERR"
+				}
+			}
+		},
+		"pipelineParse": {
+			"meta": {
+				"title": "Парсинг — Пайплайн — Админ — Дошам",
+				"description": "ХIуманаш парсар"
+			},
+			"header": {
+				"title": "Парсинг",
+				"subtitle": "Файлаш JSON-е хийцар"
+			},
+			"run": "▶ ДIахIотта",
+			"selectAll": "Массо дошамаш",
+			"confirmTitle": "Парсинг дIахIотта?",
+			"confirmText": "{slug} юха парсде."
+		},
+		"pipelineUnify": {
+			"meta": {
+				"title": "Дошамаш вовшахтохар — Пайплайн — Админ — Дошам",
+				"description": "Дошамаш unified.json-е цхьаьнадохар, дедупликацеца а, карладахарца а"
+			},
+			"header": {
+				"title": "Дошамаш вовшахтохар",
+				"subtitle": "Дошамаш цхьаьна unified.json-е вовшахтохар — дедупликацеца а, карладахарца а."
+			},
+			"breadcrumb": {
+				"pipeline": "Пайплайн",
+				"current": "Вовшахтохар"
+			},
+			"run": "🔗 Вовшахтоха",
+			"dedupHint": "Дедуп: word + homonymIndex + nounClass",
+			"snapshots": "Снапшоташ",
+			"current": "Карахь",
+			"rollback": "⏪ Юхадерза",
+			"status": {
+				"idle": "Пайплайн паргӀат бу",
+				"running": "Кхочушдеш: {operation}",
+				"done": "Чекхдаьлла: {operation}",
+				"never": "Вовшахтохар ма хилла",
+				"lastRun": "ТӀаьхьара: {operation} — {time} · {duration} сек",
+				"refresh": "⟳ Керладаккха",
+				"refreshed": "Гӏорасиз керладаьлла"
+			},
+			"stats": {
+				"unifiedEntries": "Unified дешнаш",
+				"unifiedFileSub": "{file} · {size} МБ",
+				"unifiedNotCreated": "unified.json лаха яц",
+				"newWords": "Керла дешнаш (массо)",
+				"newWordsSub": "массо дошамашкара",
+				"enriched": "Карладаьхна",
+				"enrichedSub": "кхечу хӀуманашца карладаьхна",
+				"mergeSteps": "Вовшахтохаран гӀулчаш",
+				"mergeStepsSub": "{total} дошамашкахь вовшахтаьхна"
+			},
+			"nextRec": {
+				"label": "Хьекъадина тӀекхочу гӀулч",
+				"value": "unify-step {slug} — дошам ма вовшахтаьхна",
+				"allDone": "Массо дошамаш вовшахтаьхна — unified.json кечъелла",
+				"run": "Вовшахтоха"
+			},
+			"actionBar": {
+				"label": "unify-step йолае",
+				"desc": "POST /api/admin/pipeline/unify-step/:slug",
+				"placeholder": "— дошам харжа —",
+				"run": "🔗 Вовшахтоха",
+				"progress": "Вовшахтадеш: {slug}…",
+				"progressGeneric": "Вовшахтадеш…"
+			},
+			"dedup": {
+				"title": "Дедупликацин алгоритм",
+				"desc": "Дешнаш цхьаьнадох ключаца: {keys}. НагахьтӀе иза unified-ехь хилахь — иза карладоккху (керла маьӀнаш, масалш, хьосташ тӀедуьйлу). Ца хилахь — керла дӀабоуздо."
+			},
+			"unifiedFile": {
+				"title": "Unified файл",
+				"entries": "{count} дешнаш",
+				"size": "{size} МБ",
+				"updatedAt": "Керладаьккхина {time}",
+				"stepsCount": "{count} гӀулчаш",
+				"notCreated": "Файл лаха яц — дуьххьарлера вовшахтохар йолае"
+			},
+			"table": {
+				"title": "Дошамаш вовшахтоханан гӀорасиз",
+				"refresh": "⟳ Керладаккха",
+				"cols": {
+					"num": "#",
+					"dictionary": "Дошам",
+					"fromDict": "Дошамера",
+					"new": "Керла",
+					"enriched": "Карлад.",
+					"dup": "Дупл.",
+					"status": "ГӀорасиз",
+					"action": "Ӏалашо"
+				},
+				"status": {
+					"merged": "ГӀулч {step}",
+					"pending": "Хьоьжу",
+					"notParsed": "Ма распарсене",
+					"running": "Running…"
+				},
+				"merge": "🔗 Вовшахтоха",
+				"reUnifyHint": "Юха ян — reset йолае",
+				"empty": "Дошамаш дац"
+			},
+			"snapshotsSection": {
+				"title": "Unified снапшоташ",
+				"hint": "Rollback-на лелайо",
+				"cols": {
+					"step": "ГӀулч",
+					"op": "Ӏалашо",
+					"count": "Дешнаш",
+					"size": "Барам",
+					"action": "Ӏалашо"
+				},
+				"current": "Карахь",
+				"rollback": "⏪ Юхадерза",
+				"missing": "файл яц",
+				"empty": "Снапшоташ ма хилла"
+			},
+			"timeline": {
+				"title": "Вовшахтоханан лог",
+				"refresh": "⟳ Керладаккха",
+				"empty": "Лог баьсса бу — дуьххьарлера вовшахтохар йолае",
+				"duration": "{seconds} сек",
+				"stats": {
+					"fromDict": "fromDict: {count}",
+					"new": "new: {count}",
+					"enriched": "enriched: {count}",
+					"dup": "dup: {count}",
+					"total": "total: {count}"
+				}
+			},
+			"confirm": {
+				"title": "Вовшахтохар йолае?",
+				"body": "Дошам {slug} unified.json-е вовшахтаьхна хир бу. Хьалха снапшот кхолладалур бу.",
+				"cancel": "Саца",
+				"confirm": "Вовшахтоха"
+			},
+			"rollbackConfirm": {
+				"title": "ГӀулч {step}-ехьа юхадерза?",
+				"body": "unified.json снапшотера меттахӀоттор ду. ТӀаьхьара гӀулчаш логера дӀадаккхар ду.",
+				"cancel": "Саца",
+				"confirm": "Юхадерза"
+			},
+			"toast": {
+				"started": "Вовшахтохар йолаелла: {slug}",
+				"success": "✓ Вовшахтохар чекхдаьлла: {slug}",
+				"error": "Вовшахтоханан гӀалат: {message}",
+				"rollbackSuccess": "ГӀулч {step}-ехьа юхадерзина",
+				"rollbackError": "Юхадерзаран гӀалат: {message}",
+				"logRefreshed": "Лог керладаьлла"
+			},
+			"result": {
+				"template": "✓ step: {step} · slug: {slug} · entriesFromDict: {fromDict} · newWords: {newWords} · enrichedWords: {enriched} · totalUnifiedEntries: {total} · nextRecommended: {next}",
+				"noNext": "массо вовшахтаьхна"
+			},
+			"direction": {
+				"nah-ru": "нохч→оьрс",
+				"ru-nah": "оьрс→нохч"
+			},
+			"time": {
+				"justNow": "хӀинца",
+				"secondsAgo": "{count} сек хьалха",
+				"minutesAgo": "{count} мин хьалха",
+				"hoursAgo": "{count} ч хьалха",
+				"daysAgo": "{count} де хьалха"
+			}
+		},
+		"pipelineLoad": {
+			"meta": {
+				"title": "Дилар — Пайплайн — Админ — Дошам",
+				"description": "PostgreSQL-а дилар"
+			},
+			"header": {
+				"title": "Дилар",
+				"subtitle": "unified.json → PostgreSQL"
+			},
+			"run": "🗄 Базе дила",
+			"db": {
+				"title": "Бехаман хаам",
+				"table": "Таблица",
+				"records": "Дешнаш",
+				"index": "Индекс",
+				"search": "Лахар",
+				"cache": "Redis кэш",
+				"orm": "ORM",
+				"online": "Online"
+			}
+		},
+		"pipelineImprove": {
+			"meta": {
+				"title": "ЦIандар — Пайплайн — Админ — Дошам",
+				"description": "Автоматически цIандар"
+			},
+			"header": {
+				"title": "ЦIандар",
+				"subtitle": "Автоматически нисдар а, нормализаци а"
+			},
+			"run": "🧹 ДIахIотта",
+			"operations": {
+				"title": "Операцеш",
+				"normalizeStyles": "Стилаш",
+				"fixExamples": "Масалш нисдар",
+				"removeEmpty": "Буьзна меaningsаш",
+				"normalizeWords": "Unicode",
+				"trimLong": "Дуккха аг1ош",
+				"dedupMeanings": "Дедуп маьIнаш",
+				"lastRun": "ТIаьхьара: {count}"
+			}
+		},
+		"pipelineRollback": {
+			"meta": {
+				"title": "Юхадерзар — Пайплайн — Админ — Дошам",
+				"description": "unified.json хьалхарчу снапшоте юхадерза"
+			},
+			"header": {
+				"title": "Пайплайн юхадерзар",
+				"subtitle": "unified.json хьалхарчу снапшоте юхадерза. Харжа гIулч — иштта тIаьхьара массо гIулчаш дIайоху."
+			},
+			"warning": "Юхадерзар — кхера йолу гIуллакх. unified.json харжначу снапшотаца хийцур ю. ТIаьхьара гIулчаш дIайоху. Юхадерзаран тIаьхьа база юхаяккха еза (load).",
+			"currentState": {
+				"label": "unified.json лаьттачу хIоттам",
+				"value": "ГIулч {step} — {label} · {count} язйинарг",
+				"meta": "{size} · керлайина {date}",
+				"empty": "Хиш дац — пайплайн сброс йина",
+				"sizeLoading": "—",
+				"updatedNever": "ца хаьа"
+			},
+			"action": {
+				"idleTitle": "Юхадерзаран гIулч харжа",
+				"idleDesc": "Лакхахь йолу снапшот баста — цуьнга юхадерзар хир ю.",
+				"selectedTitle": "{step} гIулче юхадерза",
+				"selectedDesc": "unified.json хийцур ю снапшотаца: {label}",
+				"doneTitle": "Юхадерзар хилла",
+				"doneDesc": "Кхин снапшот харжа — керла юхадерзар дан.",
+				"fromLabel": "ГIулч {step} (лаьттарг)",
+				"toLabel": "ГIулч {step} ({label})",
+				"run": "⏪ Юхадерза",
+				"endpoint": "POST /api/admin/pipeline/rollback/:step"
+			},
+			"timeline": {
+				"title": "Снапшоташ",
+				"helper": "Харжархьа тIехьажа",
+				"empty": "Снапшоташ яц.",
+				"stepBadge": "ГIулч {step}",
+				"currentTag": "Лаьттарг",
+				"recordsLabel": "Язйинарш",
+				"sizeLabel": "Барам",
+				"missingFile": "Файл яц"
+			},
+			"confirmRollback": {
+				"title": "{step} гIулче юхадерза?",
+				"text": "unified.json хийцур ю снапшотаца «{label}» ({count} язйина). ТIаьхьара гIулчаш дIайоху. Цхьанхьаьца юха йолур йац.",
+				"cancel": "Юха",
+				"confirm": "⏪ Юхадерза"
+			},
+			"danger": {
+				"sectionTitle": "Кхераме меттиг",
+				"title": "Пайплайнан дерриге сброс",
+				"description": "unified.json, массо снапшоташ а, гIулчин лог а дIабоху. Пасрпина файлаш яцу. Сбросан тIаьхьа пайплайн керла йолалур еза: parse → unify → load.",
+				"list": {
+					"unified": "unified.json — дIабаьккхина",
+					"snapshots": "Массо снапшоташ — дIайаьхна",
+					"log": "ГIулчин лог — цIена йина",
+					"parsed": "Парсина файлаш — лаьтташ",
+					"db": "База — ца хьаьбна"
+				},
+				"cta": "💥 Пайплайн сбросье",
+				"endpoint": "POST /api/admin/pipeline/reset · Юха йолур йац"
+			},
+			"confirmReset": {
+				"title": "Пайплайнан дерриге сброс дан?",
+				"text": "ДIайоху: unified.json, массо снапшоташ, гIулчин лог. Парсина файлаш лаьттар ю. Юха йолур йац.",
+				"cancel": "Юха",
+				"confirm": "💥 Сбросье"
+			},
+			"result": {
+				"rollbackOk": "✓ Юхадерзар хилла: unified.json → {step} гIулч ({label}) · {count} язйина. База юхаяккха еза (load).",
+				"rollbackToZero": "✓ Пусто хIоттаме юхадерзар хилла. Юха йола parse → unify → load.",
+				"resetOk": "💥 Пайплайн сброс йина. unified.json, снапшоташ, лог дIайоху. Юха йола parse → unify → load.",
+				"error": "ГIалат: {message}"
+			},
+			"operationLog": {
+				"title": "Юхадерзаран лог",
+				"subtitle": "ТIаьхьара гIуллакхаш",
+				"clear": "ЦIена йе",
+				"empty": "Лог бац"
+			},
+			"busy": "Пайплайн къахьоь — юхадерзар а, сброс а хIинца йац"
+		},
+		"pipelineReset": {
+			"meta": {
+				"title": "ДIадаккхар — Пайплайн — Админ — Дошам",
+				"description": "unified.json, массо снапшоташ, гIулчин лог юхадерза йоцуш дIадаккхар"
+			},
+			"header": {
+				"title": "Пайплайнан юьззина сброс",
+				"subtitle": "unified.json, массо снапшоташ, гIулчин лог юхадерза йоцуш дIадаккхар. Парсина файлаш а, база а хьу."
+			},
+			"whatDeleted": "ХIун дIадаккха",
+			"alternative": {
+				"title": "Хьуна, сбросан меттехь юхадерзар оьшу?",
+				"description": "Юхадерзар лур ду билгалчу гIулче йерза, снапшоташ йовза йоцуш.",
+				"cta": "Юхадерзаре дIавола"
+			},
+			"stateCards": {
+				"unified": {
+					"label": "unified.json",
+					"sub": "{size} · гIулч {steps}"
+				},
+				"snapshots": {
+					"label": "Снапшоташ",
+					"sub": "файлаш · {size} дерриг"
+				},
+				"log": {
+					"label": "ГIулчин лог",
+					"sub": "язйина мерге"
+				}
+			},
+			"dangerPanel": {
+				"title": "Хьо дерг юхайерзар йац",
+				"subtitle": "Сбросан тIаьхьа пайплайн керла йолалур еза: parse → unify-step → load → improve. Цхьа хан кхачалур ю."
+			},
+			"impact": {
+				"destroy": {
+					"unified": {
+						"title": "unified.json — дIабаьккхина",
+						"description": "Вовшахтоьхначу массо яздархойн цхьа файл",
+						"detail": "{path} · {size}"
+					},
+					"snapshots": {
+						"title": "Снапшоташ — дIайаьхна",
+						"description": "ХIора вовшахтохаран гIулчан юхадерзар меттигаш",
+						"detail": "dictionaries/unified/ · {count} файл"
+					},
+					"log": {
+						"title": "ГIулчин лог — цIена йина",
+						"description": "Массо гIуллакхийн истори (гIулчаш, статистика)",
+						"detail": "dictionaries/unified/merge_log.json"
+					}
+				},
+				"keep": {
+					"parsed": {
+						"title": "Парсина файлаш — юьссу",
+						"description": "data/parsed/ чохь массо JSON файлаш ца хуьйцу",
+						"detail": "data/parsed/*.json"
+					},
+					"db": {
+						"title": "База — ца хуьйцу",
+						"description": "PostgreSQL массо язйина йоллахьа юьссу",
+						"detail": "PostgreSQL · {count} язйинарг"
+					},
+					"sources": {
+						"title": "Хьалхара словараш — юьссу",
+						"description": "Парсинаран оригинальни словарийн файлаш",
+						"detail": "data/sources/"
+					}
+				}
+			},
+			"confirm": {
+				"label": "Тешам бан {phrase} йоза аренаш чохь",
+				"placeholder": "RESET йоза",
+				"phrase": "RESET",
+				"cta": "💥 Пайплайн дIадаккха",
+				"endpoint": "POST /api/admin/pipeline/reset"
+			},
+			"finalModal": {
+				"title": "ТIаьххьарчу тидам",
+				"body": "Хьан unified.json ({entries} язйина), {snapshots} снапшоташ а, лог а юьззина дIадаккха лаьа. Цхьанхьаьца юха йолур йац.",
+				"cancel": "Юха",
+				"confirm": "💥 Дерриге дIадаккха"
+			},
+			"result": {
+				"success": "💥 Пайплайн сброс йина. ДIадаьхна: unified.json ({entries} язйина), {snapshots} снапшоташ, {freed} маьрша йина. Парсина файлаш а, база а юьссу. Юхакхоллар: parse → unify-step → load.",
+				"error": "Пайплайн сброс йан ца хIутту: {message}"
+			},
+			"resetDone": {
+				"title": "Пайплайн сброс йина",
+				"subtitle": "unified.json, снапшоташ, лог дIадаьхна"
+			},
+			"busy": {
+				"title": "Пайплайн къахьоь",
+				"description": "«{operation}» чекхйолу юьххьехь, иштта юха гIертийша."
+			},
+			"log": {
+				"title": "Сбросан лог",
+				"subtitle": "ТIаьхьара гIуллакхаш",
+				"empty": "Язйина яц",
+				"clear": "ЦIена йе",
+				"levels": {
+					"info": "info",
+					"ok": "ok",
+					"warn": "warn",
+					"error": "err"
+				}
+			},
+			"toasts": {
+				"success": "💥 Пайплайн юьззина сброс йина",
+				"error": "Сбросан гIаттам",
+				"logCleared": "Лог цIена йина"
+			}
+		}
 	}
 }

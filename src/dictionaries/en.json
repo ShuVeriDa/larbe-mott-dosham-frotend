@@ -1660,5 +1660,1229 @@
 			"forbiddenTitle": "Access denied",
 			"forbiddenText": "This page is only available to administrators and editors."
 		}
+	},
+	"admin": {
+		"shell": {
+			"badge": "ADMIN",
+			"navAriaLabel": "Admin navigation",
+			"openSidebar": "Open menu",
+			"closeSidebar": "Close menu",
+			"backToSite": "← Back to site",
+			"themeDark": "Dark theme",
+			"themeLight": "Light theme",
+			"sections": {
+				"overview": "Overview",
+				"data": "Data",
+				"pipeline": "Pipeline",
+				"system": "System"
+			},
+			"items": {
+				"dashboard": "Dashboard",
+				"quality": "Data quality",
+				"entries": "Dictionary entries",
+				"suggestions": "Suggestions",
+				"audit": "Audit log",
+				"pipeline": "Management",
+				"pipelineParse": "Parsing",
+				"pipelineUnify": "Unify",
+				"pipelineLoad": "Load",
+				"pipelineImprove": "Improve",
+				"pipelineRollback": "Rollback",
+				"pipelineReset": "Reset",
+				"users": "Users",
+				"apiKeys": "API keys"
+			},
+			"roles": {
+				"admin": "ADMIN",
+				"editor": "EDITOR",
+				"user": "USER"
+			}
+		},
+		"common": {
+			"refresh": "Refresh",
+			"export": "Export",
+			"exportCsv": "Export CSV",
+			"search": "Search",
+			"filter": "Filter",
+			"reset": "Reset",
+			"resetFilters": "Reset filters",
+			"save": "Save",
+			"cancel": "Cancel",
+			"confirm": "Confirm",
+			"delete": "Delete",
+			"edit": "Edit",
+			"close": "Close",
+			"loading": "Loading…",
+			"error": "Something went wrong",
+			"retry": "Retry",
+			"empty": "Nothing found",
+			"showAll": "Show all",
+			"viewOnSite": "↗ On site",
+			"history": "📝 History",
+			"previous": "← Previous",
+			"next": "Next →",
+			"page": "Page {page} of {total}",
+			"entriesCount": "{count} entries",
+			"noResults": "No results for the current filters",
+			"loginRequiredTitle": "Sign in required",
+			"loginRequiredText": "Sign in as an administrator to access this page.",
+			"loginRequiredCta": "Sign in",
+			"forbiddenTitle": "Access denied",
+			"forbiddenText": "This page is only available to administrators."
+		},
+		"dashboard": {
+			"meta": {
+				"title": "Admin — Dosham",
+				"description": "Dosham data quality overview and quick actions"
+			},
+			"header": {
+				"title": "Dashboard",
+				"subtitle": "Data quality overview and quick actions"
+			},
+			"stats": {
+				"totalEntries": "Total entries",
+				"sourcesCount": "Sources",
+				"noMeanings": "No meanings",
+				"noClass": "No class",
+				"noPos": "No POS",
+				"problemsCount": "With problems"
+			},
+			"quality": {
+				"title": "Data completeness",
+				"ringLabel": "Data completeness",
+				"description": "Entries without problems: {clean} of {total}",
+				"breakdownTitle": "Problem breakdown",
+				"jumpTo": "Show →",
+				"problems": {
+					"noMeanings": {
+						"name": "No meanings",
+						"description": "Missing translations"
+					},
+					"noClass": {
+						"name": "No class",
+						"description": "Grammatical class missing"
+					},
+					"noPos": {
+						"name": "No POS",
+						"description": "Part of speech missing"
+					},
+					"noExamples": {
+						"name": "No examples",
+						"description": "Usage examples missing"
+					}
+				}
+			},
+			"quickActions": {
+				"title": "Quick actions",
+				"fix": {
+					"title": "Fix entries without meanings",
+					"description": "Jump to the problems list"
+				},
+				"improve": {
+					"title": "Run Improve",
+					"description": "Automatic data cleanup"
+				},
+				"review": {
+					"title": "Review suggestions",
+					"description": "See new suggestions from users"
+				}
+			},
+			"problems": {
+				"title": "Problem entries",
+				"filters": {
+					"all": "All",
+					"noMeanings": "No meanings",
+					"noClass": "No class",
+					"noPos": "No POS",
+					"noExamples": "No examples"
+				},
+				"columns": {
+					"word": "Word",
+					"source": "Source",
+					"problems": "Problems",
+					"updatedAt": "Updated",
+					"actions": "Actions"
+				},
+				"edit": "Edit"
+			}
+		},
+		"quality": {
+			"meta": {
+				"title": "Data quality — Admin — Dosham",
+				"description": "Data completeness statistics and a list of problematic dictionary entries"
+			},
+			"header": {
+				"title": "Data quality",
+				"subtitle": "Data completeness statistics and problematic dictionary entries"
+			},
+			"actions": {
+				"refresh": "⟳ Refresh",
+				"refreshing": "Refreshing…",
+				"improve": "🧹 Run Improve",
+				"export": "⬇ Export CSV",
+				"exporting": "Exporting…",
+				"problems": "Problem Entries →"
+			},
+			"stats": {
+				"ofTotal": "of total",
+				"totalEntries": {
+					"label": "Total entries",
+					"sub": "{count} sources"
+				},
+				"noMeanings": {
+					"label": "No meanings"
+				},
+				"noClass": {
+					"label": "No class"
+				},
+				"noPos": {
+					"label": "No POS"
+				}
+			},
+			"ring": {
+				"label": "data completeness",
+				"cleanOf": "Entries without problems: {clean} of {total}"
+			},
+			"breakdown": {
+				"title": "Problem breakdown",
+				"jumpTo": "Show →",
+				"rows": {
+					"noMeanings": {
+						"name": "No meanings",
+						"description": "Entries without any definition"
+					},
+					"noClass": {
+						"name": "No class (nounClass)",
+						"description": "Grammatical class is missing"
+					},
+					"noPos": {
+						"name": "No POS (partOfSpeech)",
+						"description": "Part of speech is not set"
+					},
+					"noExamples": {
+						"name": "No examples",
+						"description": "Not a single usage example"
+					}
+				}
+			},
+			"sources": {
+				"title": "Quality by source",
+				"showAll": "Show all {count} sources"
+			},
+			"problems": {
+				"title": "Problem entries",
+				"filters": {
+					"all": "All",
+					"noMeanings": "No meanings",
+					"noClass": "No class",
+					"noPos": "No POS",
+					"noExamples": "No examples"
+				},
+				"searchPlaceholder": "Search by word…",
+				"sourceAll": "All sources",
+				"columns": {
+					"word": "Word",
+					"source": "Source",
+					"problems": "Problems",
+					"updatedAt": "Updated",
+					"actions": "Actions"
+				},
+				"tags": {
+					"noMeanings": "no meanings",
+					"noClass": "no class",
+					"noPos": "no POS",
+					"noExamples": "no examples"
+				},
+				"edit": "Edit",
+				"emptyTitle": "No problem entries",
+				"emptyDescription": "Nothing matches the current filters. Try changing them or refreshing.",
+				"pageInfo": "Showing {from}–{to} of {total}"
+			},
+			"toasts": {
+				"refreshSuccess": "Statistics refreshed",
+				"exportSuccess": "CSV exported",
+				"exportError": "CSV export failed"
+			}
+		},
+		"qualityProblems": {
+			"meta": {
+				"title": "Problem entries — Admin — Dosham",
+				"description": "Entries with missing data — filter, search and bulk actions"
+			},
+			"breadcrumb": {
+				"dashboard": "Dashboard",
+				"quality": "Data quality",
+				"problems": "Problem entries"
+			},
+			"header": {
+				"title": "Problem entries",
+				"subtitle": "Entries with missing data — filter, search and bulk actions"
+			},
+			"summary": {
+				"all": "All problems",
+				"noMeanings": "No meanings",
+				"noClass": "No class",
+				"noPos": "No POS",
+				"noExamples": "No examples"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Search by word…",
+				"clearSearch": "Clear search",
+				"allSources": "All sources",
+				"sort": {
+					"updated": "Sort: by date",
+					"word": "Sort: by word",
+					"problems": "Sort: by problem count",
+					"source": "Sort: by source"
+				},
+				"export": "⬇ Export",
+				"exporting": "Exporting…",
+				"refresh": "⟳ Refresh"
+			},
+			"bulk": {
+				"countOne": "{count} selected",
+				"countFew": "{count} selected",
+				"countMany": "{count} selected",
+				"selectAllPage": "Select all on page",
+				"deselectAll": "Clear selection",
+				"edit": "✏️ Bulk edit",
+				"sendImprove": "🧹 Send to Improve",
+				"sending": "Sending…"
+			},
+			"table": {
+				"columns": {
+					"select": "Select",
+					"expand": "Details",
+					"word": "Word",
+					"source": "Source",
+					"problems": "Problems",
+					"updated": "Updated",
+					"actions": "Actions"
+				},
+				"edit": "Edit",
+				"expandAria": "Show details",
+				"empty": {
+					"title": "No problem entries",
+					"description": "Nothing found for the selected filter"
+				}
+			},
+			"tags": {
+				"noMeanings": "⊘ no meanings",
+				"noClass": "◇ no class",
+				"noPos": "◎ no POS",
+				"noExamples": "… no examples"
+			},
+			"detail": {
+				"meanings": "Meanings",
+				"partOfSpeech": "Part of speech",
+				"nounClass": "Noun class",
+				"sources": "Sources",
+				"examples": "Examples",
+				"emptyMeanings": "No meanings — needs to be added",
+				"emptyPartOfSpeech": "Not determined",
+				"emptyNounClass": "Not specified",
+				"emptyExamples": "No examples — needs to be added",
+				"loading": "Loading details…",
+				"loadError": "Failed to load details",
+				"actions": {
+					"edit": "✏️ Edit entry",
+					"view": "↗ View on site",
+					"history": "📝 Change history"
+				}
+			},
+			"pagination": {
+				"info": "Showing {from}–{to} of {total} problem entries",
+				"rows": "Rows:",
+				"previous": "Previous",
+				"next": "Next"
+			},
+			"toast": {
+				"exported": "Exported {count} entries to CSV",
+				"exportError": "Failed to export file",
+				"refreshed": "Statistics refreshed",
+				"improveSent": "Sent to Improve: {count}",
+				"improveError": "Failed to run Improve"
+			},
+			"time": {
+				"justNow": "just now",
+				"minutesAgo": "{count} min ago",
+				"hoursAgo": "{count} h ago",
+				"yesterday": "yesterday",
+				"daysAgo": "{count} d ago",
+				"weekAgo": "a week ago",
+				"weeksAgo": "{count} wk ago"
+			}
+		},
+		"entries": {
+			"meta": {
+				"title": "Dictionary entries — Admin — Dosham",
+				"description": "Manage dictionary entries"
+			},
+			"header": {
+				"title": "Dictionary entries",
+				"subtitle": "Search, filter and manage entries"
+			},
+			"stats": {
+				"total": "Total",
+				"nouns": "Nouns",
+				"verbs": "Verbs",
+				"sources": "Sources",
+				"updatedToday": "Updated today"
+			},
+			"actions": {
+				"bulk": "📦 Bulk update",
+				"export": "⬇ Export"
+			},
+			"tabs": {
+				"all": "All",
+				"nouns": "Nouns",
+				"verbs": "Verbs",
+				"adjectives": "Adjectives",
+				"adverbs": "Adverbs",
+				"other": "Other"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Search by word, translation or ID",
+				"allSources": "All sources",
+				"allCefr": "All levels",
+				"allClasses": "All classes",
+				"sortByRelevance": "Relevance",
+				"sortByUpdatedAt": "Newest",
+				"sortByWord": "Alphabetical"
+			},
+			"columns": {
+				"word": "Word",
+				"translation": "Translation",
+				"pos": "POS",
+				"cefr": "CEFR",
+				"sources": "Sources",
+				"updatedAt": "Updated",
+				"actions": "Actions"
+			},
+			"rowActions": {
+				"edit": "Edit",
+				"view": "On site",
+				"history": "History"
+			},
+			"selectAll": "Select all",
+			"deselectAll": "Deselect",
+			"massEdit": "Edit selected",
+			"delete": "Delete",
+			"selectedCount": "Selected: {count}"
+		},
+		"entriesBulk": {
+			"meta": {
+				"title": "Bulk update — Admin — Dosham",
+				"description": "Bulk update dictionary entries"
+			},
+			"header": {
+				"title": "Bulk update",
+				"subtitle": "Pick entries, set operations, and preview"
+			},
+			"steps": {
+				"select": "Select entries",
+				"operation": "Operation",
+				"preview": "Preview",
+				"result": "Result"
+			},
+			"select": {
+				"byIds": "By ID",
+				"bySearch": "Search",
+				"byFilter": "By filter",
+				"idsPlaceholder": "Paste entry IDs (one per line)",
+				"maxHint": "Maximum 100 entries",
+				"selectedCount": "{count} entries selected (max. 100)",
+				"find": "Find"
+			},
+			"operation": {
+				"warning": "Changes will be applied to all selected entries",
+				"title": "Field operations",
+				"addOperation": "+ Add operation",
+				"field": "Field",
+				"value": "Value",
+				"jsonHint": "JSON fields accept valid JSON array or object"
+			},
+			"preview": {
+				"title": "Preview",
+				"columns": {
+					"entry": "Entry",
+					"field": "Field",
+					"before": "Before",
+					"after": "After"
+				},
+				"more": "…and {count} more",
+				"apply": "⚡ Apply"
+			},
+			"result": {
+				"success": "Done",
+				"stats": {
+					"updated": "Entries updated",
+					"fields": "Fields changed",
+					"skipped": "Skipped",
+					"elapsed": "Elapsed"
+				}
+			}
+		},
+		"entryEdit": {
+			"meta": {
+				"title": "Edit entry — Admin — Dosham",
+				"description": "Edit dictionary entry"
+			},
+			"breadcrumb": {
+				"entries": "Dictionary entries",
+				"edit": "Edit"
+			},
+			"header": {
+				"lastUpdate": "Last update: {date}",
+				"view": "↗ On site",
+				"audit": "📝 Audit",
+				"delete": "🗑 Delete"
+			},
+			"tabs": {
+				"basic": "Basic",
+				"meanings": "Meanings",
+				"grammar": "Grammar",
+				"phraseology": "Phraseology",
+				"extra": "Extra",
+				"json": "JSON"
+			},
+			"fields": {
+				"word": "Word",
+				"wordAccented": "Accented",
+				"partOfSpeech": "Part of speech",
+				"partOfSpeechNah": "Part of speech (Che)",
+				"nounClass": "Class (sing.)",
+				"nounClassPlural": "Class (plural)",
+				"cefrLevel": "CEFR level",
+				"entryType": "Entry type",
+				"domain": "Domain",
+				"styleLabel": "Style label",
+				"latinName": "Latin name",
+				"homonymIndex": "Homonym Index",
+				"variants": "Variants",
+				"sources": "Sources",
+				"wordNormalized": "wordNormalized",
+				"createdAt": "Created",
+				"updatedAt": "Updated"
+			},
+			"meanings": {
+				"addMeaning": "+ Add meaning",
+				"addExample": "+ Add example",
+				"chechenExample": "Chechen example",
+				"russianExample": "Translation",
+				"translation": "Translation",
+				"visual": "Visual",
+				"json": "JSON"
+			},
+			"json": {
+				"format": "Format",
+				"validate": "Validate",
+				"copy": "Copy",
+				"valid": "Valid JSON",
+				"invalid": "JSON error"
+			},
+			"saveBar": {
+				"unsaved": "Unsaved changes",
+				"save": "💾 Save",
+				"cancel": "Cancel"
+			}
+		},
+		"audit": {
+			"meta": {
+				"title": "Audit log — Admin — Dosham",
+				"description": "Data change log"
+			},
+			"header": {
+				"title": "Audit log",
+				"subtitle": "All changes to entries and pipeline"
+			},
+			"stats": {
+				"today": "Today",
+				"week": "This week",
+				"bulk": "Bulk operations",
+				"pipeline": "Pipeline actions"
+			},
+			"toolbar": {
+				"searchPlaceholder": "Search by word or ID",
+				"allActions": "All actions",
+				"allAuthors": "All authors",
+				"periods": {
+					"today": "Today",
+					"week": "Week",
+					"month": "Month",
+					"all": "All time"
+				}
+			},
+			"filters": {
+				"all": "All",
+				"create": "Creates",
+				"update": "Updates",
+				"delete": "Deletes",
+				"bulk": "Bulk",
+				"pipeline": "Pipeline"
+			},
+			"actions": {
+				"CREATE": "CREATE",
+				"UPDATE": "UPDATE",
+				"DELETE": "DELETE",
+				"BULK": "BULK",
+				"PIPELINE": "PIPELINE"
+			},
+			"revert": "↺ Revert",
+			"jsonDiff": "Full JSON diff",
+			"empty": "No audit entries yet"
+		},
+		"auditEntry": {
+			"meta": {
+				"title": "Entry history — Admin — Dosham",
+				"description": "Entry change history"
+			},
+			"breadcrumb": {
+				"admin": "Admin",
+				"audit": "Audit log"
+			},
+			"header": {
+				"title": "Change history",
+				"view": "👁 View",
+				"edit": "✏️ Edit"
+			},
+			"summary": {
+				"changesCount": "Changes",
+				"authors": "Authors",
+				"sinceCreated": "Since created"
+			},
+			"revert": {
+				"title": "Revert change?",
+				"text": "A new audit entry will be created.",
+				"confirm": "Revert"
+			}
+		},
+		"apiKeys": {
+			"meta": {
+				"title": "API keys — Admin — Dosham",
+				"description": "Manage API access keys"
+			},
+			"header": {
+				"title": "API keys",
+				"subtitle": "Manage integration keys",
+				"create": "+ New key"
+			},
+			"stats": {
+				"total": "Total",
+				"active": "Active",
+				"revoked": "Revoked",
+				"expired": "Expired"
+			},
+			"roles": {
+				"readonly": "Read Only",
+				"editor": "Editor",
+				"full": "Full Access",
+				"admin": "Admin"
+			},
+			"roleDescriptions": {
+				"readonly": "Read only",
+				"editor": "Read and write",
+				"full": "Full access",
+				"admin": "Administration"
+			},
+			"statuses": {
+				"active": "Active",
+				"revoked": "Revoked",
+				"expired": "Expired"
+			},
+			"columns": {
+				"name": "Key name",
+				"prefix": "Prefix",
+				"role": "Role",
+				"status": "Status",
+				"createdAt": "Created",
+				"lastUsed": "Last used"
+			},
+			"create": {
+				"title": "Create API key",
+				"name": "Key name",
+				"namePlaceholder": "e.g. Production bot",
+				"role": "Role",
+				"submit": "Create",
+				"secretWarning": "⚠️ Save the key now — it won't be shown again",
+				"copy": "Copy",
+				"copied": "Copied!"
+			},
+			"revoke": {
+				"title": "Revoke key?",
+				"text": "Key «{name}» ({prefix}) will stop working.",
+				"confirm": "Revoke",
+				"cancel": "Cancel"
+			}
+		},
+		"pipeline": {
+			"meta": {
+				"title": "Pipeline — Admin — Dosham",
+				"description": "Manage the data pipeline"
+			},
+			"header": {
+				"title": "Pipeline management",
+				"subtitle": "Parse dictionaries, merge, load to DB and clean up data"
+			},
+			"status": {
+				"idle": "Pipeline idle",
+				"running": "Running: {action}",
+				"done": "Completed: {action}",
+				"error": "Error: {action}",
+				"lastRun": "Last run: {action} — {time} · {duration}",
+				"justNow": "just now",
+				"secondsAgo": "{seconds}s ago",
+				"minutesAgo": "{minutes}m ago",
+				"hoursAgo": "{hours}h ago"
+			},
+			"stats": {
+				"parsedFiles": "Parsed files",
+				"parsedFilesSub": "of {total} dictionaries",
+				"unifiedRecords": "Unified records",
+				"unifiedSub": "{file} · {size}",
+				"inDb": "In database",
+				"dbSub": "PostgreSQL · GIN-index",
+				"mergeSteps": "Merge steps",
+				"notApplicable": "—"
+			},
+			"nextRec": {
+				"title": "Recommended next step",
+				"run": "Run",
+				"empty": "Pipeline fully executed"
+			},
+			"sections": {
+				"actions": "Actions",
+				"dictionaries": "Source dictionaries",
+				"log": "Merge log"
+			},
+			"actions": {
+				"parse": {
+					"title": "Parse",
+					"description": "Parse a source dictionary file into JSON",
+					"allOption": "All dictionaries",
+					"run": "Run"
+				},
+				"unify": {
+					"title": "Unify Step",
+					"description": "Merge a dictionary into unified with key deduplication",
+					"run": "Merge",
+					"empty": "All dictionaries merged"
+				},
+				"load": {
+					"title": "Load",
+					"description": "Load unified.json into PostgreSQL",
+					"run": "Load"
+				},
+				"improve": {
+					"title": "Improve",
+					"description": "Clean data: empty values, broken examples, styles",
+					"run": "Clean"
+				},
+				"rollback": {
+					"title": "Rollback",
+					"description": "Roll unified back to a previous snapshot",
+					"run": "Rollback",
+					"stepOption": "Step {step} — {label}",
+					"empty": "No snapshots"
+				},
+				"reset": {
+					"title": "Reset",
+					"description": "Full wipe: unified, snapshots and log",
+					"run": "Reset all"
+				}
+			},
+			"confirm": {
+				"cancel": "Cancel",
+				"load": {
+					"title": "Load to database?",
+					"text": "unified.json ({count} entries) will be loaded into PostgreSQL. The existing table will be overwritten.",
+					"confirm": "Load"
+				},
+				"improve": {
+					"title": "Run cleanup?",
+					"text": "Automatic normalization and removal of broken data in unified.json. This action is irreversible.",
+					"confirm": "Clean"
+				},
+				"rollback": {
+					"title": "Rollback pipeline?",
+					"text": "unified will be rolled back to: {label}. All steps after this one will be lost.",
+					"confirm": "Rollback"
+				},
+				"reset": {
+					"title": "Full pipeline reset?",
+					"text": "unified.json, all snapshots and step log will be deleted. This action is irreversible.",
+					"confirm": "Reset all"
+				}
+			},
+			"results": {
+				"parse": "✓ slug: {slug} · sourceCount: {source} · parsedCount: {parsed}",
+				"unify": "✓ newWords: {new} · enrichedWords: {enriched} · totalUnified: {total}",
+				"load": "✓ loaded: {loaded} · skipped: {skipped} · elapsed: {elapsed}s",
+				"improve": "✓ cleaned: {cleaned} · fixedExamples: {fixed} · removedEmpty: {empty}",
+				"rollback": "✓ rolledBackTo: {step} · currentEntries: {count}",
+				"reset": "✓ deletedSnapshots: {snapshots} · freedMb: {freed}",
+				"error": "Error: {message}"
+			},
+			"toasts": {
+				"parseOk": "Parse completed",
+				"unifyOk": "Unify completed",
+				"loadOk": "Load completed",
+				"improveOk": "Improve completed",
+				"rollbackOk": "Rollback completed",
+				"resetOk": "Pipeline reset",
+				"statusRefreshed": "Status refreshed",
+				"logRefreshed": "Log refreshed",
+				"genericError": "Operation failed"
+			},
+			"dictionaries": {
+				"title": "Source dictionaries",
+				"empty": "No dictionaries loaded yet",
+				"columns": {
+					"number": "#",
+					"name": "Dictionary",
+					"direction": "Direction",
+					"records": "Entries",
+					"status": "Status",
+					"actions": ""
+				},
+				"directions": {
+					"nah-ru": "nah → ru",
+					"ru-nah": "ru → nah"
+				},
+				"statuses": {
+					"merged": "merged",
+					"parsed": "parsed",
+					"pending": "pending",
+					"running": "running",
+					"error": "error"
+				},
+				"actionRun": "Run",
+				"actionReparse": "Re-parse"
+			},
+			"timeline": {
+				"title": "Merge log",
+				"empty": "No merge entries yet",
+				"stepLabel": "Step {step} — {action}",
+				"duration": "{seconds}s",
+				"stats": {
+					"fromDict": "fromDict: {count}",
+					"new": "new: {count}",
+					"enriched": "enriched: {count}",
+					"total": "total: {count}",
+					"duplicates": "duplicates: {count}",
+					"size": "size: {size}",
+					"missing": "file missing"
+				}
+			},
+			"log": {
+				"title": "Log",
+				"empty": "Log is empty — run an operation",
+				"levels": {
+					"info": "INFO",
+					"ok": "OK",
+					"warn": "WARN",
+					"err": "ERR"
+				}
+			}
+		},
+		"pipelineParse": {
+			"meta": {
+				"title": "Parse — Pipeline — Admin — Dosham",
+				"description": "Parse source dictionaries to JSON"
+			},
+			"header": {
+				"title": "Parse",
+				"subtitle": "Convert source files into structured JSON"
+			},
+			"run": "▶ Run",
+			"selectAll": "All dictionaries",
+			"confirmTitle": "Run parse?",
+			"confirmText": "Parsing {slug} will overwrite the previous result."
+		},
+		"pipelineUnify": {
+			"meta": {
+				"title": "Dictionary merge — Pipeline — Admin — Dosham",
+				"description": "Step-by-step merge of parsed dictionaries into a single unified.json with dedup and enrichment"
+			},
+			"header": {
+				"title": "Dictionary merge",
+				"subtitle": "Step-by-step merge of parsed dictionaries into a single unified.json with deduplication and entry enrichment."
+			},
+			"breadcrumb": {
+				"pipeline": "Pipeline",
+				"current": "Merge"
+			},
+			"run": "🔗 Merge",
+			"dedupHint": "Dedup key: word + homonymIndex + nounClass",
+			"snapshots": "Snapshots",
+			"current": "Current",
+			"rollback": "⏪ Rollback",
+			"status": {
+				"idle": "Pipeline idle",
+				"running": "Running: {operation}",
+				"done": "Finished: {operation}",
+				"never": "No merges yet",
+				"lastRun": "Last run: {operation} — {time} · {duration} s",
+				"refresh": "⟳ Refresh",
+				"refreshed": "Status refreshed"
+			},
+			"stats": {
+				"unifiedEntries": "Unified entries",
+				"unifiedFileSub": "{file} · {size} MB",
+				"unifiedNotCreated": "unified.json not created yet",
+				"newWords": "New words (total)",
+				"newWordsSub": "unique across all dictionaries",
+				"enriched": "Enriched",
+				"enrichedSub": "completed from other sources",
+				"mergeSteps": "Merge steps",
+				"mergeStepsSub": "of {total} dictionaries merged"
+			},
+			"nextRec": {
+				"label": "Recommended next step",
+				"value": "unify-step {slug} — dictionary not yet merged",
+				"allDone": "All dictionaries merged — unified.json is ready",
+				"run": "Merge"
+			},
+			"actionBar": {
+				"label": "Run unify-step",
+				"desc": "POST /api/admin/pipeline/unify-step/:slug",
+				"placeholder": "— select a dictionary —",
+				"run": "🔗 Merge",
+				"progress": "Merging: {slug}…",
+				"progressGeneric": "Merging…"
+			},
+			"dedup": {
+				"title": "Deduplication algorithm",
+				"desc": "Entries are merged by the composite key: {keys}. If an entry with this key already exists in unified, it is enriched (new meanings, examples and sources are added). Otherwise it is added as new."
+			},
+			"unifiedFile": {
+				"title": "Unified file",
+				"entries": "{count} entries",
+				"size": "{size} MB",
+				"updatedAt": "Updated {time}",
+				"stepsCount": "{count} merge steps",
+				"notCreated": "File not created yet — run the first merge"
+			},
+			"table": {
+				"title": "Per-dictionary merge status",
+				"refresh": "⟳ Refresh",
+				"cols": {
+					"num": "#",
+					"dictionary": "Dictionary",
+					"fromDict": "From dict",
+					"new": "New",
+					"enriched": "Enriched",
+					"dup": "Dup",
+					"status": "Status",
+					"action": "Action"
+				},
+				"status": {
+					"merged": "Step {step}",
+					"pending": "Waiting",
+					"notParsed": "Not parsed",
+					"running": "Running…"
+				},
+				"merge": "🔗 Merge",
+				"reUnifyHint": "Run reset to re-merge",
+				"empty": "No dictionaries"
+			},
+			"snapshotsSection": {
+				"title": "Unified snapshots",
+				"hint": "Used for rollback",
+				"cols": {
+					"step": "Step",
+					"op": "Operation",
+					"count": "Entries",
+					"size": "Size",
+					"action": "Action"
+				},
+				"current": "Current",
+				"rollback": "⏪ Rollback",
+				"missing": "file missing",
+				"empty": "No snapshots yet"
+			},
+			"timeline": {
+				"title": "Merge log",
+				"refresh": "⟳ Refresh",
+				"empty": "Log is empty — run the first merge",
+				"duration": "{seconds} s",
+				"stats": {
+					"fromDict": "fromDict: {count}",
+					"new": "new: {count}",
+					"enriched": "enriched: {count}",
+					"dup": "dup: {count}",
+					"total": "total: {count}"
+				}
+			},
+			"confirm": {
+				"title": "Run merge?",
+				"body": "Dictionary {slug} will be merged into unified.json. A snapshot will be created first.",
+				"cancel": "Cancel",
+				"confirm": "Merge"
+			},
+			"rollbackConfirm": {
+				"title": "Rollback to step {step}?",
+				"body": "unified.json will be restored from the snapshot. All steps after {step} will be removed from the log.",
+				"cancel": "Cancel",
+				"confirm": "Rollback"
+			},
+			"toast": {
+				"started": "Merge started: {slug}",
+				"success": "✓ Merge complete: {slug}",
+				"error": "Merge error: {message}",
+				"rollbackSuccess": "Rollback to step {step} done",
+				"rollbackError": "Rollback error: {message}",
+				"logRefreshed": "Log refreshed"
+			},
+			"result": {
+				"template": "✓ step: {step} · slug: {slug} · entriesFromDict: {fromDict} · newWords: {newWords} · enrichedWords: {enriched} · totalUnifiedEntries: {total} · nextRecommended: {next}",
+				"noNext": "all merged"
+			},
+			"direction": {
+				"nah-ru": "ce→ru",
+				"ru-nah": "ru→ce"
+			},
+			"time": {
+				"justNow": "just now",
+				"secondsAgo": "{count} s ago",
+				"minutesAgo": "{count} min ago",
+				"hoursAgo": "{count} h ago",
+				"daysAgo": "{count} d ago"
+			}
+		},
+		"pipelineLoad": {
+			"meta": {
+				"title": "Load — Pipeline — Admin — Dosham",
+				"description": "Load unified.json into PostgreSQL"
+			},
+			"header": {
+				"title": "Load",
+				"subtitle": "Upload unified.json into PostgreSQL"
+			},
+			"run": "🗄 Load to database",
+			"db": {
+				"title": "Database info",
+				"table": "Table",
+				"records": "Records",
+				"index": "Index",
+				"search": "Search",
+				"cache": "Redis cache",
+				"orm": "ORM",
+				"online": "Online"
+			}
+		},
+		"pipelineImprove": {
+			"meta": {
+				"title": "Improve — Pipeline — Admin — Dosham",
+				"description": "Automatic data normalization and cleanup"
+			},
+			"header": {
+				"title": "Improve",
+				"subtitle": "Automatic fix and normalization"
+			},
+			"run": "🧹 Run",
+			"operations": {
+				"title": "Operations",
+				"normalizeStyles": "Normalize styles",
+				"fixExamples": "Fix examples",
+				"removeEmpty": "Remove empty meanings",
+				"normalizeWords": "Unicode normalization",
+				"trimLong": "Trim long fields",
+				"dedupMeanings": "Dedup meanings",
+				"lastRun": "Last run: {count}"
+			}
+		},
+		"pipelineRollback": {
+			"meta": {
+				"title": "Rollback — Pipeline — Admin — Dosham",
+				"description": "Roll unified.json back to one of the previous snapshots"
+			},
+			"header": {
+				"title": "Pipeline rollback",
+				"subtitle": "Roll unified.json back to one of the previous snapshots. Pick the step you want to return to — all later steps will be discarded."
+			},
+			"warning": "Rollback is a destructive operation. unified.json will be replaced with the selected snapshot; every step after it will be lost. A reload into the database (load) will be required afterwards.",
+			"currentState": {
+				"label": "Current unified.json state",
+				"value": "Step {step} — {label} · {count} records",
+				"meta": "{size} · updated {date}",
+				"empty": "No data — pipeline has been reset",
+				"sizeLoading": "—",
+				"updatedNever": "unknown"
+			},
+			"action": {
+				"idleTitle": "Pick a step to roll back to",
+				"idleDesc": "Click one of the snapshots below to select a rollback target.",
+				"selectedTitle": "Roll back to step {step}",
+				"selectedDesc": "unified.json will be replaced with snapshot: {label}",
+				"doneTitle": "Rollback complete",
+				"doneDesc": "Pick another snapshot to run a new rollback.",
+				"fromLabel": "Step {step} (current)",
+				"toLabel": "Step {step} ({label})",
+				"run": "⏪ Roll back",
+				"endpoint": "POST /api/admin/pipeline/rollback/:step"
+			},
+			"timeline": {
+				"title": "Snapshots",
+				"helper": "Click to select",
+				"empty": "No snapshots yet. Run unify to create them.",
+				"stepBadge": "Step {step}",
+				"currentTag": "Current",
+				"recordsLabel": "Records",
+				"sizeLabel": "Size",
+				"missingFile": "File missing"
+			},
+			"confirmRollback": {
+				"title": "Roll back to step {step}?",
+				"text": "unified.json will be replaced with snapshot \"{label}\" ({count} records). All subsequent steps will be lost. This cannot be undone.",
+				"cancel": "Cancel",
+				"confirm": "⏪ Roll back"
+			},
+			"danger": {
+				"sectionTitle": "Danger zone",
+				"title": "Full pipeline reset",
+				"description": "Completely deletes unified.json, every snapshot and the step log. Parsed files remain. After a reset you'll need to run the whole pipeline again: parse → unify → load.",
+				"list": {
+					"unified": "unified.json — deleted",
+					"snapshots": "All snapshots — deleted",
+					"log": "Step log — cleared",
+					"parsed": "Parsed files — kept",
+					"db": "Database — untouched"
+				},
+				"cta": "💥 Reset pipeline",
+				"endpoint": "POST /api/admin/pipeline/reset · This action is irreversible"
+			},
+			"confirmReset": {
+				"title": "Reset the whole pipeline?",
+				"text": "This will delete unified.json, all snapshots and the step log. Parsed files will be kept. This action is irreversible.",
+				"cancel": "Cancel",
+				"confirm": "💥 Reset"
+			},
+			"result": {
+				"rollbackOk": "✓ Rollback complete: unified.json → step {step} ({label}) · {count} records. A reload into the database (load) is required.",
+				"rollbackToZero": "✓ Rolled back to empty state. Run parse → unify → load again.",
+				"resetOk": "💥 Pipeline has been reset. unified.json, all snapshots and the log have been removed. Run parse → unify → load again.",
+				"error": "Error: {message}"
+			},
+			"operationLog": {
+				"title": "Rollback log",
+				"subtitle": "Recent operations",
+				"clear": "Clear",
+				"empty": "Log is empty"
+			},
+			"busy": "Pipeline is busy — rollback and reset are temporarily unavailable"
+		},
+		"pipelineReset": {
+			"meta": {
+				"title": "Reset — Pipeline — Admin — Dosham",
+				"description": "Irreversibly delete unified.json, all snapshots and the step log"
+			},
+			"header": {
+				"title": "Full pipeline reset",
+				"subtitle": "Irreversibly delete unified.json, all snapshots and the step log. Parsed files and the database are left untouched."
+			},
+			"whatDeleted": "What will be deleted",
+			"alternative": {
+				"title": "Maybe you want a rollback, not a reset?",
+				"description": "Rollback lets you return to a specific step without losing snapshots.",
+				"cta": "Go to rollback"
+			},
+			"stateCards": {
+				"unified": {
+					"label": "unified.json",
+					"sub": "{size} · step {steps}"
+				},
+				"snapshots": {
+					"label": "Snapshots",
+					"sub": "files · {size} total"
+				},
+				"log": {
+					"label": "Step log",
+					"sub": "entries with merge history"
+				}
+			},
+			"dangerPanel": {
+				"title": "This action cannot be undone",
+				"subtitle": "After a reset you'll need to rebuild the whole pipeline: parse → unify-step → load → improve. This may take a significant amount of time."
+			},
+			"impact": {
+				"destroy": {
+					"unified": {
+						"title": "unified.json — deleted",
+						"description": "Single dictionary file with all merged entries",
+						"detail": "{path} · {size}"
+					},
+					"snapshots": {
+						"title": "Snapshots — deleted",
+						"description": "All restore points for each merge step",
+						"detail": "dictionaries/unified/ · {count} files"
+					},
+					"log": {
+						"title": "Step log — cleared",
+						"description": "History of all merge operations (steps, stats)",
+						"detail": "dictionaries/unified/merge_log.json"
+					}
+				},
+				"keep": {
+					"parsed": {
+						"title": "Parsed files — preserved",
+						"description": "All JSON files in data/parsed/ stay untouched",
+						"detail": "data/parsed/*.json"
+					},
+					"db": {
+						"title": "Database — untouched",
+						"description": "PostgreSQL with entries is left as-is",
+						"detail": "PostgreSQL · {count} entries"
+					},
+					"sources": {
+						"title": "Source dictionaries — preserved",
+						"description": "Original dictionary files used for parsing",
+						"detail": "data/sources/"
+					}
+				}
+			},
+			"confirm": {
+				"label": "Type {phrase} in the field below to confirm",
+				"placeholder": "Type RESET",
+				"phrase": "RESET",
+				"cta": "💥 Reset pipeline",
+				"endpoint": "POST /api/admin/pipeline/reset"
+			},
+			"finalModal": {
+				"title": "Final warning",
+				"body": "You're about to completely delete unified.json ({entries} entries), {snapshots} snapshots and the step log. This action cannot be undone.",
+				"cancel": "Cancel",
+				"confirm": "💥 Delete everything"
+			},
+			"result": {
+				"success": "💥 Pipeline reset. Deleted: unified.json ({entries} entries), {snapshots} snapshots, {freed} freed. Parsed files and DB preserved. To recover, run: parse → unify-step → load.",
+				"error": "Failed to reset pipeline: {message}"
+			},
+			"resetDone": {
+				"title": "Pipeline reset",
+				"subtitle": "unified.json, snapshots and log deleted"
+			},
+			"busy": {
+				"title": "Pipeline is busy",
+				"description": "Wait for \"{operation}\" to finish and try again."
+			},
+			"log": {
+				"title": "Reset log",
+				"subtitle": "Recent operations",
+				"empty": "No entries",
+				"clear": "Clear",
+				"levels": {
+					"info": "info",
+					"ok": "ok",
+					"warn": "warn",
+					"error": "err"
+				}
+			},
+			"toasts": {
+				"success": "💥 Pipeline has been fully reset",
+				"error": "Failed to reset pipeline",
+				"logCleared": "Log cleared"
+			}
+		}
 	}
 }
