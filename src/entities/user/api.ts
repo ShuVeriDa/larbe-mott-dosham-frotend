@@ -38,4 +38,15 @@ export const userApi = {
     const { data } = await apiClient.delete<{ message: string }>("/users/me", { data: dto });
     return data;
   },
+
+  async uploadAvatar(file: File): Promise<{ avatarUrl: string }> {
+    const form = new FormData();
+    form.append("file", file);
+    const { data } = await apiClient.post<{ avatarUrl: string }>(
+      "/users/me/avatar",
+      form,
+      { headers: { "Content-Type": "multipart/form-data" } },
+    );
+    return data;
+  },
 };

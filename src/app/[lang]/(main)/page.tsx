@@ -1,3 +1,4 @@
+import { fetchStatsServer } from "@/entities/dictionary/server";
 import { getDictionary, hasLocale } from "@/i18n/dictionaries";
 import {
 	ApiSection,
@@ -19,7 +20,10 @@ export default async function Home({
 	const { lang } = await params;
 	if (!hasLocale(lang)) notFound();
 
-	const dict = await getDictionary(lang);
+	const [dict, stats] = await Promise.all([
+		getDictionary(lang),
+		fetchStatsServer(),
+	]);
 
 	return (
 		<div className="flex flex-col items-center justify-center">
@@ -36,7 +40,10 @@ export default async function Home({
 			<StatsBand statsBand={dict.statsBand} />
 			<FeaturesSection features={dict.features} />
 			<MorphologySection morphology={dict.morphology} />
-			<SourcesSection sources={dict.sources} />
+			<SourcesSection
+				sources={dict.sources}
+				count={stats?.totalSources ?? 0}
+			/>
 			<ApiSection apiSection={dict.apiSection} locale={lang} />
 		</div>
 	);

@@ -22,9 +22,18 @@ export type DetectedLanguage = "ru" | "nah" | "unknown";
 
 export type SourceDirection = "nah→ru" | "ru→nah" | "оба";
 
-export interface Example {
+/**
+ * Пара «чеченский ↔ русский» — используется и для примеров внутри значения,
+ * и для устойчивых сочетаний (`setPhrases`). Соответствует бэковому `Phrase`
+ * из `src/merge/parsers/types.ts`.
+ */
+export interface Phrase {
 	nah: string;
 	ru: string;
+	/** Грамматический класс (для словарей с аннотациями примеров). */
+	nounClass?: string;
+	/** Дополнительная помета к фразе. */
+	note?: string;
 }
 
 export interface Meaning {
@@ -33,7 +42,7 @@ export interface Meaning {
 	label?: string;
 	partOfSpeech?: PartOfSpeech;
 	partOfSpeechNah?: string;
-	examples?: Example[];
+	examples?: Phrase[];
 }
 
 export interface Citation {
@@ -54,7 +63,8 @@ export interface DictionaryEntry {
 	homonymIndex?: number;
 	grammar?: Record<string, unknown>;
 	meanings: Meaning[];
-	phraseology?: Example[];
+	/** Устойчивые сочетания — JSONB-поле `setPhrases` из `UnifiedEntry`. */
+	setPhrases?: Phrase[];
 	citations?: Citation[];
 	latinName?: string;
 	styleLabel?: string;
@@ -81,7 +91,8 @@ export interface DictionarySearchResult {
 	variants: string[];
 	grammar?: Record<string, unknown>;
 	meanings: Meaning[];
-	phraseology?: Example[];
+	/** Устойчивые сочетания — JSONB-поле `setPhrases` из `UnifiedEntry`. */
+	setPhrases?: Phrase[];
 	domain?: string;
 	wordLevel?: WordLevel;
 	attested?: boolean;
@@ -178,11 +189,17 @@ export interface DictionaryStatsPos {
 	count: number;
 }
 
+export interface DictionaryStatsAttested {
+	true: number;
+	false: number;
+}
+
 export interface DictionaryStats {
 	total: number;
 	totalSources: number;
 	domains: DictionaryStatsDomain[];
 	wordLevels: DictionaryStatsWordLevel[];
+	attested: DictionaryStatsAttested;
 	levelsUnclassified: number;
 	posDistribution: DictionaryStatsPos[];
 }
@@ -265,7 +282,7 @@ export interface PhraseologyMeta {
 
 /**
  * Standalone phraseology entry — `PhraseologyEntry` table on the backend.
- * Отдельная сущность, не связана с `DictionaryEntry.phraseology` (JSONB).
+ * Отдельная сущность, не связана с `DictionaryEntry.setPhrases` (JSONB).
  */
 export interface PhraseologyEntry {
 	id: number;
@@ -310,7 +327,7 @@ export interface UpdateEntryDto {
 	nounClassPlural?: NounClass;
 	grammar?: Record<string, unknown>;
 	meanings?: Meaning[];
-	phraseology?: Example[];
+	setPhrases?: Phrase[];
 	citations?: Citation[];
 	latinName?: string;
 	styleLabel?: string;

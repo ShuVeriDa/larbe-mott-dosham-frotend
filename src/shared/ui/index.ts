@@ -3,6 +3,7 @@
 export { ThemeProvider } from "./theme-provider";
 export { SectionHeader } from "./section-header";
 export { Typography } from "./typography";
+export { AnimatedFill } from "./animated-fill";
 export * from "./primitives/accordion";
 export * from "./primitives/badge";
 export * from "./primitives/button";

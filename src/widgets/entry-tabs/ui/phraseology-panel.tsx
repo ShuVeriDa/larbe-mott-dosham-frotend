@@ -1,8 +1,8 @@
-import type { Example } from "@/entities/dictionary";
+import type { Phrase } from "@/entities/dictionary";
 import type { FC } from "react";
 
 interface PhraseologyPanelProps {
-	items: Example[];
+	items: Phrase[];
 	emptyLabel: string;
 }
 
@@ -23,8 +23,20 @@ export const PhraseologyPanel: FC<PhraseologyPanelProps> = ({
 				>
 					<span className="text-foreground font-medium" lang="ce">
 						{item.nah}
+						{item.nounClass && (
+							<span className="ml-1.5 text-[0.7rem] text-faint font-normal uppercase">
+								{item.nounClass}
+							</span>
+						)}
 					</span>
-					<span className="text-subtle font-light">{item.ru}</span>
+					<span className="text-subtle font-light">
+						{item.ru}
+						{item.note && (
+							<span className="ml-1 text-xs text-faint italic">
+								({item.note})
+							</span>
+						)}
+					</span>
 				</div>
 			))}
 		</div>

@@ -38,7 +38,7 @@ export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict }) => {
 			{
 				id: "phraseology",
 				label: dict.tabs.phraseology,
-				count: entry.phraseology?.length ?? 0,
+				count: entry.setPhrases?.length ?? 0,
 			},
 			{
 				id: "citations",
@@ -71,7 +71,7 @@ export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict }) => {
 			case "phraseology":
 				return (
 					<PhraseologyPanel
-						items={entry.phraseology ?? []}
+						items={entry.setPhrases ?? []}
 						emptyLabel={dict.phraseology.empty}
 					/>
 				);

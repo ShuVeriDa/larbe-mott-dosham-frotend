@@ -2,6 +2,7 @@
 	"nav": {
 		"dictionary": "Dictionary",
 		"phraseology": "Phraseology",
+		"random": "Word of the day",
 		"statistics": "Statistics",
 		"about": "About",
 		"login": "Sign in"
@@ -239,6 +240,49 @@
 			"C": "C — rare"
 		}
 	},
+	"random": {
+		"meta": {
+			"title": "Random word — Dosham",
+			"description": "Discover a new Chechen word — each shuffle reveals a fresh card with translation, example and phraseology"
+		},
+		"hero": {
+			"eyebrow": "Random word",
+			"title": "Discover a new word",
+			"subtitle": "Each shuffle picks a fresh entry from {count} Chechen words",
+			"subtitleNoCount": "Each shuffle picks a fresh entry from the Chechen dictionary"
+		},
+		"filter": {
+			"ariaLabel": "Difficulty level filter",
+			"all": "All levels",
+			"A": "A",
+			"B": "B",
+			"C": "C",
+			"aLong": "A — basic",
+			"bLong": "B — everyday",
+			"cLong": "C — rare"
+		},
+		"card": {
+			"phraseologyLabel": "Set phrases",
+			"openCard": "Open card →",
+			"favoriteAdd": "Add to favorites",
+			"favoriteRemove": "Remove from favorites",
+			"share": "Copy link",
+			"shareSuccess": "Link copied",
+			"shareError": "Couldn't copy the link"
+		},
+		"shuffle": {
+			"button": "Another word",
+			"loading": "Loading…",
+			"hintOr": "or",
+			"hintSpace": "space"
+		},
+		"states": {
+			"error": "Couldn't load a word",
+			"retry": "Try again",
+			"emptyForLevel": "No words found for this level",
+			"resetFilter": "Reset filter"
+		}
+	},
 	"wordLevel": {
 		"badge": {
 			"A": "A",
@@ -341,7 +385,7 @@
 	},
 	"sources": {
 		"eyebrow": "Sources",
-		"title": "14 dictionaries combined",
+		"title": "{count} dictionaries combined",
 		"subtitle": "General, specialised and\u00a0author dictionaries",
 		"directions": {
 			"nahRu": "nah→ru",
@@ -480,6 +524,79 @@
 			"offline": "No connection to the server",
 			"server": "Server error. Please try again later.",
 			"generic": "Something went wrong. Please try again."
+		}
+	},
+	"stats": {
+		"meta": {
+			"title": "Statistics — Dosham",
+			"description": "Unified Chechen dictionary statistics: total entries, sources, difficulty levels, domains and parts of speech."
+		},
+		"header": {
+			"eyebrow": "Statistics",
+			"title": "The dictionary in numbers",
+			"subtitle": "Aggregate statistics on entries, domains, difficulty levels and sources"
+		},
+		"hero": {
+			"entries": "dictionary entries",
+			"sources": "sources",
+			"domains": "subject domains",
+			"levels": "difficulty levels"
+		},
+		"levels": {
+			"eyebrow": "Difficulty levels",
+			"title": "Distribution by A / B / C level",
+			"labels": {
+				"A": "A — core",
+				"B": "B — everyday",
+				"C": "C — rare"
+			},
+			"unclassified": "Unclassified: {count}",
+			"attestedTitle": "Attested in corpus",
+			"attestedTrue": "In corpus",
+			"attestedFalse": "Not attested"
+		},
+		"domains": {
+			"eyebrow": "Subject domains",
+			"title": "Topical coverage",
+			"empty": "No domain data",
+			"labels": {
+				"general": "General lexicon",
+				"law": "Law",
+				"anatomy": "Anatomy",
+				"geology": "Geology",
+				"math": "Mathematics",
+				"it": "IT / Computers"
+			}
+		},
+		"pos": {
+			"eyebrow": "Grammar",
+			"title": "Parts of speech"
+		},
+		"sources": {
+			"eyebrow": "Sources",
+			"titleTemplate": "{count} dictionaries",
+			"columns": {
+				"name": "Dictionary",
+				"slug": "Slug",
+				"direction": "Direction",
+				"count": "Entries"
+			},
+			"directions": {
+				"nah→ru": "nah→ru",
+				"ru→nah": "ru→nah",
+				"оба": "both"
+			}
+		},
+		"apiHint": {
+			"title": "Available through the API",
+			"description": "Statistics are programmatically accessible for language-app developers",
+			"code": "GET /api/dictionary/stats",
+			"cta": "Documentation →"
+		},
+		"error": {
+			"title": "Failed to load statistics",
+			"text": "Please refresh the page later.",
+			"retry": "Refresh"
 		}
 	},
 	"apiSection": {
@@ -629,5 +746,170 @@
 			"text": "An entry with this ID does not exist or has been removed.",
 			"backToSearch": "Back to dictionary"
 		}
+	},
+	"profile": {
+		"meta": {
+			"title": "Profile — Dosham",
+			"description": "Manage your account: personal data, password, preferences and active sessions"
+		},
+		"loginRequired": {
+			"title": "Sign in required",
+			"text": "Sign in to see your profile, settings and history.",
+			"cta": "Sign in"
+		},
+		"loading": "Loading profile…",
+		"header": {
+			"registeredSince": "Since {date}",
+			"editAvatar": "Change avatar",
+			"role": {
+				"USER": "USER",
+				"EDITOR": "EDITOR",
+				"ADMIN": "ADMIN"
+			}
+		},
+		"stats": {
+			"favorites": "In favorites",
+			"searches": "Searches",
+			"suggestions": "Suggestions"
+		},
+		"tabs": {
+			"personal": "Personal data",
+			"security": "Security",
+			"settings": "Preferences",
+			"sessions": "Sessions"
+		},
+		"personal": {
+			"nameLabel": "Display name",
+			"usernameLabel": "Username",
+			"usernameHint": "2–16 characters, latin",
+			"emailLabel": "Email",
+			"save": "Save",
+			"cancel": "Cancel",
+			"saveSuccess": "Profile updated",
+			"saveError": "Could not save changes",
+			"usernameTaken": "This username is already taken",
+			"invalidUsername": "Only latin letters and digits are allowed (2–16 chars)",
+			"invalidEmail": "Invalid email address",
+			"nameRequired": "Name is required"
+		},
+		"security": {
+			"title": "Change password",
+			"currentPasswordLabel": "Current password",
+			"currentPasswordPlaceholder": "Enter current password",
+			"newPasswordLabel": "New password",
+			"newPasswordPlaceholder": "At least 8 characters",
+			"newPasswordHint": "At least 8 characters, 1 uppercase, 1 symbol",
+			"confirmPasswordLabel": "Confirm password",
+			"confirmPasswordPlaceholder": "Repeat password",
+			"submit": "Update password",
+			"success": "Password updated",
+			"error": "Could not update password",
+			"passwordsDoNotMatch": "Passwords do not match",
+			"currentPasswordIncorrect": "Current password is incorrect",
+			"passwordTooWeak": "Password is too weak",
+			"togglePasswordShow": "Show password",
+			"togglePasswordHide": "Hide password"
+		},
+		"settings": {
+			"preferencesTitle": "Preferences",
+			"saveHistory": "Save search history",
+			"saveHistoryDesc": "Remember your search queries",
+			"showExamples": "Show examples",
+			"showExamplesDesc": "Automatically expand examples in a word card",
+			"compactView": "Compact view",
+			"compactViewDesc": "Reduced spacing in lists",
+			"updateError": "Could not update preferences",
+			"dangerTitle": "Danger zone",
+			"deleteAccount": "Delete account",
+			"deleteAccountDesc": "All data will be permanently deleted. This action cannot be undone.",
+			"deleteButton": "Delete"
+		},
+		"sessions": {
+			"title": "Active sessions",
+			"current": "Current",
+			"revoke": "Revoke",
+			"revokeAll": "Revoke all except current",
+			"empty": "No other active sessions",
+			"loading": "Loading sessions…",
+			"error": "Could not load sessions",
+			"revokeSuccess": "Session revoked",
+			"revokeError": "Could not revoke session",
+			"revokeAllSuccess": "All other sessions revoked"
+		},
+		"delete": {
+			"title": "Delete account?",
+			"text": "All your data, including favorites, history and suggestions, will be permanently removed.",
+			"confirmLabel": "Type {phrase} to confirm",
+			"confirmPhrase": "delete",
+			"confirmPlaceholder": "delete",
+			"cancel": "Cancel",
+			"submit": "Delete forever",
+			"success": "Account deleted",
+			"error": "Could not delete account"
+		}
+	},
+	"history": {
+		"meta": {
+			"title": "Search history — Dosham",
+			"description": "Your personal search history in the Chechen language dictionary"
+		},
+		"header": {
+			"title": "Search history",
+			"countOne": "{count} query",
+			"countFew": "{count} queries",
+			"countMany": "{count} queries",
+			"clearAll": "Clear all"
+		},
+		"toolbar": {
+			"searchPlaceholder": "Filter queries…",
+			"searchAriaLabel": "Search in history",
+			"filterAll": "All",
+			"filterNah": "Chechen",
+			"filterRu": "Russian"
+		},
+		"groups": {
+			"today": "Today",
+			"yesterday": "Yesterday"
+		},
+		"item": {
+			"langNah": "NAH",
+			"langRu": "RUS",
+			"langUnknown": "—",
+			"removeAriaLabel": "Remove «{query}»",
+			"openAriaLabel": "Repeat search «{query}»"
+		},
+		"noResults": {
+			"text": "No results match your filters",
+			"reset": "Reset filters"
+		},
+		"empty": {
+			"icon": "🕓",
+			"title": "History is empty",
+			"text": "Your search queries will appear here",
+			"cta": "Go to search"
+		},
+		"clearDialog": {
+			"title": "Clear history?",
+			"body": "All your search queries will be removed. This action cannot be undone.",
+			"cancel": "Cancel",
+			"confirm": "Clear"
+		},
+		"toasts": {
+			"itemRemoved": "«{query}» removed from history",
+			"cleared": "Search history cleared",
+			"removeError": "Could not remove the entry",
+			"clearError": "Could not clear history"
+		},
+		"loginRequired": {
+			"title": "Sign in required",
+			"text": "Sign in to see your search history.",
+			"cta": "Sign in"
+		},
+		"error": {
+			"title": "Could not load history",
+			"text": "Please try again later.",
+			"retry": "Retry"
+		},
+		"loading": "Loading history…"
 	}
 }

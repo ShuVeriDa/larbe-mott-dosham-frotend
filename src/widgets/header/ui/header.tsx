@@ -27,6 +27,7 @@ export function Header({ lang, nav, userMenu }: HeaderProps) {
 	const NAV_LINKS = [
 		{ href: `/${lang}/search`, label: nav.dictionary },
 		{ href: `/${lang}/phraseology`, label: nav.phraseology },
+		{ href: `/${lang}/random`, label: nav.random },
 		{ href: `/${lang}/stats`, label: nav.statistics },
 		{ href: `/${lang}/about`, label: nav.about },
 	];

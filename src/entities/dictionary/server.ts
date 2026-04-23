@@ -1,9 +1,14 @@
 import "server-only";
 import { API_URL } from "@/shared/config";
-import type { DictionaryEntry, DictionarySource } from "./types";
+import type {
+	DictionaryEntry,
+	DictionarySource,
+	DictionaryStats,
+} from "./types";
 
 const ENTRY_REVALIDATE_SECONDS = 300;
 const SOURCES_REVALIDATE_SECONDS = 1800;
+const STATS_REVALIDATE_SECONDS = 1800;
 
 export const fetchEntryServer = async (
 	id: number,
@@ -24,4 +29,25 @@ export const fetchSourcesServer = async (): Promise<DictionarySource[]> => {
 	});
 	if (!res.ok) throw new Error(`Failed to fetch sources: ${res.status}`);
 	return (await res.json()) as DictionarySource[];
+};
+
+export const fetchStatsServer = async (): Promise<DictionaryStats | null> => {
+	try {
+		const res = await fetch(`${API_URL}/dictionary/stats`, {
+			next: { revalidate: STATS_REVALIDATE_SECONDS },
+			headers: { Accept: "application/json" },
+		});
+		if (!res.ok) return null;
+		return (await res.json()) as DictionaryStats;
+	} catch {
+		return null;
+	}
+};
+
+export const fetchSourcesServerSafe = async (): Promise<DictionarySource[]> => {
+	try {
+		return await fetchSourcesServer();
+	} catch {
+		return [];
+	}
 };

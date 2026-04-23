@@ -26,4 +26,5 @@ export {
   useUpdatePassword,
   useUpdatePreferences,
   useDeleteAccount,
+  useUploadAvatar,
 } from "./queries";

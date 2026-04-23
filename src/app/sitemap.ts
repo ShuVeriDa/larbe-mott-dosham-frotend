@@ -6,6 +6,9 @@ const BASE_URL = "https://dosham.app";
 const ROUTES = [
   { path: "", changeFrequency: "daily" as const, priority: 1.0 },
   { path: "/search", changeFrequency: "weekly" as const, priority: 0.8 },
+  { path: "/phraseology", changeFrequency: "weekly" as const, priority: 0.7 },
+  { path: "/random", changeFrequency: "daily" as const, priority: 0.7 },
+  { path: "/stats", changeFrequency: "weekly" as const, priority: 0.6 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

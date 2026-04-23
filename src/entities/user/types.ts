@@ -110,5 +110,6 @@ export interface UpdatePreferencesDto {
 }
 
 export interface DeleteAccountDto {
-  confirmation: "delete";
+  /** Must match the confirmation phrase the backend expects (currently "удалить"). */
+  confirmation: string;
 }

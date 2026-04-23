@@ -67,3 +67,13 @@ export function useDeleteAccount() {
     mutationFn: (dto: DeleteAccountDto) => userApi.deleteAccount(dto),
   });
 }
+
+export function useUploadAvatar() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (file: File) => userApi.uploadAvatar(file),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: userKeys.me() });
+    },
+  });
+}
