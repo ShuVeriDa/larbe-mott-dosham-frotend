@@ -614,6 +614,15 @@ textarea {
 	}
 }
 
+@keyframes flashNew {
+	0% {
+		background-color: var(--accent-dim);
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+
 /* ---------- Reduced Motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -657,6 +666,12 @@ textarea {
 	--sidebar-accent-foreground: oklch(0.985 0 0);
 	--sidebar-border: oklch(1 0 0 / 10%);
 	--sidebar-ring: oklch(0.552 0.016 285.938);
+}
+
+@layer utilities {
+	.pb-safe {
+		padding-bottom: env(safe-area-inset-bottom, 0px);
+	}
 }
 
 @layer base {
@@ -1452,14 +1467,6 @@ textarea {
 	gap: var(--space-3);
 	align-items: center;
 }
-.nav-burger {
-	display: none;
-	background: none;
-	border: none;
-	padding: 4px;
-	cursor: pointer;
-	color: var(--text);
-}
 
 /* ---------- Language Switcher ---------- */
 
@@ -1505,29 +1512,9 @@ textarea {
 	.nav-right {
 		display: none;
 	}
-	.nav-burger {
-		display: flex;
-	}
 }
 
-/* ============================================================
-   MOBILE SHEET NAV
-   ============================================================ */
-.mob-nav-link {
-	font-size: var(--text-lg);
-	font-weight: 500;
-	color: var(--text-secondary);
-	padding: var(--space-4) 0;
-	border-bottom: 1px solid var(--border);
-	transition: color var(--duration-fast);
-	text-decoration: none;
-	display: block;
-}
-.mob-nav-link:hover {
-	color: var(--text);
-}
-
-/* Sheet panel itself */
+/* Sheet panel */
 [data-slot="sheet-content"] {
 	background: var(--bg-raised) !important;
 	color: var(--text) !important;

@@ -33,7 +33,7 @@ export default async function Page({ params }: PageProps) {
 		<AdminDashboardPage
 			lang={lang}
 			dict={dict.admin.dashboard}
-			commonDict={dict.admin.common}
+			shellDict={dict.admin.shell}
 		/>
 	);
 }

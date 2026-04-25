@@ -1,50 +1,22 @@
 import { apiClient } from "@/shared/api";
 import type {
-	PipelineDictionary,
+	HealthCheckResult,
+	ImproveHistoryItem,
+	ImproveResult,
+	LoadHistoryItem,
 	PipelineFullStatus,
-	PipelineHistoryItem,
 	PipelineLogEntry,
 	PipelineOperationLogEntry,
 	PipelineParsedFile,
+	PipelineParsedFilesResponse,
 	PipelineResetResult,
 	PipelineRollbackResult,
 	PipelineRunResult,
-	PipelineSnapshot,
 	PipelineStage,
-	PipelineStats,
-	PipelineStatus,
 	UnifiedLogResponse,
 } from "./types";
 
 export const adminPipelineApi = {
-	async getStatus(): Promise<PipelineStatus> {
-		const { data } = await apiClient.get<PipelineStatus>(
-			"/admin/pipeline/status",
-		);
-		return data;
-	},
-
-	async getStats(): Promise<PipelineStats> {
-		const { data } = await apiClient.get<PipelineStats>(
-			"/admin/pipeline/stats",
-		);
-		return data;
-	},
-
-	async getDictionaries(): Promise<PipelineDictionary[]> {
-		const { data } = await apiClient.get<PipelineDictionary[]>(
-			"/admin/pipeline/dictionaries",
-		);
-		return data;
-	},
-
-	async getSnapshots(): Promise<PipelineSnapshot[]> {
-		const { data } = await apiClient.get<PipelineSnapshot[]>(
-			"/admin/pipeline/snapshots",
-		);
-		return data;
-	},
-
 	async getLog(
 		stage?: PipelineStage,
 		limit = 100,
@@ -57,17 +29,10 @@ export const adminPipelineApi = {
 	},
 
 	async getParsedFiles(): Promise<PipelineParsedFile[]> {
-		const { data } = await apiClient.get<PipelineParsedFile[]>(
+		const { data } = await apiClient.get<PipelineParsedFilesResponse>(
 			"/admin/pipeline/parsed-files",
 		);
-		return data;
-	},
-
-	async getHistory(stage: PipelineStage): Promise<PipelineHistoryItem[]> {
-		const { data } = await apiClient.get<PipelineHistoryItem[]>(
-			`/admin/pipeline/history/${stage}`,
-		);
-		return data;
+		return data.files;
 	},
 
 	async runParse(slug?: string): Promise<PipelineRunResult> {
@@ -91,8 +56,8 @@ export const adminPipelineApi = {
 		return data;
 	},
 
-	async runImprove(): Promise<PipelineRunResult> {
-		const { data } = await apiClient.post<PipelineRunResult>(
+	async runImprove(): Promise<ImproveResult> {
+		const { data } = await apiClient.post<ImproveResult>(
 			"/admin/pipeline/improve",
 		);
 		return data;
@@ -102,6 +67,14 @@ export const adminPipelineApi = {
 		const { data } = await apiClient.post<PipelineRunResult>(
 			"/admin/pipeline/improve-entries",
 			{ ids },
+		);
+		return data;
+	},
+
+	async getImproveHistory(limit = 20): Promise<ImproveHistoryItem[]> {
+		const { data } = await apiClient.get<ImproveHistoryItem[]>(
+			"/admin/pipeline/improve-history",
+			{ params: { limit } },
 		);
 		return data;
 	},
@@ -146,6 +119,19 @@ export const adminPipelineApi = {
 		const { data } = await apiClient.delete<{ cleared: true }>(
 			"/admin/pipeline/log",
 		);
+		return data;
+	},
+
+	async getLoadHistory(limit = 20): Promise<LoadHistoryItem[]> {
+		const { data } = await apiClient.get<LoadHistoryItem[]>(
+			"/admin/pipeline/load-history",
+			{ params: { limit } },
+		);
+		return data;
+	},
+
+	async getHealth(): Promise<HealthCheckResult> {
+		const { data } = await apiClient.get<HealthCheckResult>("/health");
 		return data;
 	},
 };

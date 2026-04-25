@@ -268,6 +268,7 @@
 			"favoriteRemove": "Убрать из избранного",
 			"share": "Скопировать ссылку",
 			"shareSuccess": "Ссылка скопирована",
+			"shareSuccessDescription": "Ссылка на словарную статью",
 			"shareError": "Не удалось скопировать ссылку"
 		},
 		"shuffle": {
@@ -565,7 +566,9 @@
 				"anatomy": "Анатомия",
 				"geology": "Геология",
 				"math": "Математика",
-				"it": "IT / Компьютеры"
+				"it": "IT / Компьютеры",
+				"computer": "Информатика",
+				"sport": "Спорт"
 			}
 		},
 		"pos": {
@@ -615,6 +618,160 @@
 		"actions": {
 			"openDictionary": "Открыть словарь",
 			"learnMore": "Подробнее"
+		}
+	},
+	"about": {
+		"meta": {
+			"title": "О проекте — Дошам",
+			"description": "Дошам — единый цифровой словарь чеченского языка: морфологический анализ, склонение, спряжение и API, собранные из 14 источников."
+		},
+		"hero": {
+			"eyebrow": "Мотт Ларбе Дошам",
+			"titleStart": "Один словарь",
+			"titleConnector": "вместо",
+			"titleAccent": "четырнадцати",
+			"subtitle": "Единый цифровой словарь чеченского языка с морфологическим анализом, склонением, спряжением и API для разработчиков."
+		},
+		"stats": {
+			"entries": "словарных статей",
+			"sources": "словарей-источников",
+			"grammarValue": "8 + 9",
+			"grammarLabel": "падежей и времён",
+			"fallbackEntries": "48 000+"
+		},
+		"problems": {
+			"title": "Зачем это нужно",
+			"description": "Чеченский язык обладает богатой морфологией — 4 именных класса, 8 падежей, эргативный строй, — но до сих пор не имел единого цифрового словаря. Данные рассредоточены по десяткам источников разного формата и покрытия.",
+			"items": {
+				"noSingleDictionary": "Нет единого цифрового словаря чеченского языка",
+				"scatteredData": "Данные разрозненны по 14 разным словарям",
+				"noTools": "Нет инструментов склонения и спряжения",
+				"noApi": "Нет API для разработчиков языковых приложений"
+			}
+		},
+		"features": {
+			"title": "Что умеет Дошам",
+			"items": {
+				"bilingualSearch": {
+					"name": "Двуязычный поиск",
+					"desc": "Чеченский → русский и русский → чеченский с учётом морфологии и лемматизацией."
+				},
+				"declensionConjugation": {
+					"name": "Склонение и спряжение",
+					"desc": "8 падежей × 2 числа для существительных. 9 временных форм, причастия и отрицание для глаголов."
+				},
+				"phraseology": {
+					"name": "Фразеология и цитаты",
+					"desc": "Устойчивые выражения и литературные цитаты из всех источников."
+				},
+				"cefr": {
+					"name": "CEFR-уровни",
+					"desc": "Каждому слову присвоен уровень от A1 до C2 для удобства изучения."
+				},
+				"favoritesHistory": {
+					"name": "Избранное и история",
+					"desc": "Сохраняйте слова и возвращайтесь к прошлым запросам."
+				},
+				"api": {
+					"name": "REST API",
+					"desc": "Полноценный API с документацией для интеграции в сторонние приложения."
+				}
+			}
+		},
+		"grammar": {
+			"title": "Грамматика чеченского языка",
+			"description": "Дошам автоматически определяет тип склонения и генерирует полные парадигмы для каждого слова.",
+			"cards": {
+				"classes": {
+					"title": "4 именных класса",
+					"segments": [
+						{ "accent": "ву" },
+						{ "text": " — мужской, " },
+						{ "accent": "йу" },
+						{ "text": " — женский, " },
+						{ "accent": "ду" },
+						{ "text": " — неодушевлённый, " },
+						{ "accent": "бу" },
+						{ "text": " — множ./абстрактный" }
+					]
+				},
+				"cases": {
+					"title": "8 падежей",
+					"segments": [
+						{ "text": "Именительный, родительный, дательный, эргативный, творительный, вещественный, местный, сравнительный" }
+					]
+				},
+				"declensionTypes": {
+					"title": "4 типа склонения",
+					"segments": [
+						{ "text": "Определяются автоматически по форме инструменталиса: " },
+						{ "accent": "-ца" },
+						{ "text": ", " },
+						{ "accent": "-нца" },
+						{ "text": ", " },
+						{ "accent": "-ица" },
+						{ "text": ", " },
+						{ "accent": "-чунца" }
+					]
+				},
+				"tenses": {
+					"title": "9 временных форм",
+					"segments": [
+						{ "text": "Настоящее, прошедшее совершенное, давнопрошедшее, несовершённое, будущее возможное и фактическое и др." }
+					]
+				}
+			}
+		},
+		"sources": {
+			"title": "Источники",
+			"description": "Объединённые данные из 14 словарей — от общелексических до специализированных.",
+			"directions": {
+				"nah-ru": "Чеченско-русский",
+				"ru-nah": "Русско-чеченский",
+				"both": "Оба направления",
+				"original": "Авторские"
+			},
+			"domains": {
+				"general": "общий",
+				"misc": "разное",
+				"geology": "геол.",
+				"law": "юрид.",
+				"math": "мат.",
+				"anatomy": "анат.",
+				"it": "IT"
+			},
+			"items": {
+				"maciev": { "name": "Мациев" },
+				"baisultanov": { "name": "Байсултанов" },
+				"karasaev-maciev": { "name": "Карасаев-Мациев" },
+				"aslahanov": { "name": "Аслаханов" },
+				"ismailov": { "name": "Исмаилов" },
+				"daukaev": { "name": "Даукаев" },
+				"abdurashidov": { "name": "Абдурашидов" },
+				"umarhadjiev": { "name": "Умархаджиев-Ахматукаев" },
+				"anatomy": { "name": "Анатомический" },
+				"computer": { "name": "Компьютерный" },
+				"collected": { "name": "Ручной сборник" },
+				"neologisms": { "name": "Неологизмы" }
+			}
+		},
+		"roadmap": {
+			"title": "Планы развития",
+			"items": {
+				"audio": "Аудио-произношение от носителей",
+				"dialects": "Диалектные варианты (плоскостной / горный)",
+				"flashcards": "Режим карточек / flashcards по CEFR-уровням",
+				"export": "Экспорт данных (JSON / CSV) для исследователей",
+				"synonyms": "Синонимы, антонимы и родственные слова",
+				"i18n": "Мультиязычный интерфейс"
+			}
+		},
+		"cta": {
+			"title": "Начните пользоваться",
+			"text": "Поиск работает без регистрации. Зарегистрируйтесь, чтобы сохранять слова и предлагать правки.",
+			"openDictionary": "Открыть словарь",
+			"register": "Регистрация",
+			"profile": "Мой профиль"
 		}
 	},
 	"entry": {
@@ -1679,6 +1836,7 @@
 			"items": {
 				"dashboard": "Dashboard",
 				"quality": "Качество данных",
+				"analytics": "Аналитика",
 				"entries": "Записи словаря",
 				"suggestions": "Предложения",
 				"audit": "Аудит-лог",
@@ -1733,77 +1891,548 @@
 		"dashboard": {
 			"meta": {
 				"title": "Админ-панель — Дошам",
-				"description": "Обзор качества данных словаря Дошам и быстрые действия"
+				"description": "Навигация по разделам админки Дошам"
 			},
 			"header": {
 				"title": "Dashboard",
-				"subtitle": "Обзор качества данных и быстрые действия"
+				"subtitle": "Выберите раздел админки"
+			},
+			"descriptions": {
+				"quality": "Метрики полноты данных, проблемные записи и экспорт",
+				"analytics": "Посещаемость, источники трафика и поведение пользователей",
+				"entries": "Просмотр и редактирование записей словаря",
+				"suggestions": "Модерация правок от пользователей",
+				"audit": "История изменений и действий",
+				"pipeline": "Парсинг, слияние, загрузка и обслуживание данных",
+				"users": "Управление пользователями и ролями",
+				"apiKeys": "Создание и отзыв API-ключей"
+			}
+		},
+		"analytics": {
+			"meta": {
+				"title": "Web Analytics — Админ — Дошам",
+				"description": "Посещаемость, источники трафика и поведение пользователей. Обновляется каждый час, realtime — каждые 30 секунд."
+			},
+			"header": {
+				"title": "Web Analytics",
+				"subtitle": "Посещаемость, источники трафика и поведение пользователей. Обновляется каждый час, realtime — каждые 30 секунд."
+			},
+			"realtime": {
+				"label": "сейчас на сайте",
+				"tooltip": "Уникальные посетители за последние 5 минут"
+			},
+			"tabs": {
+				"overview": "Обзор",
+				"timeseries": "Графики",
+				"pages": "Страницы",
+				"searchQueries": "Поиск",
+				"referrers": "Источники",
+				"devices": "Устройства",
+				"geography": "География",
+				"live": "Live"
+			},
+			"toolbar": {
+				"presets": {
+					"today": "Сегодня",
+					"7d": "7 дней",
+					"30d": "30 дней",
+					"90d": "90 дней",
+					"custom": "Custom"
+				},
+				"from": "С",
+				"to": "По",
+				"refresh": "Обновить",
+				"refreshing": "Обновление…",
+				"export": "⇣ Экспорт",
+				"exporting": "Экспорт…",
+				"invalidRange": "Дата начала должна быть раньше даты окончания"
+			},
+			"metrics": {
+				"visitors": "Посетители",
+				"sessions": "Сессии",
+				"pageviews": "Просмотры",
+				"events": "Событий",
+				"avgSession": "Ср. сессия",
+				"bounceRate": "Bounce rate",
+				"vsPrevious": "vs пред."
+			},
+			"chart": {
+				"title": "Трафик за период",
+				"legend": {
+					"pageviews": "Просмотры",
+					"visitors": "Посетители"
+				},
+				"empty": "Нет данных за выбранный период"
+			},
+			"topPages": {
+				"title": "Топ страниц",
+				"viewAll": "Все →",
+				"empty": "Нет просмотров"
+			},
+			"topReferrers": {
+				"title": "Топ источников",
+				"viewAll": "Все →",
+				"direct": "(direct)",
+				"empty": "Нет источников"
+			},
+			"footer": {
+				"queueLabel": "Queue:",
+				"queuePending": "events pending",
+				"aggregatorLabel": "Aggregator:",
+				"aggregatorActive": "активен",
+				"aggregatorStale": "устаревает",
+				"aggregatorDown": "не отвечает",
+				"lastRun": "last run",
+				"never": "никогда",
+				"daysWithDataLabel": "Days with data:",
+				"recompute": "🔄 Пересчитать агрегаты"
+			},
+			"toasts": {
+				"refreshed": "Данные обновлены",
+				"refreshError": "Не удалось обновить",
+				"exportStarted": "Экспорт CSV…",
+				"exportError": "Не удалось экспортировать CSV",
+				"recomputeStarted": "Пересчёт запущен для последних 3 дней",
+				"recomputeError": "Не удалось запустить пересчёт"
+			},
+			"referrers": {
+				"meta": {
+					"title": "Источники трафика — Аналитика — Дошам",
+					"description": "Откуда приходят посетители: поисковики, прямые переходы, соцсети и другие источники."
+				},
+				"header": {
+					"title": "Источники трафика",
+					"subtitle": "Откуда приходят пользователи. Клик по категории фильтрует список ниже."
+				},
+				"categories": {
+					"all": {
+						"label": "Все источники",
+						"sub": "{count} уникальных доменов"
+					},
+					"search": {
+						"label": "Поисковики",
+						"emptySub": "поисковые системы"
+					},
+					"direct": {
+						"label": "Прямые",
+						"emptySub": "закладки, переходы по ссылкам"
+					},
+					"social": {
+						"label": "Соцсети",
+						"emptySub": "соцсети и мессенджеры"
+					},
+					"other": {
+						"label": "Другое",
+						"emptySub": "прочие сайты"
+					}
+				},
+				"badges": {
+					"search": "поиск",
+					"direct": "прямой",
+					"social": "соцсеть",
+					"other": "другое"
+				},
+				"list": {
+					"title": "Домены",
+					"searchPlaceholder": "Фильтр по домену…",
+					"searchLabel": "Поиск по домену",
+					"directLabel": "(direct / закладка)",
+					"loadMore": "Показать больше",
+					"loadingMore": "Загрузка…",
+					"shownInfo": "Показано {shown} из {total} доменов",
+					"emptyTitle": "Ничего не найдено",
+					"emptyDescription": "По текущим фильтрам ничего не найдено. Попробуйте сбросить фильтр или выбрать другой период.",
+					"openExternal": "Открыть {host}"
+				},
+				"toasts": {
+					"refreshed": "Данные обновлены",
+					"refreshError": "Не удалось обновить"
+				},
+				"errors": {
+					"breakdownTitle": "Не удалось загрузить сводку",
+					"listTitle": "Не удалось загрузить список",
+					"retry": "Повторить"
+				}
+			},
+			"geography": {
+				"meta": {
+					"title": "География — Аналитика — Дошам",
+					"description": "Карта посетителей по странам и городам. Требует подключения MaxMind GeoLite2 на бэкенде."
+				},
+				"header": {
+					"title": "География",
+					"subtitle": "Карта посетителей по странам и городам. Пока поле {field} не заполняется — нужно подключить MaxMind GeoLite2.",
+					"badgeNotConfigured": "⚡ GeoIP не настроен",
+					"badgeConfigured": "✓ GeoIP активен"
+				},
+				"notice": {
+					"title": "Для включения геолокации подключите MaxMind GeoLite2",
+					"text": "Эндпоинт {endpoint} уже готов, но поле {field} в событиях пока пустое. После подключения GeoIP база будет заполняться автоматически у всех новых событий — для ретро-аналитики по старым событиям данные не появятся.",
+					"register": "Регистрация на MaxMind ↗",
+					"setupAnchor": "Инструкция по настройке ↓"
+				},
+				"setup": {
+					"title": "⚙️ Как подключить GeoIP",
+					"steps": {
+						"1": {
+							"title": "Зарегистрируйтесь на MaxMind",
+							"desc": "Создайте бесплатный аккаунт на {link} — без карты, займёт 2 минуты."
+						},
+						"2": {
+							"title": "Скачайте GeoLite2-Country",
+							"desc": "В аккаунте → Download Databases → GeoLite2 Country (MMDB Binary, ~6 MB). Поместите файл в {path}."
+						},
+						"3": {
+							"title": "Установите зависимость",
+							"desc": "Добавьте пакет в бэкенд:"
+						},
+						"4": {
+							"title": "Добавьте lookup в AnalyticsService",
+							"desc": "В {file} внутри {fn} добавьте:"
+						},
+						"5": {
+							"title": "Готово",
+							"desc": "После перезапуска бэкенда поле {field} начнёт заполняться у новых событий, а эта страница — рисовать карту и таблицу стран."
+						}
+					}
+				},
+				"preview": {
+					"label": "📷 Превью · так будет выглядеть страница после настройки",
+					"overlayTitle": "Данных пока нет",
+					"overlayText": "Это визуализация того, как будет выглядеть раздел после подключения GeoIP. Реальные цифры появятся сразу, как заработает lookup."
+				},
+				"stats": {
+					"title": "Статистика",
+					"totalEvents": "Всего событий",
+					"eventsWithCountry": "С определённой страной",
+					"eventsWithCity": "С определённым городом",
+					"uniqueCountries": "Уникальных стран",
+					"uniqueCities": "Уникальных городов",
+					"topCountry": "Топ страна",
+					"topCity": "Топ город",
+					"coverage": "покрытие"
+				},
+				"countries": {
+					"title": "Страны",
+					"empty": "Нет данных за выбранный период",
+					"shareLabel": "{percent}% от всех визитов",
+					"flagAlt": "Флаг {country}"
+				},
+				"cities": {
+					"title": "Города",
+					"empty": "Нет данных за выбранный период",
+					"countryFilterLabel": "Фильтр по стране",
+					"countryFilterAll": "Все страны",
+					"clearFilter": "Сбросить фильтр"
+				},
+				"map": {
+					"title": "Карта мира",
+					"placeholder": "Карта будет здесь",
+					"tooltipVisits": "{count} визитов"
+				},
+				"actions": {
+					"exportCountries": "⇣ Экспорт стран CSV",
+					"exportCities": "⇣ Экспорт городов CSV",
+					"recheck": "Проверить снова"
+				},
+				"errors": {
+					"statusTitle": "Не удалось проверить статус GeoIP",
+					"countriesTitle": "Не удалось загрузить топ стран",
+					"citiesTitle": "Не удалось загрузить топ городов",
+					"statsTitle": "Не удалось загрузить статистику"
+				},
+				"toasts": {
+					"refreshed": "Данные обновлены",
+					"refreshError": "Не удалось обновить",
+					"exportError": "Не удалось экспортировать CSV",
+					"recheck": "Проверяем статус GeoIP…"
+				}
+			},
+			"timeseries": {
+				"meta": {
+					"title": "Web Analytics · Графики — Админ — Дошам",
+					"description": "Динамика ключевых метрик за период. Гранулярность день/неделя/месяц, сравнение с предыдущим периодом."
+				},
+				"header": {
+					"title": "Графики",
+					"subtitle": "Динамика ключевых метрик за период. Переключайтесь между метриками и гранулярностью."
+				},
+				"metrics": {
+					"label": "Метрика",
+					"pageviews": "Просмотры страниц",
+					"uniqueVisitors": "Уникальные посетители",
+					"sessions": "Сессии",
+					"totalEvents": "Всего событий",
+					"bounceRate": "Bounce rate",
+					"avgSessionSec": "Ср. длительность сессии"
+				},
+				"granularity": {
+					"label": "Гранулярность",
+					"day": "День",
+					"week": "Неделя",
+					"month": "Месяц"
+				},
+				"summary": {
+					"total": "Всего за период",
+					"avg": "Ср. в день",
+					"peak": "Пиковый день",
+					"min": "Минимум",
+					"vsPrevious": "vs пред."
+				},
+				"chart": {
+					"legendCurrent": "Текущий",
+					"legendPrevious": "Предыдущий",
+					"compare": "Сравнить с пред.",
+					"empty": "Нет данных за выбранный период",
+					"tooltipDelta": "vs пред."
+				},
+				"actions": {
+					"export": "⇣ Экспорт CSV"
+				},
+				"toasts": {
+					"refreshed": "Данные обновлены",
+					"refreshError": "Не удалось обновить",
+					"exportError": "Не удалось экспортировать CSV"
+				}
+			}
+		},
+		"analyticsSearchQueries": {
+			"meta": {
+				"title": "Поисковые запросы — Web Analytics — Админ — Дошам",
+				"description": "Что именно ищут пользователи в словаре. Запросы без результата — прямой список слов для пополнения словаря."
+			},
+			"header": {
+				"title": "Поисковые запросы",
+				"subtitle": "Что именно ищут пользователи в словаре. Запросы без результата — прямой список слов для пополнения словаря."
+			},
+			"callout": {
+				"title": "Золотая жила для словаря",
+				"text": "Запросы без результата (красные строки) — это слова, которые пользователи искали, но не нашли. Включите фильтр «Только без результата», чтобы увидеть список."
 			},
 			"stats": {
-				"totalEntries": "Всего записей",
-				"sourcesCount": "Источников",
-				"noMeanings": "Без значений",
-				"noClass": "Без класса",
-				"noPos": "Без POS",
-				"problemsCount": "С проблемами"
-			},
-			"quality": {
-				"title": "Полнота данных",
-				"ringLabel": "Полнота данных",
-				"description": "Записи без проблем: {clean} из {total}",
-				"breakdownTitle": "Разбивка по проблемам",
-				"jumpTo": "Показать →",
-				"problems": {
-					"noMeanings": {
-						"name": "Без значений",
-						"description": "Нет переводов — нужно добавить"
-					},
-					"noClass": {
-						"name": "Без класса",
-						"description": "Грамм. класс не указан"
-					},
-					"noPos": {
-						"name": "Без POS",
-						"description": "Часть речи не определена"
-					},
-					"noExamples": {
-						"name": "Без примеров",
-						"description": "Отсутствуют примеры употребления"
-					}
+				"totalSearches": {
+					"label": "Всего запросов",
+					"sub": "за {days} дней"
+				},
+				"uniqueQueries": {
+					"label": "Уникальных",
+					"sub": "различных запросов"
+				},
+				"zeroResults": {
+					"label": "⊘ Без результата",
+					"sub": "{pct}% — кандидаты в словарь"
+				},
+				"avgQueryLength": {
+					"label": "Ср. длина",
+					"sub": "символов · медиана {median}"
 				}
 			},
-			"quickActions": {
-				"title": "Быстрые действия",
-				"fix": {
-					"title": "Исправить записи без значений",
-					"description": "Перейти к списку проблемных записей"
+			"toplist": {
+				"title": "Запросы",
+				"searchPlaceholder": "Фильтр по запросу…",
+				"searchAriaLabel": "Поиск по запросу",
+				"onlyZeroResults": "Только без результата",
+				"noResultsBadge": "0 результатов",
+				"openSearch": "Открыть поиск",
+				"addToDictionary": "Добавить в словарь",
+				"shownOf": "Показано {shown} из {total} запросов",
+				"showLabel": "Показать:",
+				"loadMore": "Показать больше",
+				"loadingMore": "Загрузка…",
+				"emptyTitle": "За этот период поисков не было",
+				"emptyText": "Запросы не зарегистрированы. Попробуйте изменить диапазон дат.",
+				"emptyZeroTitle": "Нет zero-result запросов",
+				"emptyZeroText": "Все запросы в этом периоде что-то нашли. Отличное покрытие!",
+				"emptyFilteredTitle": "Ничего не найдено",
+				"emptyFilteredText": "Попробуйте другой фильтр."
+			}
+		},
+		"analyticsPages": {
+			"meta": {
+				"title": "Топ страниц — Web Analytics — Админ — Дошам",
+				"description": "Какие URL посещают чаще всего. Поиск по списку и сортировка по частотности просмотров."
+			},
+			"header": {
+				"title": "Топ страниц",
+				"subtitle": "Какие URL посещают чаще всего. Поиск по списку и сортировка по частотности просмотров."
+			},
+			"stats": {
+				"distinctUrls": {
+					"label": "Уникальных URL",
+					"sub": "из них {count} — топ-80% трафика"
 				},
-				"improve": {
-					"title": "Запустить Improve",
-					"description": "Автоматическая очистка данных"
+				"totalPageviews": {
+					"label": "Всего просмотров",
+					"sub": "за {days} дней"
 				},
-				"review": {
-					"title": "Модерация предложений",
-					"description": "Посмотреть новые правки от пользователей"
+				"topPage": {
+					"label": "Топ-страница",
+					"sub": "{count} просмотров · {pct}"
+				},
+				"medianViewsPerUrl": {
+					"label": "Просмотров на URL",
+					"sub": "медиана по страницам"
 				}
 			},
-			"problems": {
-				"title": "Проблемные записи",
-				"filters": {
-					"all": "Все",
-					"noMeanings": "Без значений",
-					"noClass": "Без класса",
-					"noPos": "Без POS",
-					"noExamples": "Без примеров"
+			"toplist": {
+				"title": "Страницы",
+				"searchPlaceholder": "Фильтр по пути…",
+				"searchAriaLabel": "Поиск по пути",
+				"openExternal": "Открыть в новой вкладке",
+				"openInternal": "Открыть страницу",
+				"shownOf": "Показано {shown} из {total} URL",
+				"showLabel": "Показать:",
+				"loadMore": "Показать больше",
+				"loadingMore": "Загрузка…",
+				"emptyTitle": "Нет данных за выбранный период",
+				"emptyText": "Попробуйте изменить диапазон дат",
+				"emptyFilteredTitle": "Ничего не найдено",
+				"emptyFilteredText": "Попробуйте другой поисковый запрос"
+			}
+		},
+		"analyticsLive": {
+			"meta": {
+				"title": "Live-feed — Web Analytics — Админ — Дошам",
+				"description": "Живая лента событий сайта с автообновлением каждые 5 секунд. Фильтр по типу события и детали в JSON."
+			},
+			"header": {
+				"title": "Live-feed",
+				"subtitle": "События в реальном времени. Поток обновляется каждые 5 секунд. Клик по строке — детальный JSON события."
+			},
+			"realtime": {
+				"live": "Live",
+				"paused": "Пауза"
+			},
+			"stats": {
+				"activeVisitors": "Активных (5 мин)",
+				"eventsPerMinute": "Событий в мин",
+				"queuePending": "Queue pending",
+				"inFeed": "В ленте"
+			},
+			"filters": {
+				"allLabel": "Все",
+				"types": {
+					"pageview": "pageview",
+					"search": "search",
+					"entry_view": "entry_view",
+					"favorite_add": "favorite_add",
+					"favorite_remove": "favorite_remove",
+					"random_word": "random_word",
+					"word_of_day": "word_of_day",
+					"phraseology_view": "phraseology_view",
+					"suggestion_create": "suggestion_create",
+					"declension_view": "declension_view"
+				}
+			},
+			"actions": {
+				"pause": "Пауза",
+				"resume": "Возобновить",
+				"clear": "Очистить"
+			},
+			"table": {
+				"time": "Время",
+				"event": "Событие",
+				"path": "Путь / запрос",
+				"device": "Устройство",
+				"country": "Страна",
+				"user": "Пользователь",
+				"anonymous": "anon",
+				"countryUnknown": "неизвестно",
+				"searchResultsShort": "результатов"
+			},
+			"footer": {
+				"streamLabel": "Stream",
+				"streamActive": "активен",
+				"streamPaused": "на паузе",
+				"lastUpdate": "последнее обновление",
+				"shownLabel": "Показано"
+			},
+			"states": {
+				"loading": "Загрузка событий…",
+				"emptyTitle": "Нет событий по выбранному фильтру",
+				"emptyText": "Попробуйте изменить фильтр или дождитесь новых событий",
+				"errorTitle": "Не удалось загрузить ленту",
+				"errorText": "Возможна проблема с сетью или авторизацией. Повторите попытку.",
+				"retry": "Повторить"
+			},
+			"drawer": {
+				"title": "Детали события",
+				"description": "Полная информация о событии аналитики",
+				"fields": {
+					"id": "ID",
+					"time": "Время",
+					"path": "Путь",
+					"referrer": "Referrer",
+					"device": "Устройство",
+					"country": "Страна",
+					"user": "Пользователь",
+					"metadata": "Metadata"
 				},
-				"columns": {
-					"word": "Слово",
-					"source": "Источник",
-					"problems": "Проблемы",
-					"updatedAt": "Обновлено",
-					"actions": "Действия"
-				},
-				"edit": "Править"
+				"values": {
+					"notPageview": "— (не pageview)",
+					"directReferrer": "(direct)",
+					"geoUnavailable": "(неизвестно — GeoIP не настроен)",
+					"anonymous": "anonymous"
+				}
+			}
+		},
+		"analyticsDevices": {
+			"meta": {
+				"title": "Устройства, браузеры, ОС — Web Analytics — Админ — Дошам",
+				"description": "Разбивка посетителей по типу устройства, браузеру и операционной системе. Данные парсятся из User-Agent."
+			},
+			"header": {
+				"title": "Устройства, браузеры, ОС",
+				"subtitle": "Разбивка посетителей по типу устройства, используемому браузеру и ОС. Данные парсятся из User-Agent."
+			},
+			"panels": {
+				"devices": "Устройства",
+				"browsers": "Браузеры",
+				"os": "Операционные системы"
+			},
+			"summary": {
+				"visitors": "{count} посетителей",
+				"events": "{count} событий"
+			},
+			"center": {
+				"emptyValue": "—",
+				"emptyLabel": "Нет данных"
+			},
+			"states": {
+				"emptyAllTitle": "Нет трафика за выбранный период",
+				"emptyAllDescription": "Попробуйте расширить диапазон дат или обновите страницу.",
+				"errorTitle": "Не удалось загрузить",
+				"retry": "Повторить"
+			},
+			"devices": {
+				"desktop": "Desktop",
+				"mobile": "Мобильное",
+				"tablet": "Планшет",
+				"bot": "Бот",
+				"other": "Другие"
+			},
+			"browsers": {
+				"chrome": "Chrome",
+				"safari": "Safari",
+				"firefox": "Firefox",
+				"edge": "Edge",
+				"yandex": "Yandex",
+				"opera": "Opera",
+				"samsung": "Samsung Internet",
+				"other": "Другие"
+			},
+			"os": {
+				"android": "Android",
+				"windows": "Windows",
+				"ios": "iOS",
+				"macos": "macOS",
+				"linux": "Linux",
+				"chromeos": "Chrome OS",
+				"other": "Другие"
+			},
+			"toasts": {
+				"refreshed": "Данные обновлены",
+				"refreshError": "Не удалось обновить"
 			}
 		},
 		"quality": {
@@ -2018,20 +2647,28 @@
 				"title": "Записи словаря — Админ — Дошам",
 				"description": "Управление записями словаря Дошам"
 			},
+			"breadcrumb": {
+				"dashboard": "Dashboard",
+				"entries": "Записи словаря"
+			},
 			"header": {
 				"title": "Записи словаря",
-				"subtitle": "Поиск, фильтрация и управление записями"
+				"subtitle": "Все записи чеченско-русского словаря — поиск, фильтрация и редактирование"
 			},
 			"stats": {
-				"total": "Всего",
+				"total": "Всего записей",
 				"nouns": "Существительные",
 				"verbs": "Глаголы",
 				"sources": "Источников",
-				"updatedToday": "Обновлено сегодня"
+				"updatedToday": "Обновлено сегодня",
+				"percent": "{percent}%"
 			},
 			"actions": {
 				"bulk": "📦 Массовое обновление",
-				"export": "⬇ Экспорт"
+				"export": "⬇ Экспорт",
+				"exporting": "Экспортирую…",
+				"exportJson": "JSON",
+				"exportCsv": "CSV"
 			},
 			"tabs": {
 				"all": "Все",
@@ -2042,33 +2679,85 @@
 				"other": "Другие"
 			},
 			"toolbar": {
-				"searchPlaceholder": "Поиск по слову, переводу или ID",
+				"searchPlaceholder": "Искать по слову или переводу…",
+				"searchClear": "Очистить",
 				"allSources": "Все источники",
-				"allCefr": "Все уровни",
-				"allClasses": "Все классы",
-				"sortByRelevance": "По релевантности",
-				"sortByUpdatedAt": "Сначала новые",
-				"sortByWord": "По алфавиту"
+				"allCefr": "Уровень: все",
+				"allClasses": "Класс: все",
+				"allTypes": "Тип: все",
+				"typeStandard": "Стандарт",
+				"typeNeologism": "Неологизм",
+				"classVu": "Ву (V)",
+				"classYu": "Йу (J)",
+				"classDu": "Ду (D)",
+				"classBu": "Бу (B)",
+				"sortRelevance": "По релевантности",
+				"sortWordAsc": "По слову (А→Я)",
+				"sortWordDesc": "По слову (Я→А)",
+				"sortUpdatedDesc": "Сначала новые",
+				"sortUpdatedAsc": "Сначала старые",
+				"sortCreatedDesc": "По дате создания",
+				"sortMeaningsDesc": "По кол-ву значений"
 			},
 			"columns": {
 				"word": "Слово",
 				"translation": "Перевод",
-				"pos": "Часть речи",
-				"cefr": "CEFR",
+				"pos": "POS / Класс",
+				"cefr": "Уровень",
 				"sources": "Источники",
 				"updatedAt": "Обновлено",
 				"actions": "Действия"
 			},
 			"rowActions": {
-				"edit": "Редактировать",
-				"view": "На сайте",
-				"history": "История"
+				"edit": "Править",
+				"editFull": "✏️ Редактировать",
+				"view": "↗ На сайте",
+				"history": "📝 История",
+				"expand": "Подробнее"
 			},
-			"selectAll": "Выбрать все",
-			"deselectAll": "Снять выбор",
-			"massEdit": "Редактировать выбранные",
-			"delete": "Удалить",
-			"selectedCount": "Выбрано: {count}"
+			"rowBadges": {
+				"neologism": "неологизм",
+				"standard": "стандарт"
+			},
+			"rowDetail": {
+				"meanings": "Значения",
+				"grammClass": "Грамм. класс",
+				"partOfSpeech": "Часть речи",
+				"sources": "Источники",
+				"domain": "Домен",
+				"phraseology": "Фразеология",
+				"type": "Тип",
+				"cefr": "Уровень",
+				"noMeanings": "Значения не заданы",
+				"loading": "Загрузка…",
+				"error": "Не удалось загрузить детали"
+			},
+			"bulk": {
+				"selected": "{count} выбрано",
+				"selectAll": "Выбрать все на странице",
+				"deselectAll": "Снять выбор",
+				"massEdit": "✏️ Массовое редактирование",
+				"delete": "🗑 Удалить",
+				"deleting": "Удаление…",
+				"confirmDelete": "Удалить {count} записей? Действие необратимо.",
+				"deletedSuccess": "Удалено записей: {count}",
+				"deletedError": "Не удалось удалить записи"
+			},
+			"pagination": {
+				"showing": "Показано {from}–{to} из {total} записей",
+				"rowsPerPage": "Строк:",
+				"prev": "←",
+				"next": "→"
+			},
+			"empty": {
+				"title": "Ничего не найдено",
+				"description": "Попробуйте изменить поисковый запрос или сбросить фильтры",
+				"reset": "Сбросить фильтры"
+			},
+			"toast": {
+				"exportSuccess": "Файл экспорта готов к загрузке",
+				"exportError": "Не удалось экспортировать записи"
+			}
 		},
 		"entriesBulk": {
 			"meta": {
@@ -2077,7 +2766,7 @@
 			},
 			"header": {
 				"title": "Массовое обновление",
-				"subtitle": "Выберите записи, укажите операции и просмотрите изменения"
+				"subtitle": "Обновить одно или несколько полей сразу у нескольких записей (до 100). Все изменения логируются."
 			},
 			"steps": {
 				"select": "Выбор записей",
@@ -2085,42 +2774,136 @@
 				"preview": "Предпросмотр",
 				"result": "Результат"
 			},
+			"method": {
+				"title": "Способ выбора записей",
+				"subtitle": "Выберите метод добавления записей для массового обновления",
+				"ids": {
+					"title": "По ID",
+					"description": "Введите список ID записей вручную или вставьте из буфера"
+				},
+				"search": {
+					"title": "Поиск",
+					"description": "Найдите записи по слову и выберите из результатов"
+				},
+				"filter": {
+					"title": "По фильтру",
+					"description": "Выберите все записи по POS, классу, источнику или уровню"
+				}
+			},
 			"select": {
-				"byIds": "По ID",
-				"bySearch": "Поиск",
-				"byFilter": "По фильтру",
-				"idsPlaceholder": "Введите ID записей (по одному на строке)",
-				"maxHint": "Максимум 100 записей",
-				"selectedCount": "{count} записей выбрано (макс. 100)",
-				"find": "Найти"
+				"ids": {
+					"title": "Ввод ID записей",
+					"description": "Введите ID через запятую, пробел или каждый на новой строке",
+					"placeholder": "1, 2, 45, 198, 310, 512",
+					"foundLabel": "Найдено:",
+					"idUnit": "ID",
+					"maxLabel": "Максимум:"
+				},
+				"search": {
+					"title": "Поиск записей",
+					"placeholder": "Поиск по слову…",
+					"loading": "Загрузка…",
+					"empty": "Ничего не найдено",
+					"errorTitle": "Ошибка поиска",
+					"minChars": "Введите минимум 1 символ"
+				},
+				"filter": {
+					"title": "Фильтрация записей",
+					"description": "Запрос выберет первые 100 записей, соответствующих фильтру",
+					"pos": "Часть речи",
+					"nounClass": "Грамм. класс",
+					"source": "Источник",
+					"level": "Уровень",
+					"problems": "Проблемы",
+					"all": "Все",
+					"noFilter": "Нет фильтра",
+					"find": "🔍 Найти",
+					"willSelect": "Будет выбрано:",
+					"entriesUnit": "записей",
+					"errorTitle": "Ошибка фильтрации"
+				},
+				"counter": {
+					"selected": "записей выбрано для обновления",
+					"max": "макс. 100",
+					"overLimit": "Превышен лимит в 100 записей"
+				},
+				"chips": {
+					"empty": "Нет выбранных записей",
+					"removeAll": "Очистить"
+				},
+				"backToList": "← Назад к списку",
+				"goToOperation": "Далее: Настроить операцию →"
 			},
 			"operation": {
-				"warning": "Изменения затронут выбранные записи необратимо",
-				"title": "Операции по полям",
-				"addOperation": "+ Добавить операцию",
-				"field": "Поле",
-				"value": "Значение",
-				"jsonHint": "Поля с JSON принимают валидный JSON-массив или объект"
+				"alertWarning": "Массовое обновление изменит {count} записей одновременно. Все изменения транзакционные и будут залогированы в аудит-лог.",
+				"title": "Операции обновления",
+				"description": "Добавьте одно или несколько полей для обновления. Каждое поле будет применено ко всем выбранным записям.",
+				"addOperation": "+ Добавить поле",
+				"remove": "Удалить",
+				"chooseField": "Выберите поле…",
+				"value": "Новое значение",
+				"valuePlaceholder": "Введите значение…",
+				"jsonPlaceholder": "Валидный JSON…",
+				"jsonInvalid": "Некорректный JSON",
+				"hint": "Будет установлено {field} = \"{value}\" для всех {count} записей",
+				"jsonAlert": "Для сложных полей (meanings, grammar, phraseology) используйте JSON-режим: вставьте JSON-значение в текстовое поле.",
+				"back": "← Назад",
+				"next": "Далее: Предпросмотр →",
+				"fields": {
+					"partOfSpeech": "partOfSpeech",
+					"partOfSpeechNah": "partOfSpeechNah",
+					"nounClass": "nounClass",
+					"nounClassPlural": "nounClassPlural",
+					"cefrLevel": "cefrLevel",
+					"wordLevel": "wordLevel",
+					"entryType": "entryType",
+					"domain": "domain",
+					"styleLabel": "styleLabel",
+					"latinName": "latinName",
+					"meanings": "meanings (JSON)",
+					"grammar": "grammar (JSON)",
+					"phraseology": "phraseology (JSON)"
+				}
 			},
 			"preview": {
+				"alertWarning": "Проверьте изменения перед применением. После подтверждения обновление будет выполнено транзакционно.",
 				"title": "Предпросмотр изменений",
+				"summary": "{entries} записей · {fields} полей · {ops} обновлений",
 				"columns": {
 					"entry": "Запись",
 					"field": "Поле",
 					"before": "Было",
 					"after": "Станет"
 				},
-				"more": "…и ещё {count} записей",
-				"apply": "⚡ Применить"
+				"more": "… и ещё {count} записей с аналогичными изменениями",
+				"loading": "Загрузка текущих значений…",
+				"errorTitle": "Не удалось загрузить текущие значения",
+				"request": "Будет отправлен запрос",
+				"transactional": "Транзакционно",
+				"back": "← Назад",
+				"apply": "⚡ Применить обновление"
 			},
 			"result": {
-				"success": "Готово",
+				"title": "Обновление выполнено",
+				"description": "Все записи успешно обновлены транзакционно. Изменения записаны в аудит-лог.",
+				"running": "Обновление записей…",
+				"done": "Готово!",
 				"stats": {
-					"updated": "Обновлено записей",
-					"fields": "Изменено полей",
-					"skipped": "Пропущено",
-					"elapsed": "Затрачено"
-				}
+					"updated": "Записей обновлено",
+					"fields": "Полей изменено",
+					"failed": "Ошибок",
+					"elapsed": "Время выполнения"
+				},
+				"errorTitle": "Ошибка при обновлении",
+				"errorDesc": "Не удалось выполнить массовое обновление. Попробуйте ещё раз.",
+				"backToList": "← К списку записей",
+				"auditLog": "📝 Аудит-лог",
+				"newUpdate": "📦 Новое обновление"
+			},
+			"toast": {
+				"filterFound": "Найдено {count} записей по фильтру",
+				"updateSuccess": "Обновлено {updated} из {total} записей",
+				"updateError": "Ошибка: {message}"
 			}
 		},
 		"entryEdit": {
@@ -2129,6 +2912,7 @@
 				"description": "Редактирование записи словаря"
 			},
 			"breadcrumb": {
+				"dashboard": "Dashboard",
 				"entries": "Записи словаря",
 				"edit": "Редактировать"
 			},
@@ -2136,7 +2920,51 @@
 				"lastUpdate": "Последнее обновление: {date}",
 				"view": "↗ На сайте",
 				"audit": "📝 Аудит",
-				"delete": "🗑 Удалить"
+				"delete": "🗑 Удалить",
+				"confirmDelete": "Удалить запись #{id}? Действие необратимо.",
+				"deleted": "Запись удалена",
+				"deleteError": "Не удалось удалить запись",
+				"subtitle": "Редактирование словарной записи"
+			},
+			"cards": {
+				"basicFields": {
+					"title": "Основные поля",
+					"desc": "Слово, часть речи, класс и тип записи"
+				},
+				"classification": {
+					"title": "Классификация",
+					"desc": "Уровень, тип записи, домен и стиль"
+				},
+				"variantsSources": {
+					"title": "Варианты и источники"
+				},
+				"meanings": {
+					"title": "Значения (meanings)",
+					"desc": "Переводы и примеры использования"
+				},
+				"grammar": {
+					"title": "Грамматика (grammar)",
+					"desc": "Падежные и глагольные формы"
+				},
+				"phraseology": {
+					"title": "Фразеология",
+					"desc": "Устойчивые выражения с данным словом"
+				},
+				"citations": {
+					"title": "Цитаты",
+					"desc": "Литературные примеры использования"
+				},
+				"searchFields": {
+					"title": "Поисковые поля",
+					"desc": "Нормализованная форма для поиска (автогенерация)"
+				},
+				"timestamps": {
+					"title": "Временные метки"
+				},
+				"fullJson": {
+					"title": "Полный JSON записи",
+					"desc": "Редактирование всех полей в формате JSON. Невалидный JSON не сохранится."
+				}
 			},
 			"tabs": {
 				"basic": "Основное",
@@ -2149,21 +2977,91 @@
 			"fields": {
 				"word": "Слово",
 				"wordAccented": "С ударением",
+				"wordAccentedOptional": "(опционально)",
 				"partOfSpeech": "Часть речи (рус.)",
 				"partOfSpeechNah": "Часть речи (чеч.)",
-				"nounClass": "Класс ед.ч.",
-				"nounClassPlural": "Класс мн.ч.",
-				"cefrLevel": "CEFR уровень",
+				"nounClass": "Грамм. класс (ед.ч.)",
+				"nounClassPlural": "Грамм. класс (мн.ч.)",
+				"nounClassPluralOptional": "(если отл.)",
+				"cefrLevel": "Уровень частотности",
+				"attested": "В корпусе",
 				"entryType": "Тип записи",
 				"domain": "Предметная область",
 				"styleLabel": "Стилистическая помета",
 				"latinName": "Латинское название",
+				"latinNameOptional": "(анатомия)",
 				"homonymIndex": "Homonym Index",
 				"variants": "Варианты написания",
+				"variantsHint": "Enter чтобы добавить, × чтобы удалить",
 				"sources": "Источники",
+				"sourcesHint": "Slug источника (например, maciev)",
 				"wordNormalized": "wordNormalized",
+				"wordNormalizedHint": "Автоматически генерируется из слова",
 				"createdAt": "Создано",
-				"updatedAt": "Обновлено"
+				"updatedAt": "Обновлено",
+				"notSelected": "— не выбрана —",
+				"notSet": "— нет —",
+				"undefined": "— не определён —"
+			},
+			"placeholders": {
+				"wordAccented": "а́ла",
+				"latinName": "os frontale",
+				"variantAdd": "Добавить вариант…",
+				"sourceAdd": "Добавить источник…",
+				"chechen": "Чеченский",
+				"russian": "Русский",
+				"translation": "Перевод на русский…",
+				"citationText": "Текст цитаты",
+				"citationSource": "Источник"
+			},
+			"posOptions": {
+				"noun": "сущ.",
+				"verb": "гл.",
+				"adjective": "прил.",
+				"adverb": "нар.",
+				"numeral": "числ.",
+				"pronoun": "мест.",
+				"postposition": "посл.",
+				"conjunction": "союз",
+				"particle": "частица",
+				"interjection": "межд."
+			},
+			"posNahOptions": {
+				"noun": "цIердош",
+				"verb": "хандош",
+				"adjective": "билгалдош",
+				"adverb": "куцдош",
+				"numeral": "терахьдош",
+				"pronoun": "цIерметдош",
+				"preposition": "дешнийхьалхе",
+				"conjunction": "хотталург",
+				"particle": "дакъа",
+				"interjection": "айдардош"
+			},
+			"levels": {
+				"A": "A — базовая",
+				"B": "B — повседневная",
+				"C": "C — редкая"
+			},
+			"entryTypes": {
+				"standard": "standard",
+				"neologism": "neologism"
+			},
+			"domains": {
+				"anatomy": "anatomy",
+				"computer": "computer",
+				"math": "math",
+				"law": "law",
+				"geology": "geology",
+				"sport": "sport"
+			},
+			"styleLabels": {
+				"archaic": "Устаревшее",
+				"colloquial": "Просторечное",
+				"poetic": "Поэтическое",
+				"conversational": "Разговорное",
+				"bookish": "Книжное",
+				"dialectal": "Диалектное"
 			},
 			"meanings": {
 				"addMeaning": "+ Добавить значение",
@@ -2171,20 +3069,83 @@
 				"chechenExample": "Пример на чеченском",
 				"russianExample": "Перевод примера",
 				"translation": "Перевод",
+				"examples": "Примеры",
+				"meaningNum": "Значение #{n}",
+				"moveUp": "Переместить вверх",
+				"moveDown": "Переместить вниз",
+				"remove": "Удалить",
 				"visual": "Визуальный",
 				"json": "JSON"
+			},
+			"grammar": {
+				"sections": {
+					"verbBase": "Глагольные основы",
+					"tenses": "Временные формы",
+					"imperativeNegation": "Повелительное / Отрицание"
+				},
+				"verbPresent": "Настоящее (present)",
+				"verbPerfect": "Совершённое (perfect)",
+				"masdar": "Масдар",
+				"presentSimple": "Настоящее простое",
+				"presentCompound": "Настоящее составное",
+				"perfect": "Совершённое прошедшее",
+				"remotePast": "Давнопрошедшее",
+				"pastImperfective": "Прошедшее несов.",
+				"futurePossible": "Будущее возможное",
+				"futureFactual": "Будущее фактическое",
+				"imperative": "Повелительное",
+				"imperativePolite": "Вежливое",
+				"negation": "Отрицание",
+				"visual": "Визуальный",
+				"json": "JSON"
+			},
+			"phraseology": {
+				"addPhrase": "+ Добавить фразеологизм",
+				"addCitation": "+ Добавить цитату"
 			},
 			"json": {
 				"format": "Форматировать",
 				"validate": "Проверить",
-				"copy": "Копировать",
+				"copy": "📋 Копировать",
+				"copied": "JSON скопирован",
 				"valid": "Валидный JSON",
-				"invalid": "Ошибка в JSON"
+				"invalid": "Ошибка JSON",
+				"itemsCount": "Валидный JSON · {count} элементов",
+				"keysCount": "Валидный JSON · {count} ключей",
+				"errorPrefix": "Ошибка:"
+			},
+			"metaPanel": {
+				"title": "Метаинформация",
+				"id": "ID",
+				"word": "Слово",
+				"pos": "POS",
+				"level": "Уровень",
+				"meaningsCount": "Значений",
+				"examplesCount": "Примеров",
+				"phraseologyCount": "Фразеолог.",
+				"citationsCount": "Цитат",
+				"sourcesCount": "Источников",
+				"entryType": "Тип",
+				"createdAt": "Создано",
+				"updatedAt": "Обновлено",
+				"viewOnSite": "↗ Посмотреть на сайте",
+				"audit": "📝 История изменений",
+				"prev": "← Предыдущая запись",
+				"next": "Следующая запись →"
 			},
 			"saveBar": {
 				"unsaved": "Есть несохранённые изменения",
 				"save": "💾 Сохранить",
-				"cancel": "Отменить"
+				"cancel": "Отменить",
+				"saving": "Сохраняем…",
+				"saved": "Запись сохранена",
+				"saveError": "Не удалось сохранить",
+				"forbidden": "Недостаточно прав"
+			},
+			"notFound": {
+				"title": "Запись не найдена",
+				"description": "Записи с таким ID не существует или она была удалена.",
+				"back": "← Вернуться к списку"
 			}
 		},
 		"audit": {
@@ -2194,24 +3155,38 @@
 			},
 			"header": {
 				"title": "Аудит-лог",
-				"subtitle": "Все изменения по записям и пайплайну"
+				"subtitle": "Последние изменения словарных записей"
 			},
 			"stats": {
 				"today": "Изменений сегодня",
 				"week": "За неделю",
 				"bulk": "Bulk-операций",
-				"pipeline": "Pipeline-действий"
+				"pipeline": "Pipeline-действий",
+				"deltaUp": "+{value}% к вчера",
+				"deltaDown": "{value}% к вчера",
+				"deltaZero": "как вчера",
+				"weekAuthors": "{count} авторов",
+				"bulkAffected": "{count} записей затронуто",
+				"pipelineCommands": "команды: {commands}",
+				"pipelineEmpty": "нет запусков"
 			},
 			"toolbar": {
-				"searchPlaceholder": "Поиск по слову или ID",
+				"searchPlaceholder": "Поиск по слову или ID…",
 				"allActions": "Все действия",
 				"allAuthors": "Все авторы",
+				"actors": {
+					"admin": "Админ",
+					"pipeline": "Pipeline (auto)",
+					"api": "API"
+				},
 				"periods": {
 					"today": "Сегодня",
-					"week": "Неделю",
-					"month": "Месяц",
+					"week": "За неделю",
+					"month": "За месяц",
 					"all": "Всё время"
-				}
+				},
+				"export": "↓ Экспорт CSV",
+				"exporting": "Экспорт…"
 			},
 			"filters": {
 				"all": "Все",
@@ -2222,15 +3197,47 @@
 				"pipeline": "Pipeline"
 			},
 			"actions": {
-				"CREATE": "CREATE",
-				"UPDATE": "UPDATE",
-				"DELETE": "DELETE",
-				"BULK": "BULK",
-				"PIPELINE": "PIPELINE"
+				"create": "CREATE",
+				"update": "UPDATE",
+				"delete": "DELETE",
+				"bulk": "BULK",
+				"pipeline": "PIPELINE",
+				"revert": "REVERT"
+			},
+			"item": {
+				"createEntry": "Создана новая запись",
+				"updateFields": "Изменено полей: {count}",
+				"updateField": "Изменено поле «{field}»",
+				"deleteEntry": "Запись удалена",
+				"bulkOperation": "Массовая операция",
+				"bulkAffected": "Массовая операция: {count} записей",
+				"pipelineCommand": "Pipeline: {command}",
+				"pipelineGeneric": "Pipeline-действие",
+				"noDescription": "Без описания",
+				"authors": {
+					"admin": "Админ",
+					"pipeline": "Pipeline",
+					"api": "API",
+					"unknown": "—"
+				}
+			},
+			"day": {
+				"today": "Сегодня",
+				"yesterday": "Вчера",
+				"countSuffix": "события"
+			},
+			"pagination": {
+				"prev": "‹",
+				"next": "›",
+				"pageLabel": "Страница {page} из {total}"
 			},
 			"revert": "↺ Откат",
 			"jsonDiff": "Полный JSON-diff",
-			"empty": "Пока нет записей в аудит-логе"
+			"entryHistory": "↗ История",
+			"entryHistoryAria": "Открыть историю изменений записи",
+			"empty": "Пока нет записей в аудит-логе",
+			"emptyFiltered": "По текущим фильтрам ничего не найдено",
+			"errorTitle": "Не удалось загрузить аудит-лог"
 		},
 		"auditEntry": {
 			"meta": {
@@ -2243,46 +3250,93 @@
 			},
 			"header": {
 				"title": "История изменений",
+				"subtitle": "Все изменения записи «{word}» в хронологическом порядке",
+				"subtitleNoWord": "Все изменения записи в хронологическом порядке",
 				"view": "👁 Просмотр",
 				"edit": "✏️ Редактировать"
 			},
 			"summary": {
 				"changesCount": "Изменений",
 				"authors": "Авторов",
-				"sinceCreated": "С создания"
+				"sinceCreated": "С создания",
+				"daysShort": "{count}д",
+				"daysZero": "сегодня",
+				"unknown": "—"
+			},
+			"timeline": {
+				"revert": "↺ Откат",
+				"expandJsonDiff": "Полный JSON-diff",
+				"expandSnapshot": "Начальное состояние записи",
+				"diffTableField": "Поле",
+				"diffTableOld": "Было",
+				"diffTableNew": "Стало",
+				"diffNull": "null",
+				"descriptions": {
+					"create": "Запись создана из unified.json (источник: {source})",
+					"createNoSource": "Запись создана",
+					"bulkField": "Массовое обновление ({count} записей): установлен {field}",
+					"bulkNoField": "Массовое обновление ({count} записей)",
+					"bulkGeneric": "Массовая операция",
+					"pipelineCommand": "Pipeline: {command}",
+					"pipelineGeneric": "Pipeline-действие",
+					"updateFields": "Изменены поля: {fields}",
+					"updateField": "Изменено поле {field}",
+					"updateNoFields": "Изменение записи",
+					"revert": "Откат изменения {logId}",
+					"delete": "Запись удалена"
+				}
 			},
 			"revert": {
-				"title": "Откатить изменение?",
-				"text": "Будет создано новое изменение в аудит-логе.",
-				"confirm": "Откатить"
-			}
+				"title": "↺ Откатить изменение?",
+				"text": "Это вернёт запись к состоянию до этого изменения. Откат будет записан в аудит-лог как отдельное действие.",
+				"confirm": "Откатить",
+				"cancel": "Отмена",
+				"pending": "Откатываем…",
+				"successTitle": "Откат выполнен",
+				"successBody": "Восстановлены поля: {fields}. Изменение добавлено в аудит-лог.",
+				"errorTitle": "Не удалось откатить",
+				"errorBody": "Попробуйте ещё раз или обновите страницу."
+			},
+			"empty": "Пока нет изменений у этой записи",
+			"notFoundTitle": "Запись не найдена",
+			"notFoundText": "Запись #{id} не существует или была удалена."
 		},
 		"apiKeys": {
 			"meta": {
 				"title": "API-ключи — Админ — Дошам",
-				"description": "Управление API-ключами доступа к Дошам"
+				"description": "Управление API-ключами доступа — создание, редактирование и отзыв"
 			},
 			"header": {
 				"title": "API-ключи",
-				"subtitle": "Управление ключами интеграций",
+				"subtitle": "Управление ключами доступа к API — создание, редактирование и отзыв",
 				"create": "+ Новый ключ"
 			},
 			"stats": {
-				"total": "Всего",
-				"active": "Активные",
-				"revoked": "Отозванные",
-				"expired": "Истёкшие"
+				"total": {
+					"label": "Всего ключей",
+					"sub": "Создано за всё время"
+				},
+				"active": {
+					"label": "Активные",
+					"sub": "Действующие ключи"
+				},
+				"revoked": {
+					"label": "Отозванные",
+					"sub": "Деактивированные"
+				},
+				"expired": {
+					"label": "Истёкшие",
+					"sub": "Срок действия прошёл"
+				}
 			},
 			"roles": {
 				"readonly": "Read Only",
 				"editor": "Editor",
-				"full": "Full Access",
 				"admin": "Admin"
 			},
 			"roleDescriptions": {
 				"readonly": "Только чтение",
 				"editor": "Чтение и запись",
-				"full": "Полный доступ",
 				"admin": "Администрирование"
 			},
 			"statuses": {
@@ -2290,29 +3344,101 @@
 				"revoked": "Отозван",
 				"expired": "Истёк"
 			},
+			"toolbar": {
+				"searchPlaceholder": "Поиск по имени ключа…",
+				"searchAriaLabel": "Поиск ключей",
+				"roleLabel": "Фильтр по роли",
+				"roleAll": "Все роли",
+				"statusLabel": "Фильтр по статусу",
+				"statusAll": "Все статусы"
+			},
 			"columns": {
 				"name": "Имя ключа",
 				"prefix": "Префикс",
 				"role": "Роль",
 				"status": "Статус",
 				"createdAt": "Создан",
-				"lastUsed": "Последнее использование"
+				"lastUsed": "Последнее использование",
+				"actions": "Действия"
+			},
+			"sort": {
+				"asc": "по возрастанию",
+				"desc": "по убыванию"
+			},
+			"empty": {
+				"title": "Ключей ещё нет",
+				"text": "Создайте первый API-ключ для интеграции внешних сервисов."
+			},
+			"noResults": {
+				"title": "Ничего не найдено",
+				"text": "Попробуйте изменить фильтры или поисковый запрос.",
+				"reset": "Сбросить фильтры"
+			},
+			"error": {
+				"title": "Не удалось загрузить ключи",
+				"text": "Попробуйте обновить страницу или повторить запрос.",
+				"retry": "Повторить"
+			},
+			"pagination": {
+				"showing": "Показано {from}–{to} из {total}",
+				"prev": "Предыдущая страница",
+				"next": "Следующая страница",
+				"page": "Страница {page}"
+			},
+			"actions": {
+				"edit": "Редактировать",
+				"revoke": "Отозвать",
+				"copy": "Копировать"
 			},
 			"create": {
-				"title": "Создать API-ключ",
+				"title": "Новый API-ключ",
+				"subtitle": "Заполните данные для создания нового ключа",
 				"name": "Имя ключа",
-				"namePlaceholder": "Например: Production bot",
-				"role": "Роль",
+				"namePlaceholder": "Например: Mobile App Production",
+				"nameHint": "Понятное название для идентификации ключа",
+				"role": "Роль доступа",
+				"expiresAt": "Срок действия (необязательно)",
+				"expiresAtHint": "Оставьте пустым, если ключ бессрочный",
 				"submit": "Создать",
+				"submitting": "Создание…",
+				"cancel": "Отмена",
+				"secretTitle": "Ключ создан",
+				"secretSubtitle": "Скопируйте ключ и сохраните его — получить его снова будет невозможно",
 				"secretWarning": "⚠️ Сохраните ключ сейчас — он больше не будет показан",
 				"copy": "Копировать",
-				"copied": "Скопировано!"
+				"copied": "Скопировано!",
+				"close": "Закрыть"
 			},
-			"revoke": {
-				"title": "Отозвать ключ?",
-				"text": "Ключ «{name}» ({prefix}) перестанет работать.",
-				"confirm": "Отозвать",
+			"edit": {
+				"title": "Редактировать ключ",
+				"titleWithName": "Редактировать: {name}",
+				"subtitle": "Изменение параметров ключа {prefix}",
+				"name": "Имя ключа",
+				"role": "Роль доступа",
+				"expiresAt": "Срок действия",
+				"expiresAtHint": "Оставьте пустым, если ключ бессрочный",
+				"save": "Сохранить",
+				"saving": "Сохранение…",
 				"cancel": "Отмена"
+			},
+			"revokeDialog": {
+				"title": "Отозвать ключ?",
+				"text": "Ключ «{name}» ({prefix}) будет отозван. Все приложения, использующие его, потеряют доступ.",
+				"confirm": "Отозвать",
+				"confirming": "Отзыв…",
+				"cancel": "Отмена"
+			},
+			"toasts": {
+				"created": "API-ключ создан",
+				"updated": "Ключ обновлён",
+				"revoked": "Ключ отозван",
+				"nameRequired": "Введите имя ключа",
+				"loadError": "Не удалось загрузить ключи",
+				"createError": "Не удалось создать ключ",
+				"updateError": "Не удалось обновить ключ",
+				"revokeError": "Не удалось отозвать ключ",
+				"copied": "Ключ скопирован",
+				"copyError": "Не удалось скопировать"
 			}
 		},
 		"pipeline": {
@@ -2483,21 +3609,126 @@
 					"warn": "WARN",
 					"err": "ERR"
 				}
+			},
+			"guide": {
+				"title": "Порядок выполнения",
+				"mainLabel": "Основной пайплайн",
+				"phraseologyLabel": "Ветка фразеологизмов",
+				"maintenanceLabel": "Обслуживание",
+				"checkAfter": "Проверка",
+				"cli": "CLI",
+				"parallel": "параллельно с основным",
+				"parsePhraseology": {
+					"title": "Parse Phraseology",
+					"desc": "Парсинг источников фразеологизмов в стандартный JSON"
+				},
+				"loadPhraseology": {
+					"title": "Load Phraseology",
+					"desc": "Загрузка фразеологизмов в таблицу PhraseologyEntry"
+				}
 			}
 		},
 		"pipelineParse": {
 			"meta": {
-				"title": "Парсинг — Пайплайн — Админ — Дошам",
-				"description": "Парсинг исходных словарей в JSON"
+				"title": "Парсинг словарей — Пайплайн — Админ — Дошам",
+				"description": "Парсинг исходных файлов словарей в формат JSON: запуск по одному словарю или всем сразу, статус, прогресс, список выходных файлов и лог операций."
 			},
 			"header": {
-				"title": "Парсинг",
-				"subtitle": "Преобразование файлов источников в структурированный JSON"
+				"title": "Парсинг словарей",
+				"subtitle": "Парсинг исходных файлов словарей в формат JSON. Можно запустить для одного словаря или всех сразу.",
+				"breadcrumb": {
+					"pipeline": "Пайплайн",
+					"current": "Парсинг"
+				}
 			},
-			"run": "▶ Запустить",
-			"selectAll": "Все словари",
-			"confirmTitle": "Запустить парсинг?",
-			"confirmText": "Парсинг {slug} перезапишет предыдущий результат."
+			"stats": {
+				"total": {
+					"label": "Всего словарей",
+					"sub": "источников подключено"
+				},
+				"parsed": {
+					"label": "Распарсено",
+					"sub": "из {total} · {percent}%"
+				},
+				"pending": {
+					"label": "Ожидают парсинга",
+					"sub": "{slugs}",
+					"empty": "всё готово"
+				}
+			},
+			"actionBar": {
+				"label": "Запустить парсинг",
+				"desc": "POST /api/admin/pipeline/parse/:slug",
+				"selectAll": "Все словари (all)",
+				"run": "▶ Запустить"
+			},
+			"progress": {
+				"label": "Парсинг: {slug}…",
+				"labelAll": "Парсинг: все словари…"
+			},
+			"result": {
+				"okAll": "✓ parsed: {count} словарей · totalEntries: {total}",
+				"okOne": "✓ slug: {slug} · sourceCount: {source} · parsedCount: {parsed} · outputFile: {file}",
+				"err": "✗ {message}"
+			},
+			"dictionaries": {
+				"title": "Словари-источники",
+				"refresh": "⟳ Обновить",
+				"empty": "Словари ещё не загружены",
+				"columns": {
+					"number": "#",
+					"name": "Словарь",
+					"direction": "Направл.",
+					"records": "Записей",
+					"status": "Статус",
+					"actions": "Действие"
+				},
+				"directions": {
+					"nah-ru": "nah→ru",
+					"ru-nah": "ru→nah"
+				},
+				"statuses": {
+					"parsed": "Parsed",
+					"pending": "Pending",
+					"running": "Running…",
+					"error": "Error",
+					"merged": "Merged"
+				},
+				"action": "▶ Parse"
+			},
+			"output": {
+				"title": "Выходные файлы парсинга",
+				"dir": "{dir}",
+				"count": "{count} файлов",
+				"empty": "Нет распарсенных файлов — запустите парсинг"
+			},
+			"log": {
+				"title": "Лог парсинга",
+				"subtitle": "Последние операции",
+				"count": "{count} записей",
+				"clear": "Очистить",
+				"empty": "Лог пуст — запустите парсинг",
+				"levels": {
+					"info": "INFO",
+					"ok": "OK",
+					"warn": "WARN",
+					"err": "ERR"
+				}
+			},
+			"confirm": {
+				"title": "Запустить парсинг?",
+				"textAll": "Будет запущен парсинг: все словари. Существующие parsed-файлы будут перезаписаны.",
+				"textOne": "Будет запущен парсинг словаря: {slug}. Существующий parsed-файл будет перезаписан.",
+				"confirm": "Запустить",
+				"cancel": "Отмена"
+			},
+			"toasts": {
+				"parseOk": "✓ Парсинг завершён: {slug}",
+				"parseAllOk": "✓ Парсинг завершён: все словари",
+				"parseErr": "Ошибка парсинга: {slug}",
+				"logCleared": "Лог очищен",
+				"listRefreshed": "Список обновлён"
+			}
 		},
 		"pipelineUnify": {
 			"meta": {
@@ -2652,44 +3883,299 @@
 		},
 		"pipelineLoad": {
 			"meta": {
-				"title": "Загрузка — Пайплайн — Админ — Дошам",
-				"description": "Загрузка unified.json в PostgreSQL"
+				"title": "Загрузка в БД — Пайплайн — Админ — Дошам",
+				"description": "Загрузка unified.json в PostgreSQL с построением GIN-индекса и эвристической оценкой CEFR-уровней"
+			},
+			"breadcrumb": {
+				"pipeline": "Пайплайн",
+				"current": "Загрузка"
 			},
 			"header": {
-				"title": "Загрузка",
-				"subtitle": "Выгрузка unified.json в PostgreSQL"
+				"title": "Загрузка в базу данных",
+				"subtitle": "Загрузка unified.json в PostgreSQL с созданием GIN-индекса и эвристической оценкой CEFR-уровней."
 			},
-			"run": "🗄 Загрузить в базу данных",
+			"status": {
+				"idle": "Пайплайн свободен",
+				"running": "Выполняется: загрузка в PostgreSQL",
+				"done": "Загрузка завершена",
+				"error": "Ошибка загрузки",
+				"lastRun": "Последняя загрузка: {time} · {duration} · loaded: {loaded}",
+				"detailNever": "Загрузок ещё не было",
+				"detailRunning": "Подождите…",
+				"detailJustNow": "Только что · loaded: {loaded} · {duration}",
+				"detailError": "{message}",
+				"refresh": "⟳ Обновить",
+				"refreshed": "Статус обновлён",
+				"time": {
+					"justNow": "только что",
+					"secondsAgo": "{count} сек назад",
+					"minutesAgo": "{count} мин назад",
+					"hoursAgo": "{count} ч назад",
+					"daysAgo": "{count} д назад"
+				}
+			},
+			"stats": {
+				"unifiedTitle": "В unified.json",
+				"unifiedSub": "{size} МБ · {steps} шагов слияния",
+				"unifiedSubEmpty": "unified.json ещё не создан",
+				"loadedTitle": "Загружено в БД",
+				"loadedSub": "PostgreSQL · GIN-индекс",
+				"skippedTitle": "Пропущено",
+				"skippedSub": "невалидные записи",
+				"skippedSubEmpty": "нет данных",
+				"elapsedTitle": "Время загрузки",
+				"elapsedUnit": "сек",
+				"elapsedSub": "последний запуск",
+				"elapsedSubEmpty": "загрузок ещё не было"
+			},
+			"action": {
+				"title": "Загрузить unified.json → PostgreSQL",
+				"desc": "Все записи из unified.json будут загружены в таблицу entries. Существующие записи будут обновлены (upsert). GIN-индекс перестроится автоматически.",
+				"fromLabel": "в unified.json",
+				"toValue": "PostgreSQL",
+				"toLabel": "таблица entries",
+				"run": "🗄 Загрузить в базу данных",
+				"endpoint": "POST /api/admin/pipeline/load",
+				"disabledNoUnified": "unified.json ещё не создан"
+			},
+			"progress": {
+				"label": "Загрузка записей в PostgreSQL…",
+				"steps": [
+					"Чтение unified.json…",
+					"Валидация записей…",
+					"Загрузка записей (upsert)…",
+					"Перестроение GIN-индекса…",
+					"Оценка CEFR-уровней…"
+				],
+				"done": "Завершено"
+			},
+			"result": {
+				"titleOk": "✓ Загрузка завершена успешно",
+				"titleErr": "✕ Ошибка загрузки",
+				"loaded": "loaded",
+				"skipped": "skipped",
+				"totalInFile": "totalInFile",
+				"elapsed": "elapsed"
+			},
 			"db": {
-				"title": "Информация о БД",
+				"title": "База данных",
+				"serverName": "PostgreSQL",
+				"online": "Online",
+				"offline": "Offline",
+				"unknown": "—",
 				"table": "Таблица",
+				"tableValue": "entries",
 				"records": "Записей",
 				"index": "Индекс",
+				"indexValue": "GIN (pg_trgm)",
 				"search": "Поиск",
-				"cache": "Кэш Redis",
+				"searchValue": "trigram similarity",
+				"cache": "Кэш",
+				"cacheValue": "Redis · TTL 5 мин",
 				"orm": "ORM",
-				"online": "Online"
+				"ormValue": "Prisma"
+			},
+			"skipped": {
+				"title": "Пропущенные записи",
+				"cardTitle": "skippedSample (последний запуск)",
+				"countSuffix": "пропущено",
+				"emptyTitle": "Запустите загрузку для просмотра пропущенных записей",
+				"reasons": {
+					"no word": "no word",
+					"no meanings": "no meanings",
+					"no nounClass": "no nounClass",
+					"duplicate": "duplicate"
+				}
+			},
+			"history": {
+				"title": "История загрузок",
+				"empty": "История пуста — ещё не было ни одной загрузки",
+				"cols": {
+					"date": "Дата",
+					"loaded": "Загружено",
+					"skipped": "Пропущено",
+					"elapsed": "Время",
+					"status": "Статус"
+				},
+				"statusOk": "Успешно",
+				"statusErr": "Ошибка",
+				"errorPrefix": "Ошибка: {message}"
+			},
+			"log": {
+				"title": "Лог загрузки",
+				"subtitle": "Последние операции",
+				"empty": "Лог пуст",
+				"clear": "Очистить",
+				"cleared": "Лог очищен"
+			},
+			"confirm": {
+				"title": "Загрузить в базу данных?",
+				"body": "{count} записей из unified.json будут загружены в PostgreSQL. Существующие записи обновятся (upsert), GIN-индекс перестроится. Это может занять 10–15 секунд.",
+				"bodyNoCount": "Записи из unified.json будут загружены в PostgreSQL. Существующие записи обновятся (upsert), GIN-индекс перестроится.",
+				"confirm": "🗄 Загрузить",
+				"cancel": "Отмена"
+			},
+			"toast": {
+				"started": "Запущена загрузка в PostgreSQL",
+				"success": "✓ Загрузка завершена: {loaded} записей",
+				"error": "Ошибка загрузки: {message}"
+			},
+			"units": {
+				"sec": "сек",
+				"records": "записей"
 			}
 		},
 		"pipelineImprove": {
 			"meta": {
-				"title": "Очистка — Пайплайн — Админ — Дошам",
-				"description": "Автоматическая нормализация и очистка данных"
+				"title": "Очистка данных — Пайплайн — Админ — Дошам",
+				"description": "Автоматическая очистка записей: удаление пустых значений, исправление битых примеров, нормализация стилей и дедупликация"
 			},
 			"header": {
-				"title": "Очистка",
-				"subtitle": "Автоматическое исправление и нормализация"
+				"title": "Очистка данных",
+				"subtitle": "Автоматическая очистка записей: удаление пустых значений, исправление битых примеров, нормализация стилей и удаление дубликатов внутри записей."
 			},
-			"run": "🧹 Запустить",
+			"breadcrumb": {
+				"pipeline": "Пайплайн",
+				"current": "Очистка"
+			},
+			"stats": {
+				"cleaned": {
+					"label": "Очищено записей",
+					"sub": "нормализация стилей"
+				},
+				"fixedExamples": {
+					"label": "Исправлено примеров",
+					"sub": "битые ссылки и кодировка"
+				},
+				"removedEmpty": {
+					"label": "Удалено пустых",
+					"sub": "meanings без текста"
+				},
+				"total": {
+					"label": "Всего в БД",
+					"sub": "записей после очистки"
+				}
+			},
+			"quality": {
+				"title": "Качество данных",
+				"details": "Подробнее →",
+				"noMeanings": "Без значений (meanings)",
+				"nounsWithoutClass": "Без класса (nounClass)",
+				"noPartOfSpeech": "Без POS (partOfSpeech)",
+				"noExamples": "Без примеров (examples)",
+				"empty": "Нет данных"
+			},
+			"action": {
+				"title": "Запустить очистку данных",
+				"description": "Автоматически очистит пустые значения, исправит битые примеры, нормализует стилевые пометы и удалит дублирующиеся meanings внутри записей.",
+				"run": "🧹 Запустить Improve",
+				"endpoint": "POST /api/admin/pipeline/improve"
+			},
+			"progress": {
+				"running": "Очистка данных…",
+				"done": "Завершено!",
+				"steps": {
+					"normalizeStyles": "Нормализация стилей…",
+					"fixExamples": "Исправление примеров…",
+					"removeEmpty": "Удаление пустых meanings…",
+					"normalizeWords": "Нормализация Unicode…",
+					"dedupMeanings": "Дедупликация meanings…",
+					"trimLong": "Обрезка длинных полей…"
+				}
+			},
+			"result": {
+				"title": "✓ Очистка завершена",
+				"cleaned": "cleaned",
+				"fixedExamples": "fixedExamples",
+				"removedEmpty": "removedEmpty",
+				"elapsed": "elapsed"
+			},
 			"operations": {
-				"title": "Операции",
-				"normalizeStyles": "Нормализация стилей",
-				"fixExamples": "Исправление примеров",
-				"removeEmpty": "Удаление пустых meanings",
-				"normalizeWords": "Нормализация Unicode",
-				"trimLong": "Обрезка длинных полей",
-				"dedupMeanings": "Дедупликация meanings",
-				"lastRun": "Последний запуск: {count}"
+				"title": "Операции очистки",
+				"lastRun": "Последний запуск: {count} {unit}",
+				"units": {
+					"entries": "записей",
+					"examples": "примеров",
+					"removed": "удалено",
+					"duplicates": "дупликатов"
+				},
+				"normalizeStyles": {
+					"title": "Нормализация стилей",
+					"description": "Приведение стилевых помет к единому формату: разг., устар., книжн., спец. и т.д."
+				},
+				"fixExamples": {
+					"title": "Исправление примеров",
+					"description": "Починка битой кодировки, удаление артефактов OCR, нормализация пунктуации."
+				},
+				"removeEmpty": {
+					"title": "Удаление пустых",
+					"description": "Удаление meanings без текста, пустых строк в массивах examples и phraseology."
+				},
+				"normalizeWords": {
+					"title": "Нормализация слов",
+					"description": "Trim пробелов, нормализация Unicode (NFC), удаление невидимых символов из word."
+				},
+				"trimLong": {
+					"title": "Обрезка длинных полей",
+					"description": "Усечение чрезмерно длинных значений (> 2000 символов) и цитат (> 500 символов)."
+				},
+				"dedupMeanings": {
+					"title": "Дедупликация meanings",
+					"description": "Удаление дублирующихся значений внутри одной записи (точное совпадение текста)."
+				}
+			},
+			"affected": {
+				"title": "Затронутые записи (последний запуск)",
+				"cardTitle": "Примеры изменений",
+				"count": "{count} записей",
+				"empty": "Нет затронутых записей — запустите очистку.",
+				"cols": {
+					"word": "Слово",
+					"action": "Действие",
+					"source": "Источник"
+				},
+				"actions": {
+					"cleanedStyle": "cleaned style",
+					"fixedExample": "fixed example",
+					"fixedEncoding": "fixed encoding",
+					"removedEmpty": "removed empty",
+					"dedupMeanings": "dedup meanings",
+					"normalizedWord": "normalized word",
+					"truncatedField": "truncated field"
+				}
+			},
+			"history": {
+				"title": "История очисток",
+				"empty": "История пуста — запусков ещё не было.",
+				"cols": {
+					"date": "Дата",
+					"cleaned": "Очищено",
+					"fixed": "Исправлено",
+					"removed": "Удалено",
+					"status": "Статус"
+				},
+				"status": {
+					"ok": "Успешно",
+					"err": "Ошибка"
+				}
+			},
+			"log": {
+				"title": "Лог очистки",
+				"subtitle": "Последние операции",
+				"empty": "Лог пуст.",
+				"clear": "Очистить"
+			},
+			"confirm": {
+				"title": "Запустить очистку данных?",
+				"text": "Будет выполнена автоматическая очистка всех {count} записей: нормализация стилей, исправление битых примеров, удаление пустых значений и дедупликация meanings.",
+				"confirm": "🧹 Очистить",
+				"cancel": "Отмена"
+			},
+			"toasts": {
+				"success": "✓ Очистка завершена: {cleaned} записей",
+				"error": "Ошибка очистки: {message}",
+				"logCleared": "Лог очищен",
+				"statusRefreshed": "Статус обновлён"
 			}
 		},
 		"pipelineRollback": {

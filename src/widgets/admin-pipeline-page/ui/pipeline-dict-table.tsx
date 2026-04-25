@@ -1,8 +1,8 @@
 "use client";
 
 import {
-	type PipelineDictStatus,
-	usePipelineDictionaries,
+	type PipelineStatusDictionary,
+	usePipelineFullStatus,
 } from "@/features/admin-pipeline";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { cn } from "@/shared/lib";
@@ -17,16 +17,15 @@ interface Props {
 	actions: UsePipelineActions;
 }
 
-const STATUS_DOT: Record<PipelineDictStatus, string> = {
+const STATUS_DOT: Record<PipelineStatusDictionary["status"], string> = {
 	merged: "bg-[var(--accent)] text-[var(--accent)]",
 	parsed: "bg-[var(--success)] text-[var(--success)]",
 	pending: "bg-[var(--text-muted)] text-[var(--text-muted)]",
-	running: "bg-[var(--info)] text-[var(--info)]",
-	error: "bg-[var(--danger)] text-[var(--danger)]",
 };
 
 export const PipelineDictTable: FC<Props> = ({ dict, commonDict, actions }) => {
-	const query = usePipelineDictionaries();
+	const query = usePipelineFullStatus();
+	const items = query.data?.parsed?.bySlug ?? [];
 
 	return (
 		<section aria-labelledby="pipeline-dict-heading" className="mb-8">
@@ -45,7 +44,7 @@ export const PipelineDictTable: FC<Props> = ({ dict, commonDict, actions }) => {
 					retryLabel={commonDict.retry}
 					onRetry={() => query.refetch()}
 				/>
-			) : !query.data?.length ? (
+			) : !items.length ? (
 				<div className="text-sm text-[var(--text-muted)] text-center py-6 bg-[var(--surface)] border border-[var(--border)] rounded-2xl">
 					{dict.dictionaries.empty}
 				</div>
@@ -72,7 +71,7 @@ export const PipelineDictTable: FC<Props> = ({ dict, commonDict, actions }) => {
 						</div>
 					</div>
 
-					{query.data.map((item, index) => (
+					{items.map((item, index) => (
 						<div
 							key={item.slug}
 							role="row"
@@ -103,8 +102,8 @@ export const PipelineDictTable: FC<Props> = ({ dict, commonDict, actions }) => {
 								role="cell"
 								className="text-right tabular-nums font-medium text-[var(--text)]"
 							>
-								{item.recordCount > 0
-									? formatNumber(item.recordCount)
+								{item.count != null && item.count > 0
+									? formatNumber(item.count)
 									: "—"}
 							</div>
 							<div role="cell">

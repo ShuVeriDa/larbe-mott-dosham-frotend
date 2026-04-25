@@ -2,7 +2,14 @@
 
 import type { Dictionary } from "@/i18n/dictionaries";
 import { cn } from "@/shared/lib";
-import { Input } from "@/shared/ui";
+import {
+	Input,
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui";
 import { SearchIcon } from "lucide-react";
 import { type ChangeEvent, type FC, useId } from "react";
 import type {
@@ -49,9 +56,6 @@ export const FavoritesToolbar: FC<FavoritesToolbarProps> = ({
 
 	const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) =>
 		onSearchChange(e.target.value);
-
-	const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) =>
-		onSortModeChange(e.target.value as FavoritesSortMode);
 
 	return (
 		<div className="flex flex-col gap-3 mb-5 sm:flex-row sm:flex-wrap sm:items-center">
@@ -111,23 +115,27 @@ export const FavoritesToolbar: FC<FavoritesToolbarProps> = ({
 				>
 					{dict.sortLabel}
 				</label>
-				<select
-					id={sortId}
+				<Select
 					value={sortMode}
-					onChange={handleSortChange}
+					onValueChange={(value) =>
+						onSortModeChange(value as FavoritesSortMode)
+					}
 					disabled={disabled}
-					className={cn(
-						"appearance-none py-2 pl-3 pr-8 rounded-sm border border-edge bg-surface",
-						"text-xs text-foreground cursor-pointer outline-none",
-						"bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23888%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M3%204.5%206%207.5%209%204.5%22/%3E%3C/svg%3E')]",
-						"bg-no-repeat bg-[right_8px_center]",
-						"disabled:opacity-60 disabled:cursor-not-allowed",
-					)}
 				>
-					<option value="date-desc">{dict.sortNewest}</option>
-					<option value="date-asc">{dict.sortOldest}</option>
-					<option value="alpha">{dict.sortAlpha}</option>
-				</select>
+					<SelectTrigger
+						id={sortId}
+						size="sm"
+						aria-label={dict.sortLabel}
+						className="text-xs"
+					>
+						<SelectValue />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="date-desc">{dict.sortNewest}</SelectItem>
+						<SelectItem value="date-asc">{dict.sortOldest}</SelectItem>
+						<SelectItem value="alpha">{dict.sortAlpha}</SelectItem>
+					</SelectContent>
+				</Select>
 			</div>
 		</div>
 	);

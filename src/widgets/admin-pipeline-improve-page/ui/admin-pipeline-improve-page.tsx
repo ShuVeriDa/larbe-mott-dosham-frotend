@@ -1,18 +1,21 @@
 "use client";
 
-import { useRunImprove } from "@/features/admin-pipeline";
+import { useQualityStats } from "@/features/admin-quality";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
+import { Breadcrumb, PageHeader } from "@/shared/ui/admin";
 import {
-	Breadcrumb,
-	PageHeader,
-	SectionCard,
-	StatCard,
-} from "@/shared/ui/admin";
-import {
-	PipelineLogPanel,
 	PipelineStatusBanner,
 } from "@/widgets/admin-pipeline-page";
+import { PipelineConfirmModal } from "@/widgets/admin-pipeline-page/ui/pipeline-confirm-modal";
 import type { FC } from "react";
+import { useImproveRunner } from "../model/use-improve-runner";
+import { ImproveAffectedEntries } from "./improve-affected-entries";
+import { ImproveHistoryGrid } from "./improve-history-grid";
+import { ImproveLogPanel } from "./improve-log-panel";
+import { ImproveOpsGrid } from "./improve-ops-grid";
+import { ImproveQualityPanel } from "./improve-quality-panel";
+import { ImproveRunAction } from "./improve-run-action";
+import { ImproveStatsGrid } from "./improve-stats-grid";
 
 interface Props {
 	lang: Locale;
@@ -21,65 +24,74 @@ interface Props {
 	commonDict: Dictionary["admin"]["common"];
 }
 
+const nf = new Intl.NumberFormat("ru-RU");
+
 export const AdminPipelineImprovePage: FC<Props> = ({
 	lang,
 	dict,
 	pipelineDict,
 	commonDict,
 }) => {
-	const runImprove = useRunImprove();
+	const qualityStats = useQualityStats();
+	const total = qualityStats.data?.total;
 
-	const operations = [
-		dict.operations.normalizeStyles,
-		dict.operations.fixExamples,
-		dict.operations.removeEmpty,
-		dict.operations.normalizeWords,
-		dict.operations.trimLong,
-		dict.operations.dedupMeanings,
-	];
+	const runner = useImproveRunner({ dict, totalEntries: total });
 
 	return (
 		<article className="max-w-[1100px] mx-auto">
 			<Breadcrumb
 				items={[
-					{ label: pipelineDict.header.title, href: `/${lang}/admin/pipeline` },
-					{ label: dict.header.title },
+					{
+						label: dict.breadcrumb.pipeline,
+						href: `/${lang}/admin/pipeline`,
+					},
+					{ label: dict.breadcrumb.current },
 				]}
 			/>
 			<PageHeader title={dict.header.title} subtitle={dict.header.subtitle} />
 
 			<PipelineStatusBanner dict={pipelineDict} commonDict={commonDict} />
 
-			<SectionCard>
-				<div className="flex items-center justify-between flex-wrap gap-3">
-					<div className="text-sm text-[var(--text-secondary)]">
-						{dict.header.subtitle}
-					</div>
-					<button
-						type="button"
-						onClick={() => runImprove.mutate()}
-						disabled={runImprove.isPending}
-						className="btn btn-md btn-primary disabled:opacity-40"
-					>
-						{dict.run}
-					</button>
-				</div>
-			</SectionCard>
+			<ImproveStatsGrid
+				dict={dict.stats}
+				lastResult={runner.result}
+				total={total}
+				loading={qualityStats.isLoading && total === undefined}
+			/>
 
-			<SectionCard title={dict.operations.title}>
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-					{operations.map((label) => (
-						<StatCard
-							key={label}
-							tone="info"
-							label={label}
-							value={dict.operations.lastRun.replace("{count}", "—")}
-						/>
-					))}
-				</div>
-			</SectionCard>
+			<ImproveQualityPanel dict={dict.quality} lang={lang} />
 
-			<PipelineLogPanel stage="improve" dict={pipelineDict.log} />
+			<ImproveRunAction dict={dict} runner={runner} />
+
+			<ImproveOpsGrid dict={dict.operations} result={runner.result} />
+
+			<ImproveAffectedEntries
+				dict={dict.affected}
+				entries={runner.result?.affectedEntries ?? []}
+			/>
+
+			<ImproveHistoryGrid dict={dict.history} lang={lang} />
+
+			<ImproveLogPanel
+				dict={dict.log}
+				toastLogCleared={dict.toasts.logCleared}
+				levelsDict={pipelineDict.log.levels}
+			/>
+
+			<PipelineConfirmModal
+				open={runner.phase === "confirm"}
+				title={dict.confirm.title}
+				text={dict.confirm.text.replace(
+					"{count}",
+					total !== undefined ? nf.format(total) : "—",
+				)}
+				confirmLabel={dict.confirm.confirm}
+				cancelLabel={dict.confirm.cancel}
+				tone="warning"
+				isPending={runner.isPending}
+				onConfirm={runner.confirmRun}
+				onCancel={runner.cancelConfirm}
+			/>
 		</article>
 	);
 };

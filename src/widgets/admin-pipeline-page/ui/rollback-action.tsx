@@ -2,6 +2,13 @@
 
 import { useUnifiedLog } from "@/features/admin-pipeline";
 import type { Dictionary } from "@/i18n/dictionaries";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui";
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 import type { UsePipelineActions } from "../model/use-pipeline-actions";
@@ -41,27 +48,32 @@ export const RollbackAction: FC<Props> = ({ dict, actions }) => {
 			description={dict.actions.rollback.description}
 			footer={
 				<>
-					<select
-						aria-label={dict.actions.rollback.title}
-						value={step === "" ? "" : String(step)}
-						onChange={(e) =>
-							setStep(e.target.value === "" ? "" : Number(e.target.value))
-						}
+					<Select
+						value={step === "" ? undefined : String(step)}
+						onValueChange={(value) => setStep(Number(value))}
 						disabled={isEmpty || actions.pending.rollback || actions.isRunning}
-						className="h-8 px-3 pr-6 text-xs bg-[var(--surface)] border border-[var(--border)] rounded text-[var(--text)] appearance-none min-w-[160px] disabled:opacity-40"
 					>
-						{isEmpty ? (
-							<option value="">{dict.actions.rollback.empty}</option>
-						) : (
-							[...steps].reverse().map((s) => (
-								<option key={s.step} value={s.step}>
+						<SelectTrigger
+							size="sm"
+							aria-label={dict.actions.rollback.title}
+							className="min-w-[160px] text-xs"
+						>
+							<SelectValue
+								placeholder={
+									isEmpty ? dict.actions.rollback.empty : undefined
+								}
+							/>
+						</SelectTrigger>
+						<SelectContent>
+							{[...steps].reverse().map((s) => (
+								<SelectItem key={s.step} value={String(s.step)}>
 									{dict.actions.rollback.stepOption
 										.replace("{step}", `${s.step}`)
 										.replace("{label}", s.title)}
-								</option>
-							))
-						)}
-					</select>
+								</SelectItem>
+							))}
+						</SelectContent>
+					</Select>
 					<button
 						type="button"
 						onClick={onSubmit}

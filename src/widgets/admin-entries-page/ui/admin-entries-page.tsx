@@ -1,79 +1,125 @@
 "use client";
 
 import {
-	type AdminEntriesPosFilter,
+	adminEntriesApi,
 	useAdminEntries,
 	useAdminEntriesStats,
+	useBulkDeleteAdminEntries,
 } from "@/features/admin-entries";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
-import { cn } from "@/shared/lib";
+import { useDebounce } from "@/shared/lib";
 import {
 	AdminEmptyState,
 	AdminErrorState,
 	AdminTableSkeleton,
-	FilterChips,
+	Breadcrumb,
 	PageHeader,
-	StatCard,
-	formatStatValue,
 } from "@/shared/ui/admin";
 import Link from "next/link";
-import type { FC } from "react";
-import { useState } from "react";
+import { type FC, useMemo, useState } from "react";
+import { interpolate } from "../lib/format";
+import { useEntriesFilters } from "../model/use-entries-filters";
+import { useEntriesSelection } from "../model/use-entries-selection";
+import { EntriesBulkBar } from "./entries-bulk-bar";
+import { EntriesPagination } from "./entries-pagination";
+import { EntriesPosTabs } from "./entries-pos-tabs";
+import { EntriesStats } from "./entries-stats";
+import { EntriesTable } from "./entries-table";
+import { EntriesToolbar } from "./entries-toolbar";
 
-interface AdminEntriesPageProps {
+interface Props {
 	lang: Locale;
 	dict: Dictionary["admin"]["entries"];
 	commonDict: Dictionary["admin"]["common"];
 }
 
-const nf = new Intl.NumberFormat("ru-RU");
-const formatDate = (iso: string | undefined) => {
-	if (!iso) return "—";
-	try {
-		return new Date(iso).toLocaleDateString("ru-RU", {
-			day: "2-digit",
-			month: "short",
-			year: "2-digit",
-		});
-	} catch {
-		return iso;
+const localeCodeFor = (lang: Locale): string => {
+	switch (lang) {
+		case "ru":
+			return "ru-RU";
+		case "en":
+			return "en-US";
+		default:
+			return "ru-RU";
 	}
 };
 
-export const AdminEntriesPage: FC<AdminEntriesPageProps> = ({
-	lang,
-	dict,
-	commonDict,
-}) => {
-	const [q, setQ] = useState("");
-	const [pos, setPos] = useState<AdminEntriesPosFilter>("");
-	const [page, setPage] = useState(1);
+const triggerDownload = (blob: Blob, filename: string) => {
+	const url = URL.createObjectURL(blob);
+	const a = document.createElement("a");
+	a.href = url;
+	a.download = filename;
+	document.body.appendChild(a);
+	a.click();
+	a.remove();
+	URL.revokeObjectURL(url);
+};
+
+export const AdminEntriesPage: FC<Props> = ({ lang, dict, commonDict }) => {
+	const filters = useEntriesFilters();
+	const selection = useEntriesSelection();
+	const [exporting, setExporting] = useState(false);
+
+	const debouncedQ = useDebounce(filters.state.q, 300);
+	const query = useMemo(
+		() => filters.toQuery(debouncedQ),
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[
+			debouncedQ,
+			filters.state.pos,
+			filters.state.source,
+			filters.state.cefr,
+			filters.state.nounClass,
+			filters.state.entryType,
+			filters.state.sort,
+			filters.state.page,
+			filters.state.limit,
+		],
+	);
 
 	const statsQuery = useAdminEntriesStats();
-	const listQuery = useAdminEntries({ q, pos, page, limit: 25 });
+	const listQuery = useAdminEntries(query);
+	const bulkDelete = useBulkDeleteAdminEntries();
 
-	const stats = statsQuery.data;
 	const data = listQuery.data;
+	const rows = data?.data ?? [];
 
-	const tabs = [
-		{ value: "" as const, label: dict.tabs.all, count: stats?.total },
-		{ value: "noun" as const, label: dict.tabs.nouns, count: stats?.nouns },
-		{ value: "verb" as const, label: dict.tabs.verbs, count: stats?.verbs },
-		{
-			value: "adjective" as const,
-			label: dict.tabs.adjectives,
-			count: stats?.adjectives,
-		},
-		{
-			value: "adverb" as const,
-			label: dict.tabs.adverbs,
-			count: stats?.adverbs,
-		},
-		{ value: "other" as const, label: dict.tabs.other, count: stats?.other },
-	];
+	const handleBulkDelete = async () => {
+		if (selection.count === 0) return;
+		const ids = selection.selectedIds;
+		const confirmed = window.confirm(
+			interpolate(dict.bulk.confirmDelete, { count: ids.length }),
+		);
+		if (!confirmed) return;
+		try {
+			await bulkDelete.mutateAsync({ ids });
+			selection.deselectAll();
+		} catch {
+			// Error toast could go here — for now silent.
+		}
+	};
+
+	const handleExport = async (format: "json" | "csv") => {
+		setExporting(true);
+		try {
+			const blob = await adminEntriesApi.exportEntries(query, format);
+			triggerDownload(blob, `entries.${format}`);
+		} catch {
+			// swallow
+		} finally {
+			setExporting(false);
+		}
+	};
 
 	return (
-		<article className="max-w-[1400px] mx-auto">
+		<article className="max-w-[1280px] mx-auto">
+			<Breadcrumb
+				items={[
+					{ href: `/${lang}/admin`, label: dict.breadcrumb.dashboard },
+					{ label: dict.breadcrumb.entries },
+				]}
+			/>
+
 			<PageHeader
 				title={dict.header.title}
 				subtitle={dict.header.subtitle}
@@ -85,69 +131,56 @@ export const AdminEntriesPage: FC<AdminEntriesPageProps> = ({
 						>
 							{dict.actions.bulk}
 						</Link>
-						<button type="button" className="btn btn-sm btn-secondary">
-							{dict.actions.export}
+						<button
+							type="button"
+							disabled={exporting}
+							onClick={() => handleExport("json")}
+							className="btn btn-sm btn-secondary disabled:opacity-40"
+						>
+							{exporting ? dict.actions.exporting : dict.actions.export}
 						</button>
 					</>
 				}
 			/>
 
-			<div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-				<StatCard
-					tone="total"
-					label={dict.stats.total}
-					value={formatStatValue(stats?.total)}
-					loading={statsQuery.isLoading}
-				/>
-				<StatCard
-					tone="info"
-					label={dict.stats.nouns}
-					value={formatStatValue(stats?.nouns)}
-					loading={statsQuery.isLoading}
-				/>
-				<StatCard
-					tone="success"
-					label={dict.stats.verbs}
-					value={formatStatValue(stats?.verbs)}
-					loading={statsQuery.isLoading}
-				/>
-				<StatCard
-					tone="warning"
-					label={dict.stats.sources}
-					value={formatStatValue(stats?.sourcesCount)}
-					loading={statsQuery.isLoading}
-				/>
-				<StatCard
-					tone="danger"
-					label={dict.stats.updatedToday}
-					value={formatStatValue(stats?.updatedToday)}
-					loading={statsQuery.isLoading}
-				/>
-			</div>
+			<EntriesStats
+				stats={statsQuery.data}
+				loading={statsQuery.isLoading}
+				dict={dict.stats}
+			/>
 
-			<div className="mb-4">
-				<FilterChips
-					options={tabs}
-					value={pos}
-					onChange={(v) => {
-						setPos(v as AdminEntriesPosFilter);
-						setPage(1);
-					}}
-				/>
-			</div>
+			<EntriesPosTabs
+				value={filters.state.pos}
+				onChange={filters.setPos}
+				stats={statsQuery.data}
+				dict={dict.tabs}
+			/>
 
-			<div className="flex items-center gap-3 mb-4 flex-wrap">
-				<input
-					type="text"
-					value={q}
-					onChange={(e) => {
-						setQ(e.target.value);
-						setPage(1);
-					}}
-					placeholder={dict.toolbar.searchPlaceholder}
-					className="flex-1 min-w-[240px] bg-[var(--surface)] border border-[var(--border)] rounded-md px-3 py-2 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]"
-				/>
-			</div>
+			<EntriesToolbar
+				q={filters.state.q}
+				onQChange={filters.setQ}
+				source={filters.state.source}
+				onSourceChange={filters.setSource}
+				cefr={filters.state.cefr}
+				onCefrChange={filters.setCefr}
+				nounClass={filters.state.nounClass}
+				onNounClassChange={filters.setNounClass}
+				entryType={filters.state.entryType}
+				onEntryTypeChange={filters.setEntryType}
+				sort={filters.state.sort}
+				onSortChange={filters.setSort}
+				dict={dict.toolbar}
+			/>
+
+			<EntriesBulkBar
+				count={selection.count}
+				bulkHref={`/${lang}/admin/entries/bulk`}
+				onSelectAll={() => selection.selectAll(rows.map((r) => r.id))}
+				onDeselectAll={selection.deselectAll}
+				onDelete={handleBulkDelete}
+				deleting={bulkDelete.isPending}
+				dict={dict.bulk}
+			/>
 
 			{listQuery.isLoading ? (
 				<AdminTableSkeleton rows={8} />
@@ -157,149 +190,44 @@ export const AdminEntriesPage: FC<AdminEntriesPageProps> = ({
 					retryLabel={commonDict.retry}
 					onRetry={() => listQuery.refetch()}
 				/>
-			) : !data?.data.length ? (
+			) : rows.length === 0 ? (
 				<AdminEmptyState
-					title={commonDict.empty}
-					description={commonDict.noResults}
+					icon="📖"
+					title={dict.empty.title}
+					description={dict.empty.description}
+					action={
+						<button
+							type="button"
+							onClick={filters.reset}
+							className="btn btn-sm btn-secondary"
+						>
+							{dict.empty.reset}
+						</button>
+					}
 				/>
 			) : (
 				<>
-					<div className="overflow-x-auto border border-[var(--border)] rounded-2xl bg-[var(--surface)]">
-						<table className="w-full text-sm">
-							<thead>
-								<tr className="border-b border-[var(--border)]">
-									<th className="text-left px-4 py-3 text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium">
-										{dict.columns.word}
-									</th>
-									<th className="text-left px-4 py-3 text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium">
-										{dict.columns.translation}
-									</th>
-									<th className="text-left px-4 py-3 text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium">
-										{dict.columns.pos}
-									</th>
-									<th className="text-left px-4 py-3 text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium hidden md:table-cell">
-										{dict.columns.cefr}
-									</th>
-									<th className="text-left px-4 py-3 text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium hidden lg:table-cell">
-										{dict.columns.sources}
-									</th>
-									<th className="text-left px-4 py-3 text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium hidden md:table-cell">
-										{dict.columns.updatedAt}
-									</th>
-									<th className="text-right px-4 py-3 text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium">
-										{dict.columns.actions}
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								{data.data.map((row) => (
-									<tr
-										key={row.id}
-										className="border-b border-[var(--border)] last:border-b-0 hover:bg-[var(--surface-hover)]"
-									>
-										<td className="px-4 py-3">
-											<div className="font-semibold text-[var(--accent)]">
-												{row.word}
-											</div>
-											<div className="text-xs text-[var(--text-muted)] font-mono">
-												#{row.id}
-											</div>
-										</td>
-										<td className="px-4 py-3 text-[var(--text-secondary)]">
-											<div className="truncate max-w-[240px]">
-												{row.translationPreview || "—"}
-											</div>
-											{row.meaningsCount > 1 ? (
-												<span className="text-[0.65rem] text-[var(--text-muted)]">
-													+{row.meaningsCount - 1}
-												</span>
-											) : null}
-										</td>
-										<td className="px-4 py-3">
-											{row.partOfSpeech ? (
-												<span className="text-[0.7rem] px-1.5 py-0.5 rounded bg-[var(--info-dim)] text-[var(--info)] font-mono">
-													{row.partOfSpeech}
-												</span>
-											) : (
-												<span className="text-[var(--text-faint)]">—</span>
-											)}
-										</td>
-										<td className="px-4 py-3 hidden md:table-cell">
-											{row.cefrLevel ? (
-												<span
-													className={cn(
-														"text-[0.65rem] font-semibold px-1.5 py-0.5 rounded font-mono",
-														`bg-[var(--cefr-${row.cefrLevel.toLowerCase()}-bg)]`,
-														`text-[var(--cefr-${row.cefrLevel.toLowerCase()})]`,
-													)}
-												>
-													{row.cefrLevel}
-												</span>
-											) : (
-												<span className="text-[var(--text-faint)]">—</span>
-											)}
-										</td>
-										<td className="px-4 py-3 hidden lg:table-cell">
-											<div className="flex gap-1 flex-wrap">
-												{row.sources.slice(0, 3).map((s) => (
-													<span
-														key={s}
-														className="text-[0.65rem] px-1.5 py-0.5 rounded bg-[var(--surface-active)] text-[var(--text-muted)]"
-													>
-														{s}
-													</span>
-												))}
-												{row.sources.length > 3 ? (
-													<span className="text-[0.65rem] text-[var(--text-muted)]">
-														+{row.sources.length - 3}
-													</span>
-												) : null}
-											</div>
-										</td>
-										<td className="px-4 py-3 text-xs text-[var(--text-muted)] hidden md:table-cell">
-											{formatDate(row.updatedAt)}
-										</td>
-										<td className="px-4 py-3 text-right">
-											<Link
-												href={`/${lang}/admin/entries/${row.id}/edit`}
-												className="btn btn-sm btn-secondary"
-											>
-												{dict.rowActions.edit}
-											</Link>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
+					<EntriesTable
+						rows={rows}
+						lang={lang}
+						selectedIds={selection.selected}
+						onToggleRow={selection.toggle}
+						onTogglePage={selection.togglePage}
+						dict={dict}
+						localeCode={localeCodeFor(lang)}
+					/>
 
-					<div className="flex items-center justify-between mt-4 gap-3 flex-wrap">
-						<div className="text-xs text-[var(--text-muted)]">
-							{commonDict.page
-								.replace("{page}", String(data.page))
-								.replace("{total}", String(data.pages))}
-							{" • "}
-							{commonDict.entriesCount.replace("{count}", nf.format(data.total))}
-						</div>
-						<div className="flex items-center gap-2">
-							<button
-								type="button"
-								disabled={data.page <= 1}
-								onClick={() => setPage((p) => Math.max(1, p - 1))}
-								className="btn btn-sm btn-secondary disabled:opacity-40"
-							>
-								{commonDict.previous}
-							</button>
-							<button
-								type="button"
-								disabled={data.page >= data.pages}
-								onClick={() => setPage((p) => p + 1)}
-								className="btn btn-sm btn-secondary disabled:opacity-40"
-							>
-								{commonDict.next}
-							</button>
-						</div>
-					</div>
+					{data ? (
+						<EntriesPagination
+							page={data.page}
+							pages={data.pages}
+							total={data.total}
+							limit={data.limit}
+							onPageChange={filters.setPage}
+							onLimitChange={filters.setLimit}
+							dict={dict.pagination}
+						/>
+					) : null}
 				</>
 			)}
 		</article>

@@ -108,6 +108,7 @@ export const AdminUsersPage: FC<AdminUsersPageProps> = ({ lang, dict }) => {
 								onToggleBlock={state.requestBlockOrUnblock}
 								currentUserId={state.currentUserId}
 								isFetching={state.isFetching && !state.isLoading}
+								lang={lang}
 							/>
 							<AdminUsersCards
 								dict={dict}
@@ -116,6 +117,7 @@ export const AdminUsersPage: FC<AdminUsersPageProps> = ({ lang, dict }) => {
 								onToggleBlock={state.requestBlockOrUnblock}
 								currentUserId={state.currentUserId}
 								isFetching={state.isFetching && !state.isLoading}
+								lang={lang}
 							/>
 							<AdminUsersPagination
 								dict={dict.pagination}

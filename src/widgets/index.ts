@@ -1,6 +1,15 @@
 // Widgets layer
 // Composite blocks that combine features and entities into standalone UI sections
 // Each widget lives in its own folder: widgets/header, widgets/sidebar, etc.
+export { AboutPage } from "./about-page";
+export { AdminAnalyticsDevicesPage } from "./admin-analytics-devices-page";
+export { AdminAnalyticsGeographyPage } from "./admin-analytics-geography-page";
+export { AdminAnalyticsLivePage } from "./admin-analytics-live-page";
+export { AdminAnalyticsOverviewPage } from "./admin-analytics-overview-page";
+export { AdminAnalyticsPagesPage } from "./admin-analytics-pages-page";
+export { AdminAnalyticsReferrersPage } from "./admin-analytics-referrers-page";
+export { AdminAnalyticsSearchQueriesPage } from "./admin-analytics-search-queries-page";
+export { AdminAnalyticsTimeseriesPage } from "./admin-analytics-timeseries-page";
 export { AdminApiKeysPage } from "./admin-api-keys-page";
 export { AdminAuditEntryPage } from "./admin-audit-entry-page";
 export { AdminAuditPage } from "./admin-audit-page";

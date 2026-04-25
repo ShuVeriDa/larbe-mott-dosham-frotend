@@ -14,6 +14,13 @@ import {
 } from "@/shared/ui/primitives/dialog";
 import { Button } from "@/shared/ui/primitives/button";
 import { Input } from "@/shared/ui/primitives/input";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui/primitives/select";
 import { useParams, useRouter } from "next/navigation";
 import { type FC, useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -116,19 +123,25 @@ export const EntrySuggestModal: FC<EntrySuggestModalProps> = ({
 						>
 							{dict.fieldLabel}
 						</label>
-						<select
-							id="suggest-field"
+						<Select
 							value={field}
-							onChange={e => setField(e.target.value as FieldKey)}
+							onValueChange={value => setField(value as FieldKey)}
 							disabled={isPending}
-							className="w-full px-4 py-3 border border-edge rounded-md text-base bg-surface text-foreground outline-none focus:border-primary focus:shadow-focus cursor-pointer"
 						>
-							{FIELD_ORDER.map(key => (
-								<option key={key} value={key}>
-									{dict.fields[key]}
-								</option>
-							))}
-						</select>
+							<SelectTrigger
+								id="suggest-field"
+								className="w-full h-12 text-base"
+							>
+								<SelectValue />
+							</SelectTrigger>
+							<SelectContent>
+								{FIELD_ORDER.map(key => (
+									<SelectItem key={key} value={key}>
+										{dict.fields[key]}
+									</SelectItem>
+								))}
+							</SelectContent>
+						</Select>
 					</div>
 
 					<div>

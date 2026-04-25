@@ -61,7 +61,10 @@ export function useCreateSuggestion() {
   return useMutation({
     mutationFn: (dto: CreateSuggestionDto) => suggestionsApi.create(dto),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: suggestionKeys.all });
+      qc.invalidateQueries({
+        queryKey: suggestionKeys.all,
+        refetchType: "all",
+      });
     },
   });
 }

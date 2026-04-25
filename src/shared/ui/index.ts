@@ -8,6 +8,8 @@ export * from "./primitives/accordion";
 export * from "./primitives/badge";
 export * from "./primitives/button";
 export * from "./primitives/input";
+export * from "./primitives/json-editor";
+export * from "./primitives/tag-input";
 export * from "./primitives/checkbox";
 export * from "./primitives/dialog";
 export * from "./primitives/dropdown-menu";

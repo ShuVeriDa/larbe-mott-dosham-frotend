@@ -6,6 +6,7 @@ import type { FC } from "react";
 import { usePipelineActions } from "../model/use-pipeline-actions";
 import { AdminPipelineJsonLd } from "./admin-pipeline-json-ld";
 import { PipelineActionsGrid } from "./pipeline-actions-grid";
+import { PipelineGuide } from "./pipeline-guide";
 import { PipelineConfirmModal } from "./pipeline-confirm-modal";
 import { PipelineDictTable } from "./pipeline-dict-table";
 import { PipelineLogTimeline } from "./pipeline-log-timeline";
@@ -59,6 +60,8 @@ export const AdminPipelinePage: FC<AdminPipelinePageProps> = ({
 			/>
 
 			<PipelineActionsGrid dict={dict} actions={actions} />
+
+			<PipelineGuide dict={dict} />
 
 			<PipelineDictTable dict={dict} commonDict={commonDict} actions={actions} />
 

@@ -64,6 +64,7 @@ export const FavoriteButton: FC<FavoriteButtonProps> = ({
 			onClick={handleClick}
 			disabled={isPending}
 			aria-label={label}
+			title={label}
 			aria-pressed={isFavorited}
 			className={cn(
 				"text-base leading-none transition-colors",

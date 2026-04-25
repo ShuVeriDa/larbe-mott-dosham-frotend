@@ -2,7 +2,14 @@
 
 import type { SortOrder } from "@/entities/dictionary";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { ChangeEvent, FC } from "react";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui";
+import type { FC } from "react";
 
 type ResultsDict = Dictionary["search"]["results"];
 
@@ -31,10 +38,6 @@ export const ResultsMeta: FC<ResultsMetaProps> = ({
 	onSortChange,
 	dict,
 }) => {
-	const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-		onSortChange(e.target.value as SortOrder);
-	};
-
 	return (
 		<div className="flex items-center justify-between flex-wrap gap-3 mb-5">
 			<div className="text-sm text-muted">
@@ -43,20 +46,28 @@ export const ResultsMeta: FC<ResultsMetaProps> = ({
 				{dict.foundSuffix} «
 				<strong className="text-foreground font-semibold">{query}</strong>»
 			</div>
-			<label className="flex items-center gap-2">
+			<div className="flex items-center gap-2">
 				<span className="text-xs text-faint">{dict.sortLabel}</span>
-				<select
+				<Select
 					value={sort}
-					onChange={handleChange}
-					className="appearance-none px-3 pr-6 py-1 border border-edge rounded-sm text-xs bg-surface text-subtle outline-none cursor-pointer font-body"
+					onValueChange={value => onSortChange(value as SortOrder)}
 				>
-					{SORT_OPTIONS.map(opt => (
-						<option key={opt} value={opt}>
-							{dict.sort[opt as keyof typeof dict.sort] ?? opt}
-						</option>
-					))}
-				</select>
-			</label>
+					<SelectTrigger
+						size="sm"
+						aria-label={dict.sortLabel}
+						className="text-xs"
+					>
+						<SelectValue />
+					</SelectTrigger>
+					<SelectContent>
+						{SORT_OPTIONS.map(opt => (
+							<SelectItem key={opt} value={opt}>
+								{dict.sort[opt as keyof typeof dict.sort] ?? opt}
+							</SelectItem>
+						))}
+					</SelectContent>
+				</Select>
+			</div>
 		</div>
 	);
 };

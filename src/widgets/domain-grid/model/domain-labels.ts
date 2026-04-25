@@ -9,6 +9,8 @@ export const DOMAIN_ICONS: Record<DomainKey, string> = {
 	geology: "🪨",
 	math: "🔢",
 	it: "💻",
+	computer: "🖥️",
+	sport: "🏅",
 };
 
 export const isDomainKey = (slug: string): slug is DomainKey =>

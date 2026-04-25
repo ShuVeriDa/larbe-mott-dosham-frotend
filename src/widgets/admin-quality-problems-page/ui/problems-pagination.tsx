@@ -2,7 +2,14 @@
 
 import type { Dictionary } from "@/i18n/dictionaries";
 import { cn } from "@/shared/lib";
-import type { ChangeEvent, FC } from "react";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui";
+import type { FC } from "react";
 
 type ProblemsDict = Dictionary["admin"]["qualityProblems"];
 
@@ -48,10 +55,6 @@ export const ProblemsPagination: FC<ProblemsPaginationProps> = ({
 	const from = total === 0 ? 0 : (page - 1) * limit + 1;
 	const to = Math.min(total, from + rowsOnPage - 1);
 	const pageNumbers = getPageNumbers(page, Math.max(1, pages));
-
-	const handleLimit = (e: ChangeEvent<HTMLSelectElement>) => {
-		onLimitChange(Number(e.target.value));
-	};
 
 	return (
 		<div className="flex items-center justify-between mt-5 gap-3 flex-wrap">
@@ -109,20 +112,24 @@ export const ProblemsPagination: FC<ProblemsPaginationProps> = ({
 					→
 				</button>
 			</nav>
-			<label className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
+			<div className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
 				<span>{dict.pagination.rows}</span>
-				<select
-					value={limit}
-					onChange={handleLimit}
-					className="px-3 py-1 pr-6 border border-[var(--border)] rounded-md bg-[var(--surface)] text-xs text-[var(--text)] outline-none cursor-pointer focus:border-[var(--accent)]"
+				<Select
+					value={String(limit)}
+					onValueChange={(value) => onLimitChange(Number(value))}
 				>
-					{LIMIT_OPTIONS.map((opt) => (
-						<option key={opt} value={opt}>
-							{opt}
-						</option>
-					))}
-				</select>
-			</label>
+					<SelectTrigger size="sm" aria-label={dict.pagination.rows} className="text-xs">
+						<SelectValue />
+					</SelectTrigger>
+					<SelectContent>
+						{LIMIT_OPTIONS.map((opt) => (
+							<SelectItem key={opt} value={String(opt)}>
+								{opt}
+							</SelectItem>
+						))}
+					</SelectContent>
+				</Select>
+			</div>
 		</div>
 	);
 };

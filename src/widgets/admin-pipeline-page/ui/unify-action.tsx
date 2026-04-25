@@ -2,6 +2,13 @@
 
 import { useUnifiedLog } from "@/features/admin-pipeline";
 import type { Dictionary } from "@/i18n/dictionaries";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui";
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 import type { UsePipelineActions } from "../model/use-pipeline-actions";
@@ -37,23 +44,28 @@ export const UnifyAction: FC<Props> = ({ dict, actions }) => {
 			description={dict.actions.unify.description}
 			footer={
 				<>
-					<select
-						aria-label={dict.actions.unify.title}
+					<Select
 						value={slug}
-						onChange={(e) => setSlug(e.target.value)}
+						onValueChange={setSlug}
 						disabled={isEmpty || actions.pending.unify || actions.isRunning}
-						className="h-8 px-3 pr-6 text-xs bg-[var(--surface)] border border-[var(--border)] rounded text-[var(--text)] appearance-none min-w-[130px] disabled:opacity-40"
 					>
-						{isEmpty ? (
-							<option>{dict.actions.unify.empty}</option>
-						) : (
-							remaining.map((opt) => (
-								<option key={opt.slug} value={opt.slug}>
+						<SelectTrigger
+							size="sm"
+							aria-label={dict.actions.unify.title}
+							className="min-w-[130px] text-xs"
+						>
+							<SelectValue
+								placeholder={isEmpty ? dict.actions.unify.empty : undefined}
+							/>
+						</SelectTrigger>
+						<SelectContent>
+							{remaining.map((opt) => (
+								<SelectItem key={opt.slug} value={opt.slug}>
 									{opt.slug}
-								</option>
-							))
-						)}
-					</select>
+								</SelectItem>
+							))}
+						</SelectContent>
+					</Select>
 					<button
 						type="button"
 						onClick={onSubmit}

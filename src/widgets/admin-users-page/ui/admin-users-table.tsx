@@ -33,6 +33,7 @@ interface AdminUsersTableProps {
 	onToggleBlock: (user: AdminUserListItem) => void;
 	currentUserId: string | undefined;
 	isFetching?: boolean;
+	lang: string;
 }
 
 interface SortableHeadProps {
@@ -98,6 +99,7 @@ export const AdminUsersTable: FC<AdminUsersTableProps> = ({
 	onToggleBlock,
 	currentUserId,
 	isFetching,
+	lang,
 }) => {
 	const tableDict = dict.table;
 
@@ -164,7 +166,7 @@ export const AdminUsersTable: FC<AdminUsersTableProps> = ({
 						return (
 							<TableRow key={user.id}>
 								<TableCell>
-									<UserCell user={user} />
+									<UserCell user={user} href={`/${lang}/admin/users/${user.id}`} />
 								</TableCell>
 								<TableCell className="font-mono text-xs text-muted-foreground">
 									@{user.username}

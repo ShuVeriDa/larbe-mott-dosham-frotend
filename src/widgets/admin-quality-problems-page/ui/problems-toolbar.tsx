@@ -1,11 +1,20 @@
 "use client";
 
+import type { DictionarySource } from "@/entities/dictionary";
 import type {
 	QualitySortField,
 } from "@/features/admin-quality-problems";
-import type { DictionarySource } from "@/entities/dictionary";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { ChangeEvent, FC } from "react";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui";
+import type { FC } from "react";
+
+const ALL = "__all__";
 
 type ProblemsDict = Dictionary["admin"]["qualityProblems"];
 
@@ -58,10 +67,6 @@ export const ProblemsToolbar: FC<ProblemsToolbarProps> = ({
 	isExporting,
 	dict,
 }) => {
-	const handleSort = (e: ChangeEvent<HTMLSelectElement>) => {
-		onSortByChange(e.target.value as QualitySortField);
-	};
-
 	return (
 		<div className="flex items-center gap-3 mb-4 flex-wrap">
 			<label className="relative flex-1 min-w-[180px] max-w-xs">
@@ -80,32 +85,38 @@ export const ProblemsToolbar: FC<ProblemsToolbarProps> = ({
 
 			<div className="hidden md:block w-px h-6 bg-[var(--border)] mx-2" />
 
-			<select
-				aria-label={dict.toolbar.allSources}
-				value={source}
-				onChange={(e) => onSourceChange(e.target.value)}
-				className="px-3 py-2 pr-8 border border-[var(--border)] rounded-[10px] bg-[var(--surface)] text-sm text-[var(--text)] outline-none cursor-pointer focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_var(--accent-dim)]"
+			<Select
+				value={source === "" ? ALL : source}
+				onValueChange={(value) => onSourceChange(value === ALL ? "" : value)}
 			>
-				<option value="">{dict.toolbar.allSources}</option>
-				{sources.map((s) => (
-					<option key={s.slug} value={s.slug}>
-						{s.slug}
-					</option>
-				))}
-			</select>
+				<SelectTrigger className="h-[38px] min-w-[160px]" aria-label={dict.toolbar.allSources}>
+					<SelectValue placeholder={dict.toolbar.allSources} />
+				</SelectTrigger>
+				<SelectContent>
+					<SelectItem value={ALL}>{dict.toolbar.allSources}</SelectItem>
+					{sources.map((s) => (
+						<SelectItem key={s.slug} value={s.slug}>
+							{s.slug}
+						</SelectItem>
+					))}
+				</SelectContent>
+			</Select>
 
-			<select
-				aria-label="sort"
+			<Select
 				value={sortBy}
-				onChange={handleSort}
-				className="px-3 py-2 pr-8 border border-[var(--border)] rounded-[10px] bg-[var(--surface)] text-sm text-[var(--text)] outline-none cursor-pointer focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_var(--accent-dim)]"
+				onValueChange={(value) => onSortByChange(value as QualitySortField)}
 			>
-				{SORT_OPTIONS.map((opt) => (
-					<option key={opt} value={opt}>
-						{dict.toolbar.sort[opt]}
-					</option>
-				))}
-			</select>
+				<SelectTrigger className="h-[38px] min-w-[140px]" aria-label="sort">
+					<SelectValue />
+				</SelectTrigger>
+				<SelectContent>
+					{SORT_OPTIONS.map((opt) => (
+						<SelectItem key={opt} value={opt}>
+							{dict.toolbar.sort[opt]}
+						</SelectItem>
+					))}
+				</SelectContent>
+			</Select>
 
 			<div className="hidden md:block w-px h-6 bg-[var(--border)] mx-2" />
 

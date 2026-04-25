@@ -6,8 +6,18 @@ import type {
 	QualityStats,
 } from "@/features/admin-quality";
 import type { Dictionary } from "@/i18n/dictionaries";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui";
 import { FilterChips, type FilterChipOption } from "@/shared/ui/admin";
 import type { ChangeEvent, FC } from "react";
+
+
+const ALL = "__all__";
 
 interface QualityProblemsFiltersProps {
 	type: QualityProblemType | "";
@@ -93,21 +103,22 @@ export const QualityProblemsFilters: FC<QualityProblemsFiltersProps> = ({
 						className="pl-9 pr-3 py-2 border border-[var(--border)] rounded-xl text-sm bg-[var(--surface)] text-[var(--text)] outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-dim)] w-[200px]"
 					/>
 				</div>
-				<select
-					value={source}
-					onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-						onSourceChange(e.target.value)
-					}
-					aria-label={dict.sourceAll}
-					className="py-2 px-3 pr-7 border border-[var(--border)] rounded-xl text-sm bg-[var(--surface)] text-[var(--text)] outline-none cursor-pointer focus:border-[var(--accent)]"
+				<Select
+					value={source === "" ? ALL : source}
+					onValueChange={(value) => onSourceChange(value === ALL ? "" : value)}
 				>
-					<option value="">{dict.sourceAll}</option>
-					{sources?.map((s) => (
-						<option key={s.source} value={s.source}>
-							{s.source}
-						</option>
-					))}
-				</select>
+					<SelectTrigger className="h-[38px] min-w-[160px]" aria-label={dict.sourceAll}>
+						<SelectValue placeholder={dict.sourceAll} />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value={ALL}>{dict.sourceAll}</SelectItem>
+						{sources?.map((s) => (
+							<SelectItem key={s.source} value={s.source}>
+								{s.source}
+							</SelectItem>
+						))}
+					</SelectContent>
+				</Select>
 			</div>
 		</div>
 	);

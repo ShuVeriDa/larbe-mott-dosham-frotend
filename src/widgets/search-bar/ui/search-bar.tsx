@@ -35,8 +35,13 @@ export const SearchBar = ({
 }: SearchBarProps) => {
 	const urlState = useSearchUrlState();
 
-	const { posValues } = usePosValues();
-	const { sources } = useSourcesValues();
+	const { posValues, fetchPosValues } = usePosValues();
+	const { sources, fetchSources } = useSourcesValues();
+
+	useEffect(() => {
+		fetchPosValues();
+		fetchSources();
+	}, [fetchPosValues, fetchSources]);
 
 	const groups = useFilterGroups(
 		search.filters,

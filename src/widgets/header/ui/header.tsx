@@ -3,15 +3,8 @@
 import { ThemeSwitcher } from "@/features/theme-switcher";
 import { UserMenu } from "@/features/user-menu";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
-import { useIsAuthenticated, useAuthStatus } from "@/shared/lib/auth";
+import { useAuthStatus, useIsAuthenticated } from "@/shared/lib/auth";
 import { Logo } from "@/shared/ui/primitives/logo";
-import {
-	Sheet,
-	SheetClose,
-	SheetContent,
-	SheetTrigger,
-} from "@/shared/ui/primitives/sheet";
-import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 
 interface HeaderProps {
@@ -34,7 +27,7 @@ export function Header({ lang, nav, userMenu }: HeaderProps) {
 
 	return (
 		<header className="sticky top-0 z-100">
-			<nav className="px-6 py-3 flex items-center justify-between  backdrop-blur-2xl bg-overlay border-b border-edge">
+			<nav className="px-6 py-3 flex items-center justify-between backdrop-blur-2xl bg-overlay border-b border-edge">
 				<Logo variant="cyrillic" size="nav" locale={lang} />
 
 				<div className="nav-center">
@@ -52,45 +45,12 @@ export function Header({ lang, nav, userMenu }: HeaderProps) {
 						) : (
 							<>
 								<ThemeSwitcher />
-								<Link
-									href={`/${lang}/auth`}
-									className="btn btn-primary btn-sm"
-								>
+								<Link href={`/${lang}/auth`} className="btn btn-primary btn-sm">
 									{nav.login}
 								</Link>
 							</>
 						))}
 				</div>
-
-				<Sheet>
-					<SheetTrigger asChild>
-						<button className="nav-burger" aria-label="Меню">
-							<MenuIcon size={22} />
-						</button>
-					</SheetTrigger>
-					<SheetContent
-						side="right"
-						className="flex flex-col gap-0 pt-14 px-6 w-3/4 max-w-xs"
-					>
-						{NAV_LINKS.map(link => (
-							<SheetClose key={link.href} asChild>
-								<Link href={link.href} className="mob-nav-link">
-									{link.label}
-								</Link>
-							</SheetClose>
-						))}
-						{authStatus === "ready" && !isAuthenticated && (
-							<SheetClose asChild>
-								<Link
-									href={`/${lang}/auth`}
-									className="btn btn-primary btn-sm mt-3 text-center"
-								>
-									{nav.login}
-								</Link>
-							</SheetClose>
-						)}
-					</SheetContent>
-				</Sheet>
 			</nav>
 		</header>
 	);

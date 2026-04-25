@@ -5,7 +5,7 @@ import { useSearchHistory } from "@/features/search-history";
 import { useAuthStatus, useIsAuthenticated } from "@/shared/lib/auth";
 import type { Dictionary } from "@/i18n/dictionaries";
 import Link from "next/link";
-import { type FC, useMemo, useState } from "react";
+import { type FC, useEffect, useMemo, useState } from "react";
 import { ExploreChips } from "./explore-chips";
 import { ExploreTabs, type ExploreTab } from "./explore-tabs";
 
@@ -23,7 +23,11 @@ export const ExploreSection: FC<IExploreSectionProps> = ({
 	const authStatus = useAuthStatus();
 	const authReady = authStatus === "ready";
 
-	const { popular } = usePopularQueries();
+	const { popular, fetchPopular } = usePopularQueries();
+
+	useEffect(() => {
+		fetchPopular();
+	}, [fetchPopular]);
 
 	const historyEnabled = activeTab === "recent" && isAuthenticated;
 	const { data: history } = useSearchHistory({ limit: 10 }, historyEnabled);

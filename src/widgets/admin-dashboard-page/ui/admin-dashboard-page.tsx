@@ -1,140 +1,74 @@
-"use client";
-
-import { useAdminDashboardStats } from "@/features/admin-dashboard";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
+import { PageHeader } from "@/shared/ui/admin";
 import {
-	AdminErrorState,
-	AdminTableSkeleton,
-	PageHeader,
-	StatCard,
-	formatStatValue,
-} from "@/shared/ui/admin";
+	type AdminNavKey,
+	buildAdminNavGroups,
+} from "@/widgets/admin-shell/lib/nav-items";
+import Link from "next/link";
 import type { FC } from "react";
-import { ProblemsTable } from "./problems-table";
-import { QualityBreakdown } from "./quality-breakdown";
-import { QualityRing } from "./quality-ring";
-import { QuickActions } from "./quick-actions";
 
 interface AdminDashboardPageProps {
 	lang: Locale;
 	dict: Dictionary["admin"]["dashboard"];
-	commonDict: Dictionary["admin"]["common"];
+	shellDict: Dictionary["admin"]["shell"];
 }
 
-const nf = new Intl.NumberFormat("ru-RU");
+const HIDDEN_KEYS: ReadonlySet<AdminNavKey> = new Set(["dashboard"]);
+
+type DescriptionKey = keyof Dictionary["admin"]["dashboard"]["descriptions"];
+
+const isDescribedKey = (
+	key: AdminNavKey,
+	descriptions: Dictionary["admin"]["dashboard"]["descriptions"],
+): key is DescriptionKey => key in descriptions;
 
 export const AdminDashboardPage: FC<AdminDashboardPageProps> = ({
 	lang,
 	dict,
-	commonDict,
+	shellDict,
 }) => {
-	const statsQuery = useAdminDashboardStats();
-
-	const stats = statsQuery.data;
-	const formatDescription = (template: string, total: number, clean: number) =>
-		template
-			.replace("{clean}", nf.format(clean))
-			.replace("{total}", nf.format(total));
+	const groups = buildAdminNavGroups(lang)
+		.map((group) => ({
+			...group,
+			items: group.items.filter(
+				(item) => !item.isSub && !HIDDEN_KEYS.has(item.key),
+			),
+		}))
+		.filter((group) => group.items.length > 0);
 
 	return (
 		<article className="max-w-[1280px] mx-auto">
 			<PageHeader title={dict.header.title} subtitle={dict.header.subtitle} />
-
-			{statsQuery.isError ? (
-				<AdminErrorState
-					title={commonDict.error}
-					retryLabel={commonDict.retry}
-					onRetry={() => statsQuery.refetch()}
-				/>
-			) : (
-				<>
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-						<StatCard
-							icon="📚"
-							tone="total"
-							label={dict.stats.totalEntries}
-							value={formatStatValue(stats?.totalEntries)}
-							sub={
-								stats
-									? `${dict.stats.sourcesCount}: ${nf.format(stats.sourcesCount)}`
-									: null
-							}
-							loading={statsQuery.isLoading}
-						/>
-						<StatCard
-							icon="⊗"
-							tone="danger"
-							label={dict.stats.noMeanings}
-							value={formatStatValue(stats?.byProblem.noMeanings.count)}
-							sub={
-								stats
-									? `${stats.byProblem.noMeanings.pct.toFixed(1)}%`
-									: null
-							}
-							loading={statsQuery.isLoading}
-						/>
-						<StatCard
-							icon="?"
-							tone="warning"
-							label={dict.stats.noClass}
-							value={formatStatValue(stats?.byProblem.noClass.count)}
-							sub={
-								stats ? `${stats.byProblem.noClass.pct.toFixed(1)}%` : null
-							}
-							loading={statsQuery.isLoading}
-						/>
-						<StatCard
-							icon="·"
-							tone="info"
-							label={dict.stats.noPos}
-							value={formatStatValue(stats?.byProblem.noPos.count)}
-							sub={
-								stats ? `${stats.byProblem.noPos.pct.toFixed(1)}%` : null
-							}
-							loading={statsQuery.isLoading}
-						/>
-					</div>
-
-					{stats ? (
-						<div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 mb-8">
-							<div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 flex flex-col items-center justify-center text-center">
-								<QualityRing
-									pct={stats.completenessPct}
-									label={dict.quality.ringLabel}
-								/>
-								<div className="text-sm text-[var(--text-secondary)] mt-4">
-									{formatDescription(
-										dict.quality.description,
-										stats.totalEntries,
-										stats.entriesWithoutProblems,
-									)}
-								</div>
-							</div>
-							<QualityBreakdown
-								breakdown={stats.byProblem}
-								dict={dict.quality}
-								lang={lang}
-							/>
+			<div className="space-y-10">
+				{groups.map((group) => (
+					<section key={group.key}>
+						<h2 className="text-lg font-semibold text-[var(--text)] mb-4">
+							{shellDict.sections[group.key]}
+						</h2>
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+							{group.items.map((item) => (
+								<Link
+									key={item.key}
+									href={item.href}
+									className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-5 transition-all hover:border-[var(--border-hover)] hover:bg-[var(--surface-hover)] flex items-start gap-4"
+								>
+									<div className="text-2xl leading-none">{item.icon}</div>
+									<div className="flex-1 min-w-0">
+										<div className="text-sm font-semibold text-[var(--text)] mb-1">
+											{shellDict.items[item.labelKey]}
+										</div>
+										<div className="text-xs text-[var(--text-muted)]">
+											{isDescribedKey(item.key, dict.descriptions)
+												? dict.descriptions[item.key]
+												: null}
+										</div>
+									</div>
+								</Link>
+							))}
 						</div>
-					) : statsQuery.isLoading ? (
-						<AdminTableSkeleton rows={4} className="mb-8" />
-					) : null}
-
-					<QuickActions dict={dict.quickActions} lang={lang} />
-
-					<ProblemsTable
-						dict={dict.problems}
-						commonDict={commonDict}
-						lang={lang}
-						breakdownCounts={{
-							noMeanings: stats?.byProblem.noMeanings.count ?? 0,
-							noClass: stats?.byProblem.noClass.count ?? 0,
-							noPos: stats?.byProblem.noPos.count ?? 0,
-							noExamples: stats?.byProblem.noExamples.count ?? 0,
-						}}
-					/>
-				</>
-			)}
+					</section>
+				))}
+			</div>
 		</article>
 	);
 };

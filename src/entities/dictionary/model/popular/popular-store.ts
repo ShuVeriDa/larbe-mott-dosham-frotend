@@ -2,7 +2,7 @@ import { create, createJSONStorage, devtools, persist } from "@/shared/lib";
 import { dictionaryApi } from "../../api";
 import type { PopularQuery } from "../../types";
 
-const POPULAR_TTL_MS = 5 * 60 * 1000;
+const POPULAR_TTL_MS = 10 * 60 * 1000;
 
 interface PopularState {
 	popular: PopularQuery[] | null;

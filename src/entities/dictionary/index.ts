@@ -61,8 +61,6 @@ export type { EntryCardLabels } from "./ui/entry-card";
 export { PhraseCard } from "./ui/phrase-card";
 export type { PhraseCardLabels } from "./ui/phrase-card";
 
-export { DictionaryDataProvider } from "./ui/dictionary-data-provider";
-
 export { useDictionaryStats, useStatsStore } from "./model/stats";
 export { usePosValues, usePosValuesStore } from "./model/pos-values";
 export { usePopularQueries, usePopularStore } from "./model/popular";

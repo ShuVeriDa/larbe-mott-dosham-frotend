@@ -1,45 +1,26 @@
 import {
-	keepPreviousData,
 	useMutation,
 	useQuery,
 	useQueryClient,
 } from "@tanstack/react-query";
 import { adminApiKeysApi } from "./api";
-import type {
-	ApiKeyListQuery,
-	CreateApiKeyDto,
-	UpdateApiKeyDto,
-} from "./types";
+import type { CreateApiKeyDto, UpdateApiKeyDto } from "./types";
 
 export const adminApiKeysKeys = {
 	all: ["admin", "api-keys"] as const,
-	stats: () => [...adminApiKeysKeys.all, "stats"] as const,
-	list: (query: ApiKeyListQuery) =>
-		[...adminApiKeysKeys.all, "list", query] as const,
+	list: () => [...adminApiKeysKeys.all, "list"] as const,
 };
 
 interface Options {
 	enabled?: boolean;
 }
 
-export const useAdminApiKeys = (
-	query: ApiKeyListQuery,
-	options: Options = {},
-) =>
+export const useAdminApiKeys = (options: Options = {}) =>
 	useQuery({
-		queryKey: adminApiKeysKeys.list(query),
-		queryFn: () => adminApiKeysApi.getList(query),
+		queryKey: adminApiKeysKeys.list(),
+		queryFn: adminApiKeysApi.getList,
 		enabled: options.enabled ?? true,
-		placeholderData: keepPreviousData,
 		staleTime: 30 * 1000,
-	});
-
-export const useAdminApiKeysStats = (options: Options = {}) =>
-	useQuery({
-		queryKey: adminApiKeysKeys.stats(),
-		queryFn: adminApiKeysApi.getStats,
-		enabled: options.enabled ?? true,
-		staleTime: 60 * 1000,
 	});
 
 export const useCreateApiKey = () => {
@@ -63,10 +44,10 @@ export const useUpdateApiKey = () => {
 	});
 };
 
-export const useRevokeApiKey = () => {
+export const useDeleteApiKey = () => {
 	const qc = useQueryClient();
 	return useMutation({
-		mutationFn: ({ id }: { id: string }) => adminApiKeysApi.revoke(id),
+		mutationFn: ({ id }: { id: string }) => adminApiKeysApi.remove(id),
 		onSuccess: () => {
 			qc.invalidateQueries({ queryKey: adminApiKeysKeys.all });
 		},

@@ -1,7 +1,14 @@
 "use client";
 
-import { usePipelineDictionaries } from "@/features/admin-pipeline";
+import { usePipelineFullStatus } from "@/features/admin-pipeline";
 import type { Dictionary } from "@/i18n/dictionaries";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/shared/ui";
 import type { FC } from "react";
 import { useMemo, useState } from "react";
 import type { UsePipelineActions } from "../model/use-pipeline-actions";
@@ -15,12 +22,12 @@ interface Props {
 const ALL = "__all__";
 
 export const ParseAction: FC<Props> = ({ dict, actions }) => {
-	const dictionariesQuery = usePipelineDictionaries();
+	const statusQuery = usePipelineFullStatus();
 	const [slug, setSlug] = useState<string>(ALL);
 
 	const options = useMemo(
-		() => dictionariesQuery.data ?? [],
-		[dictionariesQuery.data],
+		() => statusQuery.data?.parsed?.bySlug ?? [],
+		[statusQuery.data?.parsed?.bySlug],
 	);
 
 	const onSubmit = () => {
@@ -37,20 +44,29 @@ export const ParseAction: FC<Props> = ({ dict, actions }) => {
 			description={dict.actions.parse.description}
 			footer={
 				<>
-					<select
-						aria-label={dict.actions.parse.title}
+					<Select
 						value={slug}
-						onChange={(e) => setSlug(e.target.value)}
+						onValueChange={setSlug}
 						disabled={actions.pending.parse || actions.isRunning}
-						className="h-8 px-3 pr-6 text-xs bg-[var(--surface)] border border-[var(--border)] rounded text-[var(--text)] appearance-none min-w-[130px]"
 					>
-						<option value={ALL}>{dict.actions.parse.allOption}</option>
-						{options.map((opt) => (
-							<option key={opt.slug} value={opt.slug}>
-								{opt.slug}
-							</option>
-						))}
-					</select>
+						<SelectTrigger
+							size="sm"
+							aria-label={dict.actions.parse.title}
+							className="min-w-[130px] text-xs"
+						>
+							<SelectValue />
+						</SelectTrigger>
+						<SelectContent>
+							<SelectItem value={ALL}>
+								{dict.actions.parse.allOption}
+							</SelectItem>
+							{options.map((opt) => (
+								<SelectItem key={opt.slug} value={opt.slug}>
+									{opt.slug}
+								</SelectItem>
+							))}
+						</SelectContent>
+					</Select>
 					<button
 						type="button"
 						onClick={onSubmit}

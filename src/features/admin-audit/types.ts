@@ -1,67 +1,110 @@
-export type AuditActionType =
-	| "CREATE"
-	| "UPDATE"
-	| "DELETE"
-	| "BULK"
-	| "PIPELINE";
+export type AuditAction =
+	| "create"
+	| "update"
+	| "delete"
+	| "bulk"
+	| "pipeline"
+	| "revert";
+
+export type AuditActorType = "admin" | "pipeline" | "api";
 
 export type AuditPeriod = "today" | "week" | "month" | "all";
 
-export interface AuditAuthor {
+export interface AuditUser {
 	id: string;
-	name: string;
-	avatarUrl?: string;
-	kind: "user" | "system" | "api";
+	username: string;
+	name: string | null;
 }
+
+export interface AuditEntryRef {
+	id: number;
+	word: string;
+}
+
+export interface AuditFieldChange {
+	old: unknown;
+	new: unknown;
+}
+
+export type AuditChanges = Record<string, unknown> & {
+	_meta?: { count?: number; ids?: number[]; field?: string };
+	command?: string;
+	snapshot?: Record<string, unknown>;
+	revertOf?: string;
+};
 
 export interface AuditItem {
 	id: string;
-	type: AuditActionType;
-	word?: string;
-	entryId?: number;
-	description: string;
-	diff?: { field: string; before: unknown; after: unknown }[];
-	jsonDiff?: { added?: string[]; removed?: string[]; changed?: string[] };
-	at: string;
-	author: AuditAuthor;
+	entryId: number | null;
+	userId: string | null;
+	apiKeyId: string | null;
+	action: AuditAction;
+	actorType: AuditActorType | null;
+	changes: AuditChanges | null;
+	createdAt: string;
+	user: AuditUser | null;
+	entry: AuditEntryRef | null;
 }
 
 export interface AuditQuery {
 	q?: string;
-	action?: AuditActionType | "";
-	author?: string;
+	action?: AuditAction | "";
+	actorType?: AuditActorType | "";
 	period?: AuditPeriod;
 	page?: number;
 	limit?: number;
 }
 
-export interface AuditResponse {
-	data: AuditItem[];
+export interface AuditListResponse {
+	items: AuditItem[];
 	total: number;
 	page: number;
 	limit: number;
-	pages: number;
+	totalPages: number;
+}
+
+export interface AuditStatsCounters {
+	create: number;
+	update: number;
+	delete: number;
+	bulk: number;
+	pipeline: number;
+	revert?: number;
 }
 
 export interface AuditStats {
-	today: number;
-	week: number;
-	bulk: number;
-	pipeline: number;
+	today: { total: number; deltaPercent: number };
+	week: { total: number; uniqueAuthors: number };
+	weekBulk: { total: number; affectedEntries: number };
+	weekPipeline: { total: number; commands: string[] };
+	byAction: AuditStatsCounters;
 }
+
+export type AuditEntryHistoryItem = AuditItem;
 
 export interface AuditEntrySummary {
-	entryId: number;
+	id: number;
 	word: string;
-	partOfSpeech?: string;
-	cefrLevel?: string;
+	partOfSpeech: string | null;
+	nounClass: string | null;
+	wordLevel: string | null;
 	sources: string[];
-	changesCount: number;
-	authorsCount: number;
-	createdAt: string;
 }
 
-export interface AuditEntryTimelineResponse {
-	summary: AuditEntrySummary;
-	items: AuditItem[];
+export interface AuditEntryHistoryMeta {
+	totalChanges: number;
+	uniqueAuthors: number;
+	daysSinceCreation: number | null;
+}
+
+export interface AuditEntryHistoryResponse {
+	entry: AuditEntrySummary;
+	meta: AuditEntryHistoryMeta;
+	items: AuditEntryHistoryItem[];
+}
+
+export interface AuditRevertResponse {
+	success: boolean;
+	newLogId: string;
+	restoredFields: string[];
 }

@@ -1,4 +1,4 @@
-import { getDictionary, hasLocale, LOCALES } from "@/i18n/dictionaries";
+import { getDictionary, hasLocale, type Locale, LOCALES } from "@/i18n/dictionaries";
 import { buildAdminMetadata } from "@/shared/lib/admin-metadata";
 import { AdminEntryEditPage } from "@/widgets/admin-entry-edit-page";
 import type { Metadata } from "next";
@@ -35,7 +35,7 @@ export default async function Page({ params }: PageProps) {
 	return (
 		<AdminEntryEditPage
 			id={id}
-			lang={lang}
+			lang={lang as Locale}
 			dict={dict.admin.entryEdit}
 			entriesDict={dict.admin.entries}
 			commonDict={dict.admin.common}

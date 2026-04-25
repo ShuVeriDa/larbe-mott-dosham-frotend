@@ -2,19 +2,17 @@ export { adminApiKeysApi } from "./api";
 export {
 	adminApiKeysKeys,
 	useAdminApiKeys,
-	useAdminApiKeysStats,
 	useCreateApiKey,
-	useRevokeApiKey,
+	useDeleteApiKey,
 	useUpdateApiKey,
 } from "./queries";
 export type {
 	ApiKey,
-	ApiKeyListQuery,
-	ApiKeyListResponse,
-	ApiKeyRole,
-	ApiKeyStats,
+	ApiKeyRoleApi,
+	ApiKeyRoleUi,
 	ApiKeyStatus,
 	ApiKeyWithSecret,
 	CreateApiKeyDto,
+	DeleteApiKeyResponse,
 	UpdateApiKeyDto,
 } from "./types";

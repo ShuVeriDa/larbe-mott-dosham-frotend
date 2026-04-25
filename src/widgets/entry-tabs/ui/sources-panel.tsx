@@ -1,7 +1,7 @@
 "use client";
 
 import { useSourcesValues } from "@/entities/dictionary";
-import { type FC, useMemo } from "react";
+import { type FC, useEffect, useMemo } from "react";
 
 interface SourcesPanelProps {
 	sources: string[];
@@ -12,7 +12,11 @@ export const SourcesPanel: FC<SourcesPanelProps> = ({
 	sources,
 	emptyLabel,
 }) => {
-	const { sources: allSources } = useSourcesValues();
+	const { sources: allSources, fetchSources } = useSourcesValues();
+
+	useEffect(() => {
+		fetchSources();
+	}, [fetchSources]);
 
 	const mapped = useMemo(() => {
 		const bySlug = new Map((allSources ?? []).map(s => [s.slug, s]));

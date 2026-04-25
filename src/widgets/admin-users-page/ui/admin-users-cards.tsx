@@ -17,6 +17,7 @@ interface AdminUsersCardsProps {
 	onToggleBlock: (user: AdminUserListItem) => void;
 	currentUserId: string | undefined;
 	isFetching?: boolean;
+	lang: string;
 }
 
 export const AdminUsersCards: FC<AdminUsersCardsProps> = ({
@@ -26,6 +27,7 @@ export const AdminUsersCards: FC<AdminUsersCardsProps> = ({
 	onToggleBlock,
 	currentUserId,
 	isFetching,
+	lang,
 }) => {
 	const tableDict = dict.table;
 
@@ -47,7 +49,7 @@ export const AdminUsersCards: FC<AdminUsersCardsProps> = ({
 						className="bg-surface border border-border rounded-lg p-4"
 					>
 						<div className="mb-3">
-							<UserCell user={user} dense />
+							<UserCell user={user} dense href={`/${lang}/admin/users/${user.id}`} />
 							<div className="mt-1 text-xs text-muted-foreground truncate">
 								@{user.username}
 							</div>

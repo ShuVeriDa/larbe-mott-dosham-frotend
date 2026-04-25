@@ -1,21 +1,25 @@
 "use client";
 
-import {
-	useAdminEntry,
-	useDeleteAdminEntry,
-	useUpdateAdminEntry,
-} from "@/features/admin-entries";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
+import { isApiError } from "@/shared/api";
 import {
 	AdminErrorState,
 	AdminTableSkeleton,
 	Breadcrumb,
-	PageHeader,
-	SectionCard,
 } from "@/shared/ui/admin";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import type { FC } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEntryEditor } from "../model";
+import { EntryHead } from "./entry-head";
+import { MetaSidebar } from "./meta-sidebar";
+import { SaveBar } from "./save-bar";
+import { SectionTabs } from "./section-tabs";
+import { BasicTab } from "./tabs/basic-tab";
+import { ExtraTab } from "./tabs/extra-tab";
+import { GrammarTab } from "./tabs/grammar-tab";
+import { JsonTab } from "./tabs/json-tab";
+import { MeaningsTab } from "./tabs/meanings-tab";
+import { PhraseologyTab } from "./tabs/phraseology-tab";
 
 interface AdminEntryEditPageProps {
 	id: string;
@@ -25,8 +29,6 @@ interface AdminEntryEditPageProps {
 	commonDict: Dictionary["admin"]["common"];
 }
 
-type Tab = "basic" | "meanings" | "grammar" | "phraseology" | "extra" | "json";
-
 export const AdminEntryEditPage: FC<AdminEntryEditPageProps> = ({
 	id,
 	lang,
@@ -34,234 +36,146 @@ export const AdminEntryEditPage: FC<AdminEntryEditPageProps> = ({
 	entriesDict,
 	commonDict,
 }) => {
-	const router = useRouter();
-	const entryQuery = useAdminEntry(id);
-	const updateMutation = useUpdateAdminEntry();
-	const deleteMutation = useDeleteAdminEntry();
+	const editor = useEntryEditor({ id, lang, dict });
+	const containerClass = "max-w-[1200px] mx-auto pb-24 px-4 sm:px-6 pt-6";
 
-	const [tab, setTab] = useState<Tab>("basic");
-	const [jsonDraft, setJsonDraft] = useState("");
-	const [jsonValid, setJsonValid] = useState(true);
-	const [dirty, setDirty] = useState(false);
-
-	const entry = entryQuery.data;
-
-	useEffect(() => {
-		if (entry) setJsonDraft(JSON.stringify(entry, null, 2));
-	}, [entry]);
-
-	useEffect(() => {
-		if (!dirty) return;
-		const handler = (e: BeforeUnloadEvent) => {
-			e.preventDefault();
-			e.returnValue = "";
-		};
-		window.addEventListener("beforeunload", handler);
-		return () => window.removeEventListener("beforeunload", handler);
-	}, [dirty]);
-
-	const onJsonChange = (val: string) => {
-		setJsonDraft(val);
-		setDirty(true);
-		try {
-			JSON.parse(val);
-			setJsonValid(true);
-		} catch {
-			setJsonValid(false);
-		}
-	};
-
-	const onSave = async () => {
-		if (!jsonValid) return;
-		try {
-			const payload = JSON.parse(jsonDraft);
-			await updateMutation.mutateAsync({ id, payload });
-			setDirty(false);
-		} catch {
-			// surface via mutation.isError
-		}
-	};
-
-	const onDelete = async () => {
-		if (!window.confirm(commonDict.confirm)) return;
-		await deleteMutation.mutateAsync({ id });
-		router.push(`/${lang}/admin/entries`);
-	};
-
-	const tabs: { value: Tab; label: string }[] = useMemo(
-		() => [
-			{ value: "basic", label: dict.tabs.basic },
-			{ value: "meanings", label: dict.tabs.meanings },
-			{ value: "grammar", label: dict.tabs.grammar },
-			{ value: "phraseology", label: dict.tabs.phraseology },
-			{ value: "extra", label: dict.tabs.extra },
-			{ value: "json", label: dict.tabs.json },
-		],
-		[dict],
-	);
-
-	if (entryQuery.isLoading) return <AdminTableSkeleton rows={10} />;
-	if (entryQuery.isError)
+	if (editor.isLoading) {
 		return (
-			<AdminErrorState
-				title={commonDict.error}
-				retryLabel={commonDict.retry}
-				onRetry={() => entryQuery.refetch()}
-			/>
+			<section className={containerClass}>
+				<AdminTableSkeleton rows={10} />
+			</section>
 		);
-	if (!entry) return null;
+	}
+
+	if (editor.isError) {
+		const notFound =
+			isApiError(editor.error) && editor.error.statusCode === 404;
+		return (
+			<section className={containerClass}>
+				{notFound ? (
+					<div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-10 text-center">
+						<div className="text-3xl mb-3">🔍</div>
+						<div className="text-lg font-semibold text-[var(--text)] mb-2">
+							{dict.notFound.title}
+						</div>
+						<p className="text-sm text-[var(--text-muted)] max-w-md mx-auto mb-4">
+							{dict.notFound.description}
+						</p>
+						<Link
+							href={`/${lang}/admin/entries`}
+							className="btn btn-md btn-secondary"
+						>
+							{dict.notFound.back}
+						</Link>
+					</div>
+				) : (
+					<AdminErrorState
+						title={commonDict.error}
+						retryLabel={commonDict.retry}
+						onRetry={() => editor.refetch()}
+					/>
+				)}
+			</section>
+		);
+	}
+
+	if (!editor.draft || !editor.entry) return null;
+
+	const draft = editor.draft;
+
+	const tabs = [
+		{ value: "basic" as const, label: dict.tabs.basic },
+		{
+			value: "meanings" as const,
+			label: dict.tabs.meanings,
+			dot: editor.tab === "meanings" && !editor.fullJsonValid,
+		},
+		{ value: "grammar" as const, label: dict.tabs.grammar },
+		{ value: "phraseology" as const, label: dict.tabs.phraseology },
+		{ value: "extra" as const, label: dict.tabs.extra },
+		{ value: "json" as const, label: dict.tabs.json },
+	];
 
 	return (
-		<article className="max-w-[1200px] mx-auto pb-24">
+		<article className={containerClass}>
 			<Breadcrumb
 				items={[
-					{ label: entriesDict.header.title, href: `/${lang}/admin/entries` },
-					{ label: dict.breadcrumb.edit },
+					{ label: dict.breadcrumb.dashboard, href: `/${lang}/admin` },
+					{
+						label: entriesDict.header.title,
+						href: `/${lang}/admin/entries`,
+					},
+					{ label: `${draft.word} #${draft.id}` },
 				]}
 			/>
-			<PageHeader
-				title={entry.word}
-				subtitle={`#${entry.id} · ${entry.partOfSpeech ?? ""}`}
-				actions={
-					<>
-						<a
-							href={`/${lang}/entry/${entry.id}`}
-							target="_blank"
-							rel="noreferrer"
-							className="btn btn-sm btn-secondary"
-						>
-							{dict.header.view}
-						</a>
-						<a
-							href={`/${lang}/admin/audit/entries/${entry.id}`}
-							className="btn btn-sm btn-secondary"
-						>
-							{dict.header.audit}
-						</a>
-						<button
-							type="button"
-							onClick={onDelete}
-							className="btn btn-sm btn-secondary text-[var(--danger)]"
-						>
-							{dict.header.delete}
-						</button>
-					</>
-				}
+
+			<EntryHead
+				entry={draft}
+				lang={lang}
+				dict={dict.header}
+				onDelete={editor.remove}
+				isDeleting={editor.isDeleting}
 			/>
 
-			<div className="flex gap-2 mb-6 flex-wrap border-b border-[var(--border)] pb-2">
-				{tabs.map((t) => (
-					<button
-						key={t.value}
-						type="button"
-						onClick={() => setTab(t.value)}
-						className={
-							"px-3 py-2 text-sm rounded-md transition-colors " +
-							(tab === t.value
-								? "bg-[var(--accent-dim)] text-[var(--accent)]"
-								: "text-[var(--text-muted)] hover:text-[var(--text)]")
-						}
-					>
-						{t.label}
-					</button>
-				))}
+			<SectionTabs tabs={tabs} active={editor.tab} onSelect={editor.setTab} />
+
+			<div className="grid grid-cols-1 xl:grid-cols-[1fr_280px] gap-6 items-start">
+				<div>
+					{editor.tab === "basic" ? (
+						<BasicTab draft={draft} onPatch={editor.patch} dict={dict} />
+					) : null}
+					{editor.tab === "meanings" ? (
+						<MeaningsTab
+							draft={draft}
+							onPatch={editor.patch}
+							dict={dict}
+							onJsonValidityChange={editor.setFullJsonValid}
+						/>
+					) : null}
+					{editor.tab === "grammar" ? (
+						<GrammarTab draft={draft} onPatch={editor.patch} dict={dict} />
+					) : null}
+					{editor.tab === "phraseology" ? (
+						<PhraseologyTab
+							draft={draft}
+							onPhrasesChange={(next) => editor.patch("setPhrases", next)}
+							onCitationsChange={(next) => editor.patch("citations", next)}
+							dict={dict}
+						/>
+					) : null}
+					{editor.tab === "extra" ? (
+						<ExtraTab
+							draft={draft}
+							onPatch={editor.patch}
+							dict={dict}
+							lang={lang}
+						/>
+					) : null}
+					{editor.tab === "json" ? (
+						<JsonTab
+							value={editor.fullJson}
+							onChange={editor.applyFullJson}
+							onValidityChange={editor.setFullJsonValid}
+							dict={dict}
+						/>
+					) : null}
+				</div>
+
+				<MetaSidebar
+					draft={draft}
+					entryId={id}
+					dict={dict.metaPanel}
+					lang={lang}
+				/>
 			</div>
 
-			{tab === "json" ? (
-				<SectionCard
-					title={dict.tabs.json}
-					actions={
-						<div className="flex items-center gap-2">
-							<button
-								type="button"
-								onClick={() => {
-									try {
-										setJsonDraft(
-											JSON.stringify(JSON.parse(jsonDraft), null, 2),
-										);
-									} catch {
-										// no-op
-									}
-								}}
-								className="btn btn-sm btn-secondary"
-							>
-								{dict.json.format}
-							</button>
-							<span
-								className={
-									"text-xs font-medium " +
-									(jsonValid
-										? "text-[var(--success)]"
-										: "text-[var(--danger)]")
-								}
-							>
-								{jsonValid ? dict.json.valid : dict.json.invalid}
-							</span>
-						</div>
-					}
-				>
-					<textarea
-						value={jsonDraft}
-						onChange={(e) => onJsonChange(e.target.value)}
-						className="w-full min-h-[520px] font-mono text-xs bg-[var(--code-bg)] border border-[var(--code-border)] rounded-md p-3 text-[var(--text)]"
-						spellCheck={false}
-					/>
-				</SectionCard>
-			) : (
-				<SectionCard title={dict.tabs[tab]}>
-					<div className="text-sm text-[var(--text-muted)]">
-						{/* Placeholder for structured tab editors — switch to JSON tab for raw editing. */}
-						{commonDict.loading}
-					</div>
-					<pre className="mt-4 text-xs bg-[var(--code-bg)] border border-[var(--code-border)] rounded-md p-3 overflow-auto font-mono text-[var(--text-muted)]">
-{JSON.stringify(
-	tab === "basic"
-		? {
-				word: entry.word,
-				wordAccented: entry.wordAccented,
-				partOfSpeech: entry.partOfSpeech,
-				nounClass: entry.nounClass,
-				wordLevel: entry.wordLevel,
-			}
-		: tab === "meanings"
-			? (entry.meanings ?? [])
-			: tab === "phraseology"
-				? (entry.setPhrases ?? [])
-				: entry,
-	null,
-	2,
-)}
-					</pre>
-				</SectionCard>
-			)}
-
-			{dirty ? (
-				<div className="fixed bottom-0 left-0 right-0 md:left-[260px] bg-[var(--bg-overlay)] backdrop-blur-xl border-t border-[var(--border)] px-6 py-3 flex items-center justify-between gap-3 z-40">
-					<span className="text-sm text-[var(--warning)]">
-						{dict.saveBar.unsaved}
-					</span>
-					<div className="flex items-center gap-2">
-						<button
-							type="button"
-							onClick={() => {
-								if (entry) setJsonDraft(JSON.stringify(entry, null, 2));
-								setDirty(false);
-							}}
-							className="btn btn-sm btn-secondary"
-						>
-							{dict.saveBar.cancel}
-						</button>
-						<button
-							type="button"
-							onClick={onSave}
-							disabled={!jsonValid || updateMutation.isPending}
-							className="btn btn-md btn-primary disabled:opacity-40"
-						>
-							{dict.saveBar.save}
-						</button>
-					</div>
-				</div>
-			) : null}
+			<SaveBar
+				visible={editor.isDirty}
+				isSaving={editor.isSaving}
+				onSave={editor.save}
+				onCancel={editor.discardChanges}
+				dict={dict.saveBar}
+			/>
 		</article>
 	);
 };

@@ -1,8 +1,9 @@
 import { apiClient } from "@/shared/api";
 import type {
-	AuditEntryTimelineResponse,
+	AuditEntryHistoryResponse,
+	AuditListResponse,
 	AuditQuery,
-	AuditResponse,
+	AuditRevertResponse,
 	AuditStats,
 } from "./types";
 
@@ -10,7 +11,7 @@ const buildParams = (query: AuditQuery) => {
 	const params: Record<string, string | number> = {};
 	if (query.q?.trim()) params.q = query.q.trim();
 	if (query.action) params.action = query.action;
-	if (query.author) params.author = query.author;
+	if (query.actorType) params.actorType = query.actorType;
 	if (query.period) params.period = query.period;
 	if (query.page) params.page = query.page;
 	if (query.limit) params.limit = query.limit;
@@ -18,8 +19,8 @@ const buildParams = (query: AuditQuery) => {
 };
 
 export const adminAuditApi = {
-	async getList(query: AuditQuery): Promise<AuditResponse> {
-		const { data } = await apiClient.get<AuditResponse>(
+	async getList(query: AuditQuery): Promise<AuditListResponse> {
+		const { data } = await apiClient.get<AuditListResponse>(
 			"/admin/audit/recent",
 			{ params: buildParams(query) },
 		);
@@ -31,25 +32,28 @@ export const adminAuditApi = {
 		return data;
 	},
 
-	async getForEntry(id: string | number): Promise<AuditEntryTimelineResponse> {
-		const { data } = await apiClient.get<AuditEntryTimelineResponse>(
-			`/admin/audit/entries/${id}`,
+	async getForEntry(entryId: number): Promise<AuditEntryHistoryResponse> {
+		const { data } = await apiClient.get<AuditEntryHistoryResponse>(
+			`/admin/audit/entries/${entryId}`,
 		);
 		return data;
 	},
 
-	async revert(auditId: string): Promise<{ reverted: boolean }> {
-		const { data } = await apiClient.post<{ reverted: boolean }>(
-			`/admin/audit/revert/${auditId}`,
+	async revertEntryLog(
+		entryId: number,
+		logId: string,
+	): Promise<AuditRevertResponse> {
+		const { data } = await apiClient.post<AuditRevertResponse>(
+			`/admin/audit/entries/${entryId}/revert/${logId}`,
 		);
 		return data;
 	},
 
 	async exportCsv(query: AuditQuery): Promise<Blob> {
-		const { data } = await apiClient.get<Blob>("/admin/audit/export", {
-			params: { ...buildParams(query), format: "csv" },
+		const response = await apiClient.get("/admin/audit/export", {
+			params: buildParams(query),
 			responseType: "blob",
 		});
-		return data;
+		return response.data as Blob;
 	},
 };

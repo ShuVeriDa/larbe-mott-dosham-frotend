@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { FC } from "react";
@@ -26,8 +26,8 @@ export const PipelineActionsGrid: FC<Props> = ({ dict, actions }) => (
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 			<ParseAction dict={dict} actions={actions} />
 			<UnifyAction dict={dict} actions={actions} />
-			<LoadAction dict={dict} actions={actions} />
 			<ImproveAction dict={dict} actions={actions} />
+			<LoadAction dict={dict} actions={actions} />
 			<RollbackAction dict={dict} actions={actions} />
 			<ResetAction dict={dict} actions={actions} />
 		</div>

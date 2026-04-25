@@ -1,46 +1,7 @@
 export type PipelineStage = "parse" | "unify" | "load" | "improve";
-export type PipelineStatusState = "idle" | "running" | "done" | "error";
 export type PipelineLogLevel = "info" | "ok" | "warn" | "err";
 
-export interface PipelineStatus {
-	state: PipelineStatusState;
-	action?: string;
-	detail?: string;
-	elapsedMs?: number;
-	startedAt?: string;
-	finishedAt?: string;
-}
-
-export interface PipelineStats {
-	parsedFiles: number;
-	totalFiles: number;
-	unifiedRecords: number;
-	inDb: number;
-	mergeSteps: number;
-	skipped?: number;
-}
-
-export type PipelineDictStatus =
-	| "merged"
-	| "parsed"
-	| "pending"
-	| "running"
-	| "error";
-
 export type DictionaryDirection = "nah-ru" | "ru-nah";
-
-export interface PipelineDictionary {
-	slug: string;
-	title: string;
-	direction: DictionaryDirection;
-	status: PipelineDictStatus;
-	recordCount: number;
-	fromDict?: number;
-	newWords?: number;
-	enriched?: number;
-	duplicates?: number;
-	stepNumber?: number;
-}
 
 export interface PipelineLogEntry {
 	id: string;
@@ -50,13 +11,15 @@ export interface PipelineLogEntry {
 	stage?: PipelineStage;
 }
 
-export interface PipelineSnapshot {
-	step: number;
-	label: string;
-	recordCount: number;
-	sizeBytes: number;
-	createdAt: string;
-	isCurrent: boolean;
+export type LoadSkipReason =
+	| "no word"
+	| "no meanings"
+	| "no nounClass"
+	| "duplicate";
+
+export interface LoadSkippedEntry {
+	word: string;
+	reason: LoadSkipReason | string;
 }
 
 export interface PipelineRunResult {
@@ -66,6 +29,8 @@ export interface PipelineRunResult {
 	sourceCount?: number;
 	loaded?: number;
 	skipped?: number;
+	skippedSample?: LoadSkippedEntry[];
+	totalInFile?: number;
 	elapsedMs?: number;
 	elapsedSeconds?: number;
 	slug?: string;
@@ -78,23 +43,107 @@ export interface PipelineRunResult {
 	cleaned?: number;
 	fixedExamples?: number;
 	removedEmpty?: number;
+	total?: number;
+	normalizedStyleLabels?: number;
+	removedEmptyMeanings?: number;
+	removedBrokenExamples?: number;
+	normalizedWords?: number;
+	truncatedFields?: number;
+	deduplicatedMeanings?: number;
+	cleanedPhraseology?: number;
+	cleanedCitations?: number;
+	affectedEntries?: ImproveAffectedEntry[];
+}
+
+export type ImproveActionKind =
+	| "cleaned style"
+	| "fixed example"
+	| "fixed encoding"
+	| "removed empty"
+	| "dedup meanings"
+	| "normalized word"
+	| "truncated field"
+	| string;
+
+export interface ImproveAffectedEntry {
+	word: string;
+	action: ImproveActionKind;
+	source: string;
+}
+
+export interface ImproveResult {
+	total: number;
+	removedEmptyMeanings: number;
+	removedBrokenExamples: number;
+	normalizedStyleLabels: number;
+	normalizedWords: number;
+	truncatedFields: number;
+	deduplicatedMeanings: number;
+	cleanedPhraseology: number;
+	cleanedCitations: number;
+	elapsedSeconds: number;
+	cleaned: number;
+	fixedExamples: number;
+	removedEmpty: number;
+	affectedEntries: ImproveAffectedEntry[];
+}
+
+export type ImproveHistoryStatus = "ok" | "err";
+
+export interface ImproveHistoryItem {
+	id: number;
+	createdAt: string;
+	total: number;
+	normalizedStyleLabels: number;
+	removedEmptyMeanings: number;
+	removedBrokenExamples: number;
+	normalizedWords: number;
+	truncatedFields: number;
+	deduplicatedMeanings: number;
+	cleanedPhraseology: number;
+	cleanedCitations: number;
+	elapsedSeconds: number;
+	status: ImproveHistoryStatus;
+	errorMessage: string | null;
+}
+
+export interface LoadHistoryItem {
+	id: number;
+	createdAt: string;
+	loaded: number;
+	skipped: number;
+	totalInFile: number;
+	elapsedSeconds: number;
+	status: "ok" | "error";
+	errorMessage: string | null;
+}
+
+export interface HealthCheckResult {
+	status: "ok" | "error" | "shutting_down";
+	info?: Record<string, { status: string }>;
+	error?: Record<string, { status: string; message?: string }>;
+	details?: Record<string, { status: string }>;
 }
 
 export interface PipelineParsedFile {
-	name: string;
-	path: string;
-	sizeBytes: number;
+	slug: string;
+	filename: string;
+	sizeMb: number;
 	updatedAt: string;
-	recordCount: number;
 }
 
-export interface PipelineHistoryItem {
-	date: string;
-	loaded?: number;
-	skipped?: number;
-	elapsedMs?: number;
-	status: "ok" | "err";
-	stage: PipelineStage;
+export interface PipelineParsedFilesResponse {
+	dir: string;
+	count: number;
+	files: PipelineParsedFile[];
+}
+
+export interface PipelineStatusDictionary {
+	slug: string;
+	title: string;
+	direction: DictionaryDirection;
+	count: number | null;
+	status: "pending" | "parsed" | "merged";
 }
 
 export interface MergeLogEntry {
@@ -128,6 +177,11 @@ export interface PipelineFullStatus {
 		timestamp: string;
 		durationSeconds: number;
 	} | null;
+	parsed?: {
+		files: number;
+		total: number;
+		bySlug: PipelineStatusDictionary[];
+	};
 	unified: {
 		entries: number;
 		file: string | null;

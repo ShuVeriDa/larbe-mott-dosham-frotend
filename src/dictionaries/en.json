@@ -268,6 +268,7 @@
 			"favoriteRemove": "Remove from favorites",
 			"share": "Copy link",
 			"shareSuccess": "Link copied",
+			"shareSuccessDescription": "Link to the dictionary entry",
 			"shareError": "Couldn't copy the link"
 		},
 		"shuffle": {
@@ -565,7 +566,9 @@
 				"anatomy": "Anatomy",
 				"geology": "Geology",
 				"math": "Mathematics",
-				"it": "IT / Computers"
+				"it": "IT / Computers",
+				"computer": "Computer Science",
+				"sport": "Sport"
 			}
 		},
 		"pos": {
@@ -615,6 +618,160 @@
 		"actions": {
 			"openDictionary": "Open dictionary",
 			"learnMore": "Learn more"
+		}
+	},
+	"about": {
+		"meta": {
+			"title": "About — Dosham",
+			"description": "Dosham is a unified digital Chechen dictionary: morphological analysis, declension, conjugation and an API combined from 14 sources."
+		},
+		"hero": {
+			"eyebrow": "Мотт Ларбе Дошам",
+			"titleStart": "One dictionary",
+			"titleConnector": "instead of",
+			"titleAccent": "fourteen",
+			"subtitle": "A unified digital dictionary of the Chechen language with morphological analysis, declension, conjugation and a developer API."
+		},
+		"stats": {
+			"entries": "dictionary entries",
+			"sources": "source dictionaries",
+			"grammarValue": "8 + 9",
+			"grammarLabel": "cases and tenses",
+			"fallbackEntries": "48,000+"
+		},
+		"problems": {
+			"title": "Why this matters",
+			"description": "Chechen has rich morphology — 4 noun classes, 8 cases and an ergative alignment — yet there has been no unified digital dictionary. The data is scattered across dozens of sources of different formats and coverage.",
+			"items": {
+				"noSingleDictionary": "No unified digital dictionary of Chechen",
+				"scatteredData": "Data scattered across 14 different dictionaries",
+				"noTools": "No declension or conjugation tools",
+				"noApi": "No API for developers of language apps"
+			}
+		},
+		"features": {
+			"title": "What Dosham can do",
+			"items": {
+				"bilingualSearch": {
+					"name": "Bilingual search",
+					"desc": "Chechen → Russian and Russian → Chechen with morphology-aware lemmatization."
+				},
+				"declensionConjugation": {
+					"name": "Declension and conjugation",
+					"desc": "8 cases × 2 numbers for nouns. 9 tense forms, participles and negation for verbs."
+				},
+				"phraseology": {
+					"name": "Phraseology and citations",
+					"desc": "Set expressions and literary citations from every source."
+				},
+				"cefr": {
+					"name": "CEFR levels",
+					"desc": "Every entry is tagged A1 through C2 for easier learning."
+				},
+				"favoritesHistory": {
+					"name": "Favorites and history",
+					"desc": "Save words and revisit your past queries."
+				},
+				"api": {
+					"name": "REST API",
+					"desc": "A full API with documentation for integration into third-party apps."
+				}
+			}
+		},
+		"grammar": {
+			"title": "Chechen grammar",
+			"description": "Dosham automatically detects declension type and generates full paradigms for every word.",
+			"cards": {
+				"classes": {
+					"title": "4 noun classes",
+					"segments": [
+						{ "accent": "ву" },
+						{ "text": " — masculine, " },
+						{ "accent": "йу" },
+						{ "text": " — feminine, " },
+						{ "accent": "ду" },
+						{ "text": " — inanimate, " },
+						{ "accent": "бу" },
+						{ "text": " — plural / abstract" }
+					]
+				},
+				"cases": {
+					"title": "8 cases",
+					"segments": [
+						{ "text": "Nominative, genitive, dative, ergative, instrumental, substantive, locative, comparative" }
+					]
+				},
+				"declensionTypes": {
+					"title": "4 declension types",
+					"segments": [
+						{ "text": "Detected automatically by instrumental form: " },
+						{ "accent": "-ца" },
+						{ "text": ", " },
+						{ "accent": "-нца" },
+						{ "text": ", " },
+						{ "accent": "-ица" },
+						{ "text": ", " },
+						{ "accent": "-чунца" }
+					]
+				},
+				"tenses": {
+					"title": "9 tense forms",
+					"segments": [
+						{ "text": "Present, perfective past, remote past, imperfective, future possible and factual, and more." }
+					]
+				}
+			}
+		},
+		"sources": {
+			"title": "Sources",
+			"description": "Combined data from 14 dictionaries — from general-purpose to specialized.",
+			"directions": {
+				"nah-ru": "Chechen → Russian",
+				"ru-nah": "Russian → Chechen",
+				"both": "Both directions",
+				"original": "Original"
+			},
+			"domains": {
+				"general": "general",
+				"misc": "mixed",
+				"geology": "geol.",
+				"law": "law",
+				"math": "math",
+				"anatomy": "anat.",
+				"it": "IT"
+			},
+			"items": {
+				"maciev": { "name": "Maciev" },
+				"baisultanov": { "name": "Baisultanov" },
+				"karasaev-maciev": { "name": "Karasaev-Maciev" },
+				"aslahanov": { "name": "Aslahanov" },
+				"ismailov": { "name": "Ismailov" },
+				"daukaev": { "name": "Daukaev" },
+				"abdurashidov": { "name": "Abdurashidov" },
+				"umarhadjiev": { "name": "Umarhadjiev-Akhmatukaev" },
+				"anatomy": { "name": "Anatomy dictionary" },
+				"computer": { "name": "Computer dictionary" },
+				"collected": { "name": "Hand-collected" },
+				"neologisms": { "name": "Neologisms" }
+			}
+		},
+		"roadmap": {
+			"title": "Roadmap",
+			"items": {
+				"audio": "Audio pronunciation from native speakers",
+				"dialects": "Dialect variants (lowland / highland)",
+				"flashcards": "Flashcards mode by CEFR level",
+				"export": "Data export (JSON / CSV) for researchers",
+				"synonyms": "Synonyms, antonyms and related words",
+				"i18n": "Multi-language interface"
+			}
+		},
+		"cta": {
+			"title": "Start using it",
+			"text": "Search works without registration. Sign up to save words and propose edits.",
+			"openDictionary": "Open dictionary",
+			"register": "Register",
+			"profile": "My profile"
 		}
 	},
 	"entry": {
@@ -1679,6 +1836,7 @@
 			"items": {
 				"dashboard": "Dashboard",
 				"quality": "Data quality",
+				"analytics": "Analytics",
 				"entries": "Dictionary entries",
 				"suggestions": "Suggestions",
 				"audit": "Audit log",
@@ -1733,77 +1891,548 @@
 		"dashboard": {
 			"meta": {
 				"title": "Admin — Dosham",
-				"description": "Dosham data quality overview and quick actions"
+				"description": "Navigation across Dosham admin sections"
 			},
 			"header": {
 				"title": "Dashboard",
-				"subtitle": "Data quality overview and quick actions"
+				"subtitle": "Pick an admin section"
+			},
+			"descriptions": {
+				"quality": "Data completeness metrics, problem entries and export",
+				"analytics": "Traffic, sources and user behaviour",
+				"entries": "Browse and edit dictionary entries",
+				"suggestions": "Review user-submitted edits",
+				"audit": "History of changes and actions",
+				"pipeline": "Parse, unify, load and maintain data",
+				"users": "Manage users and roles",
+				"apiKeys": "Create and revoke API keys"
+			}
+		},
+		"analytics": {
+			"meta": {
+				"title": "Web Analytics — Admin — Dosham",
+				"description": "Traffic, sources and user behaviour. Hourly aggregates, real-time visitors every 30 seconds."
+			},
+			"header": {
+				"title": "Web Analytics",
+				"subtitle": "Traffic, sources and user behaviour. Updated hourly, real-time every 30 seconds."
+			},
+			"realtime": {
+				"label": "online now",
+				"tooltip": "Unique visitors in the last 5 minutes"
+			},
+			"tabs": {
+				"overview": "Overview",
+				"timeseries": "Charts",
+				"pages": "Pages",
+				"searchQueries": "Search",
+				"referrers": "Sources",
+				"devices": "Devices",
+				"geography": "Geography",
+				"live": "Live"
+			},
+			"toolbar": {
+				"presets": {
+					"today": "Today",
+					"7d": "7 days",
+					"30d": "30 days",
+					"90d": "90 days",
+					"custom": "Custom"
+				},
+				"from": "From",
+				"to": "To",
+				"refresh": "Refresh",
+				"refreshing": "Refreshing…",
+				"export": "⇣ Export",
+				"exporting": "Exporting…",
+				"invalidRange": "Start date must be before end date"
+			},
+			"metrics": {
+				"visitors": "Visitors",
+				"sessions": "Sessions",
+				"pageviews": "Pageviews",
+				"events": "Events",
+				"avgSession": "Avg session",
+				"bounceRate": "Bounce rate",
+				"vsPrevious": "vs previous"
+			},
+			"chart": {
+				"title": "Traffic for the period",
+				"legend": {
+					"pageviews": "Pageviews",
+					"visitors": "Visitors"
+				},
+				"empty": "No data for the selected period"
+			},
+			"topPages": {
+				"title": "Top pages",
+				"viewAll": "All →",
+				"empty": "No pageviews recorded"
+			},
+			"topReferrers": {
+				"title": "Top sources",
+				"viewAll": "All →",
+				"direct": "(direct)",
+				"empty": "No referrers recorded"
+			},
+			"footer": {
+				"queueLabel": "Queue:",
+				"queuePending": "events pending",
+				"aggregatorLabel": "Aggregator:",
+				"aggregatorActive": "active",
+				"aggregatorStale": "stale",
+				"aggregatorDown": "down",
+				"lastRun": "last run",
+				"never": "never",
+				"daysWithDataLabel": "Days with data:",
+				"recompute": "🔄 Recompute aggregates"
+			},
+			"toasts": {
+				"refreshed": "Data refreshed",
+				"refreshError": "Failed to refresh",
+				"exportStarted": "Exporting CSV…",
+				"exportError": "CSV export failed",
+				"recomputeStarted": "Recomputing the last 3 days",
+				"recomputeError": "Failed to start recompute"
+			},
+			"referrers": {
+				"meta": {
+					"title": "Traffic sources — Analytics — Dosham",
+					"description": "Where visitors come from: search engines, direct visits, social networks and other sources."
+				},
+				"header": {
+					"title": "Traffic sources",
+					"subtitle": "Where users come from. Click a category to filter the list below."
+				},
+				"categories": {
+					"all": {
+						"label": "All sources",
+						"sub": "{count} unique domains"
+					},
+					"search": {
+						"label": "Search engines",
+						"emptySub": "search engines"
+					},
+					"direct": {
+						"label": "Direct",
+						"emptySub": "bookmarks, typed URLs"
+					},
+					"social": {
+						"label": "Social",
+						"emptySub": "social networks and messengers"
+					},
+					"other": {
+						"label": "Other",
+						"emptySub": "other websites"
+					}
+				},
+				"badges": {
+					"search": "search",
+					"direct": "direct",
+					"social": "social",
+					"other": "other"
+				},
+				"list": {
+					"title": "Domains",
+					"searchPlaceholder": "Filter by domain…",
+					"searchLabel": "Search by domain",
+					"directLabel": "(direct / bookmark)",
+					"loadMore": "Show more",
+					"loadingMore": "Loading…",
+					"shownInfo": "Showing {shown} of {total} domains",
+					"emptyTitle": "Nothing found",
+					"emptyDescription": "Nothing matches your filters. Try clearing the search or picking another period.",
+					"openExternal": "Open {host}"
+				},
+				"toasts": {
+					"refreshed": "Data refreshed",
+					"refreshError": "Failed to refresh"
+				},
+				"errors": {
+					"breakdownTitle": "Failed to load summary",
+					"listTitle": "Failed to load the list",
+					"retry": "Retry"
+				}
+			},
+			"geography": {
+				"meta": {
+					"title": "Geography — Analytics — Dosham",
+					"description": "Visitor map by countries and cities. Requires MaxMind GeoLite2 to be wired into the backend."
+				},
+				"header": {
+					"title": "Geography",
+					"subtitle": "Visitor map by countries and cities. The {field} field stays empty until MaxMind GeoLite2 is configured.",
+					"badgeNotConfigured": "⚡ GeoIP not configured",
+					"badgeConfigured": "✓ GeoIP active"
+				},
+				"notice": {
+					"title": "Wire up MaxMind GeoLite2 to enable geolocation",
+					"text": "The {endpoint} endpoint is ready, but the {field} field on events is still empty. Once GeoIP is configured, all new events will be enriched automatically — historical events will not be backfilled.",
+					"register": "Sign up at MaxMind ↗",
+					"setupAnchor": "Setup instructions ↓"
+				},
+				"setup": {
+					"title": "⚙️ How to wire up GeoIP",
+					"steps": {
+						"1": {
+							"title": "Sign up at MaxMind",
+							"desc": "Create a free account at {link} — no card required, takes 2 minutes."
+						},
+						"2": {
+							"title": "Download GeoLite2-Country",
+							"desc": "Account → Download Databases → GeoLite2 Country (MMDB Binary, ~6 MB). Place the file in {path}."
+						},
+						"3": {
+							"title": "Install the dependency",
+							"desc": "Add the package to the backend:"
+						},
+						"4": {
+							"title": "Add the lookup to AnalyticsService",
+							"desc": "Inside {fn} in {file}, add:"
+						},
+						"5": {
+							"title": "Done",
+							"desc": "After restarting the backend, the {field} field starts populating for new events and this page renders the map and country table."
+						}
+					}
+				},
+				"preview": {
+					"label": "📷 Preview · how the page will look once configured",
+					"overlayTitle": "No data yet",
+					"overlayText": "This is a preview of the section once GeoIP is wired up. Real numbers will appear as soon as the lookup is live."
+				},
+				"stats": {
+					"title": "Stats",
+					"totalEvents": "Total events",
+					"eventsWithCountry": "With country",
+					"eventsWithCity": "With city",
+					"uniqueCountries": "Unique countries",
+					"uniqueCities": "Unique cities",
+					"topCountry": "Top country",
+					"topCity": "Top city",
+					"coverage": "coverage"
+				},
+				"countries": {
+					"title": "Countries",
+					"empty": "No data for the selected period",
+					"shareLabel": "{percent}% of all visits",
+					"flagAlt": "Flag of {country}"
+				},
+				"cities": {
+					"title": "Cities",
+					"empty": "No data for the selected period",
+					"countryFilterLabel": "Filter by country",
+					"countryFilterAll": "All countries",
+					"clearFilter": "Clear filter"
+				},
+				"map": {
+					"title": "World map",
+					"placeholder": "The map renders here",
+					"tooltipVisits": "{count} visits"
+				},
+				"actions": {
+					"exportCountries": "⇣ Export countries CSV",
+					"exportCities": "⇣ Export cities CSV",
+					"recheck": "Re-check"
+				},
+				"errors": {
+					"statusTitle": "Failed to check GeoIP status",
+					"countriesTitle": "Failed to load top countries",
+					"citiesTitle": "Failed to load top cities",
+					"statsTitle": "Failed to load stats"
+				},
+				"toasts": {
+					"refreshed": "Data refreshed",
+					"refreshError": "Failed to refresh",
+					"exportError": "CSV export failed",
+					"recheck": "Re-checking GeoIP status…"
+				}
+			},
+			"timeseries": {
+				"meta": {
+					"title": "Web Analytics · Charts — Admin — Dosham",
+					"description": "Key metric trends over time. Day/week/month granularity, compare with the previous period."
+				},
+				"header": {
+					"title": "Charts",
+					"subtitle": "Key metric trends over time. Switch metric and granularity."
+				},
+				"metrics": {
+					"label": "Metric",
+					"pageviews": "Pageviews",
+					"uniqueVisitors": "Unique visitors",
+					"sessions": "Sessions",
+					"totalEvents": "Total events",
+					"bounceRate": "Bounce rate",
+					"avgSessionSec": "Avg session duration"
+				},
+				"granularity": {
+					"label": "Granularity",
+					"day": "Day",
+					"week": "Week",
+					"month": "Month"
+				},
+				"summary": {
+					"total": "Total for period",
+					"avg": "Avg per day",
+					"peak": "Peak day",
+					"min": "Minimum",
+					"vsPrevious": "vs previous"
+				},
+				"chart": {
+					"legendCurrent": "Current",
+					"legendPrevious": "Previous",
+					"compare": "Compare with previous",
+					"empty": "No data for the selected period",
+					"tooltipDelta": "vs prev"
+				},
+				"actions": {
+					"export": "⇣ Export CSV"
+				},
+				"toasts": {
+					"refreshed": "Data refreshed",
+					"refreshError": "Failed to refresh",
+					"exportError": "CSV export failed"
+				}
+			}
+		},
+		"analyticsSearchQueries": {
+			"meta": {
+				"title": "Search queries — Web Analytics — Admin — Dosham",
+				"description": "What users search for in the dictionary. Zero-result queries are direct candidates for new entries."
+			},
+			"header": {
+				"title": "Search queries",
+				"subtitle": "What users actually search for in the dictionary. Zero-result queries are a direct list of words to add."
+			},
+			"callout": {
+				"title": "A goldmine for the dictionary",
+				"text": "Zero-result queries (red rows) are words users searched for but did not find. Toggle the “Only zero-result” filter to see them as a backlog."
 			},
 			"stats": {
-				"totalEntries": "Total entries",
-				"sourcesCount": "Sources",
-				"noMeanings": "No meanings",
-				"noClass": "No class",
-				"noPos": "No POS",
-				"problemsCount": "With problems"
-			},
-			"quality": {
-				"title": "Data completeness",
-				"ringLabel": "Data completeness",
-				"description": "Entries without problems: {clean} of {total}",
-				"breakdownTitle": "Problem breakdown",
-				"jumpTo": "Show →",
-				"problems": {
-					"noMeanings": {
-						"name": "No meanings",
-						"description": "Missing translations"
-					},
-					"noClass": {
-						"name": "No class",
-						"description": "Grammatical class missing"
-					},
-					"noPos": {
-						"name": "No POS",
-						"description": "Part of speech missing"
-					},
-					"noExamples": {
-						"name": "No examples",
-						"description": "Usage examples missing"
-					}
+				"totalSearches": {
+					"label": "Total searches",
+					"sub": "for {days} days"
+				},
+				"uniqueQueries": {
+					"label": "Unique",
+					"sub": "distinct queries"
+				},
+				"zeroResults": {
+					"label": "⊘ Zero results",
+					"sub": "{pct}% — dictionary candidates"
+				},
+				"avgQueryLength": {
+					"label": "Avg length",
+					"sub": "characters · median {median}"
 				}
 			},
-			"quickActions": {
-				"title": "Quick actions",
-				"fix": {
-					"title": "Fix entries without meanings",
-					"description": "Jump to the problems list"
+			"toplist": {
+				"title": "Queries",
+				"searchPlaceholder": "Filter by query…",
+				"searchAriaLabel": "Search by query",
+				"onlyZeroResults": "Only zero-result",
+				"noResultsBadge": "0 results",
+				"openSearch": "Open public search",
+				"addToDictionary": "Add to dictionary",
+				"shownOf": "Showing {shown} of {total} queries",
+				"showLabel": "Show:",
+				"loadMore": "Load more",
+				"loadingMore": "Loading…",
+				"emptyTitle": "No search events for this period",
+				"emptyText": "No queries were recorded. Try a different date range.",
+				"emptyZeroTitle": "No zero-result queries",
+				"emptyZeroText": "Every query in this period found something. Great coverage!",
+				"emptyFilteredTitle": "Nothing found",
+				"emptyFilteredText": "Try a different filter."
+			}
+		},
+		"analyticsPages": {
+			"meta": {
+				"title": "Top pages — Web Analytics — Admin — Dosham",
+				"description": "Which URLs are visited most. Search the list and sort by view frequency."
+			},
+			"header": {
+				"title": "Top pages",
+				"subtitle": "Which URLs are visited most. Search the list and sort by view frequency."
+			},
+			"stats": {
+				"distinctUrls": {
+					"label": "Distinct URLs",
+					"sub": "{count} of them — top-80% traffic"
 				},
-				"improve": {
-					"title": "Run Improve",
-					"description": "Automatic data cleanup"
+				"totalPageviews": {
+					"label": "Total pageviews",
+					"sub": "for {days} days"
 				},
-				"review": {
-					"title": "Review suggestions",
-					"description": "See new suggestions from users"
+				"topPage": {
+					"label": "Top page",
+					"sub": "{count} views · {pct}"
+				},
+				"medianViewsPerUrl": {
+					"label": "Views per URL",
+					"sub": "median across pages"
 				}
 			},
-			"problems": {
-				"title": "Problem entries",
-				"filters": {
-					"all": "All",
-					"noMeanings": "No meanings",
-					"noClass": "No class",
-					"noPos": "No POS",
-					"noExamples": "No examples"
+			"toplist": {
+				"title": "Pages",
+				"searchPlaceholder": "Filter by path…",
+				"searchAriaLabel": "Search by path",
+				"openExternal": "Open in new tab",
+				"openInternal": "Open page",
+				"shownOf": "Showing {shown} of {total} URLs",
+				"showLabel": "Show:",
+				"loadMore": "Load more",
+				"loadingMore": "Loading…",
+				"emptyTitle": "No data for the selected period",
+				"emptyText": "Try a different date range",
+				"emptyFilteredTitle": "Nothing found",
+				"emptyFilteredText": "Try a different search query"
+			}
+		},
+		"analyticsLive": {
+			"meta": {
+				"title": "Live-feed — Web Analytics — Admin — Dosham",
+				"description": "Live stream of site events, refreshed every 5 seconds. Filter by event type and inspect full JSON metadata."
+			},
+			"header": {
+				"title": "Live-feed",
+				"subtitle": "Real-time events stream. Refreshes every 5 seconds. Click a row to view the full JSON payload."
+			},
+			"realtime": {
+				"live": "Live",
+				"paused": "Paused"
+			},
+			"stats": {
+				"activeVisitors": "Active (5 min)",
+				"eventsPerMinute": "Events per minute",
+				"queuePending": "Queue pending",
+				"inFeed": "In feed"
+			},
+			"filters": {
+				"allLabel": "All",
+				"types": {
+					"pageview": "pageview",
+					"search": "search",
+					"entry_view": "entry_view",
+					"favorite_add": "favorite_add",
+					"favorite_remove": "favorite_remove",
+					"random_word": "random_word",
+					"word_of_day": "word_of_day",
+					"phraseology_view": "phraseology_view",
+					"suggestion_create": "suggestion_create",
+					"declension_view": "declension_view"
+				}
+			},
+			"actions": {
+				"pause": "Pause",
+				"resume": "Resume",
+				"clear": "Clear"
+			},
+			"table": {
+				"time": "Time",
+				"event": "Event",
+				"path": "Path / query",
+				"device": "Device",
+				"country": "Country",
+				"user": "User",
+				"anonymous": "anon",
+				"countryUnknown": "unknown",
+				"searchResultsShort": "results"
+			},
+			"footer": {
+				"streamLabel": "Stream",
+				"streamActive": "active",
+				"streamPaused": "paused",
+				"lastUpdate": "last update",
+				"shownLabel": "Showing"
+			},
+			"states": {
+				"loading": "Loading events…",
+				"emptyTitle": "No events match the current filter",
+				"emptyText": "Change the filter or wait for new events",
+				"errorTitle": "Failed to load feed",
+				"errorText": "There may be a network or authentication issue. Try again.",
+				"retry": "Retry"
+			},
+			"drawer": {
+				"title": "Event details",
+				"description": "Full analytics event payload",
+				"fields": {
+					"id": "ID",
+					"time": "Time",
+					"path": "Path",
+					"referrer": "Referrer",
+					"device": "Device",
+					"country": "Country",
+					"user": "User",
+					"metadata": "Metadata"
 				},
-				"columns": {
-					"word": "Word",
-					"source": "Source",
-					"problems": "Problems",
-					"updatedAt": "Updated",
-					"actions": "Actions"
-				},
-				"edit": "Edit"
+				"values": {
+					"notPageview": "— (not a pageview)",
+					"directReferrer": "(direct)",
+					"geoUnavailable": "(unknown — GeoIP not configured)",
+					"anonymous": "anonymous"
+				}
+			}
+		},
+		"analyticsDevices": {
+			"meta": {
+				"title": "Devices, browsers, OS — Web Analytics — Admin — Dosham",
+				"description": "Visitor breakdown by device type, browser and operating system. Data is parsed from User-Agent."
+			},
+			"header": {
+				"title": "Devices, browsers, OS",
+				"subtitle": "Visitor breakdown by device type, browser and OS. Data is parsed from the User-Agent."
+			},
+			"panels": {
+				"devices": "Devices",
+				"browsers": "Browsers",
+				"os": "Operating systems"
+			},
+			"summary": {
+				"visitors": "{count} visitors",
+				"events": "{count} events"
+			},
+			"center": {
+				"emptyValue": "—",
+				"emptyLabel": "No data"
+			},
+			"states": {
+				"emptyAllTitle": "No traffic for the selected period",
+				"emptyAllDescription": "Try expanding the date range or refresh the page.",
+				"errorTitle": "Failed to load",
+				"retry": "Retry"
+			},
+			"devices": {
+				"desktop": "Desktop",
+				"mobile": "Mobile",
+				"tablet": "Tablet",
+				"bot": "Bot",
+				"other": "Other"
+			},
+			"browsers": {
+				"chrome": "Chrome",
+				"safari": "Safari",
+				"firefox": "Firefox",
+				"edge": "Edge",
+				"yandex": "Yandex",
+				"opera": "Opera",
+				"samsung": "Samsung Internet",
+				"other": "Other"
+			},
+			"os": {
+				"android": "Android",
+				"windows": "Windows",
+				"ios": "iOS",
+				"macos": "macOS",
+				"linux": "Linux",
+				"chromeos": "Chrome OS",
+				"other": "Other"
+			},
+			"toasts": {
+				"refreshed": "Data refreshed",
+				"refreshError": "Failed to refresh"
 			}
 		},
 		"quality": {
@@ -2018,20 +2647,28 @@
 				"title": "Dictionary entries — Admin — Dosham",
 				"description": "Manage dictionary entries"
 			},
+			"breadcrumb": {
+				"dashboard": "Dashboard",
+				"entries": "Dictionary entries"
+			},
 			"header": {
 				"title": "Dictionary entries",
-				"subtitle": "Search, filter and manage entries"
+				"subtitle": "All Chechen–Russian dictionary entries — search, filter and edit"
 			},
 			"stats": {
-				"total": "Total",
+				"total": "Total entries",
 				"nouns": "Nouns",
 				"verbs": "Verbs",
 				"sources": "Sources",
-				"updatedToday": "Updated today"
+				"updatedToday": "Updated today",
+				"percent": "{percent}%"
 			},
 			"actions": {
 				"bulk": "📦 Bulk update",
-				"export": "⬇ Export"
+				"export": "⬇ Export",
+				"exporting": "Exporting…",
+				"exportJson": "JSON",
+				"exportCsv": "CSV"
 			},
 			"tabs": {
 				"all": "All",
@@ -2042,33 +2679,85 @@
 				"other": "Other"
 			},
 			"toolbar": {
-				"searchPlaceholder": "Search by word, translation or ID",
+				"searchPlaceholder": "Search by word or translation…",
+				"searchClear": "Clear",
 				"allSources": "All sources",
-				"allCefr": "All levels",
-				"allClasses": "All classes",
-				"sortByRelevance": "Relevance",
-				"sortByUpdatedAt": "Newest",
-				"sortByWord": "Alphabetical"
+				"allCefr": "Level: all",
+				"allClasses": "Class: all",
+				"allTypes": "Type: all",
+				"typeStandard": "Standard",
+				"typeNeologism": "Neologism",
+				"classVu": "Vu (V)",
+				"classYu": "Yu (J)",
+				"classDu": "Du (D)",
+				"classBu": "Bu (B)",
+				"sortRelevance": "Relevance",
+				"sortWordAsc": "Word (A→Z)",
+				"sortWordDesc": "Word (Z→A)",
+				"sortUpdatedDesc": "Recently updated",
+				"sortUpdatedAsc": "Least recently updated",
+				"sortCreatedDesc": "Recently created",
+				"sortMeaningsDesc": "Most meanings"
 			},
 			"columns": {
 				"word": "Word",
 				"translation": "Translation",
-				"pos": "POS",
-				"cefr": "CEFR",
+				"pos": "POS / Class",
+				"cefr": "Level",
 				"sources": "Sources",
 				"updatedAt": "Updated",
 				"actions": "Actions"
 			},
 			"rowActions": {
 				"edit": "Edit",
-				"view": "On site",
-				"history": "History"
+				"editFull": "✏️ Edit",
+				"view": "↗ On site",
+				"history": "📝 History",
+				"expand": "Details"
 			},
-			"selectAll": "Select all",
-			"deselectAll": "Deselect",
-			"massEdit": "Edit selected",
-			"delete": "Delete",
-			"selectedCount": "Selected: {count}"
+			"rowBadges": {
+				"neologism": "neologism",
+				"standard": "standard"
+			},
+			"rowDetail": {
+				"meanings": "Meanings",
+				"grammClass": "Gramm. class",
+				"partOfSpeech": "Part of speech",
+				"sources": "Sources",
+				"domain": "Domain",
+				"phraseology": "Phraseology",
+				"type": "Type",
+				"cefr": "Level",
+				"noMeanings": "No meanings",
+				"loading": "Loading…",
+				"error": "Failed to load details"
+			},
+			"bulk": {
+				"selected": "{count} selected",
+				"selectAll": "Select all on page",
+				"deselectAll": "Deselect",
+				"massEdit": "✏️ Bulk edit",
+				"delete": "🗑 Delete",
+				"deleting": "Deleting…",
+				"confirmDelete": "Delete {count} entries? This action cannot be undone.",
+				"deletedSuccess": "Deleted entries: {count}",
+				"deletedError": "Failed to delete entries"
+			},
+			"pagination": {
+				"showing": "Showing {from}–{to} of {total} entries",
+				"rowsPerPage": "Rows:",
+				"prev": "←",
+				"next": "→"
+			},
+			"empty": {
+				"title": "Nothing found",
+				"description": "Try a different search query or reset filters",
+				"reset": "Reset filters"
+			},
+			"toast": {
+				"exportSuccess": "Export file is ready to download",
+				"exportError": "Failed to export entries"
+			}
 		},
 		"entriesBulk": {
 			"meta": {
@@ -2077,7 +2766,7 @@
 			},
 			"header": {
 				"title": "Bulk update",
-				"subtitle": "Pick entries, set operations, and preview"
+				"subtitle": "Update one or more fields across several entries at once (up to 100). All changes are logged."
 			},
 			"steps": {
 				"select": "Select entries",
@@ -2085,42 +2774,136 @@
 				"preview": "Preview",
 				"result": "Result"
 			},
+			"method": {
+				"title": "Entry selection method",
+				"subtitle": "Pick how to add entries for the bulk update",
+				"ids": {
+					"title": "By ID",
+					"description": "Enter a list of entry IDs manually or paste from clipboard"
+				},
+				"search": {
+					"title": "Search",
+					"description": "Find entries by word and pick from results"
+				},
+				"filter": {
+					"title": "By filter",
+					"description": "Select all entries by POS, class, source or level"
+				}
+			},
 			"select": {
-				"byIds": "By ID",
-				"bySearch": "Search",
-				"byFilter": "By filter",
-				"idsPlaceholder": "Paste entry IDs (one per line)",
-				"maxHint": "Maximum 100 entries",
-				"selectedCount": "{count} entries selected (max. 100)",
-				"find": "Find"
+				"ids": {
+					"title": "Enter entry IDs",
+					"description": "Enter IDs separated by comma, space, or newline",
+					"placeholder": "1, 2, 45, 198, 310, 512",
+					"foundLabel": "Found:",
+					"idUnit": "IDs",
+					"maxLabel": "Maximum:"
+				},
+				"search": {
+					"title": "Search entries",
+					"placeholder": "Search by word…",
+					"loading": "Loading…",
+					"empty": "Nothing found",
+					"errorTitle": "Search error",
+					"minChars": "Type at least 1 character"
+				},
+				"filter": {
+					"title": "Filter entries",
+					"description": "The query will pick the first 100 entries matching the filter",
+					"pos": "Part of speech",
+					"nounClass": "Noun class",
+					"source": "Source",
+					"level": "Level",
+					"problems": "Problems",
+					"all": "All",
+					"noFilter": "No filter",
+					"find": "🔍 Find",
+					"willSelect": "Will select:",
+					"entriesUnit": "entries",
+					"errorTitle": "Filter error"
+				},
+				"counter": {
+					"selected": "entries selected for update",
+					"max": "max. 100",
+					"overLimit": "Limit of 100 entries exceeded"
+				},
+				"chips": {
+					"empty": "No entries selected",
+					"removeAll": "Clear"
+				},
+				"backToList": "← Back to list",
+				"goToOperation": "Next: Configure operation →"
 			},
 			"operation": {
-				"warning": "Changes will be applied to all selected entries",
-				"title": "Field operations",
-				"addOperation": "+ Add operation",
-				"field": "Field",
-				"value": "Value",
-				"jsonHint": "JSON fields accept valid JSON array or object"
+				"alertWarning": "Bulk update will change {count} entries at once. All changes are transactional and will be logged to the audit log.",
+				"title": "Update operations",
+				"description": "Add one or more fields to update. Each field will be applied to every selected entry.",
+				"addOperation": "+ Add field",
+				"remove": "Remove",
+				"chooseField": "Choose field…",
+				"value": "New value",
+				"valuePlaceholder": "Enter value…",
+				"jsonPlaceholder": "Valid JSON…",
+				"jsonInvalid": "Invalid JSON",
+				"hint": "Will set {field} = \"{value}\" for all {count} entries",
+				"jsonAlert": "For complex fields (meanings, grammar, phraseology) use the JSON mode: paste a JSON value into the text area.",
+				"back": "← Back",
+				"next": "Next: Preview →",
+				"fields": {
+					"partOfSpeech": "partOfSpeech",
+					"partOfSpeechNah": "partOfSpeechNah",
+					"nounClass": "nounClass",
+					"nounClassPlural": "nounClassPlural",
+					"cefrLevel": "cefrLevel",
+					"wordLevel": "wordLevel",
+					"entryType": "entryType",
+					"domain": "domain",
+					"styleLabel": "styleLabel",
+					"latinName": "latinName",
+					"meanings": "meanings (JSON)",
+					"grammar": "grammar (JSON)",
+					"phraseology": "phraseology (JSON)"
+				}
 			},
 			"preview": {
-				"title": "Preview",
+				"alertWarning": "Review the changes before applying. Once confirmed, the update will run transactionally.",
+				"title": "Changes preview",
+				"summary": "{entries} entries · {fields} fields · {ops} updates",
 				"columns": {
 					"entry": "Entry",
 					"field": "Field",
 					"before": "Before",
 					"after": "After"
 				},
-				"more": "…and {count} more",
-				"apply": "⚡ Apply"
+				"more": "… and {count} more entries with similar changes",
+				"loading": "Loading current values…",
+				"errorTitle": "Failed to load current values",
+				"request": "The following request will be sent",
+				"transactional": "Transactional",
+				"back": "← Back",
+				"apply": "⚡ Apply update"
 			},
 			"result": {
-				"success": "Done",
+				"title": "Update completed",
+				"description": "All entries were updated transactionally. The changes were recorded to the audit log.",
+				"running": "Updating entries…",
+				"done": "Done!",
 				"stats": {
 					"updated": "Entries updated",
 					"fields": "Fields changed",
-					"skipped": "Skipped",
+					"failed": "Failed",
 					"elapsed": "Elapsed"
-				}
+				},
+				"errorTitle": "Update error",
+				"errorDesc": "Could not perform the bulk update. Please try again.",
+				"backToList": "← Back to entries",
+				"auditLog": "📝 Audit log",
+				"newUpdate": "📦 New update"
+			},
+			"toast": {
+				"filterFound": "Found {count} entries matching filter",
+				"updateSuccess": "Updated {updated} of {total} entries",
+				"updateError": "Error: {message}"
 			}
 		},
 		"entryEdit": {
@@ -2129,6 +2912,7 @@
 				"description": "Edit dictionary entry"
 			},
 			"breadcrumb": {
+				"dashboard": "Dashboard",
 				"entries": "Dictionary entries",
 				"edit": "Edit"
 			},
@@ -2136,7 +2920,51 @@
 				"lastUpdate": "Last update: {date}",
 				"view": "↗ On site",
 				"audit": "📝 Audit",
-				"delete": "🗑 Delete"
+				"delete": "🗑 Delete",
+				"confirmDelete": "Delete entry #{id}? This cannot be undone.",
+				"deleted": "Entry deleted",
+				"deleteError": "Failed to delete entry",
+				"subtitle": "Editing dictionary entry"
+			},
+			"cards": {
+				"basicFields": {
+					"title": "Basic fields",
+					"desc": "Word, part of speech, class and entry type"
+				},
+				"classification": {
+					"title": "Classification",
+					"desc": "Level, entry type, domain and style"
+				},
+				"variantsSources": {
+					"title": "Variants and sources"
+				},
+				"meanings": {
+					"title": "Meanings",
+					"desc": "Translations and usage examples"
+				},
+				"grammar": {
+					"title": "Grammar",
+					"desc": "Case and verb forms"
+				},
+				"phraseology": {
+					"title": "Phraseology",
+					"desc": "Set expressions for this word"
+				},
+				"citations": {
+					"title": "Citations",
+					"desc": "Literary usage examples"
+				},
+				"searchFields": {
+					"title": "Search fields",
+					"desc": "Normalized form for search (autogenerated)"
+				},
+				"timestamps": {
+					"title": "Timestamps"
+				},
+				"fullJson": {
+					"title": "Full entry JSON",
+					"desc": "Edit all fields as JSON. Invalid JSON won't save."
+				}
 			},
 			"tabs": {
 				"basic": "Basic",
@@ -2149,21 +2977,91 @@
 			"fields": {
 				"word": "Word",
 				"wordAccented": "Accented",
-				"partOfSpeech": "Part of speech",
+				"wordAccentedOptional": "(optional)",
+				"partOfSpeech": "Part of speech (Ru)",
 				"partOfSpeechNah": "Part of speech (Che)",
 				"nounClass": "Class (sing.)",
 				"nounClassPlural": "Class (plural)",
-				"cefrLevel": "CEFR level",
+				"nounClassPluralOptional": "(if different)",
+				"cefrLevel": "Frequency level",
+				"attested": "In corpus",
 				"entryType": "Entry type",
 				"domain": "Domain",
 				"styleLabel": "Style label",
 				"latinName": "Latin name",
+				"latinNameOptional": "(anatomy)",
 				"homonymIndex": "Homonym Index",
-				"variants": "Variants",
+				"variants": "Spelling variants",
+				"variantsHint": "Enter to add, × to remove",
 				"sources": "Sources",
+				"sourcesHint": "Source slug (e.g. maciev)",
 				"wordNormalized": "wordNormalized",
+				"wordNormalizedHint": "Auto-generated from the word",
 				"createdAt": "Created",
-				"updatedAt": "Updated"
+				"updatedAt": "Updated",
+				"notSelected": "— none —",
+				"notSet": "— none —",
+				"undefined": "— undefined —"
+			},
+			"placeholders": {
+				"wordAccented": "áла",
+				"latinName": "os frontale",
+				"variantAdd": "Add variant…",
+				"sourceAdd": "Add source…",
+				"chechen": "Chechen",
+				"russian": "Russian",
+				"translation": "Russian translation…",
+				"citationText": "Citation text",
+				"citationSource": "Source"
+			},
+			"posOptions": {
+				"noun": "сущ.",
+				"verb": "гл.",
+				"adjective": "прил.",
+				"adverb": "нар.",
+				"numeral": "числ.",
+				"pronoun": "мест.",
+				"postposition": "посл.",
+				"conjunction": "союз",
+				"particle": "частица",
+				"interjection": "межд."
+			},
+			"posNahOptions": {
+				"noun": "цIердош",
+				"verb": "хандош",
+				"adjective": "билгалдош",
+				"adverb": "куцдош",
+				"numeral": "терахьдош",
+				"pronoun": "цIерметдош",
+				"preposition": "дешнийхьалхе",
+				"conjunction": "хотталург",
+				"particle": "дакъа",
+				"interjection": "айдардош"
+			},
+			"levels": {
+				"A": "A — basic",
+				"B": "B — everyday",
+				"C": "C — rare"
+			},
+			"entryTypes": {
+				"standard": "standard",
+				"neologism": "neologism"
+			},
+			"domains": {
+				"anatomy": "anatomy",
+				"computer": "computer",
+				"math": "math",
+				"law": "law",
+				"geology": "geology",
+				"sport": "sport"
+			},
+			"styleLabels": {
+				"archaic": "Archaic",
+				"colloquial": "Colloquial",
+				"poetic": "Poetic",
+				"conversational": "Conversational",
+				"bookish": "Bookish",
+				"dialectal": "Dialectal"
 			},
 			"meanings": {
 				"addMeaning": "+ Add meaning",
@@ -2171,20 +3069,83 @@
 				"chechenExample": "Chechen example",
 				"russianExample": "Translation",
 				"translation": "Translation",
+				"examples": "Examples",
+				"meaningNum": "Meaning #{n}",
+				"moveUp": "Move up",
+				"moveDown": "Move down",
+				"remove": "Remove",
 				"visual": "Visual",
 				"json": "JSON"
+			},
+			"grammar": {
+				"sections": {
+					"verbBase": "Verb stems",
+					"tenses": "Tenses",
+					"imperativeNegation": "Imperative / Negation"
+				},
+				"verbPresent": "Present",
+				"verbPerfect": "Perfect",
+				"masdar": "Masdar",
+				"presentSimple": "Simple present",
+				"presentCompound": "Compound present",
+				"perfect": "Perfect past",
+				"remotePast": "Remote past",
+				"pastImperfective": "Past imperfective",
+				"futurePossible": "Future possible",
+				"futureFactual": "Future factual",
+				"imperative": "Imperative",
+				"imperativePolite": "Polite imperative",
+				"negation": "Negation",
+				"visual": "Visual",
+				"json": "JSON"
+			},
+			"phraseology": {
+				"addPhrase": "+ Add phrase",
+				"addCitation": "+ Add citation"
 			},
 			"json": {
 				"format": "Format",
 				"validate": "Validate",
-				"copy": "Copy",
+				"copy": "📋 Copy",
+				"copied": "JSON copied",
 				"valid": "Valid JSON",
-				"invalid": "JSON error"
+				"invalid": "JSON error",
+				"itemsCount": "Valid JSON · {count} items",
+				"keysCount": "Valid JSON · {count} keys",
+				"errorPrefix": "Error:"
+			},
+			"metaPanel": {
+				"title": "Metadata",
+				"id": "ID",
+				"word": "Word",
+				"pos": "POS",
+				"level": "Level",
+				"meaningsCount": "Meanings",
+				"examplesCount": "Examples",
+				"phraseologyCount": "Phrases",
+				"citationsCount": "Citations",
+				"sourcesCount": "Sources",
+				"entryType": "Type",
+				"createdAt": "Created",
+				"updatedAt": "Updated",
+				"viewOnSite": "↗ View on site",
+				"audit": "📝 Change history",
+				"prev": "← Previous entry",
+				"next": "Next entry →"
 			},
 			"saveBar": {
 				"unsaved": "Unsaved changes",
 				"save": "💾 Save",
-				"cancel": "Cancel"
+				"cancel": "Cancel",
+				"saving": "Saving…",
+				"saved": "Entry saved",
+				"saveError": "Failed to save",
+				"forbidden": "Not enough permissions"
+			},
+			"notFound": {
+				"title": "Entry not found",
+				"description": "No entry with this ID exists or it was deleted.",
+				"back": "← Back to list"
 			}
 		},
 		"audit": {
@@ -2194,24 +3155,38 @@
 			},
 			"header": {
 				"title": "Audit log",
-				"subtitle": "All changes to entries and pipeline"
+				"subtitle": "Recent changes to dictionary entries"
 			},
 			"stats": {
-				"today": "Today",
+				"today": "Changes today",
 				"week": "This week",
 				"bulk": "Bulk operations",
-				"pipeline": "Pipeline actions"
+				"pipeline": "Pipeline actions",
+				"deltaUp": "+{value}% vs yesterday",
+				"deltaDown": "{value}% vs yesterday",
+				"deltaZero": "same as yesterday",
+				"weekAuthors": "{count} authors",
+				"bulkAffected": "{count} entries affected",
+				"pipelineCommands": "commands: {commands}",
+				"pipelineEmpty": "no runs"
 			},
 			"toolbar": {
-				"searchPlaceholder": "Search by word or ID",
+				"searchPlaceholder": "Search by word or ID…",
 				"allActions": "All actions",
 				"allAuthors": "All authors",
+				"actors": {
+					"admin": "Admin",
+					"pipeline": "Pipeline (auto)",
+					"api": "API"
+				},
 				"periods": {
 					"today": "Today",
-					"week": "Week",
-					"month": "Month",
+					"week": "This week",
+					"month": "This month",
 					"all": "All time"
-				}
+				},
+				"export": "↓ Export CSV",
+				"exporting": "Exporting…"
 			},
 			"filters": {
 				"all": "All",
@@ -2222,15 +3197,47 @@
 				"pipeline": "Pipeline"
 			},
 			"actions": {
-				"CREATE": "CREATE",
-				"UPDATE": "UPDATE",
-				"DELETE": "DELETE",
-				"BULK": "BULK",
-				"PIPELINE": "PIPELINE"
+				"create": "CREATE",
+				"update": "UPDATE",
+				"delete": "DELETE",
+				"bulk": "BULK",
+				"pipeline": "PIPELINE",
+				"revert": "REVERT"
+			},
+			"item": {
+				"createEntry": "New entry created",
+				"updateFields": "Updated fields: {count}",
+				"updateField": "Updated field \"{field}\"",
+				"deleteEntry": "Entry deleted",
+				"bulkOperation": "Bulk operation",
+				"bulkAffected": "Bulk operation: {count} entries",
+				"pipelineCommand": "Pipeline: {command}",
+				"pipelineGeneric": "Pipeline action",
+				"noDescription": "No description",
+				"authors": {
+					"admin": "Admin",
+					"pipeline": "Pipeline",
+					"api": "API",
+					"unknown": "—"
+				}
+			},
+			"day": {
+				"today": "Today",
+				"yesterday": "Yesterday",
+				"countSuffix": "events"
+			},
+			"pagination": {
+				"prev": "‹",
+				"next": "›",
+				"pageLabel": "Page {page} of {total}"
 			},
 			"revert": "↺ Revert",
 			"jsonDiff": "Full JSON diff",
-			"empty": "No audit entries yet"
+			"entryHistory": "↗ History",
+			"entryHistoryAria": "Open entry change history",
+			"empty": "No audit entries yet",
+			"emptyFiltered": "No entries match current filters",
+			"errorTitle": "Failed to load audit log"
 		},
 		"auditEntry": {
 			"meta": {
@@ -2243,46 +3250,93 @@
 			},
 			"header": {
 				"title": "Change history",
+				"subtitle": "All changes to «{word}» in chronological order",
+				"subtitleNoWord": "All changes to this entry in chronological order",
 				"view": "👁 View",
 				"edit": "✏️ Edit"
 			},
 			"summary": {
 				"changesCount": "Changes",
 				"authors": "Authors",
-				"sinceCreated": "Since created"
+				"sinceCreated": "Since created",
+				"daysShort": "{count}d",
+				"daysZero": "today",
+				"unknown": "—"
+			},
+			"timeline": {
+				"revert": "↺ Revert",
+				"expandJsonDiff": "Full JSON diff",
+				"expandSnapshot": "Initial entry state",
+				"diffTableField": "Field",
+				"diffTableOld": "Before",
+				"diffTableNew": "After",
+				"diffNull": "null",
+				"descriptions": {
+					"create": "Entry created from unified.json (source: {source})",
+					"createNoSource": "Entry created",
+					"bulkField": "Bulk update ({count} entries): set {field}",
+					"bulkNoField": "Bulk update ({count} entries)",
+					"bulkGeneric": "Bulk operation",
+					"pipelineCommand": "Pipeline: {command}",
+					"pipelineGeneric": "Pipeline action",
+					"updateFields": "Updated fields: {fields}",
+					"updateField": "Updated field {field}",
+					"updateNoFields": "Entry updated",
+					"revert": "Revert of change {logId}",
+					"delete": "Entry deleted"
+				}
 			},
 			"revert": {
-				"title": "Revert change?",
-				"text": "A new audit entry will be created.",
-				"confirm": "Revert"
-			}
+				"title": "↺ Revert this change?",
+				"text": "This will return the entry to its state before this change. The revert will be recorded in the audit log as a separate action.",
+				"confirm": "Revert",
+				"cancel": "Cancel",
+				"pending": "Reverting…",
+				"successTitle": "Reverted",
+				"successBody": "Restored fields: {fields}. A new entry was added to the audit log.",
+				"errorTitle": "Revert failed",
+				"errorBody": "Please try again or reload the page."
+			},
+			"empty": "No changes recorded for this entry yet",
+			"notFoundTitle": "Entry not found",
+			"notFoundText": "Entry #{id} does not exist or was deleted."
 		},
 		"apiKeys": {
 			"meta": {
 				"title": "API keys — Admin — Dosham",
-				"description": "Manage API access keys"
+				"description": "Manage API access keys — create, edit and revoke"
 			},
 			"header": {
 				"title": "API keys",
-				"subtitle": "Manage integration keys",
+				"subtitle": "Manage API access keys — create, edit and revoke",
 				"create": "+ New key"
 			},
 			"stats": {
-				"total": "Total",
-				"active": "Active",
-				"revoked": "Revoked",
-				"expired": "Expired"
+				"total": {
+					"label": "Total keys",
+					"sub": "Created all-time"
+				},
+				"active": {
+					"label": "Active",
+					"sub": "Valid keys"
+				},
+				"revoked": {
+					"label": "Revoked",
+					"sub": "Deactivated"
+				},
+				"expired": {
+					"label": "Expired",
+					"sub": "Past expiration date"
+				}
 			},
 			"roles": {
 				"readonly": "Read Only",
 				"editor": "Editor",
-				"full": "Full Access",
 				"admin": "Admin"
 			},
 			"roleDescriptions": {
 				"readonly": "Read only",
 				"editor": "Read and write",
-				"full": "Full access",
 				"admin": "Administration"
 			},
 			"statuses": {
@@ -2290,29 +3344,101 @@
 				"revoked": "Revoked",
 				"expired": "Expired"
 			},
+			"toolbar": {
+				"searchPlaceholder": "Search by key name…",
+				"searchAriaLabel": "Search keys",
+				"roleLabel": "Filter by role",
+				"roleAll": "All roles",
+				"statusLabel": "Filter by status",
+				"statusAll": "All statuses"
+			},
 			"columns": {
 				"name": "Key name",
 				"prefix": "Prefix",
 				"role": "Role",
 				"status": "Status",
 				"createdAt": "Created",
-				"lastUsed": "Last used"
+				"lastUsed": "Last used",
+				"actions": "Actions"
+			},
+			"sort": {
+				"asc": "ascending",
+				"desc": "descending"
+			},
+			"empty": {
+				"title": "No keys yet",
+				"text": "Create your first API key to integrate external services."
+			},
+			"noResults": {
+				"title": "Nothing found",
+				"text": "Try adjusting the filters or search query.",
+				"reset": "Reset filters"
+			},
+			"error": {
+				"title": "Failed to load keys",
+				"text": "Try reloading the page or retrying the request.",
+				"retry": "Retry"
+			},
+			"pagination": {
+				"showing": "Showing {from}–{to} of {total}",
+				"prev": "Previous page",
+				"next": "Next page",
+				"page": "Page {page}"
+			},
+			"actions": {
+				"edit": "Edit",
+				"revoke": "Revoke",
+				"copy": "Copy"
 			},
 			"create": {
-				"title": "Create API key",
+				"title": "New API key",
+				"subtitle": "Fill in the details to create a new key",
 				"name": "Key name",
-				"namePlaceholder": "e.g. Production bot",
-				"role": "Role",
+				"namePlaceholder": "e.g. Mobile App Production",
+				"nameHint": "A readable name to identify the key",
+				"role": "Access role",
+				"expiresAt": "Expiration (optional)",
+				"expiresAtHint": "Leave empty for a key without expiration",
 				"submit": "Create",
+				"submitting": "Creating…",
+				"cancel": "Cancel",
+				"secretTitle": "Key created",
+				"secretSubtitle": "Copy the key and save it — it cannot be retrieved later",
 				"secretWarning": "⚠️ Save the key now — it won't be shown again",
 				"copy": "Copy",
-				"copied": "Copied!"
+				"copied": "Copied!",
+				"close": "Close"
 			},
-			"revoke": {
-				"title": "Revoke key?",
-				"text": "Key «{name}» ({prefix}) will stop working.",
-				"confirm": "Revoke",
+			"edit": {
+				"title": "Edit key",
+				"titleWithName": "Edit: {name}",
+				"subtitle": "Update parameters of key {prefix}",
+				"name": "Key name",
+				"role": "Access role",
+				"expiresAt": "Expiration",
+				"expiresAtHint": "Leave empty for a key without expiration",
+				"save": "Save",
+				"saving": "Saving…",
 				"cancel": "Cancel"
+			},
+			"revokeDialog": {
+				"title": "Revoke key?",
+				"text": "Key «{name}» ({prefix}) will be revoked. All applications using it will lose access.",
+				"confirm": "Revoke",
+				"confirming": "Revoking…",
+				"cancel": "Cancel"
+			},
+			"toasts": {
+				"created": "API key created",
+				"updated": "Key updated",
+				"revoked": "Key revoked",
+				"nameRequired": "Enter a key name",
+				"loadError": "Failed to load keys",
+				"createError": "Failed to create key",
+				"updateError": "Failed to update key",
+				"revokeError": "Failed to revoke key",
+				"copied": "Key copied",
+				"copyError": "Failed to copy"
 			}
 		},
 		"pipeline": {
@@ -2483,21 +3609,126 @@
 					"warn": "WARN",
 					"err": "ERR"
 				}
+			},
+			"guide": {
+				"title": "Pipeline order",
+				"mainLabel": "Main pipeline",
+				"phraseologyLabel": "Phraseology branch",
+				"maintenanceLabel": "Maintenance",
+				"checkAfter": "Verify",
+				"cli": "CLI",
+				"parallel": "parallel to main",
+				"parsePhraseology": {
+					"title": "Parse Phraseology",
+					"desc": "Parse phraseology sources into standard JSON"
+				},
+				"loadPhraseology": {
+					"title": "Load Phraseology",
+					"desc": "Load phraseology into PhraseologyEntry table"
+				}
 			}
 		},
 		"pipelineParse": {
 			"meta": {
-				"title": "Parse — Pipeline — Admin — Dosham",
-				"description": "Parse source dictionaries to JSON"
+				"title": "Dictionary parsing — Pipeline — Admin — Dosham",
+				"description": "Parse source dictionary files into JSON: run a single dictionary or all at once, track status, progress, output files, and operation log."
 			},
 			"header": {
-				"title": "Parse",
-				"subtitle": "Convert source files into structured JSON"
+				"title": "Dictionary parsing",
+				"subtitle": "Parse source dictionary files into JSON. Run a single dictionary or all of them at once.",
+				"breadcrumb": {
+					"pipeline": "Pipeline",
+					"current": "Parse"
+				}
 			},
-			"run": "▶ Run",
-			"selectAll": "All dictionaries",
-			"confirmTitle": "Run parse?",
-			"confirmText": "Parsing {slug} will overwrite the previous result."
+			"stats": {
+				"total": {
+					"label": "Total dictionaries",
+					"sub": "sources connected"
+				},
+				"parsed": {
+					"label": "Parsed",
+					"sub": "of {total} · {percent}%"
+				},
+				"pending": {
+					"label": "Awaiting parse",
+					"sub": "{slugs}",
+					"empty": "all done"
+				}
+			},
+			"actionBar": {
+				"label": "Run parse",
+				"desc": "POST /api/admin/pipeline/parse/:slug",
+				"selectAll": "All dictionaries (all)",
+				"run": "▶ Run"
+			},
+			"progress": {
+				"label": "Parsing: {slug}…",
+				"labelAll": "Parsing: all dictionaries…"
+			},
+			"result": {
+				"okAll": "✓ parsed: {count} dictionaries · totalEntries: {total}",
+				"okOne": "✓ slug: {slug} · sourceCount: {source} · parsedCount: {parsed} · outputFile: {file}",
+				"err": "✗ {message}"
+			},
+			"dictionaries": {
+				"title": "Source dictionaries",
+				"refresh": "⟳ Refresh",
+				"empty": "No dictionaries loaded yet",
+				"columns": {
+					"number": "#",
+					"name": "Dictionary",
+					"direction": "Dir.",
+					"records": "Records",
+					"status": "Status",
+					"actions": "Action"
+				},
+				"directions": {
+					"nah-ru": "nah→ru",
+					"ru-nah": "ru→nah"
+				},
+				"statuses": {
+					"parsed": "Parsed",
+					"pending": "Pending",
+					"running": "Running…",
+					"error": "Error",
+					"merged": "Merged"
+				},
+				"action": "▶ Parse"
+			},
+			"output": {
+				"title": "Parse output files",
+				"dir": "{dir}",
+				"count": "{count} files",
+				"empty": "No parsed files yet — run parse first"
+			},
+			"log": {
+				"title": "Parse log",
+				"subtitle": "Recent operations",
+				"count": "{count} entries",
+				"clear": "Clear",
+				"empty": "Log is empty — run parse",
+				"levels": {
+					"info": "INFO",
+					"ok": "OK",
+					"warn": "WARN",
+					"err": "ERR"
+				}
+			},
+			"confirm": {
+				"title": "Run parse?",
+				"textAll": "Parse all dictionaries will run. Existing parsed files will be overwritten.",
+				"textOne": "Parse of {slug} will run. The existing parsed file will be overwritten.",
+				"confirm": "Run",
+				"cancel": "Cancel"
+			},
+			"toasts": {
+				"parseOk": "✓ Parse finished: {slug}",
+				"parseAllOk": "✓ Parse finished: all dictionaries",
+				"parseErr": "Parse failed: {slug}",
+				"logCleared": "Log cleared",
+				"listRefreshed": "List refreshed"
+			}
 		},
 		"pipelineUnify": {
 			"meta": {
@@ -2652,44 +3883,299 @@
 		},
 		"pipelineLoad": {
 			"meta": {
-				"title": "Load — Pipeline — Admin — Dosham",
-				"description": "Load unified.json into PostgreSQL"
+				"title": "Load into DB — Pipeline — Admin — Dosham",
+				"description": "Load unified.json into PostgreSQL, rebuild GIN index and estimate CEFR levels"
+			},
+			"breadcrumb": {
+				"pipeline": "Pipeline",
+				"current": "Load"
 			},
 			"header": {
-				"title": "Load",
-				"subtitle": "Upload unified.json into PostgreSQL"
+				"title": "Load into database",
+				"subtitle": "Load unified.json into PostgreSQL, rebuild the GIN index and run a heuristic CEFR-level estimation."
 			},
-			"run": "🗄 Load to database",
+			"status": {
+				"idle": "Pipeline is idle",
+				"running": "Running: loading into PostgreSQL",
+				"done": "Load completed",
+				"error": "Load failed",
+				"lastRun": "Last load: {time} · {duration} · loaded: {loaded}",
+				"detailNever": "No loads yet",
+				"detailRunning": "Please wait…",
+				"detailJustNow": "Just now · loaded: {loaded} · {duration}",
+				"detailError": "{message}",
+				"refresh": "⟳ Refresh",
+				"refreshed": "Status refreshed",
+				"time": {
+					"justNow": "just now",
+					"secondsAgo": "{count} s ago",
+					"minutesAgo": "{count} min ago",
+					"hoursAgo": "{count} h ago",
+					"daysAgo": "{count} d ago"
+				}
+			},
+			"stats": {
+				"unifiedTitle": "In unified.json",
+				"unifiedSub": "{size} MB · {steps} merge steps",
+				"unifiedSubEmpty": "unified.json not created yet",
+				"loadedTitle": "Loaded in DB",
+				"loadedSub": "PostgreSQL · GIN index",
+				"skippedTitle": "Skipped",
+				"skippedSub": "invalid entries",
+				"skippedSubEmpty": "no data",
+				"elapsedTitle": "Load time",
+				"elapsedUnit": "s",
+				"elapsedSub": "last run",
+				"elapsedSubEmpty": "no loads yet"
+			},
+			"action": {
+				"title": "Load unified.json → PostgreSQL",
+				"desc": "All records from unified.json will be loaded into the entries table. Existing records will be updated (upsert). The GIN index will be rebuilt automatically.",
+				"fromLabel": "in unified.json",
+				"toValue": "PostgreSQL",
+				"toLabel": "entries table",
+				"run": "🗄 Load into database",
+				"endpoint": "POST /api/admin/pipeline/load",
+				"disabledNoUnified": "unified.json is not created yet"
+			},
+			"progress": {
+				"label": "Loading records into PostgreSQL…",
+				"steps": [
+					"Reading unified.json…",
+					"Validating entries…",
+					"Loading entries (upsert)…",
+					"Rebuilding GIN index…",
+					"Estimating CEFR levels…"
+				],
+				"done": "Done"
+			},
+			"result": {
+				"titleOk": "✓ Load completed successfully",
+				"titleErr": "✕ Load failed",
+				"loaded": "loaded",
+				"skipped": "skipped",
+				"totalInFile": "totalInFile",
+				"elapsed": "elapsed"
+			},
 			"db": {
-				"title": "Database info",
+				"title": "Database",
+				"serverName": "PostgreSQL",
+				"online": "Online",
+				"offline": "Offline",
+				"unknown": "—",
 				"table": "Table",
+				"tableValue": "entries",
 				"records": "Records",
 				"index": "Index",
+				"indexValue": "GIN (pg_trgm)",
 				"search": "Search",
-				"cache": "Redis cache",
+				"searchValue": "trigram similarity",
+				"cache": "Cache",
+				"cacheValue": "Redis · TTL 5 min",
 				"orm": "ORM",
-				"online": "Online"
+				"ormValue": "Prisma"
+			},
+			"skipped": {
+				"title": "Skipped entries",
+				"cardTitle": "skippedSample (last run)",
+				"countSuffix": "skipped",
+				"emptyTitle": "Run a load to see skipped entries",
+				"reasons": {
+					"no word": "no word",
+					"no meanings": "no meanings",
+					"no nounClass": "no nounClass",
+					"duplicate": "duplicate"
+				}
+			},
+			"history": {
+				"title": "Load history",
+				"empty": "History is empty — no loads yet",
+				"cols": {
+					"date": "Date",
+					"loaded": "Loaded",
+					"skipped": "Skipped",
+					"elapsed": "Time",
+					"status": "Status"
+				},
+				"statusOk": "Success",
+				"statusErr": "Error",
+				"errorPrefix": "Error: {message}"
+			},
+			"log": {
+				"title": "Load log",
+				"subtitle": "Recent operations",
+				"empty": "Log is empty",
+				"clear": "Clear",
+				"cleared": "Log cleared"
+			},
+			"confirm": {
+				"title": "Load into database?",
+				"body": "{count} records from unified.json will be loaded into PostgreSQL. Existing records will be upserted, the GIN index will be rebuilt. This may take 10–15 seconds.",
+				"bodyNoCount": "Records from unified.json will be loaded into PostgreSQL. Existing records will be upserted, the GIN index will be rebuilt.",
+				"confirm": "🗄 Load",
+				"cancel": "Cancel"
+			},
+			"toast": {
+				"started": "Load into PostgreSQL started",
+				"success": "✓ Load completed: {loaded} records",
+				"error": "Load failed: {message}"
+			},
+			"units": {
+				"sec": "s",
+				"records": "records"
 			}
 		},
 		"pipelineImprove": {
 			"meta": {
-				"title": "Improve — Pipeline — Admin — Dosham",
-				"description": "Automatic data normalization and cleanup"
+				"title": "Data cleanup — Pipeline — Admin — Dosham",
+				"description": "Automatic entry cleanup: removing empty values, fixing broken examples, style normalization and deduplication"
 			},
 			"header": {
-				"title": "Improve",
-				"subtitle": "Automatic fix and normalization"
+				"title": "Data cleanup",
+				"subtitle": "Automatic entry cleanup: removing empty values, fixing broken examples, normalizing style labels and removing duplicates inside entries."
 			},
-			"run": "🧹 Run",
+			"breadcrumb": {
+				"pipeline": "Pipeline",
+				"current": "Improve"
+			},
+			"stats": {
+				"cleaned": {
+					"label": "Entries cleaned",
+					"sub": "style normalization"
+				},
+				"fixedExamples": {
+					"label": "Examples fixed",
+					"sub": "broken links and encoding"
+				},
+				"removedEmpty": {
+					"label": "Empty removed",
+					"sub": "meanings without text"
+				},
+				"total": {
+					"label": "Total in DB",
+					"sub": "entries after cleanup"
+				}
+			},
+			"quality": {
+				"title": "Data quality",
+				"details": "Details →",
+				"noMeanings": "No meanings",
+				"nounsWithoutClass": "No nounClass",
+				"noPartOfSpeech": "No POS (partOfSpeech)",
+				"noExamples": "No examples",
+				"empty": "No data"
+			},
+			"action": {
+				"title": "Run data cleanup",
+				"description": "Will automatically clean empty values, fix broken examples, normalize style labels and remove duplicate meanings inside entries.",
+				"run": "🧹 Run Improve",
+				"endpoint": "POST /api/admin/pipeline/improve"
+			},
+			"progress": {
+				"running": "Data cleanup…",
+				"done": "Done!",
+				"steps": {
+					"normalizeStyles": "Normalizing styles…",
+					"fixExamples": "Fixing examples…",
+					"removeEmpty": "Removing empty meanings…",
+					"normalizeWords": "Unicode normalization…",
+					"dedupMeanings": "Deduplicating meanings…",
+					"trimLong": "Trimming long fields…"
+				}
+			},
+			"result": {
+				"title": "✓ Cleanup finished",
+				"cleaned": "cleaned",
+				"fixedExamples": "fixedExamples",
+				"removedEmpty": "removedEmpty",
+				"elapsed": "elapsed"
+			},
 			"operations": {
-				"title": "Operations",
-				"normalizeStyles": "Normalize styles",
-				"fixExamples": "Fix examples",
-				"removeEmpty": "Remove empty meanings",
-				"normalizeWords": "Unicode normalization",
-				"trimLong": "Trim long fields",
-				"dedupMeanings": "Dedup meanings",
-				"lastRun": "Last run: {count}"
+				"title": "Cleanup operations",
+				"lastRun": "Last run: {count} {unit}",
+				"units": {
+					"entries": "entries",
+					"examples": "examples",
+					"removed": "removed",
+					"duplicates": "duplicates"
+				},
+				"normalizeStyles": {
+					"title": "Normalize styles",
+					"description": "Unify style labels to a single format: colloq., obsolete, bookish, special, etc."
+				},
+				"fixExamples": {
+					"title": "Fix examples",
+					"description": "Repair broken encoding, remove OCR artifacts, normalize punctuation."
+				},
+				"removeEmpty": {
+					"title": "Remove empty",
+					"description": "Remove meanings without text, empty strings in examples and phraseology arrays."
+				},
+				"normalizeWords": {
+					"title": "Normalize words",
+					"description": "Trim whitespace, Unicode (NFC) normalization, remove invisible characters from word."
+				},
+				"trimLong": {
+					"title": "Trim long fields",
+					"description": "Truncate excessively long values (> 2000 chars) and citations (> 500 chars)."
+				},
+				"dedupMeanings": {
+					"title": "Dedup meanings",
+					"description": "Remove duplicate meanings inside one entry (exact text match)."
+				}
+			},
+			"affected": {
+				"title": "Affected entries (last run)",
+				"cardTitle": "Examples of changes",
+				"count": "{count} entries",
+				"empty": "No affected entries — run cleanup.",
+				"cols": {
+					"word": "Word",
+					"action": "Action",
+					"source": "Source"
+				},
+				"actions": {
+					"cleanedStyle": "cleaned style",
+					"fixedExample": "fixed example",
+					"fixedEncoding": "fixed encoding",
+					"removedEmpty": "removed empty",
+					"dedupMeanings": "dedup meanings",
+					"normalizedWord": "normalized word",
+					"truncatedField": "truncated field"
+				}
+			},
+			"history": {
+				"title": "Cleanup history",
+				"empty": "History is empty — no runs yet.",
+				"cols": {
+					"date": "Date",
+					"cleaned": "Cleaned",
+					"fixed": "Fixed",
+					"removed": "Removed",
+					"status": "Status"
+				},
+				"status": {
+					"ok": "Success",
+					"err": "Error"
+				}
+			},
+			"log": {
+				"title": "Cleanup log",
+				"subtitle": "Recent operations",
+				"empty": "Log is empty.",
+				"clear": "Clear"
+			},
+			"confirm": {
+				"title": "Run data cleanup?",
+				"text": "Automatic cleanup will run across all {count} entries: style normalization, fixing broken examples, removing empty values and deduplication of meanings.",
+				"confirm": "🧹 Clean",
+				"cancel": "Cancel"
+			},
+			"toasts": {
+				"success": "✓ Cleanup finished: {cleaned} entries",
+				"error": "Cleanup error: {message}",
+				"logCleared": "Log cleared",
+				"statusRefreshed": "Status refreshed"
 			}
 		},
 		"pipelineRollback": {

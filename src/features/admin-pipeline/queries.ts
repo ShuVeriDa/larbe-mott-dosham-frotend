@@ -8,57 +8,22 @@ import type { PipelineStage } from "./types";
 
 export const adminPipelineKeys = {
 	all: ["admin", "pipeline"] as const,
-	status: () => [...adminPipelineKeys.all, "status"] as const,
 	fullStatus: () => [...adminPipelineKeys.all, "full-status"] as const,
-	stats: () => [...adminPipelineKeys.all, "stats"] as const,
-	dictionaries: () => [...adminPipelineKeys.all, "dictionaries"] as const,
-	snapshots: () => [...adminPipelineKeys.all, "snapshots"] as const,
 	unifiedLog: () => [...adminPipelineKeys.all, "unified-log"] as const,
 	operationLog: () => [...adminPipelineKeys.all, "operation-log"] as const,
 	log: (stage?: PipelineStage) =>
 		[...adminPipelineKeys.all, "log", stage ?? "all"] as const,
 	parsedFiles: () => [...adminPipelineKeys.all, "parsed-files"] as const,
-	history: (stage: PipelineStage) =>
-		[...adminPipelineKeys.all, "history", stage] as const,
+	loadHistory: (limit: number) =>
+		[...adminPipelineKeys.all, "load-history", limit] as const,
+	improveHistory: (limit: number) =>
+		[...adminPipelineKeys.all, "improve-history", limit] as const,
+	health: () => [...adminPipelineKeys.all, "health"] as const,
 };
 
 interface Options {
 	enabled?: boolean;
 }
-
-export const usePipelineStatus = (options: Options = {}) =>
-	useQuery({
-		queryKey: adminPipelineKeys.status(),
-		queryFn: adminPipelineApi.getStatus,
-		enabled: options.enabled ?? true,
-		refetchInterval: (query) =>
-			query.state.data?.state === "running" ? 2000 : false,
-		staleTime: 5 * 1000,
-	});
-
-export const usePipelineStats = (options: Options = {}) =>
-	useQuery({
-		queryKey: adminPipelineKeys.stats(),
-		queryFn: adminPipelineApi.getStats,
-		enabled: options.enabled ?? true,
-		staleTime: 30 * 1000,
-	});
-
-export const usePipelineDictionaries = (options: Options = {}) =>
-	useQuery({
-		queryKey: adminPipelineKeys.dictionaries(),
-		queryFn: adminPipelineApi.getDictionaries,
-		enabled: options.enabled ?? true,
-		staleTime: 30 * 1000,
-	});
-
-export const usePipelineSnapshots = (options: Options = {}) =>
-	useQuery({
-		queryKey: adminPipelineKeys.snapshots(),
-		queryFn: adminPipelineApi.getSnapshots,
-		enabled: options.enabled ?? true,
-		staleTime: 15 * 1000,
-	});
 
 export const usePipelineLog = (
 	stage?: PipelineStage,
@@ -76,17 +41,6 @@ export const usePipelineParsedFiles = (options: Options = {}) =>
 	useQuery({
 		queryKey: adminPipelineKeys.parsedFiles(),
 		queryFn: adminPipelineApi.getParsedFiles,
-		enabled: options.enabled ?? true,
-		staleTime: 30 * 1000,
-	});
-
-export const usePipelineHistory = (
-	stage: PipelineStage,
-	options: Options = {},
-) =>
-	useQuery({
-		queryKey: adminPipelineKeys.history(stage),
-		queryFn: () => adminPipelineApi.getHistory(stage),
 		enabled: options.enabled ?? true,
 		staleTime: 30 * 1000,
 	});
@@ -191,3 +145,28 @@ export const useClearPipelineOperationLog = () => {
 		},
 	});
 };
+
+export const useLoadHistory = (limit = 20, options: Options = {}) =>
+	useQuery({
+		queryKey: adminPipelineKeys.loadHistory(limit),
+		queryFn: () => adminPipelineApi.getLoadHistory(limit),
+		enabled: options.enabled ?? true,
+		staleTime: 15 * 1000,
+	});
+
+export const useImproveHistory = (limit = 20, options: Options = {}) =>
+	useQuery({
+		queryKey: adminPipelineKeys.improveHistory(limit),
+		queryFn: () => adminPipelineApi.getImproveHistory(limit),
+		enabled: options.enabled ?? true,
+		staleTime: 15 * 1000,
+	});
+
+export const useHealthCheck = (options: Options = {}) =>
+	useQuery({
+		queryKey: adminPipelineKeys.health(),
+		queryFn: adminPipelineApi.getHealth,
+		enabled: options.enabled ?? true,
+		refetchInterval: 30 * 1000,
+		staleTime: 10 * 1000,
+	});

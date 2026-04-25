@@ -1,8 +1,9 @@
-import type { Dictionary } from "@/i18n/dictionaries";
+﻿import type { Dictionary } from "@/i18n/dictionaries";
 
 export type AdminNavKey =
 	| "dashboard"
 	| "quality"
+	| "analytics"
 	| "entries"
 	| "suggestions"
 	| "audit"
@@ -48,6 +49,12 @@ export const buildAdminNavGroups = (lang: string): AdminNavGroup[] => {
 					href: path("/quality"),
 					icon: "✅",
 					labelKey: "quality",
+				},
+				{
+					key: "analytics",
+					href: path("/analytics"),
+					icon: "📈",
+					labelKey: "analytics",
 				},
 			],
 		},
@@ -102,18 +109,18 @@ export const buildAdminNavGroups = (lang: string): AdminNavGroup[] => {
 					parents: [path("/pipeline")],
 				},
 				{
-					key: "pipelineLoad",
-					href: path("/pipeline/load"),
-					icon: "🗄",
-					labelKey: "pipelineLoad",
-					isSub: true,
-					parents: [path("/pipeline")],
-				},
-				{
 					key: "pipelineImprove",
 					href: path("/pipeline/improve"),
 					icon: "🧹",
 					labelKey: "pipelineImprove",
+					isSub: true,
+					parents: [path("/pipeline")],
+				},
+				{
+					key: "pipelineLoad",
+					href: path("/pipeline/load"),
+					icon: "🗄",
+					labelKey: "pipelineLoad",
 					isSub: true,
 					parents: [path("/pipeline")],
 				},

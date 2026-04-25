@@ -1,19 +1,21 @@
 "use client";
 
-import { useRunLoad, usePipelineStats } from "@/features/admin-pipeline";
+import { usePipelineFullStatus } from "@/features/admin-pipeline";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
-import {
-	Breadcrumb,
-	PageHeader,
-	SectionCard,
-	StatCard,
-	formatStatValue,
-} from "@/shared/ui/admin";
-import {
-	PipelineLogPanel,
-	PipelineStatusBanner,
-} from "@/widgets/admin-pipeline-page";
+import { Breadcrumb, PageHeader } from "@/shared/ui/admin";
 import type { FC } from "react";
+import { useLoadActions } from "../model";
+import { LoadActionCard } from "./load-action-card";
+import { LoadConfirmModal } from "./load-confirm-modal";
+import { LoadDbInfo } from "./load-db-info";
+import { LoadHistoryTable } from "./load-history-table";
+import { LoadJsonLd } from "./load-json-ld";
+import { LoadLogPanel } from "./load-log-panel";
+import { LoadProgress } from "./load-progress";
+import { LoadResultInline } from "./load-result-inline";
+import { LoadSkippedSample } from "./load-skipped-sample";
+import { LoadStatCards } from "./load-stat-cards";
+import { LoadStatusBanner } from "./load-status-banner";
 
 interface Props {
 	lang: Locale;
@@ -22,108 +24,76 @@ interface Props {
 	commonDict: Dictionary["admin"]["common"];
 }
 
-export const AdminPipelineLoadPage: FC<Props> = ({
-	lang,
-	dict,
-	pipelineDict,
-	commonDict,
-}) => {
-	const statsQuery = usePipelineStats();
-	const runLoad = useRunLoad();
+export const AdminPipelineLoadPage: FC<Props> = ({ lang, dict, pipelineDict }) => {
+	const statusQuery = usePipelineFullStatus();
+	const totalInUnified = statusQuery.data?.unified.entries ?? null;
+
+	const actions = useLoadActions({ dict, totalInUnified });
 
 	return (
-		<article className="max-w-[1100px] mx-auto">
+		<main className="max-w-[1100px] mx-auto">
+			<LoadJsonLd lang={lang} dict={dict} />
+
 			<Breadcrumb
 				items={[
-					{ label: pipelineDict.header.title, href: `/${lang}/admin/pipeline` },
-					{ label: dict.header.title },
+					{
+						label: pipelineDict.header.title,
+						href: `/${lang}/admin/pipeline`,
+					},
+					{ label: dict.breadcrumb.current },
 				]}
 			/>
+
 			<PageHeader title={dict.header.title} subtitle={dict.header.subtitle} />
 
-			<PipelineStatusBanner dict={pipelineDict} commonDict={commonDict} />
+			<LoadStatusBanner
+				dict={dict.status}
+				isLoadRunning={actions.isRunning}
+				lastError={actions.lastError}
+			/>
 
-			<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-				<StatCard
-					tone="info"
-					label={pipelineDict.stats.unifiedRecords}
-					value={formatStatValue(statsQuery.data?.unifiedRecords)}
-					loading={statsQuery.isLoading}
-				/>
-				<StatCard
-					tone="success"
-					label={pipelineDict.stats.inDb}
-					value={formatStatValue(statsQuery.data?.inDb)}
-					loading={statsQuery.isLoading}
-				/>
-				<StatCard
-					tone="warning"
-					label={commonDict.empty}
-					value={formatStatValue(statsQuery.data?.skipped)}
-					loading={statsQuery.isLoading}
-				/>
-				<StatCard
-					tone="total"
-					label="—"
-					value={formatStatValue(statsQuery.data?.mergeSteps)}
-					loading={statsQuery.isLoading}
-				/>
-			</div>
+			<LoadStatCards dict={dict} lang={lang} lastResult={actions.lastResult} />
 
-			<SectionCard>
-				<div className="flex items-center justify-between gap-4 flex-wrap">
-					<div className="text-sm text-[var(--text-secondary)]">
-						unified.json → PostgreSQL
-					</div>
-					<button
-						type="button"
-						onClick={() => runLoad.mutate()}
-						disabled={runLoad.isPending}
-						className="btn btn-md btn-primary disabled:opacity-40"
-					>
-						{dict.run}
-					</button>
-				</div>
-				{runLoad.data ? (
-					<div className="text-xs text-[var(--success)] mt-3">
-						✓ loaded={runLoad.data.loaded ?? 0} · skipped=
-						{runLoad.data.skipped ?? 0}
-					</div>
-				) : null}
-			</SectionCard>
+			<LoadActionCard
+				dict={dict}
+				lang={lang}
+				disabled={actions.isRunning}
+				onRun={actions.askLoad}
+			/>
 
-			<SectionCard title={dict.db.title}>
-				<div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs font-mono">
-					<div>
-						<span className="text-[var(--text-muted)]">{dict.db.table}:</span>{" "}
-						<span className="text-[var(--text)]">dictionary_entries</span>
-					</div>
-					<div>
-						<span className="text-[var(--text-muted)]">{dict.db.records}:</span>{" "}
-						<span className="text-[var(--text)]">
-							{statsQuery.data?.inDb ?? "—"}
-						</span>
-					</div>
-					<div>
-						<span className="text-[var(--text-muted)]">{dict.db.index}:</span>{" "}
-						<span className="text-[var(--text)]">GIN(pg_trgm)</span>
-					</div>
-					<div>
-						<span className="text-[var(--text-muted)]">{dict.db.search}:</span>{" "}
-						<span className="text-[var(--text)]">trigram similarity</span>
-					</div>
-					<div>
-						<span className="text-[var(--text-muted)]">{dict.db.cache}:</span>{" "}
-						<span className="text-[var(--text)]">TTL 5 мин</span>
-					</div>
-					<div>
-						<span className="text-[var(--text-muted)]">{dict.db.orm}:</span>{" "}
-						<span className="text-[var(--text)]">Prisma</span>
-					</div>
-				</div>
-			</SectionCard>
+			<LoadProgress
+				dict={dict.progress}
+				active={actions.isRunning}
+				progress={actions.progress}
+				stepIndex={actions.stepIndex}
+			/>
 
-			<PipelineLogPanel stage="load" dict={pipelineDict.log} />
-		</article>
+			<LoadResultInline
+				dict={dict}
+				lang={lang}
+				result={actions.lastResult}
+				error={actions.lastError}
+			/>
+
+			<LoadDbInfo dict={dict} lang={lang} />
+
+			<LoadSkippedSample dict={dict} lang={lang} result={actions.lastResult} />
+
+			<LoadHistoryTable dict={dict} lang={lang} />
+
+			<LoadLogPanel dict={dict.log} lang={lang} />
+
+			<LoadConfirmModal
+				open={actions.confirmOpen}
+				title={dict.confirm.title}
+				body={actions.confirmBody}
+				confirmLabel={dict.confirm.confirm}
+				cancelLabel={dict.confirm.cancel}
+				onConfirm={() => {
+					void actions.proceed();
+				}}
+				onCancel={actions.cancel}
+			/>
+		</main>
 	);
 };

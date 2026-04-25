@@ -5,7 +5,7 @@ import { useSearchHistory } from "@/features/search-history";
 import { useAuthStatus, useIsAuthenticated } from "@/shared/lib/auth";
 import type { Dictionary } from "@/i18n/dictionaries";
 import Link from "next/link";
-import { type FC, useMemo, useState } from "react";
+import { type FC, useEffect, useMemo, useState } from "react";
 import { PhraseologyExploreChips } from "./phraseology-explore-chips";
 import {
 	PhraseologyExploreTabs,
@@ -31,7 +31,11 @@ export const PhraseologyExploreSection: FC<PhraseologyExploreSectionProps> = ({
 	const authStatus = useAuthStatus();
 	const authReady = authStatus === "ready";
 
-	const { popular } = usePopularPhraseologyQueries();
+	const { popular, fetchPopular } = usePopularPhraseologyQueries();
+
+	useEffect(() => {
+		fetchPopular();
+	}, [fetchPopular]);
 
 	const historyEnabled = activeTab === "recent" && isAuthenticated;
 	const { data: history } = useSearchHistory(

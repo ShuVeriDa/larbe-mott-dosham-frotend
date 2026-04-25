@@ -1,24 +1,19 @@
 "use client";
 
-import {
-	usePipelineDictionaries,
-	useRunParse,
-} from "@/features/admin-pipeline";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
-import { cn } from "@/shared/lib";
-import {
-	AdminErrorState,
-	AdminTableSkeleton,
-	Breadcrumb,
-	PageHeader,
-	SectionCard,
-} from "@/shared/ui/admin";
-import {
-	PipelineLogPanel,
-	PipelineStatusBanner,
-} from "@/widgets/admin-pipeline-page";
+import { Breadcrumb, PageHeader } from "@/shared/ui/admin";
 import type { FC } from "react";
-import { useState } from "react";
+import { useParsePage } from "../model/use-parse-page";
+import { ParseActionBar } from "./parse-action-bar";
+import { ParseConfirmModal } from "./parse-confirm-modal";
+import { ParseDictTable } from "./parse-dict-table";
+import { ParseJsonLd } from "./parse-json-ld";
+import { ParseLogPanel } from "./parse-log-panel";
+import { ParseOutputFiles } from "./parse-output-files";
+import { ParseProgress } from "./parse-progress";
+import { ParseResultInline } from "./parse-result-inline";
+import { ParseStatsGrid } from "./parse-stats-grid";
+import { ParseStatusBanner } from "./parse-status-banner";
 
 interface AdminPipelineParsePageProps {
 	lang: Locale;
@@ -33,151 +28,96 @@ export const AdminPipelineParsePage: FC<AdminPipelineParsePageProps> = ({
 	pipelineDict,
 	commonDict,
 }) => {
-	const dictionariesQuery = usePipelineDictionaries();
-	const runParse = useRunParse();
-	const [slug, setSlug] = useState<string>("");
+	const page = useParsePage({ dict });
 
-	const onRun = () => {
-		if (
-			window.confirm(dict.confirmText.replace("{slug}", slug || dict.selectAll))
-		) {
-			runParse.mutate({ slug: slug || undefined });
-		}
+	const runFromBar = () => {
+		page.openConfirm(page.selectedSlug || null);
+	};
+	const runFromRow = (slug: string) => {
+		page.openConfirm(slug);
 	};
 
 	return (
-		<article className="max-w-[1200px] mx-auto">
+		<main className="max-w-[1280px] mx-auto">
+			<ParseJsonLd lang={lang} dict={dict} />
+
 			<Breadcrumb
 				items={[
-					{ label: pipelineDict.header.title, href: `/${lang}/admin/pipeline` },
-					{ label: dict.header.title },
+					{
+						label: dict.header.breadcrumb.pipeline,
+						href: `/${lang}/admin/pipeline`,
+					},
+					{ label: dict.header.breadcrumb.current },
 				]}
 			/>
+
 			<PageHeader title={dict.header.title} subtitle={dict.header.subtitle} />
 
-			<PipelineStatusBanner dict={pipelineDict} commonDict={commonDict} />
+			<ParseStatusBanner
+				pipelineDict={pipelineDict}
+				commonDict={commonDict}
+			/>
 
-			<SectionCard>
-				<div className="flex gap-3 items-center flex-wrap">
-					<select
-						value={slug}
-						onChange={(e) => setSlug(e.target.value)}
-						className="min-w-[220px] bg-[var(--surface)] border border-[var(--border)] rounded-md px-3 py-2 text-sm text-[var(--text)]"
-					>
-						<option value="">{dict.selectAll}</option>
-						{dictionariesQuery.data?.map((d) => (
-							<option key={d.slug} value={d.slug}>
-								{d.title}
-							</option>
-						))}
-					</select>
-					<button
-						type="button"
-						onClick={onRun}
-						disabled={runParse.isPending}
-						className="btn btn-md btn-primary disabled:opacity-40"
-					>
-						{dict.run}
-					</button>
-					{runParse.data ? (
-						<span className="text-xs text-[var(--success)]">
-							✓ parsed={runParse.data.parsedCount ?? "?"} · source=
-							{runParse.data.sourceCount ?? "?"}
-						</span>
-					) : null}
-					{runParse.isError ? (
-						<span className="text-xs text-[var(--danger)]">
-							{commonDict.error}
-						</span>
-					) : null}
-				</div>
-			</SectionCard>
+			<ParseStatsGrid
+				dict={dict.stats}
+				total={page.stats.total}
+				parsed={page.stats.parsed}
+				pendingSlugs={page.stats.pending}
+				loading={page.statusQuery.isLoading}
+			/>
 
-			<SectionCard>
-				{dictionariesQuery.isLoading ? (
-					<AdminTableSkeleton rows={6} />
-				) : dictionariesQuery.isError ? (
-					<AdminErrorState
-						title={commonDict.error}
-						retryLabel={commonDict.retry}
-						onRetry={() => dictionariesQuery.refetch()}
-					/>
-				) : (
-					<div className="overflow-x-auto">
-						<table className="w-full text-sm">
-							<thead>
-								<tr className="border-b border-[var(--border)]">
-									<th className="text-left px-3 py-2 text-xs uppercase text-[var(--text-muted)]">
-										slug
-									</th>
-									<th className="text-left px-3 py-2 text-xs uppercase text-[var(--text-muted)]">
-										direction
-									</th>
-									<th className="text-right px-3 py-2 text-xs uppercase text-[var(--text-muted)]">
-										records
-									</th>
-									<th className="text-left px-3 py-2 text-xs uppercase text-[var(--text-muted)]">
-										status
-									</th>
-									<th className="px-3 py-2" />
-								</tr>
-							</thead>
-							<tbody>
-								{dictionariesQuery.data?.map((d) => (
-									<tr
-										key={d.slug}
-										className="border-b border-[var(--border)] last:border-b-0 hover:bg-[var(--surface-hover)]"
-									>
-										<td className="px-3 py-2">
-											<div className="font-medium text-[var(--text)]">
-												{d.title}
-											</div>
-											<div className="text-xs text-[var(--text-muted)] font-mono">
-												{d.slug}
-											</div>
-										</td>
-										<td className="px-3 py-2 text-xs">{d.direction}</td>
-										<td className="px-3 py-2 text-right tabular-nums">
-											{d.recordCount}
-										</td>
-										<td className="px-3 py-2">
-											<span
-												className={cn(
-													"text-[0.65rem] font-semibold px-1.5 py-0.5 rounded font-mono",
-													d.status === "parsed" &&
-														"bg-[var(--info-dim)] text-[var(--info)]",
-													d.status === "pending" &&
-														"bg-[var(--warning-dim)] text-[var(--warning)]",
-													d.status === "error" &&
-														"bg-[var(--danger-dim)] text-[var(--danger)]",
-													d.status === "merged" &&
-														"bg-[var(--success-dim)] text-[var(--success)]",
-													d.status === "running" &&
-														"bg-[var(--accent-dim)] text-[var(--accent)]",
-												)}
-											>
-												{pipelineDict.dictionaries.statuses[d.status]}
-											</span>
-										</td>
-										<td className="px-3 py-2 text-right">
-											<button
-												type="button"
-												disabled={runParse.isPending}
-												onClick={() => runParse.mutate({ slug: d.slug })}
-												className="btn btn-sm btn-secondary disabled:opacity-40"
-											>
-												▶
-											</button>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-				)}
-			</SectionCard>
+			<ParseActionBar
+				dict={dict.actionBar}
+				dictionaries={page.dictionaries}
+				selectedSlug={page.selectedSlug}
+				onSelect={page.setSelectedSlug}
+				onRun={runFromBar}
+				disabled={page.isRunning}
+			/>
 
-			<PipelineLogPanel stage="parse" dict={pipelineDict.log} />
-		</article>
+			<ParseProgress
+				dict={dict.progress}
+				slug={page.runningSlug}
+				active={page.isRunning}
+			/>
+
+			<ParseResultInline dict={dict.result} result={page.result} />
+
+			<ParseDictTable
+				dict={dict.dictionaries}
+				commonDict={commonDict}
+				dictionaries={page.dictionaries}
+				isLoading={page.statusQuery.isLoading}
+				isError={page.statusQuery.isError}
+				onRetry={() => page.statusQuery.refetch()}
+				onRefresh={() => page.statusQuery.refetch()}
+				onRun={runFromRow}
+				runningSlug={page.runningSlug}
+				disabled={page.isRunning}
+			/>
+
+			<ParseOutputFiles
+				dict={dict.output}
+				statusDict={pipelineDict.status}
+				commonDict={commonDict}
+				files={page.parsedFilesQuery.data}
+				isLoading={page.parsedFilesQuery.isLoading}
+				isError={page.parsedFilesQuery.isError}
+				onRetry={() => page.parsedFilesQuery.refetch()}
+			/>
+
+			<ParseLogPanel dict={dict.log} toastsDict={dict.toasts} />
+
+			<ParseConfirmModal
+				dict={dict.confirm}
+				open={page.pending !== null}
+				text={page.pending?.text ?? ""}
+				isPending={page.isRunning}
+				onConfirm={() => {
+					void page.proceed();
+				}}
+				onCancel={page.closeConfirm}
+			/>
+		</main>
 	);
 };

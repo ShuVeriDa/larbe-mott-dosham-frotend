@@ -17,6 +17,7 @@ export function ThemeSwitcher() {
 				className={`theme-opt${mounted && theme === "dark" ? " active" : ""}`}
 				onClick={() => setTheme("dark")}
 				aria-label="Тёмная тема"
+				title="Тёмная тема"
 			>
 				🌙
 			</button>
@@ -24,6 +25,7 @@ export function ThemeSwitcher() {
 				className={`theme-opt${mounted && theme === "light" ? " active" : ""}`}
 				onClick={() => setTheme("light")}
 				aria-label="Светлая тема"
+				title="Светлая тема"
 			>
 				☀️
 			</button>
