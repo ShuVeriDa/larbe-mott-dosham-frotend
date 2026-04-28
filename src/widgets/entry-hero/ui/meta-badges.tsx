@@ -2,7 +2,7 @@ import type {
 	DictionaryEntry,
 	WordLevelBadgeContent,
 } from "@/entities/dictionary";
-import { NounClassBadge, WordLevelBadge } from "@/entities/dictionary";
+import { NounClassBadge } from "@/entities/dictionary";
 import type { FC } from "react";
 
 interface MetaBadgesProps {
@@ -10,10 +10,7 @@ interface MetaBadgesProps {
 	wordLevelContent: WordLevelBadgeContent;
 }
 
-export const MetaBadges: FC<MetaBadgesProps> = ({
-	entry,
-	wordLevelContent,
-}) => {
+export const MetaBadges: FC<MetaBadgesProps> = ({ entry }) => {
 	const nounClasses =
 		entry.nounClass
 			?.split("/")
@@ -25,15 +22,15 @@ export const MetaBadges: FC<MetaBadgesProps> = ({
 			{nounClasses.map(c => (
 				<NounClassBadge key={c} nounClass={c} />
 			))}
+			{entry.partOfSpeechNah && (
+				<span className="text-xs text-faint">{entry.partOfSpeech}</span>
+			)}
 			{entry.partOfSpeech && (
 				<span className="text-sm text-subtle font-normal">
-					{entry.partOfSpeech}
+					{entry.partOfSpeechNah}
 				</span>
 			)}
-			{entry.partOfSpeechNah && (
-				<span className="text-xs text-faint">{entry.partOfSpeechNah}</span>
-			)}
-			{(entry.wordLevel || entry.attested === false) && (
+			{/* {(entry.wordLevel || entry.attested === false) && (
 				<>
 					<span aria-hidden className="text-faint mx-0.5">
 						·
@@ -44,7 +41,7 @@ export const MetaBadges: FC<MetaBadgesProps> = ({
 						content={wordLevelContent}
 					/>
 				</>
-			)}
+			)} */}
 			{entry.domain && (
 				<>
 					<span aria-hidden className="text-faint mx-0.5">

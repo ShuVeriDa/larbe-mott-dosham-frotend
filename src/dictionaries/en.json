@@ -827,14 +827,14 @@
 			"empty": "Declension is not available for this entry.",
 			"notApplicable": "Declension is only shown for nouns.",
 			"cases": {
-				"nominative": { "ru": "Nominative", "nah": "Цхьалхе" },
-				"genitive": { "ru": "Genitive", "nah": "Доланан" },
-				"dative": { "ru": "Dative", "nah": "Лурийн" },
-				"ergative": { "ru": "Ergative", "nah": "Дечиган" },
-				"instrumental": { "ru": "Instrumental", "nah": "Кочалхо" },
-				"substantive": { "ru": "Substantive", "nah": "Хоттаман" },
-				"locative": { "ru": "Locative", "nah": "Меттиган" },
-				"comparative": { "ru": "Comparative", "nah": "Дустаран" }
+				"nominative": { "ru": "Nominative", "nah": "ЦIерниг" },
+				"genitive": { "ru": "Genitive", "nah": "Доланиг" },
+				"dative": { "ru": "Dative", "nah": "Лерг" },
+				"ergative": { "ru": "Ergative", "nah": "Дийриг" },
+				"instrumental": { "ru": "Instrumental", "nah": "Коьчалниг" },
+				"substantive": { "ru": "Substantive", "nah": "Хотталург" },
+				"locative": { "ru": "Locative", "nah": "Меттигниг" },
+				"comparative": { "ru": "Comparative", "nah": "Дустург" }
 			}
 		},
 		"conjugation": {

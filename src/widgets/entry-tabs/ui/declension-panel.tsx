@@ -42,9 +42,7 @@ export const DeclensionPanel: FC<DeclensionPanelProps> = ({
 	isApplicable,
 	dict,
 }) => {
-	const { data, isLoading, isError } = useDeclension(
-		isApplicable ? word : "",
-	);
+	const { data, isLoading, isError } = useDeclension(isApplicable ? word : "");
 
 	if (!isApplicable) {
 		return <p className="text-sm text-muted py-4">{dict.notApplicable}</p>;
@@ -67,9 +65,7 @@ export const DeclensionPanel: FC<DeclensionPanelProps> = ({
 
 			{isLoading && <SkeletonRows />}
 
-			{isError && (
-				<p className="text-sm text-muted py-4">{dict.empty}</p>
-			)}
+			{isError && <p className="text-sm text-muted py-4">{dict.empty}</p>}
 
 			{!isLoading && !isError && data && (
 				<div className="overflow-x-auto border border-edge rounded-lg">
@@ -113,9 +109,9 @@ export const DeclensionPanel: FC<DeclensionPanelProps> = ({
 											scope="row"
 											className="text-left px-4 py-3 text-muted font-medium text-xs min-w-[130px] align-top"
 										>
-											{dict.cases[key].ru}
+											{dict.cases[key].nah}
 											<span className="block text-faint text-[0.6rem] font-normal mt-px">
-												{dict.cases[key].nah}
+												{dict.cases[key].ru}
 											</span>
 										</th>
 										<td
@@ -126,7 +122,10 @@ export const DeclensionPanel: FC<DeclensionPanelProps> = ({
 										>
 											{sg || dict.dash}
 										</td>
-										<td className="px-4 py-3 text-foreground font-medium tracking-[-0.01em]" lang="ce">
+										<td
+											className="px-4 py-3 text-foreground font-medium tracking-[-0.01em]"
+											lang="ce"
+										>
 											{pl || dict.dash}
 										</td>
 									</tr>
