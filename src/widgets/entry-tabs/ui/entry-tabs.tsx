@@ -10,6 +10,7 @@ import { useEntryTab, type EntryTabId } from "../model/use-entry-tab";
 import { CitationsPanel } from "./citations-panel";
 import { ConjugationPanel } from "./conjugation-panel";
 import { DeclensionPanel } from "./declension-panel";
+import { DerivedFormsPanel } from "./derived-forms-panel";
 import { MeaningsPanel } from "./meanings-panel";
 import { PhraseologyPanel } from "./phraseology-panel";
 import { SourcesPanel } from "./sources-panel";
@@ -17,7 +18,20 @@ import { SourcesPanel } from "./sources-panel";
 interface EntryTabsProps {
 	entry: DictionaryEntry;
 	dict: Dictionary["entry"];
+	lang: string;
 }
+
+// Подсчитывает суммарное число производных форм (для бейджа на табе).
+const countDerivedForms = (
+	groups: DictionaryEntry["derivedForms"],
+): number => {
+	if (!groups) return 0;
+	let total = 0;
+	for (const arr of Object.values(groups)) {
+		total += arr?.length ?? 0;
+	}
+	return total;
+};
 
 interface TabDescriptor {
 	id: EntryTabId;
@@ -25,13 +39,15 @@ interface TabDescriptor {
 	count?: number;
 }
 
-export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict }) => {
+export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict, lang }) => {
 	const { data: user } = useCurrentUser();
 	const showGrammarPref = user?.prefShowGrammar ?? false;
 	const showExamplesPref = user?.prefShowExamples ?? false;
 
 	const isVerb = isVerbPos(entry.partOfSpeech);
 	const isNoun = isNounPos(entry.partOfSpeech);
+
+	const derivedFormsCount = countDerivedForms(entry.derivedForms);
 
 	const tabs: TabDescriptor[] = useMemo(() => {
 		const list: TabDescriptor[] = [
@@ -53,13 +69,23 @@ export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict }) => {
 		];
 		if (isNoun) list.push({ id: "declension", label: dict.tabs.declension });
 		if (isVerb) list.push({ id: "conjugation", label: dict.tabs.conjugation });
+		// Таб «Производные формы» показываем только если они есть.
+		// Иначе он будет пустой (баннер про derivation сверху уже даёт обратный
+		// контекст, а ходить в пустой таб пользователю незачем).
+		if (derivedFormsCount > 0) {
+			list.push({
+				id: "derivedForms",
+				label: dict.tabs.derivedForms,
+				count: derivedFormsCount,
+			});
+		}
 		list.push({
 			id: "sources",
 			label: dict.tabs.sources,
 			count: entry.sources.length,
 		});
 		return list;
-	}, [entry, dict, isVerb, isNoun]);
+	}, [entry, dict, isVerb, isNoun, derivedFormsCount]);
 
 	const availableIds = useMemo(() => tabs.map(t => t.id), [tabs]);
 
@@ -118,6 +144,15 @@ export const EntryTabs: FC<EntryTabsProps> = ({ entry, dict }) => {
 					<SourcesPanel
 						sources={entry.sources}
 						emptyLabel={dict.sources.empty}
+					/>
+				);
+			case "derivedForms":
+				return (
+					<DerivedFormsPanel
+						derivedForms={entry.derivedForms ?? {}}
+						lang={lang}
+						dict={dict.derivedForms}
+						verbFormKindDict={dict.derivation.verbFormKind}
 					/>
 				);
 		}

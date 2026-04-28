@@ -2,9 +2,8 @@ import { fetchStatsServer } from "@/entities/dictionary/server";
 import { getDictionary, hasLocale, LOCALES } from "@/i18n/dictionaries";
 import { AboutPage } from "@/widgets";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/shared/config";
 import { notFound } from "next/navigation";
-
-const SITE_URL = "https://dosham.app";
 export const revalidate = 3600;
 
 type PageProps = {

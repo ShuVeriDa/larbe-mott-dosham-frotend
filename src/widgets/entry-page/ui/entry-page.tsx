@@ -4,6 +4,7 @@ import { EntryHero } from "@/widgets/entry-hero";
 import { EntryTabs } from "@/widgets/entry-tabs";
 import type { FC } from "react";
 import { Breadcrumbs } from "./breadcrumbs";
+import { DerivationBanner } from "./derivation-banner";
 import { StructuredData } from "./structured-data";
 
 interface EntryPageProps {
@@ -20,7 +21,7 @@ export const EntryPage: FC<EntryPageProps> = ({
 	wordLevelDict,
 }) => (
 	<>
-		<StructuredData entry={entry} lang={lang} />
+		<StructuredData entry={entry} lang={lang} breadcrumbs={dict.breadcrumbs} />
 		<Breadcrumbs lang={lang} word={entry.word} dict={dict.breadcrumbs} />
 		<EntryHero
 			entry={entry}
@@ -28,6 +29,13 @@ export const EntryPage: FC<EntryPageProps> = ({
 			dict={dict}
 			wordLevelDict={wordLevelDict}
 		/>
-		<EntryTabs entry={entry} dict={dict} />
+		{entry.derivation && (
+			<DerivationBanner
+				derivation={entry.derivation}
+				lang={lang}
+				dict={dict.derivation}
+			/>
+		)}
+		<EntryTabs entry={entry} dict={dict} lang={lang} />
 	</>
 );

@@ -8,7 +8,8 @@ export type EntryTabId =
 	| "citations"
 	| "declension"
 	| "conjugation"
-	| "sources";
+	| "sources"
+	| "derivedForms";
 
 const KNOWN: readonly EntryTabId[] = [
 	"meanings",
@@ -17,6 +18,7 @@ const KNOWN: readonly EntryTabId[] = [
 	"declension",
 	"conjugation",
 	"sources",
+	"derivedForms",
 ];
 
 const isKnown = (value: string): value is EntryTabId =>

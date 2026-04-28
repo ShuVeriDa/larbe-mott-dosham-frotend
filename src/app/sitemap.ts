@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { LOCALES } from "@/i18n/dictionaries";
 
 const BASE_URL = "https://dosham.app";
 
@@ -9,6 +8,7 @@ const ROUTES = [
   { path: "/phraseology", changeFrequency: "weekly" as const, priority: 0.7 },
   { path: "/random", changeFrequency: "daily" as const, priority: 0.7 },
   { path: "/stats", changeFrequency: "weekly" as const, priority: 0.6 },
+  { path: "/about", changeFrequency: "monthly" as const, priority: 0.5 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,9 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
     alternates: {
       languages: {
-        ...Object.fromEntries(
-          LOCALES.map((lang) => [lang, `${BASE_URL}/${lang}${path}`]),
-        ),
+        ru: `${BASE_URL}/ru${path}`,
+        en: `${BASE_URL}/en${path}`,
+        "ce-RU": `${BASE_URL}/che${path}`,
         "x-default": `${BASE_URL}/ru${path}`,
       },
     },

@@ -50,6 +50,70 @@ export interface Citation {
 	source?: string;
 }
 
+/**
+ * Тип деривационной/ссылочной связи между записями. Соответствует бэковому
+ * `DerivationType` из `src/merge/parsers/types.ts`. Производные формы
+ * («понуд./потенц./масд./прич./дееприч./уменьш./мн./наст./прош./повел. от X»,
+ * «см. X») автоматически связываются с базовой леммой при load-pipeline.
+ */
+export type DerivationType =
+	| "causative"
+	| "potential"
+	| "masdar"
+	| "participle"
+	| "gerund"
+	| "diminutive"
+	| "plural-of"
+	| "verb-form"
+	| "see";
+
+export type DerivationVerbFormKind =
+	| "present"
+	| "past"
+	| "future"
+	| "imperative";
+
+/** Сводка по базовой лемме, на которую ссылается производная форма. */
+export interface DerivationFromSummary {
+	id: number;
+	word: string;
+	partOfSpeech: PartOfSpeech | null;
+	translation: string | null;
+}
+
+/** Информация о деривационной ссылке: запись — производная форма от `from`. */
+export interface Derivation {
+	type: DerivationType;
+	/** Только для type === "verb-form". */
+	verbFormKind?: DerivationVerbFormKind;
+	/**
+	 * Резолвенная базовая лемма (`null` для ~7% нерезолвенных ссылок: тогда
+	 * текстовая цель доступна в `fromText`).
+	 */
+	from: DerivationFromSummary | null;
+	/** Цель как написана в источнике — отображаемый fallback при `from === null`. */
+	fromText?: string;
+	fromHomonymIndex?: number;
+}
+
+/**
+ * Минимальная сводка по производной форме (reverse-lookup на карточке базовой
+ * леммы). Группируется по `DerivationType` в поле `derivedForms`.
+ */
+export interface DerivedFormSummary {
+	id: number;
+	word: string;
+	verbFormKind?: DerivationVerbFormKind;
+}
+
+/**
+ * Словарь производных форм по типам. Заполняется только теми ключами, для
+ * которых есть формы (отсутствие ключа === пустой массив).
+ */
+export type DerivedFormsByType = Partial<
+	Record<DerivationType, DerivedFormSummary[]>
+>;
+
 /** Full UnifiedEntry — returned by `/dictionary/:id` and `/dictionary/lookup/:word`. */
 export interface DictionaryEntry {
 	id: number;
@@ -77,6 +141,16 @@ export interface DictionaryEntry {
 	sources: string[];
 	createdAt: string;
 	updatedAt: string;
+	/**
+	 * Если запись — производная форма (понуд./масд./см./… от X), здесь
+	 * содержится сводка по базовой лемме. `null` — запись самостоятельная.
+	 */
+	derivation?: Derivation | null;
+	/**
+	 * Обратный поиск: производные формы, для которых данная запись — базовая
+	 * лемма. Группировка по `DerivationType`. Пустой объект, если их нет.
+	 */
+	derivedForms?: DerivedFormsByType;
 }
 
 /** Reduced shape returned by raw-SQL endpoints (search, random, word-of-day, phraseology). */

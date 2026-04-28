@@ -1,9 +1,8 @@
 import { getDictionary, hasLocale, LOCALES } from "@/i18n/dictionaries";
 import { AdminUserDetailPage } from "@/widgets/admin-user-detail-page";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/shared/config";
 import { notFound } from "next/navigation";
-
-const SITE_URL = "https://dosham.app";
 
 type PageProps = {
 	params: Promise<{ lang: string; id: string }>;

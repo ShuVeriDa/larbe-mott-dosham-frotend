@@ -3,7 +3,7 @@
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
 import { Button, Checkbox, Input } from "@/shared/ui";
 import Link from "next/link";
-import { type FC, useActionState, useState } from "react";
+import { type FC, useActionState, useState, startTransition } from "react";
 import { toast } from "sonner";
 import { registerSchema } from "../lib/schemas";
 import { useAuthErrorMessage } from "../lib/use-auth-error-message";
@@ -71,7 +71,10 @@ export const RegisterForm: FC<RegisterFormProps> = ({ dict, lang }) => {
 			id="auth-panel-register"
 			role="tabpanel"
 			aria-labelledby="auth-tab-register"
-			action={formAction}
+			onSubmit={(e) => {
+				e.preventDefault();
+				startTransition(() => formAction(new FormData(e.currentTarget)));
+			}}
 			className="flex flex-col gap-5"
 			noValidate
 		>

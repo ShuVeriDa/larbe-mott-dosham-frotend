@@ -2,9 +2,8 @@ import { fetchEntryServer } from "@/entities/dictionary/server";
 import { getDictionary, hasLocale } from "@/i18n/dictionaries";
 import { EntryPage, EntryNotFound } from "@/widgets/entry-page";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/shared/config";
 import { notFound } from "next/navigation";
-
-const SITE_URL = "https://dosham.app";
 
 type PageProps = {
 	params: Promise<{ lang: string; id: string }>;
@@ -29,7 +28,7 @@ export const generateMetadata = async ({
 	if (!hasLocale(lang)) return {};
 
 	const id = parseId(rawId);
-	if (id === null) return {};
+	if (id === null) notFound();
 
 	const [dict, entry] = await Promise.all([
 		getDictionary(lang),
@@ -75,6 +74,11 @@ export const generateMetadata = async ({
 			description,
 			url: `${SITE_URL}${canonicalPath}`,
 			type: "article",
+		},
+		twitter: {
+			card: "summary_large_image",
+			title,
+			description,
 		},
 		robots: { index: true, follow: true },
 	};

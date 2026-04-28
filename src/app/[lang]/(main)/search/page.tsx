@@ -3,9 +3,8 @@ import { ExploreSection } from "@/widgets/explore-section";
 import { SearchHero } from "@/widgets/search-hero";
 import { SearchResults } from "@/widgets/search-results";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/shared/config";
 import { notFound } from "next/navigation";
-
-const SITE_URL = "https://dosham.app";
 
 type PageProps = {
 	params: Promise<{ lang: string }>;

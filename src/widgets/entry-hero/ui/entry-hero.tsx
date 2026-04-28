@@ -3,7 +3,6 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { FC } from "react";
 import { EntryActions } from "./entry-actions";
 import { MetaBadges } from "./meta-badges";
-import { PronunciationButton } from "./pronunciation-button";
 
 interface EntryHeroProps {
 	entry: DictionaryEntry;
@@ -50,10 +49,10 @@ export const EntryHero: FC<EntryHeroProps> = ({
 						</div>
 					)}
 
-					<PronunciationButton
+					{/* <PronunciationButton
 						label={hero.pronunciationLabel}
 						hint={hero.pronunciationHint}
-					/>
+					/> */}
 				</div>
 
 				<EntryActions

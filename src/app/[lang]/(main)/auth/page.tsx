@@ -3,9 +3,8 @@ import { getDictionary, hasLocale } from "@/i18n/dictionaries";
 import { Typography } from "@/shared/ui";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { SITE_URL } from "@/shared/config";
 import { Suspense } from "react";
-
-const SITE_URL = "https://dosham.app";
 
 type PageProps = {
 	params: Promise<{ lang: string }>;

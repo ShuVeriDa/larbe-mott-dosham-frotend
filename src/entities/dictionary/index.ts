@@ -41,6 +41,12 @@ export type {
   PartOfSpeech,
   WordLevel,
   DetectedLanguage,
+  Derivation,
+  DerivationType,
+  DerivationVerbFormKind,
+  DerivationFromSummary,
+  DerivedFormSummary,
+  DerivedFormsByType,
 } from "./types";
 
 export { dictionaryApi } from "./api";

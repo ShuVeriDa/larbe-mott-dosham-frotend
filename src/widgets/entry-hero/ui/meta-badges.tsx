@@ -1,6 +1,8 @@
-import type { DictionaryEntry } from "@/entities/dictionary";
+import type {
+	DictionaryEntry,
+	WordLevelBadgeContent,
+} from "@/entities/dictionary";
 import { NounClassBadge, WordLevelBadge } from "@/entities/dictionary";
-import type { WordLevelBadgeContent } from "@/entities/dictionary";
 import type { FC } from "react";
 
 interface MetaBadgesProps {
@@ -8,7 +10,10 @@ interface MetaBadgesProps {
 	wordLevelContent: WordLevelBadgeContent;
 }
 
-export const MetaBadges: FC<MetaBadgesProps> = ({ entry, wordLevelContent }) => {
+export const MetaBadges: FC<MetaBadgesProps> = ({
+	entry,
+	wordLevelContent,
+}) => {
 	const nounClasses =
 		entry.nounClass
 			?.split("/")

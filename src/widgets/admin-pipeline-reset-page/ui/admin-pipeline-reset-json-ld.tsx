@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/shared/config";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
 import type { FC } from "react";
 
@@ -5,8 +6,6 @@ interface Props {
 	lang: Locale;
 	dict: Dictionary["admin"]["pipelineReset"];
 }
-
-const SITE_URL = "https://dosham.app";
 
 export const AdminPipelineResetJsonLd: FC<Props> = ({ lang, dict }) => {
 	const payload = {

@@ -1,6 +1,5 @@
+import { SITE_URL } from "@/shared/config";
 import type { Metadata } from "next";
-
-const SITE_URL = "https://dosham.app";
 
 interface BuildAdminMetadataArgs {
 	title: string;

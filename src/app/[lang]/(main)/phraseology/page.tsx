@@ -3,9 +3,8 @@ import { PhraseologyExploreSection } from "@/widgets/phraseology-explore-section
 import { PhraseologyHero } from "@/widgets/phraseology-hero";
 import { PhraseologyResults } from "@/widgets/phraseology-results";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/shared/config";
 import { notFound } from "next/navigation";
-
-const SITE_URL = "https://dosham.app";
 
 type PageProps = {
 	params: Promise<{ lang: string }>;

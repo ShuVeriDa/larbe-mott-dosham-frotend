@@ -81,7 +81,13 @@
 				"частица": "Particle",
 				"мест.": "Pronoun",
 				"числ.": "Numeral",
-				"межд.": "Interjection"
+				"межд.": "Interjection",
+				"прич.": "Participle",
+				"масд.": "Masdar",
+				"звукоподр.": "Onomatopoeia",
+				"собир.": "Collective",
+				"союз": "Conjunction",
+				"предлог": "Preposition"
 			},
 			"nounClassValues": {
 				"ву": "vu (masc.)",
@@ -798,7 +804,8 @@
 			"citations": "Citations",
 			"declension": "Declension",
 			"conjugation": "Conjugation",
-			"sources": "Sources"
+			"sources": "Sources",
+			"derivedForms": "Derived forms"
 		},
 		"meanings": {
 			"empty": "No meanings available yet."
@@ -868,6 +875,42 @@
 		},
 		"sources": {
 			"empty": "No sources listed."
+		},
+		"derivation": {
+			"bannerLabel": "This entry is a",
+			"fromLabel": "of",
+			"unresolvedNote": "(base lemma not found in the dictionary)",
+			"types": {
+				"causative": "causative form",
+				"potential": "potential form",
+				"masdar": "masdar (verbal noun)",
+				"participle": "participle",
+				"gerund": "gerund",
+				"diminutive": "diminutive",
+				"plural-of": "plural form",
+				"verb-form": "verb form",
+				"see": "see"
+			},
+			"verbFormKind": {
+				"present": "present tense",
+				"past": "past tense",
+				"future": "future tense",
+				"imperative": "imperative"
+			}
+		},
+		"derivedForms": {
+			"empty": "No derived forms.",
+			"groupTitles": {
+				"causative": "Causatives",
+				"potential": "Potentials",
+				"masdar": "Masdars",
+				"participle": "Participles",
+				"gerund": "Gerunds",
+				"diminutive": "Diminutives",
+				"plural-of": "Plural forms",
+				"verb-form": "Verb forms",
+				"see": "Synonyms / see"
+			}
 		},
 		"suggest": {
 			"title": "Suggest an edit",

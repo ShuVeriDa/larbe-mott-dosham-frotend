@@ -3,9 +3,8 @@ import { getDictionary, hasLocale, LOCALES } from "@/i18n/dictionaries";
 import { RandomHero } from "@/widgets/random-hero";
 import { parseLevelParam, RandomPage } from "@/widgets/random-page";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/shared/config";
 import { notFound } from "next/navigation";
-
-const SITE_URL = "https://dosham.app";
 
 // Random content is regenerated client-side on every shuffle; no need to cache
 // the page shell beyond the default. Keep it dynamic so the stats count used in

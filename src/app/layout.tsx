@@ -4,6 +4,7 @@ import { cn } from "@/shared/lib";
 import { AuthBootstrap } from "@/shared/lib/auth";
 import { QueryProvider } from "@/shared/ui/query-provider";
 import { ThemeProvider } from "@/shared/ui/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { JetBrains_Mono, PT_Sans, PT_Serif } from "next/font/google";
 import { headers } from "next/headers";
@@ -39,7 +40,6 @@ export const metadata: Metadata = {
 	creator: "Мотт Ларбе",
 	openGraph: {
 		siteName: "Мотт Ларбе Дошам",
-		locale: "ru_RU",
 		type: "website",
 	},
 	twitter: {
@@ -76,6 +76,7 @@ export default async function RootLayout({
 						</AuthBootstrap>
 					</QueryProvider>
 				</ThemeProvider>
+				<Analytics />
 			</body>
 		</html>
 	);

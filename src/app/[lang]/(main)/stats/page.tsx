@@ -14,9 +14,8 @@ import {
 	StatsSourcesTable,
 } from "@/widgets";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/shared/config";
 import { notFound } from "next/navigation";
-
-const SITE_URL = "https://dosham.app";
 export const revalidate = 1800;
 
 type PageProps = {

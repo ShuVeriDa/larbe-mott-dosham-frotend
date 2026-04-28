@@ -3,7 +3,7 @@ import type { DictionaryStatsPos } from "@/entities/dictionary";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Typography } from "@/shared/ui";
 import { posColorAt } from "../model/pos-colors";
-import { resolvePosLabel } from "../model/resolve-pos-label";
+import { resolvePosLabel, resolvePosShort } from "../model/resolve-pos-label";
 import { PosItem } from "./pos-item";
 
 interface IStatsPosGridProps {
@@ -35,6 +35,7 @@ export const StatsPosGrid: FC<IStatsPosGridProps> = ({
 			{posDistribution.map(({ pos, count }, index) => (
 				<PosItem
 					key={pos}
+					short={resolvePosShort(pos)}
 					label={resolvePosLabel(pos, posValues)}
 					count={count}
 					color={posColorAt(index)}
